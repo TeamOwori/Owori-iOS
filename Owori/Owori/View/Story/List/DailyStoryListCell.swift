@@ -12,22 +12,21 @@ struct DailyStoryListCell: View {
     
     // MARK: BODY
     var body: some View {
-        GeometryReader { geometry in
-            HStack {
-                DailyStoryText()
-                VStack {
-                    DailyStoryImageCell()
-                    Text("yyyy.MM.dd".stringFromDate())
-                        .foregroundColor(.gray)
-                        .font(.subheadline)
-                }
-                .frame(height: geometry.size.height/6)
+        HStack {
+            DailyStoryText()
+            VStack {
+                DailyStoryImageCell()
+                // ImageCell 크기 처리하는 부분 PM이랑 상의해보기(태블릿 대응)
+                    .frame(width: UIScreen.main.bounds.width * 0.25, height: UIScreen.main.bounds.width * 0.25)
+                
+                Text("yyyy.MM.dd".stringFromDate())
+                    .foregroundColor(.gray)
+                    .font(.subheadline)
             }
-            .frame(width: geometry.size.width, height: geometry.size.height/6)
-            .position(x: geometry.size.width/2, y: geometry.size.height/2)
         }
     }
 }
+
 
 // MARK: PREVIEWS
 struct DailyStoryListCell_Previews: PreviewProvider {
