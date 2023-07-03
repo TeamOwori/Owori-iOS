@@ -21,6 +21,7 @@
 		F3BC63BF2A53268600999F54 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3BC63BE2A53268600999F54 /* String+Extension.swift */; };
 		F3BC63C42A532B0400999F54 /* StoryAlbumView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3BC63C32A532B0400999F54 /* StoryAlbumView.swift */; };
 		F3BC63C62A532CB300999F54 /* DailyStoryText.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3BC63C52A532CB300999F54 /* DailyStoryText.swift */; };
+		F3BC63C82A5333CB00999F54 /* DailyStoryListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3BC63C72A5333CB00999F54 /* DailyStoryListCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +59,7 @@
 		F3BC63BE2A53268600999F54 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		F3BC63C32A532B0400999F54 /* StoryAlbumView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryAlbumView.swift; sourceTree = "<group>"; };
 		F3BC63C52A532CB300999F54 /* DailyStoryText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyStoryText.swift; sourceTree = "<group>"; };
+		F3BC63C72A5333CB00999F54 /* DailyStoryListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyStoryListCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -183,6 +185,7 @@
 			isa = PBXGroup;
 			children = (
 				F3BC63C52A532CB300999F54 /* DailyStoryText.swift */,
+				F3BC63C72A5333CB00999F54 /* DailyStoryListCell.swift */,
 			);
 			path = List;
 			sourceTree = "<group>";
@@ -335,6 +338,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F3BC63942A52DCE100999F54 /* TestModel.swift in Sources */,
+				F3BC63C82A5333CB00999F54 /* DailyStoryListCell.swift in Sources */,
 				F3BC63BF2A53268600999F54 /* String+Extension.swift in Sources */,
 				F3BC635E2A52C6AE00999F54 /* ContentView.swift in Sources */,
 				F3BC63B92A53261F00999F54 /* DailyStoryImageCell.swift in Sources */,
