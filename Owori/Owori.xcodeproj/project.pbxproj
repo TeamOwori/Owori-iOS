@@ -1,0 +1,582 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		F3BC635C2A52C6AE00999F54 /* OworiApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3BC635B2A52C6AE00999F54 /* OworiApp.swift */; };
+		F3BC635E2A52C6AE00999F54 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3BC635D2A52C6AE00999F54 /* ContentView.swift */; };
+		F3BC63602A52C6AF00999F54 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F3BC635F2A52C6AF00999F54 /* Assets.xcassets */; };
+		F3BC63632A52C6AF00999F54 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F3BC63622A52C6AF00999F54 /* Preview Assets.xcassets */; };
+		F3BC636D2A52C6B000999F54 /* OworiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3BC636C2A52C6B000999F54 /* OworiTests.swift */; };
+		F3BC63772A52C6B000999F54 /* OworiUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3BC63762A52C6B000999F54 /* OworiUITests.swift */; };
+		F3BC63792A52C6B000999F54 /* OworiUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3BC63782A52C6B000999F54 /* OworiUITestsLaunchTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		F3BC63692A52C6B000999F54 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F3BC63502A52C6AE00999F54 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F3BC63572A52C6AE00999F54;
+			remoteInfo = Owori;
+		};
+		F3BC63732A52C6B000999F54 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F3BC63502A52C6AE00999F54 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F3BC63572A52C6AE00999F54;
+			remoteInfo = Owori;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		F3BC63582A52C6AE00999F54 /* Owori.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Owori.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F3BC635B2A52C6AE00999F54 /* OworiApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OworiApp.swift; sourceTree = "<group>"; };
+		F3BC635D2A52C6AE00999F54 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		F3BC635F2A52C6AF00999F54 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F3BC63622A52C6AF00999F54 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		F3BC63682A52C6B000999F54 /* OworiTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OworiTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F3BC636C2A52C6B000999F54 /* OworiTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OworiTests.swift; sourceTree = "<group>"; };
+		F3BC63722A52C6B000999F54 /* OworiUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OworiUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F3BC63762A52C6B000999F54 /* OworiUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OworiUITests.swift; sourceTree = "<group>"; };
+		F3BC63782A52C6B000999F54 /* OworiUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OworiUITestsLaunchTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F3BC63552A52C6AE00999F54 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F3BC63652A52C6B000999F54 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F3BC636F2A52C6B000999F54 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		F3BC634F2A52C6AE00999F54 = {
+			isa = PBXGroup;
+			children = (
+				F3BC635A2A52C6AE00999F54 /* Owori */,
+				F3BC636B2A52C6B000999F54 /* OworiTests */,
+				F3BC63752A52C6B000999F54 /* OworiUITests */,
+				F3BC63592A52C6AE00999F54 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		F3BC63592A52C6AE00999F54 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F3BC63582A52C6AE00999F54 /* Owori.app */,
+				F3BC63682A52C6B000999F54 /* OworiTests.xctest */,
+				F3BC63722A52C6B000999F54 /* OworiUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F3BC635A2A52C6AE00999F54 /* Owori */ = {
+			isa = PBXGroup;
+			children = (
+				F3BC635B2A52C6AE00999F54 /* OworiApp.swift */,
+				F3BC635D2A52C6AE00999F54 /* ContentView.swift */,
+				F3BC635F2A52C6AF00999F54 /* Assets.xcassets */,
+				F3BC63612A52C6AF00999F54 /* Preview Content */,
+			);
+			path = Owori;
+			sourceTree = "<group>";
+		};
+		F3BC63612A52C6AF00999F54 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				F3BC63622A52C6AF00999F54 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		F3BC636B2A52C6B000999F54 /* OworiTests */ = {
+			isa = PBXGroup;
+			children = (
+				F3BC636C2A52C6B000999F54 /* OworiTests.swift */,
+			);
+			path = OworiTests;
+			sourceTree = "<group>";
+		};
+		F3BC63752A52C6B000999F54 /* OworiUITests */ = {
+			isa = PBXGroup;
+			children = (
+				F3BC63762A52C6B000999F54 /* OworiUITests.swift */,
+				F3BC63782A52C6B000999F54 /* OworiUITestsLaunchTests.swift */,
+			);
+			path = OworiUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F3BC63572A52C6AE00999F54 /* Owori */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F3BC637C2A52C6B000999F54 /* Build configuration list for PBXNativeTarget "Owori" */;
+			buildPhases = (
+				F3BC63542A52C6AE00999F54 /* Sources */,
+				F3BC63552A52C6AE00999F54 /* Frameworks */,
+				F3BC63562A52C6AE00999F54 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Owori;
+			productName = Owori;
+			productReference = F3BC63582A52C6AE00999F54 /* Owori.app */;
+			productType = "com.apple.product-type.application";
+		};
+		F3BC63672A52C6B000999F54 /* OworiTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F3BC637F2A52C6B000999F54 /* Build configuration list for PBXNativeTarget "OworiTests" */;
+			buildPhases = (
+				F3BC63642A52C6B000999F54 /* Sources */,
+				F3BC63652A52C6B000999F54 /* Frameworks */,
+				F3BC63662A52C6B000999F54 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F3BC636A2A52C6B000999F54 /* PBXTargetDependency */,
+			);
+			name = OworiTests;
+			productName = OworiTests;
+			productReference = F3BC63682A52C6B000999F54 /* OworiTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		F3BC63712A52C6B000999F54 /* OworiUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F3BC63822A52C6B000999F54 /* Build configuration list for PBXNativeTarget "OworiUITests" */;
+			buildPhases = (
+				F3BC636E2A52C6B000999F54 /* Sources */,
+				F3BC636F2A52C6B000999F54 /* Frameworks */,
+				F3BC63702A52C6B000999F54 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F3BC63742A52C6B000999F54 /* PBXTargetDependency */,
+			);
+			name = OworiUITests;
+			productName = OworiUITests;
+			productReference = F3BC63722A52C6B000999F54 /* OworiUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F3BC63502A52C6AE00999F54 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1430;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+					F3BC63572A52C6AE00999F54 = {
+						CreatedOnToolsVersion = 14.3;
+					};
+					F3BC63672A52C6B000999F54 = {
+						CreatedOnToolsVersion = 14.3;
+						TestTargetID = F3BC63572A52C6AE00999F54;
+					};
+					F3BC63712A52C6B000999F54 = {
+						CreatedOnToolsVersion = 14.3;
+						TestTargetID = F3BC63572A52C6AE00999F54;
+					};
+				};
+			};
+			buildConfigurationList = F3BC63532A52C6AE00999F54 /* Build configuration list for PBXProject "Owori" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = F3BC634F2A52C6AE00999F54;
+			productRefGroup = F3BC63592A52C6AE00999F54 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F3BC63572A52C6AE00999F54 /* Owori */,
+				F3BC63672A52C6B000999F54 /* OworiTests */,
+				F3BC63712A52C6B000999F54 /* OworiUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F3BC63562A52C6AE00999F54 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F3BC63632A52C6AF00999F54 /* Preview Assets.xcassets in Resources */,
+				F3BC63602A52C6AF00999F54 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F3BC63662A52C6B000999F54 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F3BC63702A52C6B000999F54 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F3BC63542A52C6AE00999F54 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F3BC635E2A52C6AE00999F54 /* ContentView.swift in Sources */,
+				F3BC635C2A52C6AE00999F54 /* OworiApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F3BC63642A52C6B000999F54 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F3BC636D2A52C6B000999F54 /* OworiTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F3BC636E2A52C6B000999F54 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F3BC63772A52C6B000999F54 /* OworiUITests.swift in Sources */,
+				F3BC63792A52C6B000999F54 /* OworiUITestsLaunchTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		F3BC636A2A52C6B000999F54 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F3BC63572A52C6AE00999F54 /* Owori */;
+			targetProxy = F3BC63692A52C6B000999F54 /* PBXContainerItemProxy */;
+		};
+		F3BC63742A52C6B000999F54 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F3BC63572A52C6AE00999F54 /* Owori */;
+			targetProxy = F3BC63732A52C6B000999F54 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		F3BC637A2A52C6B000999F54 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		F3BC637B2A52C6B000999F54 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		F3BC637D2A52C6B000999F54 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Owori/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.TeamOwori.Owori;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		F3BC637E2A52C6B000999F54 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Owori/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.TeamOwori.Owori;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		F3BC63802A52C6B000999F54 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.TeamOwori.OworiTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Owori.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Owori";
+			};
+			name = Debug;
+		};
+		F3BC63812A52C6B000999F54 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.TeamOwori.OworiTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Owori.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Owori";
+			};
+			name = Release;
+		};
+		F3BC63832A52C6B000999F54 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.TeamOwori.OworiUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Owori;
+			};
+			name = Debug;
+		};
+		F3BC63842A52C6B000999F54 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.TeamOwori.OworiUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Owori;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F3BC63532A52C6AE00999F54 /* Build configuration list for PBXProject "Owori" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F3BC637A2A52C6B000999F54 /* Debug */,
+				F3BC637B2A52C6B000999F54 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F3BC637C2A52C6B000999F54 /* Build configuration list for PBXNativeTarget "Owori" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F3BC637D2A52C6B000999F54 /* Debug */,
+				F3BC637E2A52C6B000999F54 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F3BC637F2A52C6B000999F54 /* Build configuration list for PBXNativeTarget "OworiTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F3BC63802A52C6B000999F54 /* Debug */,
+				F3BC63812A52C6B000999F54 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F3BC63822A52C6B000999F54 /* Build configuration list for PBXNativeTarget "OworiUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F3BC63832A52C6B000999F54 /* Debug */,
+				F3BC63842A52C6B000999F54 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = F3BC63502A52C6AE00999F54 /* Project object */;
+}
