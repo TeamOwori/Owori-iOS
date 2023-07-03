@@ -95,7 +95,9 @@
 			isa = PBXGroup;
 			children = (
 				F3BC635B2A52C6AE00999F54 /* OworiApp.swift */,
-				F3BC635D2A52C6AE00999F54 /* ContentView.swift */,
+				F3BC638B2A52D5E000999F54 /* Model */,
+				F3BC638A2A52D5DC00999F54 /* View */,
+				F3BC63892A52D5D700999F54 /* ViewModel */,
 				F3BC635F2A52C6AF00999F54 /* Assets.xcassets */,
 				F3BC63612A52C6AF00999F54 /* Preview Content */,
 			);
@@ -125,6 +127,28 @@
 				F3BC63782A52C6B000999F54 /* OworiUITestsLaunchTests.swift */,
 			);
 			path = OworiUITests;
+			sourceTree = "<group>";
+		};
+		F3BC63892A52D5D700999F54 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		F3BC638A2A52D5DC00999F54 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F3BC635D2A52C6AE00999F54 /* ContentView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		F3BC638B2A52D5E000999F54 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
