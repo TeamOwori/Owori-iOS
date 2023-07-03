@@ -14,6 +14,8 @@
 		F3BC636D2A52C6B000999F54 /* OworiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3BC636C2A52C6B000999F54 /* OworiTests.swift */; };
 		F3BC63772A52C6B000999F54 /* OworiUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3BC63762A52C6B000999F54 /* OworiUITests.swift */; };
 		F3BC63792A52C6B000999F54 /* OworiUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3BC63782A52C6B000999F54 /* OworiUITestsLaunchTests.swift */; };
+		F3BC63942A52DCE100999F54 /* TestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3BC63932A52DCE100999F54 /* TestModel.swift */; };
+		F3BC63962A52DCF400999F54 /* TestViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3BC63952A52DCF400999F54 /* TestViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +46,8 @@
 		F3BC63722A52C6B000999F54 /* OworiUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OworiUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F3BC63762A52C6B000999F54 /* OworiUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OworiUITests.swift; sourceTree = "<group>"; };
 		F3BC63782A52C6B000999F54 /* OworiUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OworiUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		F3BC63932A52DCE100999F54 /* TestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestModel.swift; sourceTree = "<group>"; };
+		F3BC63952A52DCF400999F54 /* TestViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,9 +99,9 @@
 			isa = PBXGroup;
 			children = (
 				F3BC635B2A52C6AE00999F54 /* OworiApp.swift */,
-				F3BC638B2A52D5E000999F54 /* Model */,
+				F3BC63922A52DCD400999F54 /* Model */,
 				F3BC638A2A52D5DC00999F54 /* View */,
-				F3BC63892A52D5D700999F54 /* ViewModel */,
+				F3BC63912A52DCC900999F54 /* ViewModel */,
 				F3BC635F2A52C6AF00999F54 /* Assets.xcassets */,
 				F3BC63612A52C6AF00999F54 /* Preview Content */,
 			);
@@ -129,13 +133,6 @@
 			path = OworiUITests;
 			sourceTree = "<group>";
 		};
-		F3BC63892A52D5D700999F54 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
 		F3BC638A2A52D5DC00999F54 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -144,9 +141,18 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		F3BC638B2A52D5E000999F54 /* Model */ = {
+		F3BC63912A52DCC900999F54 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				F3BC63952A52DCF400999F54 /* TestViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		F3BC63922A52DCD400999F54 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F3BC63932A52DCE100999F54 /* TestModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -281,7 +287,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F3BC63942A52DCE100999F54 /* TestModel.swift in Sources */,
 				F3BC635E2A52C6AE00999F54 /* ContentView.swift in Sources */,
+				F3BC63962A52DCF400999F54 /* TestViewModel.swift in Sources */,
 				F3BC635C2A52C6AE00999F54 /* OworiApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
