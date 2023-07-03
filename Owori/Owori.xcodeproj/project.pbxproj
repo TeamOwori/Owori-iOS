@@ -23,6 +23,8 @@
 		F3BC63C62A532CB300999F54 /* DailyStoryText.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3BC63C52A532CB300999F54 /* DailyStoryText.swift */; };
 		F3BC63C82A5333CB00999F54 /* DailyStoryListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3BC63C72A5333CB00999F54 /* DailyStoryListCell.swift */; };
 		F3BC63CA2A533A6400999F54 /* StoryListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3BC63C92A533A6400999F54 /* StoryListView.swift */; };
+		F3BC63CF2A53449700999F54 /* StoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3BC63CE2A53449700999F54 /* StoryView.swift */; };
+		F3BC63D12A5345DC00999F54 /* AlbumListButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3BC63D02A5345DC00999F54 /* AlbumListButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +64,8 @@
 		F3BC63C52A532CB300999F54 /* DailyStoryText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyStoryText.swift; sourceTree = "<group>"; };
 		F3BC63C72A5333CB00999F54 /* DailyStoryListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyStoryListCell.swift; sourceTree = "<group>"; };
 		F3BC63C92A533A6400999F54 /* StoryListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryListView.swift; sourceTree = "<group>"; };
+		F3BC63CE2A53449700999F54 /* StoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryView.swift; sourceTree = "<group>"; };
+		F3BC63D02A5345DC00999F54 /* AlbumListButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumListButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -179,6 +183,8 @@
 				F3BC63BA2A53265900999F54 /* Album */,
 				F3BC63B72A53261300999F54 /* List */,
 				F3BC63B82A53261F00999F54 /* DailyStoryImageCell.swift */,
+				F3BC63CE2A53449700999F54 /* StoryView.swift */,
+				F3BC63D02A5345DC00999F54 /* AlbumListButton.swift */,
 			);
 			path = Story;
 			sourceTree = "<group>";
@@ -340,12 +346,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F3BC63D12A5345DC00999F54 /* AlbumListButton.swift in Sources */,
 				F3BC63CA2A533A6400999F54 /* StoryListView.swift in Sources */,
 				F3BC63942A52DCE100999F54 /* TestModel.swift in Sources */,
 				F3BC63C82A5333CB00999F54 /* DailyStoryListCell.swift in Sources */,
 				F3BC63BF2A53268600999F54 /* String+Extension.swift in Sources */,
 				F3BC635E2A52C6AE00999F54 /* ContentView.swift in Sources */,
 				F3BC63B92A53261F00999F54 /* DailyStoryImageCell.swift in Sources */,
+				F3BC63CF2A53449700999F54 /* StoryView.swift in Sources */,
 				F3BC63C42A532B0400999F54 /* StoryAlbumView.swift in Sources */,
 				F3BC63C62A532CB300999F54 /* DailyStoryText.swift in Sources */,
 				F3BC63BC2A53266900999F54 /* MonthlyStoryCollection.swift in Sources */,

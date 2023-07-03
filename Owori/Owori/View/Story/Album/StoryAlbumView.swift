@@ -18,6 +18,10 @@ struct StoryAlbumView: View {
         ScrollView {
             ForEach(collections, id: \.self) { collection in
                 MonthlyStoryCollection()
+                    .padding(EdgeInsets(top: 20, leading: 20, bottom: 20, trailing: 20))
+                Divider()
+                    .frame(height: 0.5)
+                    .overlay(.gray)
             }
         }
     }
