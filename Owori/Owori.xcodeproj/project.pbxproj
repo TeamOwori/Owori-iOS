@@ -93,6 +93,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F37221E02A548E3C004F2E5A /* StoryHelper */ = {
+			isa = PBXGroup;
+			children = (
+				F3BC63D02A5345DC00999F54 /* AlbumListButton.swift */,
+				F3BC63B82A53261F00999F54 /* DailyStoryImageCell.swift */,
+			);
+			path = StoryHelper;
+			sourceTree = "<group>";
+		};
 		F3BC634F2A52C6AE00999F54 = {
 			isa = PBXGroup;
 			children = (
@@ -180,11 +189,10 @@
 		F3BC63B62A53261300999F54 /* Story */ = {
 			isa = PBXGroup;
 			children = (
+				F3BC63CE2A53449700999F54 /* StoryView.swift */,
+				F37221E02A548E3C004F2E5A /* StoryHelper */,
 				F3BC63BA2A53265900999F54 /* Album */,
 				F3BC63B72A53261300999F54 /* List */,
-				F3BC63B82A53261F00999F54 /* DailyStoryImageCell.swift */,
-				F3BC63CE2A53449700999F54 /* StoryView.swift */,
-				F3BC63D02A5345DC00999F54 /* AlbumListButton.swift */,
 			);
 			path = Story;
 			sourceTree = "<group>";

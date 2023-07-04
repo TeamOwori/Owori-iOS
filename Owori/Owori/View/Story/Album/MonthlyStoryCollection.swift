@@ -31,9 +31,10 @@ struct MonthlyStoryCollection: View {
                 .bold()
             
             // Album Collection View
-            LazyVGrid(columns: columns, spacing: 16) {
+            LazyVGrid(columns: columns, spacing: 5) {
                 ForEach(images[0 ..< images.count], id: \.self) { imageName in
                     DailyStoryImageCell()
+                        .frame(width: UIScreen.main.bounds.width * 0.30, height: UIScreen.main.bounds.width * 0.30)
                 }
             }
         }
