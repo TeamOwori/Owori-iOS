@@ -19,26 +19,14 @@ struct AlbumListButton: View {
             Button {
                 buttonSet = true
             } label: {
-                Image(systemName: "square.grid.2x2")
-                    .foregroundColor(changingColor(buttonSet))
+                Image("Album").applyColorInvert(buttonSet)
             }
             Button {
                 buttonSet = false
             } label: {
-                Image(systemName: "list.bullet")
-                    .foregroundColor(changingColor(!buttonSet))
+                Image("List").applyColorInvert(!buttonSet)
             }
         }
-    }
-}
-
-// MARK: FUNCTIONS
-/// - 보기 방식 선택에 따라 버튼 색깔을 변경해주는 함수.
-func changingColor(_ isSet: Bool) -> Color {
-    if isSet {
-        return .black
-    } else {
-        return .gray
     }
 }
 

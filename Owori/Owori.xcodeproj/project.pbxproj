@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F37221E32A549F3C004F2E5A /* Image+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37221E22A549F3C004F2E5A /* Image+Extension.swift */; };
 		F3BC635C2A52C6AE00999F54 /* OworiApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3BC635B2A52C6AE00999F54 /* OworiApp.swift */; };
 		F3BC635E2A52C6AE00999F54 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3BC635D2A52C6AE00999F54 /* ContentView.swift */; };
 		F3BC63602A52C6AF00999F54 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F3BC635F2A52C6AF00999F54 /* Assets.xcassets */; };
@@ -45,6 +46,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F37221E22A549F3C004F2E5A /* Image+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Image+Extension.swift"; sourceTree = "<group>"; };
 		F3BC63582A52C6AE00999F54 /* Owori.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Owori.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F3BC635B2A52C6AE00999F54 /* OworiApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OworiApp.swift; sourceTree = "<group>"; };
 		F3BC635D2A52C6AE00999F54 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -220,6 +222,7 @@
 			isa = PBXGroup;
 			children = (
 				F3BC63BE2A53268600999F54 /* String+Extension.swift */,
+				F37221E22A549F3C004F2E5A /* Image+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -361,6 +364,7 @@
 				F3BC63BF2A53268600999F54 /* String+Extension.swift in Sources */,
 				F3BC635E2A52C6AE00999F54 /* ContentView.swift in Sources */,
 				F3BC63B92A53261F00999F54 /* DailyStoryImageCell.swift in Sources */,
+				F37221E32A549F3C004F2E5A /* Image+Extension.swift in Sources */,
 				F3BC63CF2A53449700999F54 /* StoryView.swift in Sources */,
 				F3BC63C42A532B0400999F54 /* StoryAlbumView.swift in Sources */,
 				F3BC63C62A532CB300999F54 /* DailyStoryText.swift in Sources */,
