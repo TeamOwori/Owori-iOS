@@ -26,11 +26,12 @@ struct DailyStoryListCell: View {
         VStack {
             HStack {
                 DailyStoryText()
-                Spacer()
+                    .padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 16))
                 DailyStoryImageCell()
                 // ImageCell 크기 처리하는 부분 PM이랑 상의해보기(태블릿 대응)
                     .frame(width: UIScreen.main.bounds.width * 0.25, height: UIScreen.main.bounds.width * 0.25)
             }
+            .padding(EdgeInsets(top: 0, leading: 0, bottom: 20, trailing: 0))
             
             HStack {
                 Text("좋아요 \(numberOfFavorite)")

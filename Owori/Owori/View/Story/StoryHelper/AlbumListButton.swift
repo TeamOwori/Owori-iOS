@@ -19,12 +19,12 @@ struct AlbumListButton: View {
             Button {
                 buttonSet = true
             } label: {
-                Image("Album").applyColorInvert(buttonSet)
+                Image("List").applyColorInvert(buttonSet)
             }
             Button {
                 buttonSet = false
             } label: {
-                Image("List").applyColorInvert(!buttonSet)
+                Image("Album").applyColorInvert(!buttonSet)
             }
         }
     }

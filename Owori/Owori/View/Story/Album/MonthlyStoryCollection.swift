@@ -29,14 +29,16 @@ struct MonthlyStoryCollection: View {
             Text("yyyy.MM".stringFromDate())
                 .font(.title3)
                 .bold()
+                .padding(EdgeInsets(top: 20, leading: 0, bottom: 0, trailing: 0))
             
             // Album Collection View
-            LazyVGrid(columns: columns, spacing: 5) {
+            LazyVGrid(columns: columns, spacing: 12) {
                 ForEach(images[0 ..< images.count], id: \.self) { imageName in
                     DailyStoryImageCell()
-                        .frame(width: UIScreen.main.bounds.width * 0.30, height: UIScreen.main.bounds.width * 0.30)
+                        .frame(width: UIScreen.main.bounds.width * 0.3, height: UIScreen.main.bounds.width * 0.3)
                 }
             }
+            .padding(EdgeInsets(top: 16, leading: 0, bottom: 20, trailing: 0))
         }
     }
 }
