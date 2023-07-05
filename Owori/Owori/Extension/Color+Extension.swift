@@ -23,6 +23,7 @@ extension Color {
 }
 
 extension Color {
-    static let customGray = Color(hex: "#EEEEEE")
-    
+    static let oworiGray = Color(hex: "#EEEEEE")
+    static let oworiMainColor = Color(hex: "#FFEEB2")
+    static let oworiOrange = Color(hex: "#FA7B53")
 }

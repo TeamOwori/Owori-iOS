@@ -15,13 +15,11 @@ struct StoryAlbumView: View {
     
     // MARK: BODY
     var body: some View {
-        ScrollView {
-            ForEach(collections, id: \.self) { collection in
-                MonthlyStoryCollection()
-                Divider()
-                    .frame(height: 1)
-                    .overlay(Color.customGray)
-            }
+        ForEach(collections, id: \.self) { collection in
+            MonthlyStoryCollection()
+            Divider()
+                .frame(height: 1)
+                .overlay(Color.oworiGray)
         }
     }
 }
