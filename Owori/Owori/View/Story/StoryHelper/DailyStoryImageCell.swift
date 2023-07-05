@@ -15,8 +15,7 @@ struct DailyStoryImageCell: View {
 
     // MARK: BODY
     var body: some View {
-        ZStack {
-            GeometryReader { geometry in
+        ZStack(alignment: .topTrailing) {
                 // Images
                 Image(systemName: "person.crop.square.fill")
                     .resizable()
@@ -25,12 +24,8 @@ struct DailyStoryImageCell: View {
                 
                 // Images의 갯수에 따라 사진이 여러 장인지 아닌지 표시
                 if numberOfImages > 1 {
-                    Image(systemName: "square.fill.on.square.fill")
-                        .resizable()
-                        .frame(width: geometry.size.width * 0.07, height: geometry.size.height * 0.07)
-                        .foregroundColor(.white)
-                        .offset(x: geometry.size.width * 0.90, y: geometry.size.height / 30)
-                }
+                    Image("Layers")
+                        .padding(EdgeInsets(top: 10, leading: 0, bottom: 0, trailing: 10))
             }
         }
         .scaledToFit()
