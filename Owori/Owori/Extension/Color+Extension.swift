@@ -26,4 +26,5 @@ extension Color {
     static let oworiGray = Color(hex: "#EEEEEE")
     static let oworiMainColor = Color(hex: "#FFEEB2")
     static let oworiOrange = Color(hex: "#FA7B53")
+    static let oworiDarkGray = Color(hex: "#212121")
 }
