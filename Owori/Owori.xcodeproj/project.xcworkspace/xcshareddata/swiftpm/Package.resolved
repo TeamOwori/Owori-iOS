@@ -1,0 +1,14 @@
+{
+  "pins" : [
+    {
+      "identity" : "fscalendar",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/WenchaoD/FSCalendar",
+      "state" : {
+        "branch" : "master",
+        "revision" : "2a1bdab38bd4c90caaa4b593e0608c05f4173160"
+      }
+    }
+  ],
+  "version" : 2
+}
