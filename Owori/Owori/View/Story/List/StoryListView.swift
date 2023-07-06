@@ -15,12 +15,14 @@ struct StoryListView: View {
     
     // MARK: BODY
     var body: some View {
+        VStack {
             ForEach(lists, id: \.self) { story in
                 DailyStoryListCell()
                     .padding(EdgeInsets(top: 20, leading: 0, bottom: 10, trailing: 0))
                 Divider()
                     .frame(height: 1)
                     .overlay(Color.oworiGray)
+            }
         }
     }
 }
