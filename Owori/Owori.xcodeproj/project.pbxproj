@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3559B3542A5549CE009F8D6B /* PracticeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3559B3532A5549CE009F8D6B /* PracticeView.swift */; };
 		F3BC635C2A52C6AE00999F54 /* OworiApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3BC635B2A52C6AE00999F54 /* OworiApp.swift */; };
 		F3BC635E2A52C6AE00999F54 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3BC635D2A52C6AE00999F54 /* ContentView.swift */; };
 		F3BC63602A52C6AF00999F54 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F3BC635F2A52C6AF00999F54 /* Assets.xcassets */; };
@@ -45,6 +46,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3559B3532A5549CE009F8D6B /* PracticeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PracticeView.swift; sourceTree = "<group>"; };
 		F3BC63582A52C6AE00999F54 /* Owori.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Owori.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F3BC635B2A52C6AE00999F54 /* OworiApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OworiApp.swift; sourceTree = "<group>"; };
 		F3BC635D2A52C6AE00999F54 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -157,6 +159,7 @@
 			children = (
 				F3BC63B62A53261300999F54 /* Story */,
 				F3BC635D2A52C6AE00999F54 /* ContentView.swift */,
+				3559B3532A5549CE009F8D6B /* PracticeView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -357,6 +360,7 @@
 				F3BC63C42A532B0400999F54 /* StoryAlbumView.swift in Sources */,
 				F3BC63C62A532CB300999F54 /* DailyStoryText.swift in Sources */,
 				F3BC63BC2A53266900999F54 /* MonthlyStoryCollection.swift in Sources */,
+				3559B3542A5549CE009F8D6B /* PracticeView.swift in Sources */,
 				F3BC63962A52DCF400999F54 /* TestViewModel.swift in Sources */,
 				F3BC635C2A52C6AE00999F54 /* OworiApp.swift in Sources */,
 			);
@@ -517,6 +521,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Owori/Preview Content\"";
+				DEVELOPMENT_TEAM = NTXM48C3F8;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -524,12 +529,13 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.TeamOwori.Owori;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yejin.Owori;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -545,6 +551,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Owori/Preview Content\"";
+				DEVELOPMENT_TEAM = NTXM48C3F8;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -552,12 +559,13 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.TeamOwori.Owori;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yejin.Owori;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
