@@ -17,7 +17,7 @@ struct DailyStoryImageCell: View {
     var body: some View {
         ZStack(alignment: .topTrailing) {
                 // Images
-                Image(systemName: "person.crop.square.fill")
+                Image("DefaultImage")
                     .resizable()
                     .scaledToFit()
                     .foregroundColor(.gray)
@@ -25,7 +25,7 @@ struct DailyStoryImageCell: View {
                 // Images의 갯수에 따라 사진이 여러 장인지 아닌지 표시
                 if numberOfImages > 1 {
                     Image("Layers")
-                        .padding(EdgeInsets(top: 10, leading: 0, bottom: 0, trailing: 10))
+                        .padding(EdgeInsets(top: 8, leading: 0, bottom: 0, trailing: 8))
             }
         }
         .scaledToFit()

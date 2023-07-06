@@ -16,14 +16,19 @@ struct StoryView: View {
     var body: some View {
         VStack {
             HStack {
-                Spacer()
                 AlbumListButton(buttonSet: $buttonSet)
-                    .padding(EdgeInsets(top: 15, leading: 15, bottom: 15, trailing: 15))
+                Spacer()
+                SortMenu()
             }
-            if buttonSet {
-                StoryAlbumView()
-            } else {
-                StoryListView()
+            .padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 20))
+            ScrollView {
+                if buttonSet {
+                    StoryListView()
+                        .padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 20))
+                } else {
+                    StoryAlbumView()
+                        .padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 20))
+                }
             }
         }
     }

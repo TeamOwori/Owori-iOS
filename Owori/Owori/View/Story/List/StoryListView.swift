@@ -15,15 +15,12 @@ struct StoryListView: View {
     
     // MARK: BODY
     var body: some View {
-        ScrollView {
             ForEach(lists, id: \.self) { story in
                 DailyStoryListCell()
-                    .padding(EdgeInsets(top: 10, leading: 20, bottom: 10, trailing: 20))
+                    .padding(EdgeInsets(top: 20, leading: 0, bottom: 10, trailing: 0))
                 Divider()
-                    .frame(height: 0.5)
-                    .overlay(.gray)
-                
-            }
+                    .frame(height: 1)
+                    .overlay(Color.oworiGray)
         }
     }
 }
