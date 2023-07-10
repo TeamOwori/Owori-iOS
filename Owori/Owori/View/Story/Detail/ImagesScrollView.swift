@@ -17,7 +17,7 @@ struct ImagesScrollView: View {
             TabView(selection: $currentIndex) {
                 ForEach(0 ..< images.count, id: \.self) { index in
                     Image(images[index])
-                        .resizable()
+                        .resizable() 
                         .aspectRatio(contentMode: .fill)
                         .clipped()
                 }
