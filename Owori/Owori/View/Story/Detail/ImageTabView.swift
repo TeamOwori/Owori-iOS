@@ -15,10 +15,7 @@ struct ImageTabView: View {
         ZStack(alignment: .bottomTrailing) {
             TabView(selection: $currentIndex) {
                 ForEach(0 ..< images.count, id: \.self) { index in
-                    Image(images[index])
-                        .resizable()
-                        .aspectRatio(contentMode: .fill)
-                        .clipped()
+                    DetailImageCell(image: images[index])
                 }
             }
             CurrentImageOrder(images: $images, currentIndex: $currentIndex)

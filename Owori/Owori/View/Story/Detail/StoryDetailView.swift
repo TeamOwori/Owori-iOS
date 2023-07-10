@@ -13,8 +13,16 @@ struct StoryDetailView: View {
     
     var body: some View {
         ScrollView {
-            ImageTabView(images: $images, currentIndex: $currentIndex)
-                .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height * 0.4)
+            VStack {
+                ImageTabView(images: $images, currentIndex: $currentIndex)
+                    .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height * 0.4)
+                    .clipped()
+                
+                VStack {
+                    HorizontalScrollView(images: $images, currentIndex: $currentIndex)
+                }
+                
+            }
         }
         .edgesIgnoringSafeArea(.top)
     }
