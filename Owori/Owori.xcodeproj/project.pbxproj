@@ -33,6 +33,8 @@
 		F3DCCD302A55F0F6007B55A2 /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3DCCD2F2A55F0F6007B55A2 /* Color+Extension.swift */; };
 		F3DCCD332A56006A007B55A2 /* SortMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3DCCD322A56006A007B55A2 /* SortMenu.swift */; };
 		F3ECF1D22A5BF023004CE4A6 /* DetailImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3ECF1D12A5BF023004CE4A6 /* DetailImageCell.swift */; };
+		F3ECF1D62A5C11DE004CE4A6 /* FavoriteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3ECF1D52A5C11DE004CE4A6 /* FavoriteButton.swift */; };
+		F3ECF1D82A5C185D004CE4A6 /* DetailText.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3ECF1D72A5C185D004CE4A6 /* DetailText.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,6 +84,8 @@
 		F3DCCD2F2A55F0F6007B55A2 /* Color+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
 		F3DCCD322A56006A007B55A2 /* SortMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortMenu.swift; sourceTree = "<group>"; };
 		F3ECF1D12A5BF023004CE4A6 /* DetailImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailImageCell.swift; sourceTree = "<group>"; };
+		F3ECF1D52A5C11DE004CE4A6 /* FavoriteButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteButton.swift; sourceTree = "<group>"; };
+		F3ECF1D72A5C185D004CE4A6 /* DetailText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailText.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,6 +131,8 @@
 				F3B93DD72A570A0D0074B9AD /* ImageTabView.swift */,
 				F3A57ABB2A5BCF4E00880FDC /* HorizontalScrollView.swift */,
 				F3ECF1D12A5BF023004CE4A6 /* DetailImageCell.swift */,
+				F3ECF1D52A5C11DE004CE4A6 /* FavoriteButton.swift */,
+				F3ECF1D72A5C185D004CE4A6 /* DetailText.swift */,
 			);
 			path = Detail;
 			sourceTree = "<group>";
@@ -392,12 +398,14 @@
 				F3BC63CA2A533A6400999F54 /* StoryListView.swift in Sources */,
 				F3BC63942A52DCE100999F54 /* TestModel.swift in Sources */,
 				F3B93DDA2A5716880074B9AD /* CurrentImageOrder.swift in Sources */,
+				F3ECF1D82A5C185D004CE4A6 /* DetailText.swift in Sources */,
 				F3BC63C82A5333CB00999F54 /* DailyStoryListCell.swift in Sources */,
 				F3BC63BF2A53268600999F54 /* String+Extension.swift in Sources */,
 				F3DCCD332A56006A007B55A2 /* SortMenu.swift in Sources */,
 				F3BC635E2A52C6AE00999F54 /* ContentView.swift in Sources */,
 				F3B93DD82A570A0D0074B9AD /* ImageTabView.swift in Sources */,
 				F3BC63B92A53261F00999F54 /* DailyStoryImageCell.swift in Sources */,
+				F3ECF1D62A5C11DE004CE4A6 /* FavoriteButton.swift in Sources */,
 				F37221E32A549F3C004F2E5A /* Image+Extension.swift in Sources */,
 				F3BC63CF2A53449700999F54 /* StoryView.swift in Sources */,
 				F3BC63C42A532B0400999F54 /* StoryAlbumView.swift in Sources */,
