@@ -1,5 +1,5 @@
 //
-//  ImageTabView.swift
+//  ImagesScrollView.swift
 //  Owori
 //
 //  Created by Kyungsoo Lee on 2023/07/06.
@@ -8,9 +8,8 @@
 import SwiftUI
 
 struct ImageTabView: View {
-    private var indexOfImage: Int = 1
-    private var images: [String] = ["TestImage1", "TestImage2", "TestImage3", "TestImage4", "TestImage5", "TestImage6", "TestImage7", "TestImage8", "TestImage9", "TestImage10"]
-    @State private var currentIndex: Int = 0
+    @Binding var images: [String]
+    @Binding var currentIndex: Int
     
     var body: some View {
         ZStack(alignment: .bottomTrailing) {
@@ -22,15 +21,15 @@ struct ImageTabView: View {
                         .clipped()
                 }
             }
-            CurrentImageOrder(currentIndex: $currentIndex)
+            CurrentImageOrder(images: $images, currentIndex: $currentIndex)
                 .padding(EdgeInsets(top: 0, leading: 0, bottom: 10, trailing: 10))
         }
         .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
     }
 }
 
-struct ImageTabView_Previews: PreviewProvider {
+struct ImagesScrollView_Previews: PreviewProvider {
     static var previews: some View {
-        ImageTabView()
+        ImageTabView(images: .constant(["TestImage1", "TestImage2", "TestImage3", "TestImage4", "TestImage5", "TestImage6", "TestImage7", "TestImage8", "TestImage9", "TestImage10"]), currentIndex: .constant(0))
     }
 }

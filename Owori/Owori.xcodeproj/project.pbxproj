@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		F37221E32A549F3C004F2E5A /* Image+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37221E22A549F3C004F2E5A /* Image+Extension.swift */; };
+		F3A57ABC2A5BCF4E00880FDC /* ImageHorizontalScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A57ABB2A5BCF4E00880FDC /* ImageHorizontalScrollView.swift */; };
 		F3B93DD52A56FCE10074B9AD /* StoryDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3B93DD42A56FCE10074B9AD /* StoryDetailView.swift */; };
 		F3B93DD82A570A0D0074B9AD /* ImageTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3B93DD72A570A0D0074B9AD /* ImageTabView.swift */; };
 		F3B93DDA2A5716880074B9AD /* CurrentImageOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3B93DD92A5716880074B9AD /* CurrentImageOrder.swift */; };
@@ -52,6 +53,7 @@
 
 /* Begin PBXFileReference section */
 		F37221E22A549F3C004F2E5A /* Image+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Image+Extension.swift"; sourceTree = "<group>"; };
+		F3A57ABB2A5BCF4E00880FDC /* ImageHorizontalScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageHorizontalScrollView.swift; sourceTree = "<group>"; };
 		F3B93DD42A56FCE10074B9AD /* StoryDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryDetailView.swift; sourceTree = "<group>"; };
 		F3B93DD72A570A0D0074B9AD /* ImageTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageTabView.swift; sourceTree = "<group>"; };
 		F3B93DD92A5716880074B9AD /* CurrentImageOrder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentImageOrder.swift; sourceTree = "<group>"; };
@@ -121,6 +123,7 @@
 			children = (
 				F3B93DD42A56FCE10074B9AD /* StoryDetailView.swift */,
 				F3B93DD72A570A0D0074B9AD /* ImageTabView.swift */,
+				F3A57ABB2A5BCF4E00880FDC /* ImageHorizontalScrollView.swift */,
 			);
 			path = Detail;
 			sourceTree = "<group>";
@@ -397,6 +400,7 @@
 				F3BC63C62A532CB300999F54 /* DailyStoryText.swift in Sources */,
 				F3BC63BC2A53266900999F54 /* MonthlyStoryCollection.swift in Sources */,
 				F3B93DD52A56FCE10074B9AD /* StoryDetailView.swift in Sources */,
+				F3A57ABC2A5BCF4E00880FDC /* ImageHorizontalScrollView.swift in Sources */,
 				F3BC63962A52DCF400999F54 /* TestViewModel.swift in Sources */,
 				F3BC635C2A52C6AE00999F54 /* OworiApp.swift in Sources */,
 			);
