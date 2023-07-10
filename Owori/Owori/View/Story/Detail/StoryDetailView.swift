@@ -12,7 +12,7 @@ struct StoryDetailView: View {
     
     var body: some View {
         ScrollView {
-            ImagesScrollView()
+            ImageTabView()
                 .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height * 0.4)
         }
         .edgesIgnoringSafeArea(.top)

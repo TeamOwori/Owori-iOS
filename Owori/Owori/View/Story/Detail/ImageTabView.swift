@@ -1,5 +1,5 @@
 //
-//  ImagesScrollView.swift
+//  ImageTabView.swift
 //  Owori
 //
 //  Created by Kyungsoo Lee on 2023/07/06.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ImagesScrollView: View {
+struct ImageTabView: View {
     private var indexOfImage: Int = 1
     private var images: [String] = ["TestImage1", "TestImage2", "TestImage3", "TestImage4", "TestImage5", "TestImage6", "TestImage7", "TestImage8", "TestImage9", "TestImage10"]
     @State private var currentIndex: Int = 0
@@ -29,8 +29,8 @@ struct ImagesScrollView: View {
     }
 }
 
-struct ImagesScrollView_Previews: PreviewProvider {
+struct ImageTabView_Previews: PreviewProvider {
     static var previews: some View {
-        ImagesScrollView()
+        ImageTabView()
     }
 }
