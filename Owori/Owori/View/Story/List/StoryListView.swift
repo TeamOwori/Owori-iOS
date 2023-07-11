@@ -18,10 +18,10 @@ struct StoryListView: View {
         VStack {
             ForEach(lists, id: \.self) { story in
                 DailyStoryListCell()
-                    .padding(EdgeInsets(top: 20, leading: 0, bottom: 10, trailing: 0))
+                    .padding(EdgeInsets(top: 20, leading: 20, bottom: 10, trailing: 20))
                 Divider()
                     .frame(height: 1)
-                    .overlay(Color.oworiGrayE9E9E9)
+                    .overlay(Color.oworiGray200)
             }
         }
     }

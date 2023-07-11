@@ -20,6 +20,7 @@ struct StoryView: View {
                 Spacer()
                 SortMenu()
             }
+            .padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 20))
             ScrollView {
                 if buttonSet {
                     StoryListView()
@@ -28,7 +29,6 @@ struct StoryView: View {
                 }
             }
         }
-        .padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 20))
     }
 }
 

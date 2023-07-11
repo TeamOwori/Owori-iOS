@@ -23,11 +23,10 @@ extension Color {
 }
 
 extension Color {
-    static let oworiGrayE9E9E9 = Color(hex: "#E9E9E9")
-    static let oworiGray626262 = Color(hex: "#626262")
-    static let oworiGray909090 = Color(hex: "#909090")
-    static let oworiGrayC6C6C6 = Color(hex: "#C6C6C6")
-    static let oworiGray464646 = Color(hex: "#464646")
+    static let oworiGray200 = Color(hex: "#E9E9E9")
+    static let oworiGray600 = Color(hex: "#626262")
+    static let oworiGray400 = Color(hex: "#909090")
+    static let oworiGray700 = Color(hex: "#464646")
     static let oworiMainColor = Color(hex: "#FFEEB2")
     static let oworiOrange = Color(hex: "#FA7B53")
     static let oworiDarkGray = Color(hex: "#212121")

@@ -29,7 +29,7 @@ struct SortMenu: View {
             .padding(EdgeInsets(top: 5, leading: 10, bottom: 5, trailing: 10))
         }
         .foregroundColor(.gray)
-        .overlay(RoundedRectangle(cornerRadius: 4).stroke(.gray, lineWidth: 1))
+        .overlay(RoundedRectangle(cornerRadius: 4).stroke(Color.gray, lineWidth: 1))
     }
 }
 
