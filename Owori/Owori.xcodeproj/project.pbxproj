@@ -20,8 +20,9 @@
 		88D5720B2A5CF029005580EC /* DDayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88D572032A5CF029005580EC /* DDayView.swift */; };
 		88D5720C2A5CF029005580EC /* DDayCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88D572042A5CF029005580EC /* DDayCard.swift */; };
 		F37221E32A549F3C004F2E5A /* Image+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37221E22A549F3C004F2E5A /* Image+Extension.swift */; };
+		F3A57ABC2A5BCF4E00880FDC /* HorizontalScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A57ABB2A5BCF4E00880FDC /* HorizontalScrollView.swift */; };
 		F3B93DD52A56FCE10074B9AD /* StoryDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3B93DD42A56FCE10074B9AD /* StoryDetailView.swift */; };
-		F3B93DD82A570A0D0074B9AD /* ImagesScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3B93DD72A570A0D0074B9AD /* ImagesScrollView.swift */; };
+		F3B93DD82A570A0D0074B9AD /* ImageTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3B93DD72A570A0D0074B9AD /* ImageTabView.swift */; };
 		F3B93DDA2A5716880074B9AD /* CurrentImageOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3B93DD92A5716880074B9AD /* CurrentImageOrder.swift */; };
 		F3BC635C2A52C6AE00999F54 /* OworiApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3BC635B2A52C6AE00999F54 /* OworiApp.swift */; };
 		F3BC635E2A52C6AE00999F54 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3BC635D2A52C6AE00999F54 /* ContentView.swift */; };
@@ -43,6 +44,9 @@
 		F3BC63D12A5345DC00999F54 /* AlbumListButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3BC63D02A5345DC00999F54 /* AlbumListButton.swift */; };
 		F3DCCD302A55F0F6007B55A2 /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3DCCD2F2A55F0F6007B55A2 /* Color+Extension.swift */; };
 		F3DCCD332A56006A007B55A2 /* SortMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3DCCD322A56006A007B55A2 /* SortMenu.swift */; };
+		F3ECF1D22A5BF023004CE4A6 /* DetailImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3ECF1D12A5BF023004CE4A6 /* DetailImageCell.swift */; };
+		F3ECF1D62A5C11DE004CE4A6 /* FavoriteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3ECF1D52A5C11DE004CE4A6 /* FavoriteButton.swift */; };
+		F3ECF1D82A5C185D004CE4A6 /* DetailText.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3ECF1D72A5C185D004CE4A6 /* DetailText.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,8 +80,9 @@
 		88D572032A5CF029005580EC /* DDayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DDayView.swift; sourceTree = "<group>"; };
 		88D572042A5CF029005580EC /* DDayCard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DDayCard.swift; sourceTree = "<group>"; };
 		F37221E22A549F3C004F2E5A /* Image+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Image+Extension.swift"; sourceTree = "<group>"; };
+		F3A57ABB2A5BCF4E00880FDC /* HorizontalScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalScrollView.swift; sourceTree = "<group>"; };
 		F3B93DD42A56FCE10074B9AD /* StoryDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryDetailView.swift; sourceTree = "<group>"; };
-		F3B93DD72A570A0D0074B9AD /* ImagesScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesScrollView.swift; sourceTree = "<group>"; };
+		F3B93DD72A570A0D0074B9AD /* ImageTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageTabView.swift; sourceTree = "<group>"; };
 		F3B93DD92A5716880074B9AD /* CurrentImageOrder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentImageOrder.swift; sourceTree = "<group>"; };
 		F3BC63582A52C6AE00999F54 /* Owori.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Owori.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F3BC635B2A52C6AE00999F54 /* OworiApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OworiApp.swift; sourceTree = "<group>"; };
@@ -102,6 +107,9 @@
 		F3BC63D02A5345DC00999F54 /* AlbumListButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumListButton.swift; sourceTree = "<group>"; };
 		F3DCCD2F2A55F0F6007B55A2 /* Color+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
 		F3DCCD322A56006A007B55A2 /* SortMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortMenu.swift; sourceTree = "<group>"; };
+		F3ECF1D12A5BF023004CE4A6 /* DetailImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailImageCell.swift; sourceTree = "<group>"; };
+		F3ECF1D52A5C11DE004CE4A6 /* FavoriteButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteButton.swift; sourceTree = "<group>"; };
+		F3ECF1D72A5C185D004CE4A6 /* DetailText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailText.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -210,7 +218,11 @@
 			isa = PBXGroup;
 			children = (
 				F3B93DD42A56FCE10074B9AD /* StoryDetailView.swift */,
-				F3B93DD72A570A0D0074B9AD /* ImagesScrollView.swift */,
+				F3B93DD72A570A0D0074B9AD /* ImageTabView.swift */,
+				F3A57ABB2A5BCF4E00880FDC /* HorizontalScrollView.swift */,
+				F3ECF1D12A5BF023004CE4A6 /* DetailImageCell.swift */,
+				F3ECF1D52A5C11DE004CE4A6 /* FavoriteButton.swift */,
+				F3ECF1D72A5C185D004CE4A6 /* DetailText.swift */,
 			);
 			path = Detail;
 			sourceTree = "<group>";
@@ -472,6 +484,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F3ECF1D22A5BF023004CE4A6 /* DetailImageCell.swift in Sources */,
 				F3BC63D12A5345DC00999F54 /* AlbumListButton.swift in Sources */,
 				88D5720B2A5CF029005580EC /* DDayView.swift in Sources */,
 				88D572082A5CF029005580EC /* ProfileView.swift in Sources */,
@@ -480,6 +493,7 @@
 				88D572092A5CF029005580EC /* ProfilePhoto.swift in Sources */,
 				F3BC63942A52DCE100999F54 /* TestModel.swift in Sources */,
 				F3B93DDA2A5716880074B9AD /* CurrentImageOrder.swift in Sources */,
+				F3ECF1D82A5C185D004CE4A6 /* DetailText.swift in Sources */,
 				350A42BA2A5BEAF6004B3F50 /* OnBoardingView.swift in Sources */,
 				350A42B32A5BDEBD004B3F50 /* LoginButton.swift in Sources */,
 				88D5720A2A5CF029005580EC /* ProfileText.swift in Sources */,
@@ -489,8 +503,9 @@
 				350A42BC2A5C1010004B3F50 /* ImageDetailView.swift in Sources */,
 				F3DCCD332A56006A007B55A2 /* SortMenu.swift in Sources */,
 				F3BC635E2A52C6AE00999F54 /* ContentView.swift in Sources */,
-				F3B93DD82A570A0D0074B9AD /* ImagesScrollView.swift in Sources */,
+				F3B93DD82A570A0D0074B9AD /* ImageTabView.swift in Sources */,
 				F3BC63B92A53261F00999F54 /* DailyStoryImageCell.swift in Sources */,
+				F3ECF1D62A5C11DE004CE4A6 /* FavoriteButton.swift in Sources */,
 				88D572072A5CF029005580EC /* HomeView.swift in Sources */,
 				F37221E32A549F3C004F2E5A /* Image+Extension.swift in Sources */,
 				F3BC63CF2A53449700999F54 /* StoryView.swift in Sources */,
@@ -499,6 +514,7 @@
 				F3BC63C62A532CB300999F54 /* DailyStoryText.swift in Sources */,
 				F3BC63BC2A53266900999F54 /* MonthlyStoryCollection.swift in Sources */,
 				F3B93DD52A56FCE10074B9AD /* StoryDetailView.swift in Sources */,
+				F3A57ABC2A5BCF4E00880FDC /* HorizontalScrollView.swift in Sources */,
 				F3BC63962A52DCF400999F54 /* TestViewModel.swift in Sources */,
 				F3BC635C2A52C6AE00999F54 /* OworiApp.swift in Sources */,
 				88D572062A5CF029005580EC /* FamilyPhoto.swift in Sources */,
