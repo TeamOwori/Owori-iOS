@@ -11,6 +11,14 @@
 		350A42B52A5BDED0004B3F50 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 350A42B42A5BDED0004B3F50 /* LoginView.swift */; };
 		350A42BA2A5BEAF6004B3F50 /* OnBoardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 350A42B92A5BEAF6004B3F50 /* OnBoardingView.swift */; };
 		350A42BC2A5C1010004B3F50 /* ImageDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 350A42BB2A5C1010004B3F50 /* ImageDetailView.swift */; };
+		88D572052A5CF029005580EC /* FamilyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88D571FB2A5CF029005580EC /* FamilyView.swift */; };
+		88D572062A5CF029005580EC /* FamilyPhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88D571FC2A5CF029005580EC /* FamilyPhoto.swift */; };
+		88D572072A5CF029005580EC /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88D571FD2A5CF029005580EC /* HomeView.swift */; };
+		88D572082A5CF029005580EC /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88D571FF2A5CF029005580EC /* ProfileView.swift */; };
+		88D572092A5CF029005580EC /* ProfilePhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88D572002A5CF029005580EC /* ProfilePhoto.swift */; };
+		88D5720A2A5CF029005580EC /* ProfileText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88D572012A5CF029005580EC /* ProfileText.swift */; };
+		88D5720B2A5CF029005580EC /* DDayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88D572032A5CF029005580EC /* DDayView.swift */; };
+		88D5720C2A5CF029005580EC /* DDayCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88D572042A5CF029005580EC /* DDayCard.swift */; };
 		F37221E32A549F3C004F2E5A /* Image+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37221E22A549F3C004F2E5A /* Image+Extension.swift */; };
 		F3B93DD52A56FCE10074B9AD /* StoryDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3B93DD42A56FCE10074B9AD /* StoryDetailView.swift */; };
 		F3B93DD82A570A0D0074B9AD /* ImagesScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3B93DD72A570A0D0074B9AD /* ImagesScrollView.swift */; };
@@ -59,6 +67,14 @@
 		350A42B42A5BDED0004B3F50 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		350A42B92A5BEAF6004B3F50 /* OnBoardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingView.swift; sourceTree = "<group>"; };
 		350A42BB2A5C1010004B3F50 /* ImageDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDetailView.swift; sourceTree = "<group>"; };
+		88D571FB2A5CF029005580EC /* FamilyView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FamilyView.swift; sourceTree = "<group>"; };
+		88D571FC2A5CF029005580EC /* FamilyPhoto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FamilyPhoto.swift; sourceTree = "<group>"; };
+		88D571FD2A5CF029005580EC /* HomeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		88D571FF2A5CF029005580EC /* ProfileView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		88D572002A5CF029005580EC /* ProfilePhoto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfilePhoto.swift; sourceTree = "<group>"; };
+		88D572012A5CF029005580EC /* ProfileText.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileText.swift; sourceTree = "<group>"; };
+		88D572032A5CF029005580EC /* DDayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DDayView.swift; sourceTree = "<group>"; };
+		88D572042A5CF029005580EC /* DDayCard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DDayCard.swift; sourceTree = "<group>"; };
 		F37221E22A549F3C004F2E5A /* Image+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Image+Extension.swift"; sourceTree = "<group>"; };
 		F3B93DD42A56FCE10074B9AD /* StoryDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryDetailView.swift; sourceTree = "<group>"; };
 		F3B93DD72A570A0D0074B9AD /* ImagesScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesScrollView.swift; sourceTree = "<group>"; };
@@ -138,6 +154,45 @@
 				350A42BB2A5C1010004B3F50 /* ImageDetailView.swift */,
 			);
 			path = OnBoarding;
+			sourceTree = "<group>";
+		};
+		88D571F92A5CF029005580EC /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				88D571FD2A5CF029005580EC /* HomeView.swift */,
+				88D571FA2A5CF029005580EC /* Family */,
+				88D571FE2A5CF029005580EC /* Profile */,
+				88D572022A5CF029005580EC /* DDay */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		88D571FA2A5CF029005580EC /* Family */ = {
+			isa = PBXGroup;
+			children = (
+				88D571FB2A5CF029005580EC /* FamilyView.swift */,
+				88D571FC2A5CF029005580EC /* FamilyPhoto.swift */,
+			);
+			path = Family;
+			sourceTree = "<group>";
+		};
+		88D571FE2A5CF029005580EC /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				88D571FF2A5CF029005580EC /* ProfileView.swift */,
+				88D572002A5CF029005580EC /* ProfilePhoto.swift */,
+				88D572012A5CF029005580EC /* ProfileText.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		88D572022A5CF029005580EC /* DDay */ = {
+			isa = PBXGroup;
+			children = (
+				88D572032A5CF029005580EC /* DDayView.swift */,
+				88D572042A5CF029005580EC /* DDayCard.swift */,
+			);
+			path = DDay;
 			sourceTree = "<group>";
 		};
 		F37221E02A548E3C004F2E5A /* StoryHelper */ = {
@@ -222,6 +277,7 @@
 		F3BC638A2A52D5DC00999F54 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				88D571F92A5CF029005580EC /* Home */,
 				350A42B02A5BDEAB004B3F50 /* Login */,
 				F3BC63B62A53261300999F54 /* Story */,
 				F3BC635D2A52C6AE00999F54 /* ContentView.swift */,
@@ -417,19 +473,25 @@
 			buildActionMask = 2147483647;
 			files = (
 				F3BC63D12A5345DC00999F54 /* AlbumListButton.swift in Sources */,
+				88D5720B2A5CF029005580EC /* DDayView.swift in Sources */,
+				88D572082A5CF029005580EC /* ProfileView.swift in Sources */,
 				F3DCCD302A55F0F6007B55A2 /* Color+Extension.swift in Sources */,
 				F3BC63CA2A533A6400999F54 /* StoryListView.swift in Sources */,
+				88D572092A5CF029005580EC /* ProfilePhoto.swift in Sources */,
 				F3BC63942A52DCE100999F54 /* TestModel.swift in Sources */,
 				F3B93DDA2A5716880074B9AD /* CurrentImageOrder.swift in Sources */,
 				350A42BA2A5BEAF6004B3F50 /* OnBoardingView.swift in Sources */,
 				350A42B32A5BDEBD004B3F50 /* LoginButton.swift in Sources */,
+				88D5720A2A5CF029005580EC /* ProfileText.swift in Sources */,
 				F3BC63C82A5333CB00999F54 /* DailyStoryListCell.swift in Sources */,
+				88D572052A5CF029005580EC /* FamilyView.swift in Sources */,
 				F3BC63BF2A53268600999F54 /* String+Extension.swift in Sources */,
 				350A42BC2A5C1010004B3F50 /* ImageDetailView.swift in Sources */,
 				F3DCCD332A56006A007B55A2 /* SortMenu.swift in Sources */,
 				F3BC635E2A52C6AE00999F54 /* ContentView.swift in Sources */,
 				F3B93DD82A570A0D0074B9AD /* ImagesScrollView.swift in Sources */,
 				F3BC63B92A53261F00999F54 /* DailyStoryImageCell.swift in Sources */,
+				88D572072A5CF029005580EC /* HomeView.swift in Sources */,
 				F37221E32A549F3C004F2E5A /* Image+Extension.swift in Sources */,
 				F3BC63CF2A53449700999F54 /* StoryView.swift in Sources */,
 				F3BC63C42A532B0400999F54 /* StoryAlbumView.swift in Sources */,
@@ -439,6 +501,8 @@
 				F3B93DD52A56FCE10074B9AD /* StoryDetailView.swift in Sources */,
 				F3BC63962A52DCF400999F54 /* TestViewModel.swift in Sources */,
 				F3BC635C2A52C6AE00999F54 /* OworiApp.swift in Sources */,
+				88D572062A5CF029005580EC /* FamilyPhoto.swift in Sources */,
+				88D5720C2A5CF029005580EC /* DDayCard.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
