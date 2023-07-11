@@ -23,6 +23,8 @@ struct HorizontalScrollView: View {
                                 DetailImageCell(image: images[index])
                                     .frame(width: UIScreen.main.bounds.width / 6, height: UIScreen.main.bounds.width / 6 * 4 / 5)
                                     .clipped()
+                                    .cornerRadius(4, corners: .topLeft)
+                                    .cornerRadius(4, corners: .topRight)
                             }
                             VStack {
                                 Rectangle()
