@@ -28,7 +28,7 @@ struct HorizontalScrollView: View {
                             }
                             VStack {
                                 Rectangle()
-                                    .foregroundColor(currentIndex == index ? .oworiOrange : .clear)
+                                    .foregroundColor(currentIndex == index ? Color.oworiOrange : .clear)
                                     .frame(height: 4)
                             }
                         }

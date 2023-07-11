@@ -21,7 +21,7 @@ struct StoryListView: View {
                     .padding(EdgeInsets(top: 20, leading: 0, bottom: 10, trailing: 0))
                 Divider()
                     .frame(height: 1)
-                    .overlay(Color.oworiGray)
+                    .overlay(Color.oworiGrayE9E9E9)
             }
         }
     }

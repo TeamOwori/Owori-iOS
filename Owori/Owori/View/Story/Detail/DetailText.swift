@@ -28,7 +28,7 @@ struct DetailText: View {
         VStack(alignment: .leading) {
             HStack {
                 Text("yyyy년 MM월 dd일".stringFromDate() + " - " + "yyyy년 MM월 dd일".stringFromDate())
-                    .foregroundColor(.gray)
+                    .foregroundColor(Color.oworiGray626262)
                 Spacer()
                 FavoriteButton(isFavorite: $isFavorite)
             }
@@ -36,37 +36,40 @@ struct DetailText: View {
                 Text(titleText)
                     .font(.title)
                 Text("by \(author)")
-                    .foregroundColor(.gray)
+                    .foregroundColor(Color.oworiGray464646)
             }
             Divider()
                 .frame(height: 1)
-                .overlay(Color.oworiGray)
+                .overlay(Color.oworiGrayE9E9E9)
             // Text font 스타일 Extension으로 빼서 정리하기
             Text(contentText)
                 .font(.title3)
                 .padding(EdgeInsets(top: 20, leading: 0, bottom: 20, trailing: 0))
             HStack {
                 Text("좋아요 \(numberOfFavorite)")
-                    .foregroundColor(.gray)
+                    .foregroundColor(Color.oworiGray909090)
                 Text("댓글 \(numberOfcomment)")
-                    .foregroundColor(.gray)
+                    .foregroundColor(Color.oworiGray909090)
                 Spacer()
                 Button {
                     
                 } label: {
                     Text("삭제하기")
-                        .foregroundColor(.gray)
+                        .foregroundColor(Color.oworiGray909090)
                 }
                 Divider()
-                    .frame(width: 1, height: 20)
-                    .overlay(.gray)
+                    .frame(width: 1, height: 10)
+                    .overlay(Color.oworiGrayE9E9E9)
                 Button {
                     
                 } label: {
                     Text("수정하기")
-                        .foregroundColor(.gray)
+                        .foregroundColor(Color.oworiGray909090)
                 }
             }
+            Divider()
+                .frame(height: 1)
+                .overlay(Color.oworiGrayE9E9E9)
         }
         .padding(EdgeInsets(top: 20, leading: 0, bottom: 20, trailing: 0))
     }

@@ -20,7 +20,7 @@ struct StoryAlbumView: View {
                 MonthlyStoryCollection()
                 Divider()
                     .frame(height: 1)
-                    .overlay(Color.oworiGray)
+                    .overlay(Color.oworiGrayE9E9E9)
             }
         }
     }
