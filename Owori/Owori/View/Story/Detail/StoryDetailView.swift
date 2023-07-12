@@ -14,19 +14,17 @@ struct StoryDetailView: View {
     
     var body: some View {
         ScrollView {
-            VStack {
+            VStack(spacing: 0) {
                 ImageTabView(images: $images, currentIndex: $currentIndex)
                     .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height * 0.4)
                     .clipped()
                 
-                VStack {
-                    
-                    HorizontalScrollView(images: $images, currentIndex: $currentIndex)
-                    VStack {
-                        DetailText(isFavorite: $isFavorite)
-                    }
-                    .padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 20))
+                VStack(spacing: 0) {
+                    HorizontalImageScrollView(images: $images, currentIndex: $currentIndex)
+                        .padding(EdgeInsets(top: 0, leading: 0, bottom: 20, trailing: 0))
+                    DetailContent(isFavorite: $isFavorite)
                 }
+                .padding(EdgeInsets(top: 20, leading: 0, bottom: 0, trailing: 0))
             }
         }
         .edgesIgnoringSafeArea(.top)

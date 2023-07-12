@@ -1,5 +1,5 @@
 //
-//  HorizontalScrollView.swift
+//  HorizontalImageScrollView.swift
 //  Owori
 //
 //  Created by Kyungsoo Lee on 2023/07/10.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct HorizontalScrollView: View {
+struct HorizontalImageScrollView: View {
     @Binding var images: [String]
     @Binding var currentIndex: Int
     
@@ -23,10 +23,12 @@ struct HorizontalScrollView: View {
                                 DetailImageCell(image: images[index])
                                     .frame(width: UIScreen.main.bounds.width / 6, height: UIScreen.main.bounds.width / 6 * 4 / 5)
                                     .clipped()
+                                    .cornerRadius(4, corners: .topLeft)
+                                    .cornerRadius(4, corners: .topRight)
                             }
                             VStack {
                                 Rectangle()
-                                    .foregroundColor(currentIndex == index ? .oworiOrange : .clear)
+                                    .foregroundColor(currentIndex == index ? Color.oworiOrange : .clear)
                                     .frame(height: 4)
                             }
                         }
@@ -38,8 +40,8 @@ struct HorizontalScrollView: View {
     }
 }
 
-struct HorizontalScrollView_Previews: PreviewProvider {
+struct HorizontalImageScrollView_Previews: PreviewProvider {
     static var previews: some View {
-        HorizontalScrollView(images: .constant(["TestImage1", "TestImage2", "TestImage3", "TestImage4", "TestImage5", "TestImage6", "TestImage7", "TestImage8", "TestImage9", "TestImage10"]), currentIndex: .constant(0))
+        HorizontalImageScrollView(images: .constant(["TestImage1", "TestImage2", "TestImage3", "TestImage4", "TestImage5", "TestImage6", "TestImage7", "TestImage8", "TestImage9", "TestImage10"]), currentIndex: .constant(0))
     }
 }
