@@ -10,7 +10,8 @@
 		350A42B32A5BDEBD004B3F50 /* LoginButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 350A42B22A5BDEBD004B3F50 /* LoginButton.swift */; };
 		350A42B52A5BDED0004B3F50 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 350A42B42A5BDED0004B3F50 /* LoginView.swift */; };
 		350A42BA2A5BEAF6004B3F50 /* OnBoardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 350A42B92A5BEAF6004B3F50 /* OnBoardingView.swift */; };
-		350A42BC2A5C1010004B3F50 /* ImageDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 350A42BB2A5C1010004B3F50 /* ImageDetailView.swift */; };
+		350A42BF2A5E8BAE004B3F50 /* LoginTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 350A42BE2A5E8BAE004B3F50 /* LoginTabView.swift */; };
+		350A42C12A5E93B1004B3F50 /* NumberIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 350A42C02A5E93B1004B3F50 /* NumberIndicator.swift */; };
 		88D572052A5CF029005580EC /* FamilyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88D571FB2A5CF029005580EC /* FamilyView.swift */; };
 		88D572062A5CF029005580EC /* FamilyPhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88D571FC2A5CF029005580EC /* FamilyPhoto.swift */; };
 		88D572072A5CF029005580EC /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88D571FD2A5CF029005580EC /* HomeView.swift */; };
@@ -73,7 +74,8 @@
 		350A42B22A5BDEBD004B3F50 /* LoginButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginButton.swift; sourceTree = "<group>"; };
 		350A42B42A5BDED0004B3F50 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		350A42B92A5BEAF6004B3F50 /* OnBoardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingView.swift; sourceTree = "<group>"; };
-		350A42BB2A5C1010004B3F50 /* ImageDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDetailView.swift; sourceTree = "<group>"; };
+		350A42BE2A5E8BAE004B3F50 /* LoginTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginTabView.swift; sourceTree = "<group>"; };
+		350A42C02A5E93B1004B3F50 /* NumberIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberIndicator.swift; sourceTree = "<group>"; };
 		88D571FB2A5CF029005580EC /* FamilyView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FamilyView.swift; sourceTree = "<group>"; };
 		88D571FC2A5CF029005580EC /* FamilyPhoto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FamilyPhoto.swift; sourceTree = "<group>"; };
 		88D571FD2A5CF029005580EC /* HomeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -146,6 +148,7 @@
 		350A42B02A5BDEAB004B3F50 /* Login */ = {
 			isa = PBXGroup;
 			children = (
+				350A42BD2A5E8B98004B3F50 /* LoginTabView */,
 				350A42B62A5BE898004B3F50 /* OnBoarding */,
 				350A42B12A5BDEB1004B3F50 /* Helper */,
 				350A42B42A5BDED0004B3F50 /* LoginView.swift */,
@@ -165,9 +168,17 @@
 			isa = PBXGroup;
 			children = (
 				350A42B92A5BEAF6004B3F50 /* OnBoardingView.swift */,
-				350A42BB2A5C1010004B3F50 /* ImageDetailView.swift */,
 			);
 			path = OnBoarding;
+			sourceTree = "<group>";
+		};
+		350A42BD2A5E8B98004B3F50 /* LoginTabView */ = {
+			isa = PBXGroup;
+			children = (
+				350A42BE2A5E8BAE004B3F50 /* LoginTabView.swift */,
+				350A42C02A5E93B1004B3F50 /* NumberIndicator.swift */,
+			);
+			path = LoginTabView;
 			sourceTree = "<group>";
 		};
 		88D571F92A5CF029005580EC /* Home */ = {
@@ -510,10 +521,11 @@
 				F3BC63C82A5333CB00999F54 /* DailyStoryListCell.swift in Sources */,
 				88D572052A5CF029005580EC /* FamilyView.swift in Sources */,
 				F3BC63BF2A53268600999F54 /* String+Extension.swift in Sources */,
-				350A42BC2A5C1010004B3F50 /* ImageDetailView.swift in Sources */,
 				F3DCCD332A56006A007B55A2 /* SortMenu.swift in Sources */,
 				F3BC635E2A52C6AE00999F54 /* ContentView.swift in Sources */,
 				F3B93DD82A570A0D0074B9AD /* ImageTabView.swift in Sources */,
+				350A42C12A5E93B1004B3F50 /* NumberIndicator.swift in Sources */,
+				350A42BF2A5E8BAE004B3F50 /* LoginTabView.swift in Sources */,
 				F3BC63B92A53261F00999F54 /* DailyStoryImageCell.swift in Sources */,
 				F3ECF1D62A5C11DE004CE4A6 /* FavoriteButton.swift in Sources */,
 				88D572072A5CF029005580EC /* HomeView.swift in Sources */,
