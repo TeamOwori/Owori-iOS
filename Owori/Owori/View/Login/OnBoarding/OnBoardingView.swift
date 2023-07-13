@@ -10,19 +10,19 @@ import SwiftUI
 
 struct OnBoardingView: View {
     
-//    // MARK: PROPERITES
-//
-//    //프로퍼티 지정ㅇ -> TitleName필요, BodyName필요
-//    //폰트컬러,버튼컬러 다 필요
-//    //이미지 받을 배열
-//    //페이지 탭 뷰 -> for each
-//
-//    let TitleName: String
-//    let BodyName: String
-//    let fontColor: Color
-//    let buttonColor: Color
-//
-
+    //    // MARK: PROPERITES
+    //
+    //    //프로퍼티 지정ㅇ -> TitleName필요, BodyName필요
+    //    //폰트컬러,버튼컬러 다 필요
+    //    //이미지 받을 배열
+    //    //페이지 탭 뷰 -> for each
+    //
+    //    let TitleName: String
+    //    let BodyName: String
+    //    let fontColor: Color
+    //    let buttonColor: Color
+    //
+    
     
     
     //title index
@@ -38,7 +38,7 @@ struct OnBoardingView: View {
     
     //Image index
     private var indexOfImage: Int = 1
-    private var images: [String] = ["K1","K2","K3"]
+    private var images: [String] = ["TestImage1","TestImage2","TestImage3"]
     @State private var imageIndex: Int = 0
     
     var body: some View{
@@ -71,9 +71,12 @@ struct OnBoardingView: View {
             }
             .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
         }
+        
+        HStack(alignment: .center, spacing: 0) {
             
-            HStack(alignment: .center, spacing: 0) {
-                // Title
+            Button(action: {
+                // 로그인 버튼 클릭 시 실행될 액션
+            }) {
                 Text("로그인 하기")
                     .font(
                         Font.custom("Pretendard", size: 20)
@@ -81,10 +84,11 @@ struct OnBoardingView: View {
                     )
                     .foregroundColor(.white)
             }
-            .frame(width: UIScreen.main.bounds.width, height: 52)
-            .background(Color(red: 0.98, green: 0.48, blue: 0.33))
         }
+        .frame(width: UIScreen.main.bounds.width, height: 52)
+        .background(Color(red: 0.98, green: 0.48, blue: 0.33))
     }
+}
 
 struct OnBoardingView_Previews: PreviewProvider {
     static var previews: some View {

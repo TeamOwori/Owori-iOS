@@ -55,9 +55,6 @@ struct LoginView: View {
                 
             }
             
-            
-            
-            
             Text("소셜로그인으로 가입시 이용약관 및 개인정보처리방침에 동의합니다.")
                 .font(
                     Font.custom("Pretendard", size: 11)

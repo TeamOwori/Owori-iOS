@@ -12,6 +12,10 @@
 		350A42BA2A5BEAF6004B3F50 /* OnBoardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 350A42B92A5BEAF6004B3F50 /* OnBoardingView.swift */; };
 		350A42BF2A5E8BAE004B3F50 /* LoginTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 350A42BE2A5E8BAE004B3F50 /* LoginTabView.swift */; };
 		350A42C12A5E93B1004B3F50 /* NumberIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 350A42C02A5E93B1004B3F50 /* NumberIndicator.swift */; };
+		350A42C62A5E9E5F004B3F50 /* MyPageProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 350A42C52A5E9E5F004B3F50 /* MyPageProfile.swift */; };
+		3525C4EA2A6020AD005B4BB4 /* MyPageProfileInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3525C4E92A6020AD005B4BB4 /* MyPageProfileInfo.swift */; };
+		3525C4EC2A60352D005B4BB4 /* MyPageStoryInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3525C4EB2A60352D005B4BB4 /* MyPageStoryInfo.swift */; };
+		3525C4EE2A603BBE005B4BB4 /* MyPageProfilePhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3525C4ED2A603BBE005B4BB4 /* MyPageProfilePhoto.swift */; };
 		88D572052A5CF029005580EC /* FamilyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88D571FB2A5CF029005580EC /* FamilyView.swift */; };
 		88D572062A5CF029005580EC /* FamilyPhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88D571FC2A5CF029005580EC /* FamilyPhoto.swift */; };
 		88D572072A5CF029005580EC /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88D571FD2A5CF029005580EC /* HomeView.swift */; };
@@ -76,6 +80,10 @@
 		350A42B92A5BEAF6004B3F50 /* OnBoardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingView.swift; sourceTree = "<group>"; };
 		350A42BE2A5E8BAE004B3F50 /* LoginTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginTabView.swift; sourceTree = "<group>"; };
 		350A42C02A5E93B1004B3F50 /* NumberIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberIndicator.swift; sourceTree = "<group>"; };
+		350A42C52A5E9E5F004B3F50 /* MyPageProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageProfile.swift; sourceTree = "<group>"; };
+		3525C4E92A6020AD005B4BB4 /* MyPageProfileInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageProfileInfo.swift; sourceTree = "<group>"; };
+		3525C4EB2A60352D005B4BB4 /* MyPageStoryInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageStoryInfo.swift; sourceTree = "<group>"; };
+		3525C4ED2A603BBE005B4BB4 /* MyPageProfilePhoto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageProfilePhoto.swift; sourceTree = "<group>"; };
 		88D571FB2A5CF029005580EC /* FamilyView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FamilyView.swift; sourceTree = "<group>"; };
 		88D571FC2A5CF029005580EC /* FamilyPhoto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FamilyPhoto.swift; sourceTree = "<group>"; };
 		88D571FD2A5CF029005580EC /* HomeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -179,6 +187,17 @@
 				350A42C02A5E93B1004B3F50 /* NumberIndicator.swift */,
 			);
 			path = LoginTabView;
+			sourceTree = "<group>";
+		};
+		350A42C32A5E9D3C004B3F50 /* MyPage */ = {
+			isa = PBXGroup;
+			children = (
+				350A42C52A5E9E5F004B3F50 /* MyPageProfile.swift */,
+				3525C4E92A6020AD005B4BB4 /* MyPageProfileInfo.swift */,
+				3525C4EB2A60352D005B4BB4 /* MyPageStoryInfo.swift */,
+				3525C4ED2A603BBE005B4BB4 /* MyPageProfilePhoto.swift */,
+			);
+			path = MyPage;
 			sourceTree = "<group>";
 		};
 		88D571F92A5CF029005580EC /* Home */ = {
@@ -308,6 +327,7 @@
 		F3BC638A2A52D5DC00999F54 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				350A42C32A5E9D3C004B3F50 /* MyPage */,
 				88D571F92A5CF029005580EC /* Home */,
 				350A42B02A5BDEAB004B3F50 /* Login */,
 				F3BC63B62A53261300999F54 /* Story */,
@@ -506,6 +526,7 @@
 			files = (
 				F3ECF1D22A5BF023004CE4A6 /* DetailImageCell.swift in Sources */,
 				F3BC63D12A5345DC00999F54 /* AlbumListButton.swift in Sources */,
+				3525C4EA2A6020AD005B4BB4 /* MyPageProfileInfo.swift in Sources */,
 				88D5720B2A5CF029005580EC /* DDayView.swift in Sources */,
 				88D572082A5CF029005580EC /* ProfileView.swift in Sources */,
 				F3DCCD302A55F0F6007B55A2 /* Color+Extension.swift in Sources */,
@@ -519,9 +540,11 @@
 				350A42B32A5BDEBD004B3F50 /* LoginButton.swift in Sources */,
 				88D5720A2A5CF029005580EC /* ProfileText.swift in Sources */,
 				F3BC63C82A5333CB00999F54 /* DailyStoryListCell.swift in Sources */,
+				3525C4EE2A603BBE005B4BB4 /* MyPageProfilePhoto.swift in Sources */,
 				88D572052A5CF029005580EC /* FamilyView.swift in Sources */,
 				F3BC63BF2A53268600999F54 /* String+Extension.swift in Sources */,
 				F3DCCD332A56006A007B55A2 /* SortMenu.swift in Sources */,
+				350A42C62A5E9E5F004B3F50 /* MyPageProfile.swift in Sources */,
 				F3BC635E2A52C6AE00999F54 /* ContentView.swift in Sources */,
 				F3B93DD82A570A0D0074B9AD /* ImageTabView.swift in Sources */,
 				350A42C12A5E93B1004B3F50 /* NumberIndicator.swift in Sources */,
@@ -532,6 +555,7 @@
 				F37221E32A549F3C004F2E5A /* Image+Extension.swift in Sources */,
 				F3BC63CF2A53449700999F54 /* StoryView.swift in Sources */,
 				F3BC63C42A532B0400999F54 /* StoryAlbumView.swift in Sources */,
+				3525C4EC2A60352D005B4BB4 /* MyPageStoryInfo.swift in Sources */,
 				350A42B52A5BDED0004B3F50 /* LoginView.swift in Sources */,
 				F3BC63C62A532CB300999F54 /* DailyStoryText.swift in Sources */,
 				F3BC63BC2A53266900999F54 /* MonthlyStoryCollection.swift in Sources */,
