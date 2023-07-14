@@ -71,6 +71,12 @@ struct LoginTestView: View {
             } label: {
                 Text("Delete Member")
             }
+            Button {
+                userViewModel.initUser(userInfo: [ "nickname" : "owori",
+                                                   "birth_day" : "2023-07-14"])
+            } label: {
+                Text("Init Profile")
+            }
 
             //로그아웃
             HStack(alignment: .center, spacing: 15) {
