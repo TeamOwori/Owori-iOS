@@ -64,6 +64,11 @@ struct LoginTestView: View {
             } label: {
                 Text("Create Story")
             }
+            Button {
+                userViewModel.refreshingToken()
+            } label: {
+                Text("Refreshing Token")
+            }
 
             //로그아웃
             HStack(alignment: .center, spacing: 15) {
