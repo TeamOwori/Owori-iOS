@@ -47,7 +47,7 @@ class StoryViewModel: ObservableObject {
         var urlRequest = URLRequest(url: url)
         urlRequest.httpMethod = "POST"
         urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        urlRequest.setValue(user.jwt_token?.access_token, forHTTPHeaderField: "Authorization")
+        urlRequest.setValue("Bearer " + (user.jwt_token?.access_token)!, forHTTPHeaderField: "Authorization")
         urlRequest.setValue(user.member_id, forHTTPHeaderField: "memberId")
         urlRequest.httpBody = sendData
         

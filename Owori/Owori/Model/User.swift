@@ -11,6 +11,7 @@ import Foundation
 struct User: Codable {
     var member_id: String?
     var jwt_token: JwtToken?
+    var member_profile: Profile?
     
     init() {
         self.member_id = ""
@@ -35,6 +36,21 @@ struct User: Codable {
         init(access_token: String, refresh_token: String) {
             self.access_token = access_token
             self.refresh_token = refresh_token
+        }
+    }
+    
+    struct Profile: Codable {
+        var nickname: String?
+        var birth_day: String?
+        
+        init() {
+            self.nickname = ""
+            self.birth_day = ""
+        }
+        
+        init(nickname: String, birth_day: String) {
+            self.nickname = nickname
+            self.birth_day = birth_day
         }
     }
 }

@@ -22,9 +22,6 @@ struct LoginTestView: View {
     
     
     var body: some View {
-        
-        
-        
         VStack {
             // 로그인
             HStack(alignment: .center, spacing: 15) {
@@ -64,6 +61,22 @@ struct LoginTestView: View {
             } label: {
                 Text("Create Story")
             }
+            Button {
+                userViewModel.refreshingToken()
+            } label: {
+                Text("Refreshing Token")
+            }
+            Button {
+                userViewModel.deleteMember()
+            } label: {
+                Text("Delete Member")
+            }
+            Button {
+                userViewModel.initUser(userInfo: [ "nickname" : "owori",
+                                                   "birth_day" : "2023-07-14"])
+            } label: {
+                Text("Init Profile")
+            }
 
             //로그아웃
             HStack(alignment: .center, spacing: 15) {
@@ -79,14 +92,12 @@ struct LoginTestView: View {
                         .frame(maxWidth: .infinity, minHeight: 18, maxHeight: 18, alignment: .top)
                         .foregroundColor(fontColor)
                 }
-
             }
             .padding(20)
             .frame(width: 300, height: 44, alignment: .leading)
             .background(buttonColor)
             .cornerRadius(12)
         }
-        
     }
 }
 
