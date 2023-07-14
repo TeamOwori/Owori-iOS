@@ -171,5 +171,4 @@ class LoginViewModel: ObservableObject {
     }
     // MARK: 애플 로그인 관련 FUNCTIONS
     
-    
 }

@@ -9,43 +9,31 @@ import Foundation
 
 
 struct User: Codable {
-    var memberId: String
-    var jwtToken: OworiToken
-    
-    // 디코딩을 위한 열거형 추가 (디코딩 시 변수명 변경)
-    enum CodingKeys: String, CodingKey {
-            case memberId = "member_id"
-            case jwtToken = "jwt_token"
-        }
+    var member_id: String
+    var jwt_token: JwtToken
     
     init() {
-        self.memberId = ""
-        self.jwtToken = OworiToken()
+        self.member_id = ""
+        self.jwt_token = JwtToken()
     }
     
-    init(memberId: String, jwtToken: OworiToken) {
-        self.memberId = memberId
-        self.jwtToken = jwtToken
+    init(member_id: String, jwt_token: JwtToken) {
+        self.member_id = member_id
+        self.jwt_token = jwt_token
     }
     
-    struct OworiToken: Codable {
-        var accessToken: String
-        var refreshToken: String
+    struct JwtToken: Codable {
+        var access_token: String
+        var refresh_token: String
     
-        // 디코딩을 위한 열거형 추가 (디코딩 시 변수명 변경)
-        enum CodingKeys: String, CodingKey {
-                    case accessToken = "access_token"
-                    case refreshToken = "refresh_token"
-                }
-        
         init() {
-            self.accessToken = ""
-            self.refreshToken = ""
+            self.access_token = ""
+            self.refresh_token = ""
         }
         
-        init(accessToken: String, refreshToken: String) {
-            self.accessToken = accessToken
-            self.refreshToken = refreshToken
+        init(access_token: String, refresh_token: String) {
+            self.access_token = access_token
+            self.refresh_token = refresh_token
         }
     }
 }
