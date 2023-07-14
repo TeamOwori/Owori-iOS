@@ -16,6 +16,7 @@ struct LoginTestView: View {
     let buttonColor: Color = .yellow
     
     @StateObject var loginViewModel: LoginViewModel = LoginViewModel()
+    @StateObject var userViewModel: UserViewModel = UserViewModel()
     
     
     
@@ -27,7 +28,7 @@ struct LoginTestView: View {
             // 로그인
             HStack(alignment: .center, spacing: 15) {
                 Button {
-                    loginViewModel.kakaoLogin()
+                    loginViewModel.kakaoLogin(oworiUser: userViewModel.user)
                 } label: {
                     Text("\(buttonName)")
                         .font(
@@ -47,7 +48,7 @@ struct LoginTestView: View {
             
             Text("\(loginViewModel.kakaoUser?.kakaoAccount?.profile?.nickname ?? "nil")")
             Button {
-                loginViewModel.joinMember()
+                userViewModel.joinMember(socialToken: loginViewModel.socialToken)
             } label: {
                 Text("Join Member")
             }
