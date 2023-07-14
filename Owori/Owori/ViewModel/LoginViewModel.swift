@@ -229,9 +229,9 @@ class LoginViewModel: ObservableObject {
                     self.user = try decoder.decode(User.self, from: data)
                     
                     // User 구조체에 할당된 데이터 사용 (테스트 log)
-                    print("Member ID: \(self.user.memberId)")
-                    print("Access Token: \(self.user.jwtToken.accessToken)")
-                    print("Refresh Token: \(self.user.jwtToken.refreshToken)")
+                    print("Member ID: \(self.user.member_id)")
+                    print("Access Token: \(self.user.jwt_token.access_token)")
+                    print("Refresh Token: \(self.user.jwt_token.refresh_token)")
                 } catch {
                     print("Error: Failed to parse JSON data - \(error)")
                 }
