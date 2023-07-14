@@ -14,7 +14,7 @@ struct ProfileView: View {
     
     var body: some View {
         HStack(spacing: 16) {
-            ForEach(0..<familyCount) { _ in
+            ForEach(0..<familyCount, id: \.self) { _ in
                 ProfilePhoto()
             }
         }

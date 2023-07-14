@@ -3,14 +3,21 @@
 //  Owori
 //
 //  Created by 드즈 on 2023/07/06.
-//
+//  Copyright © 2022 Oscar R. Garrucho. All rights reserved.
 
 import SwiftUI
 
 struct FamilyView: View {
+    //@StateObject var cardModel = CardModel()
+    @StateObject var carouselViewModel = CarouselViewModel() // 임시 ViewModel
+    
     var body: some View {
-        FamilyPhoto()
-//            .padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
+        ZStack {
+            //Text("Active card is \(carouselViewModel.activeCard)")
+            FamilyCarousel()
+                .environmentObject(carouselViewModel.stateModel) // 임시 ViewModel
+        }
+        .frame(height: 135)
     }
 }
 
