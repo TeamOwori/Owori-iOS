@@ -45,7 +45,12 @@ struct LoginTestView: View {
             .background(buttonColor)
             .cornerRadius(12)
             
-            Text("\(loginViewModel.testUser?.kakaoAccount?.profile?.nickname ?? "nil")")
+            Text("\(loginViewModel.kakaoUser?.kakaoAccount?.profile?.nickname ?? "nil")")
+            Button {
+                loginViewModel.joinMember()
+            } label: {
+                Text("Join Member")
+            }
 
             //로그아웃
             HStack(alignment: .center, spacing: 15) {
