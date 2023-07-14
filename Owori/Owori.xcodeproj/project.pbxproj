@@ -40,7 +40,7 @@
 		F3BC63772A52C6B000999F54 /* OworiUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3BC63762A52C6B000999F54 /* OworiUITests.swift */; };
 		F3BC63792A52C6B000999F54 /* OworiUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3BC63782A52C6B000999F54 /* OworiUITestsLaunchTests.swift */; };
 		F3BC63942A52DCE100999F54 /* TestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3BC63932A52DCE100999F54 /* TestModel.swift */; };
-		F3BC63962A52DCF400999F54 /* TestViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3BC63952A52DCF400999F54 /* TestViewModel.swift */; };
+		F3BC63962A52DCF400999F54 /* StoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3BC63952A52DCF400999F54 /* StoryViewModel.swift */; };
 		F3BC63B92A53261F00999F54 /* DailyStoryImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3BC63B82A53261F00999F54 /* DailyStoryImageCell.swift */; };
 		F3BC63BC2A53266900999F54 /* MonthlyStoryCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3BC63BB2A53266900999F54 /* MonthlyStoryCollection.swift */; };
 		F3BC63BF2A53268600999F54 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3BC63BE2A53268600999F54 /* String+Extension.swift */; };
@@ -50,6 +50,13 @@
 		F3BC63CA2A533A6400999F54 /* StoryListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3BC63C92A533A6400999F54 /* StoryListView.swift */; };
 		F3BC63CF2A53449700999F54 /* StoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3BC63CE2A53449700999F54 /* StoryView.swift */; };
 		F3BC63D12A5345DC00999F54 /* AlbumListButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3BC63D02A5345DC00999F54 /* AlbumListButton.swift */; };
+		F3BE38592A6003BE00C2B66F /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3BE38582A6003BE00C2B66F /* LoginViewModel.swift */; };
+		F3BE385C2A60048B00C2B66F /* KakaoSDK in Frameworks */ = {isa = PBXBuildFile; productRef = F3BE385B2A60048B00C2B66F /* KakaoSDK */; };
+		F3BE385E2A600DDD00C2B66F /* LoginTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3BE385D2A600DDD00C2B66F /* LoginTestView.swift */; };
+		F3BE38612A60893B00C2B66F /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3BE38602A60893B00C2B66F /* Token.swift */; };
+		F3BE38632A60944400C2B66F /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3BE38622A60944400C2B66F /* User.swift */; };
+		F3C786EC2A612708004281FA /* Story.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C786EB2A612708004281FA /* Story.swift */; };
+		F3C786EE2A6144CE004281FA /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C786ED2A6144CE004281FA /* UserViewModel.swift */; };
 		F3DCCD302A55F0F6007B55A2 /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3DCCD2F2A55F0F6007B55A2 /* Color+Extension.swift */; };
 		F3DCCD332A56006A007B55A2 /* SortMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3DCCD322A56006A007B55A2 /* SortMenu.swift */; };
 		F3DEBE4C2A5D847D00375B8D /* View+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3DEBE4B2A5D847D00375B8D /* View+Extension.swift */; };
@@ -114,7 +121,7 @@
 		F3BC63762A52C6B000999F54 /* OworiUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OworiUITests.swift; sourceTree = "<group>"; };
 		F3BC63782A52C6B000999F54 /* OworiUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OworiUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		F3BC63932A52DCE100999F54 /* TestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestModel.swift; sourceTree = "<group>"; };
-		F3BC63952A52DCF400999F54 /* TestViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewModel.swift; sourceTree = "<group>"; };
+		F3BC63952A52DCF400999F54 /* StoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryViewModel.swift; sourceTree = "<group>"; };
 		F3BC63B82A53261F00999F54 /* DailyStoryImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyStoryImageCell.swift; sourceTree = "<group>"; };
 		F3BC63BB2A53266900999F54 /* MonthlyStoryCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthlyStoryCollection.swift; sourceTree = "<group>"; };
 		F3BC63BE2A53268600999F54 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
@@ -124,6 +131,13 @@
 		F3BC63C92A533A6400999F54 /* StoryListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryListView.swift; sourceTree = "<group>"; };
 		F3BC63CE2A53449700999F54 /* StoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryView.swift; sourceTree = "<group>"; };
 		F3BC63D02A5345DC00999F54 /* AlbumListButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumListButton.swift; sourceTree = "<group>"; };
+		F3BE38582A6003BE00C2B66F /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		F3BE385D2A600DDD00C2B66F /* LoginTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginTestView.swift; sourceTree = "<group>"; };
+		F3BE385F2A601B8E00C2B66F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		F3BE38602A60893B00C2B66F /* Token.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
+		F3BE38622A60944400C2B66F /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		F3C786EB2A612708004281FA /* Story.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Story.swift; sourceTree = "<group>"; };
+		F3C786ED2A6144CE004281FA /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
 		F3DCCD2F2A55F0F6007B55A2 /* Color+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
 		F3DCCD322A56006A007B55A2 /* SortMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortMenu.swift; sourceTree = "<group>"; };
 		F3DEBE4B2A5D847D00375B8D /* View+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extension.swift"; sourceTree = "<group>"; };
@@ -139,6 +153,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F3BE385C2A60048B00C2B66F /* KakaoSDK in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -166,6 +181,7 @@
 				350A42B62A5BE898004B3F50 /* OnBoarding */,
 				350A42B12A5BDEB1004B3F50 /* Helper */,
 				350A42B42A5BDED0004B3F50 /* LoginView.swift */,
+				F3BE385D2A600DDD00C2B66F /* LoginTestView.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -295,6 +311,7 @@
 		F3BC635A2A52C6AE00999F54 /* Owori */ = {
 			isa = PBXGroup;
 			children = (
+				F3BE385F2A601B8E00C2B66F /* Info.plist */,
 				F3BC63BD2A53267A00999F54 /* Extension */,
 				F3BC635B2A52C6AE00999F54 /* OworiApp.swift */,
 				F3BC63922A52DCD400999F54 /* Model */,
@@ -345,8 +362,9 @@
 		F3BC63912A52DCC900999F54 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				F3BC63952A52DCF400999F54 /* TestViewModel.swift */,
-				8886DAAB2A619A9300525BA0 /* CarouselViewModel.swift */,
+				F3BC63952A52DCF400999F54 /* StoryViewModel.swift */,
+				F3BE38582A6003BE00C2B66F /* LoginViewModel.swift */,
+				F3C786ED2A6144CE004281FA /* UserViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -355,8 +373,9 @@
 			isa = PBXGroup;
 			children = (
 				F3BC63932A52DCE100999F54 /* TestModel.swift */,
-				8886DAAD2A619B2900525BA0 /* CardModel.swift */,
-				8886DAAF2A619B4300525BA0 /* UIStateModel.swift */,
+				F3BE38602A60893B00C2B66F /* Token.swift */,
+				F3BE38622A60944400C2B66F /* User.swift */,
+				F3C786EB2A612708004281FA /* Story.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -419,6 +438,9 @@
 			dependencies = (
 			);
 			name = Owori;
+			packageProductDependencies = (
+				F3BE385B2A60048B00C2B66F /* KakaoSDK */,
+			);
 			productName = Owori;
 			productReference = F3BC63582A52C6AE00999F54 /* Owori.app */;
 			productType = "com.apple.product-type.application";
@@ -491,6 +513,9 @@
 				Base,
 			);
 			mainGroup = F3BC634F2A52C6AE00999F54;
+			packageReferences = (
+				F3BE385A2A60048B00C2B66F /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */,
+			);
 			productRefGroup = F3BC63592A52C6AE00999F54 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -543,6 +568,7 @@
 				8886DAB32A619B9200525BA0 /* Carousel.swift in Sources */,
 				88D572092A5CF029005580EC /* ProfilePhoto.swift in Sources */,
 				F3BC63942A52DCE100999F54 /* TestModel.swift in Sources */,
+				F3BE385E2A600DDD00C2B66F /* LoginTestView.swift in Sources */,
 				F3B93DDA2A5716880074B9AD /* CurrentImageOrder.swift in Sources */,
 				F3ECF1D82A5C185D004CE4A6 /* DetailContent.swift in Sources */,
 				350A42BA2A5BEAF6004B3F50 /* OnBoardingView.swift in Sources */,
@@ -566,6 +592,7 @@
 				F37221E32A549F3C004F2E5A /* Image+Extension.swift in Sources */,
 				F3BC63CF2A53449700999F54 /* StoryView.swift in Sources */,
 				F3BC63C42A532B0400999F54 /* StoryAlbumView.swift in Sources */,
+				F3BE38592A6003BE00C2B66F /* LoginViewModel.swift in Sources */,
 				350A42B52A5BDED0004B3F50 /* LoginView.swift in Sources */,
 				8886DAAC2A619A9300525BA0 /* CarouselViewModel.swift in Sources */,
 				F3BC63C62A532CB300999F54 /* DailyStoryText.swift in Sources */,
@@ -574,11 +601,15 @@
 				8886DAB02A619B4300525BA0 /* UIStateModel.swift in Sources */,
 				F3B93DD52A56FCE10074B9AD /* StoryDetailView.swift in Sources */,
 				F3A57ABC2A5BCF4E00880FDC /* HorizontalImageScrollView.swift in Sources */,
-				F3BC63962A52DCF400999F54 /* TestViewModel.swift in Sources */,
+				F3BC63962A52DCF400999F54 /* StoryViewModel.swift in Sources */,
 				F3BC635C2A52C6AE00999F54 /* OworiApp.swift in Sources */,
 				F3DEBE502A5DC98A00375B8D /* ContentText.swift in Sources */,
+				F3BE38612A60893B00C2B66F /* Token.swift in Sources */,
 				88D572062A5CF029005580EC /* FamilyPhoto.swift in Sources */,
 				88D5720C2A5CF029005580EC /* DDayCard.swift in Sources */,
+				F3BE38632A60944400C2B66F /* User.swift in Sources */,
+				F3C786EE2A6144CE004281FA /* UserViewModel.swift in Sources */,
+				F3C786EC2A612708004281FA /* Story.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -740,6 +771,7 @@
 				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Owori/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -769,6 +801,7 @@
 				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Owori/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -899,6 +932,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		F3BE385A2A60048B00C2B66F /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kakao/kakao-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		F3BE385B2A60048B00C2B66F /* KakaoSDK */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F3BE385A2A60048B00C2B66F /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */;
+			productName = KakaoSDK;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = F3BC63502A52C6AE00999F54 /* Project object */;
 }
