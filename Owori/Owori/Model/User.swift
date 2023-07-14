@@ -9,8 +9,8 @@ import Foundation
 
 
 struct User: Codable {
-    var member_id: String
-    var jwt_token: JwtToken
+    var member_id: String?
+    var jwt_token: JwtToken?
     
     init() {
         self.member_id = ""
@@ -23,8 +23,9 @@ struct User: Codable {
     }
     
     struct JwtToken: Codable {
-        var access_token: String
-        var refresh_token: String
+        var access_token: String?
+        var refresh_token: String?
+        var auth_provider: String?
     
         init() {
             self.access_token = ""

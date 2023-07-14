@@ -8,26 +8,25 @@
 import Foundation
 
 struct Story: Codable {
-    var Stories: [StoryInfo] = []
+    var stories: [StoryInfo] = []
 }
 
 extension Story {
     struct StoryInfo: Codable, Identifiable {
-        var id: Int
-        var is_liked: Bool
-        var images: [String]
-        var title: String
-        var writer: String
-        var contents: String
-        var comments: [Comment]
-        var heart_cnt: Int
-        var comment_cnt: Int
-        var start_date: String
-        var end_date: String
+        var id: UUID?
+        var is_liked: Bool?
+        var images: [String]?
+        var title: String?
+        var writer: String?
+        var contents: String?
+        var comments: [Comment]?
+        var heart_cnt: Int?
+        var comment_cnt: Int?
+        var start_date: String?
+        var end_date: String?
 
         // 기본 init
         init() {
-            self.id = 0
             self.is_liked = false
             self.images = []
             self.title = ""
@@ -41,7 +40,7 @@ extension Story {
         }
         
         init(id: UUID, is_liked: Bool, images: [String], title: String, writer: String, contents: String, comments: [Comment], heart_cnt: Int, comment_cnt: Int, start_date: String, end_date: String) {
-            self.id = 0
+            self.id = id
             self.is_liked = false
             self.images = images
             self.title = title
@@ -58,10 +57,10 @@ extension Story {
 
 extension Story.StoryInfo {
     struct Comment: Codable {
-        var parent_comment_id: Int
-        var comment_id: Int
-        var comment: String
-        var writer: String
-        var time_before_writing: String
+        var parent_comment_id: Int?
+        var comment_id: Int?
+        var comment: String?
+        var writer: String?
+        var time_before_writing: String?
     }
 }

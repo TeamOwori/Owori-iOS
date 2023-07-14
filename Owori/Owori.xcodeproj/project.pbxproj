@@ -33,7 +33,7 @@
 		F3BC63772A52C6B000999F54 /* OworiUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3BC63762A52C6B000999F54 /* OworiUITests.swift */; };
 		F3BC63792A52C6B000999F54 /* OworiUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3BC63782A52C6B000999F54 /* OworiUITestsLaunchTests.swift */; };
 		F3BC63942A52DCE100999F54 /* TestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3BC63932A52DCE100999F54 /* TestModel.swift */; };
-		F3BC63962A52DCF400999F54 /* TestViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3BC63952A52DCF400999F54 /* TestViewModel.swift */; };
+		F3BC63962A52DCF400999F54 /* StoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3BC63952A52DCF400999F54 /* StoryViewModel.swift */; };
 		F3BC63B92A53261F00999F54 /* DailyStoryImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3BC63B82A53261F00999F54 /* DailyStoryImageCell.swift */; };
 		F3BC63BC2A53266900999F54 /* MonthlyStoryCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3BC63BB2A53266900999F54 /* MonthlyStoryCollection.swift */; };
 		F3BC63BF2A53268600999F54 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3BC63BE2A53268600999F54 /* String+Extension.swift */; };
@@ -107,7 +107,7 @@
 		F3BC63762A52C6B000999F54 /* OworiUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OworiUITests.swift; sourceTree = "<group>"; };
 		F3BC63782A52C6B000999F54 /* OworiUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OworiUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		F3BC63932A52DCE100999F54 /* TestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestModel.swift; sourceTree = "<group>"; };
-		F3BC63952A52DCF400999F54 /* TestViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewModel.swift; sourceTree = "<group>"; };
+		F3BC63952A52DCF400999F54 /* StoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryViewModel.swift; sourceTree = "<group>"; };
 		F3BC63B82A53261F00999F54 /* DailyStoryImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyStoryImageCell.swift; sourceTree = "<group>"; };
 		F3BC63BB2A53266900999F54 /* MonthlyStoryCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthlyStoryCollection.swift; sourceTree = "<group>"; };
 		F3BC63BE2A53268600999F54 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
@@ -336,7 +336,7 @@
 		F3BC63912A52DCC900999F54 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				F3BC63952A52DCF400999F54 /* TestViewModel.swift */,
+				F3BC63952A52DCF400999F54 /* StoryViewModel.swift */,
 				F3BE38582A6003BE00C2B66F /* LoginViewModel.swift */,
 				F3C786ED2A6144CE004281FA /* UserViewModel.swift */,
 			);
@@ -568,7 +568,7 @@
 				F3DEBE4E2A5DC43F00375B8D /* ContentTitle.swift in Sources */,
 				F3B93DD52A56FCE10074B9AD /* StoryDetailView.swift in Sources */,
 				F3A57ABC2A5BCF4E00880FDC /* HorizontalImageScrollView.swift in Sources */,
-				F3BC63962A52DCF400999F54 /* TestViewModel.swift in Sources */,
+				F3BC63962A52DCF400999F54 /* StoryViewModel.swift in Sources */,
 				F3BC635C2A52C6AE00999F54 /* OworiApp.swift in Sources */,
 				F3DEBE502A5DC98A00375B8D /* ContentText.swift in Sources */,
 				F3BE38612A60893B00C2B66F /* Token.swift in Sources */,
