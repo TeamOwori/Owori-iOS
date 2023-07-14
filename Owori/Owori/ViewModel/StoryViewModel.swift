@@ -1,18 +1,30 @@
 //
-//  UserViewModel.swift
+//  StoryViewModel.swift
 //  Owori
 //
 //  Created by Kyungsoo Lee on 2023/07/14.
 //
 
 import SwiftUI
+import Foundation
 
-class UserViewModel: ObservableObject {
-    @Published var user: User = User()
+fileprivate enum OworiAPI {
+    static let scheme = "http"
+    static let host = "localhost:8080"
     
-    // MARK: 오월이 API FUNCTIONS
-    func joinMember(socialToken: Token) {
-        guard let sendData = try? JSONSerialization.data(withJSONObject: ["token": socialToken.accessToken, "auth_provider": socialToken.authProvider], options: []) else { return }
+    enum Path: String {
+        case stories = "api/v1/stories"
+    }
+}
+
+class StoryViewModel: ObservableObject {
+    
+    // MARK: Story 관련 PROPERTIES
+    @Published var storyModel: Story = Story()
+    
+    // MARK: Story API FUNCTIONS (POST)
+    func createStory(user: User, storyInfo: [String: Any]) {
+        guard let sendData = try? JSONSerialization.data(withJSONObject: storyInfo, options: []) else { return }
         
         // 요청을 보낼 API의 url 설정
         // 배포 후 url 설정
@@ -26,15 +38,17 @@ class UserViewModel: ObservableObject {
         //        }
         
         // 배포 이전 고정 url 설정 (추후 삭제 예정)
-        let url = URL(string: "http://localhost:8080/api/v1/members")!
+        let url = URL(string: "http://localhost:8080/api/v1/stories")!
         
         // url 테스트 log
-        print("[joinMember url Log : ]\(url)")
+        print("[createStory url Log] : \(url)")
         
         // urlRequeset에 함께 담을 header, body 설정
         var urlRequest = URLRequest(url: url)
         urlRequest.httpMethod = "POST"
         urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        urlRequest.setValue(user.jwt_token?.access_token, forHTTPHeaderField: "Authorization")
+        urlRequest.setValue(user.member_id, forHTTPHeaderField: "memberId")
         urlRequest.httpBody = sendData
         
         // 요청
@@ -61,25 +75,21 @@ class UserViewModel: ObservableObject {
                 return
             }
             
-            // User를 @Published로 선언했기 때문에 background thread에서 main thread로 업데이트를 전달해야 한다.
+            // Story를 @Published로 선언했기 때문에 background thread에서 main thread로 업데이트를 전달해야 한다.
             // 그래서 DispatchQueue.main.async 사용.
             DispatchQueue.main.async {
                 // JSON 데이터를 파싱하여 User 구조체에 할당
                 do {
                     let decoder = JSONDecoder()
-                    self.user = try decoder.decode(User.self, from: data)
-                    self.user.jwt_token?.access_token = "Bearer " + (self.user.jwt_token?.access_token ?? "")
-                    self.user.jwt_token?.auth_provider = socialToken.authProvider
+                    self.storyModel.stories.append(try decoder.decode(Story.StoryInfo.self, from: data))
                     
                     // User 구조체에 할당된 데이터 사용 (테스트 log)
-                    print("Member ID: \(String(describing: self.user.member_id))")
-                    print("Access Token: \(String(describing: self.user.jwt_token?.access_token))")
-                    print("Refresh Token: \(String(describing: self.user.jwt_token?.refresh_token))")
-                    print("Auth Provider: \(self.user.jwt_token?.auth_provider ?? "Empty Provider")")
+                    print("[Story Model Log]: \(self.storyModel)")
                 } catch {
                     print("Error: Failed to parse JSON data - \(error)")
                 }
             }
+            print("[Create Story Log]: \(jsonDictionary)")
         }.resume()
     }
 }

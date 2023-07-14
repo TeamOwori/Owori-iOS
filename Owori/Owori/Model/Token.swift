@@ -8,9 +8,9 @@
 import Foundation
 
 struct Token: Codable {
-    var authProvider: String
-    var accessToken: String
-    var refreshToken: String
+    var authProvider: String?
+    var accessToken: String?
+    var refreshToken: String?
     
     init() {
         self.authProvider = ""
