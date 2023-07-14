@@ -165,4 +165,58 @@ class UserViewModel: ObservableObject {
             }
         }.resume()
     }
+    
+    // MARK: 오월이 API FUNCTIONS (DELETE)
+    func deleteMember() {
+        
+        // 요청을 보낼 API의 url 설정
+        // 배포 후 url 설정
+        //        var urlComponents = URLComponents()
+        //        urlComponents.scheme = OworiAPI.scheme
+        //        urlComponents.host = OworiAPI.host
+        //        urlComponents.path = OworiAPI.Path.joinMember.rawValue
+        //        guard let url = urlComponents.url else {
+        //            print("Error: cannot create URL")
+        //            return
+        //        }
+        
+        // 배포 이전 고정 url 설정 (추후 삭제 예정)
+        let url = URL(string: "http://localhost:8080/api/v1/members")!
+        
+        // url 테스트 log
+        print("[delete Member url Log : ]\(url)")
+        
+        // urlRequeset에 함께 담을 header, body 설정
+        var urlRequest = URLRequest(url: url)
+        urlRequest.httpMethod = "DELETE"
+        urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        urlRequest.setValue("Bearer " + (self.user.jwt_token?.access_token)!, forHTTPHeaderField: "Authorization")
+        urlRequest.setValue(self.user.member_id, forHTTPHeaderField: "memberId")
+        
+        // 요청
+        URLSession.shared.dataTask(with: urlRequest) { (data, response, error) in
+            print(response)
+            guard error == nil else {
+                print("Error: error calling GET")
+                print(error!)
+                return
+            }
+            guard let data = data else {
+                print("Error: Did not receive data")
+                return
+            }
+            guard let response = response else {
+                print("Error: response error")
+                return
+            }
+//            guard let jsonDictionary = try? JSONSerialization.jsonObject(with: Data(data), options: []) as? [String: Any] else {
+//                print("Error: convert failed json to dictionary")
+//                return
+//            }
+            guard let response = response as? HTTPURLResponse, (200 ..< 300) ~= response.statusCode else {
+                print("Error: HTTP request failed")
+                return
+            }
+        }.resume()
+    }
 }
