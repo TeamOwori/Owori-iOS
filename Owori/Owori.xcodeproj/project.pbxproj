@@ -13,9 +13,6 @@
 		350A42BF2A5E8BAE004B3F50 /* LoginTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 350A42BE2A5E8BAE004B3F50 /* LoginTabView.swift */; };
 		350A42C12A5E93B1004B3F50 /* NumberIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 350A42C02A5E93B1004B3F50 /* NumberIndicator.swift */; };
 		8886DAAA2A619A2D00525BA0 /* FamilyCarousel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8886DAA92A619A2D00525BA0 /* FamilyCarousel.swift */; };
-		8886DAAC2A619A9300525BA0 /* CarouselViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8886DAAB2A619A9300525BA0 /* CarouselViewModel.swift */; };
-		8886DAAE2A619B2900525BA0 /* CardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8886DAAD2A619B2900525BA0 /* CardModel.swift */; };
-		8886DAB02A619B4300525BA0 /* UIStateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8886DAAF2A619B4300525BA0 /* UIStateModel.swift */; };
 		8886DAB32A619B9200525BA0 /* Carousel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8886DAB22A619B9200525BA0 /* Carousel.swift */; };
 		8886DAB52A619BE600525BA0 /* Canvas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8886DAB42A619BE600525BA0 /* Canvas.swift */; };
 		8886DAB72A619C0600525BA0 /* FamilyPhotoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8886DAB62A619C0600525BA0 /* FamilyPhotoItem.swift */; };
@@ -28,6 +25,9 @@
 		88D5720B2A5CF029005580EC /* DDayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88D572032A5CF029005580EC /* DDayView.swift */; };
 		88D5720C2A5CF029005580EC /* DDayCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88D572042A5CF029005580EC /* DDayCard.swift */; };
 		F37221E32A549F3C004F2E5A /* Image+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37221E22A549F3C004F2E5A /* Image+Extension.swift */; };
+		F3A558542A62FF6400527CE9 /* CarouselViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A558532A62FF6400527CE9 /* CarouselViewModel.swift */; };
+		F3A558562A62FF7B00527CE9 /* UIStateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A558552A62FF7B00527CE9 /* UIStateModel.swift */; };
+		F3A558582A62FFDC00527CE9 /* CardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A558572A62FFDC00527CE9 /* CardModel.swift */; };
 		F3A57ABC2A5BCF4E00880FDC /* HorizontalImageScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A57ABB2A5BCF4E00880FDC /* HorizontalImageScrollView.swift */; };
 		F3B93DD52A56FCE10074B9AD /* StoryDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3B93DD42A56FCE10074B9AD /* StoryDetailView.swift */; };
 		F3B93DD82A570A0D0074B9AD /* ImageTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3B93DD72A570A0D0074B9AD /* ImageTabView.swift */; };
@@ -91,9 +91,6 @@
 		350A42BE2A5E8BAE004B3F50 /* LoginTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginTabView.swift; sourceTree = "<group>"; };
 		350A42C02A5E93B1004B3F50 /* NumberIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberIndicator.swift; sourceTree = "<group>"; };
 		8886DAA92A619A2D00525BA0 /* FamilyCarousel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FamilyCarousel.swift; sourceTree = "<group>"; };
-		8886DAAB2A619A9300525BA0 /* CarouselViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselViewModel.swift; sourceTree = "<group>"; };
-		8886DAAD2A619B2900525BA0 /* CardModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardModel.swift; sourceTree = "<group>"; };
-		8886DAAF2A619B4300525BA0 /* UIStateModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIStateModel.swift; sourceTree = "<group>"; };
 		8886DAB22A619B9200525BA0 /* Carousel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Carousel.swift; sourceTree = "<group>"; };
 		8886DAB42A619BE600525BA0 /* Canvas.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Canvas.swift; sourceTree = "<group>"; };
 		8886DAB62A619C0600525BA0 /* FamilyPhotoItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FamilyPhotoItem.swift; sourceTree = "<group>"; };
@@ -106,18 +103,21 @@
 		88D572032A5CF029005580EC /* DDayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DDayView.swift; sourceTree = "<group>"; };
 		88D572042A5CF029005580EC /* DDayCard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DDayCard.swift; sourceTree = "<group>"; };
 		F37221E22A549F3C004F2E5A /* Image+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Image+Extension.swift"; sourceTree = "<group>"; };
+		F3A558532A62FF6400527CE9 /* CarouselViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarouselViewModel.swift; sourceTree = "<group>"; };
+		F3A558552A62FF7B00527CE9 /* UIStateModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIStateModel.swift; sourceTree = "<group>"; };
+		F3A558572A62FFDC00527CE9 /* CardModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardModel.swift; sourceTree = "<group>"; };
 		F3A57ABB2A5BCF4E00880FDC /* HorizontalImageScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalImageScrollView.swift; sourceTree = "<group>"; };
 		F3B93DD42A56FCE10074B9AD /* StoryDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryDetailView.swift; sourceTree = "<group>"; };
 		F3B93DD72A570A0D0074B9AD /* ImageTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageTabView.swift; sourceTree = "<group>"; };
 		F3B93DD92A5716880074B9AD /* CurrentImageOrder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentImageOrder.swift; sourceTree = "<group>"; };
-		F3BC63582A52C6AE00999F54 /* Owori.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Owori.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F3BC63582A52C6AE00999F54 /* Owori.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = Owori.app; path = "/Users/kyungsoolee/Git Repositories/Owori-iOS/Owori/build/Debug-iphoneos/Owori.app"; sourceTree = "<absolute>"; };
 		F3BC635B2A52C6AE00999F54 /* OworiApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OworiApp.swift; sourceTree = "<group>"; };
 		F3BC635D2A52C6AE00999F54 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		F3BC635F2A52C6AF00999F54 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F3BC63622A52C6AF00999F54 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		F3BC63682A52C6B000999F54 /* OworiTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OworiTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F3BC63682A52C6B000999F54 /* OworiTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = OworiTests.xctest; path = "/Users/kyungsoolee/Git Repositories/Owori-iOS/Owori/build/Debug-iphoneos/OworiTests.xctest"; sourceTree = "<absolute>"; };
 		F3BC636C2A52C6B000999F54 /* OworiTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OworiTests.swift; sourceTree = "<group>"; };
-		F3BC63722A52C6B000999F54 /* OworiUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OworiUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F3BC63722A52C6B000999F54 /* OworiUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = OworiUITests.xctest; path = "/Users/kyungsoolee/Git Repositories/Owori-iOS/Owori/build/Debug-iphoneos/OworiUITests.xctest"; sourceTree = "<absolute>"; };
 		F3BC63762A52C6B000999F54 /* OworiUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OworiUITests.swift; sourceTree = "<group>"; };
 		F3BC63782A52C6B000999F54 /* OworiUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OworiUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		F3BC63932A52DCE100999F54 /* TestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestModel.swift; sourceTree = "<group>"; };
@@ -294,18 +294,7 @@
 				F3BC635A2A52C6AE00999F54 /* Owori */,
 				F3BC636B2A52C6B000999F54 /* OworiTests */,
 				F3BC63752A52C6B000999F54 /* OworiUITests */,
-				F3BC63592A52C6AE00999F54 /* Products */,
 			);
-			sourceTree = "<group>";
-		};
-		F3BC63592A52C6AE00999F54 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				F3BC63582A52C6AE00999F54 /* Owori.app */,
-				F3BC63682A52C6B000999F54 /* OworiTests.xctest */,
-				F3BC63722A52C6B000999F54 /* OworiUITests.xctest */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 		F3BC635A2A52C6AE00999F54 /* Owori */ = {
@@ -362,6 +351,7 @@
 		F3BC63912A52DCC900999F54 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				F3A558532A62FF6400527CE9 /* CarouselViewModel.swift */,
 				F3BC63952A52DCF400999F54 /* StoryViewModel.swift */,
 				F3BE38582A6003BE00C2B66F /* LoginViewModel.swift */,
 				F3C786ED2A6144CE004281FA /* UserViewModel.swift */,
@@ -372,8 +362,10 @@
 		F3BC63922A52DCD400999F54 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				F3A558552A62FF7B00527CE9 /* UIStateModel.swift */,
 				F3BC63932A52DCE100999F54 /* TestModel.swift */,
 				F3BE38602A60893B00C2B66F /* Token.swift */,
+				F3A558572A62FFDC00527CE9 /* CardModel.swift */,
 				F3BE38622A60944400C2B66F /* User.swift */,
 				F3C786EB2A612708004281FA /* Story.swift */,
 			);
@@ -516,7 +508,7 @@
 			packageReferences = (
 				F3BE385A2A60048B00C2B66F /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */,
 			);
-			productRefGroup = F3BC63592A52C6AE00999F54 /* Products */;
+			productRefGroup = F3BC634F2A52C6AE00999F54;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
@@ -563,6 +555,8 @@
 				88D5720B2A5CF029005580EC /* DDayView.swift in Sources */,
 				88D572082A5CF029005580EC /* ProfileView.swift in Sources */,
 				F3DCCD302A55F0F6007B55A2 /* Color+Extension.swift in Sources */,
+				F3A558582A62FFDC00527CE9 /* CardModel.swift in Sources */,
+				F3A558562A62FF7B00527CE9 /* UIStateModel.swift in Sources */,
 				F3BC63CA2A533A6400999F54 /* StoryListView.swift in Sources */,
 				F3DEBE4C2A5D847D00375B8D /* View+Extension.swift in Sources */,
 				8886DAB32A619B9200525BA0 /* Carousel.swift in Sources */,
@@ -578,7 +572,6 @@
 				F3BC63C82A5333CB00999F54 /* DailyStoryListCell.swift in Sources */,
 				8886DAAA2A619A2D00525BA0 /* FamilyCarousel.swift in Sources */,
 				88D572052A5CF029005580EC /* FamilyView.swift in Sources */,
-				8886DAAE2A619B2900525BA0 /* CardModel.swift in Sources */,
 				F3BC63BF2A53268600999F54 /* String+Extension.swift in Sources */,
 				F3DCCD332A56006A007B55A2 /* SortMenu.swift in Sources */,
 				F3BC635E2A52C6AE00999F54 /* ContentView.swift in Sources */,
@@ -594,11 +587,9 @@
 				F3BC63C42A532B0400999F54 /* StoryAlbumView.swift in Sources */,
 				F3BE38592A6003BE00C2B66F /* LoginViewModel.swift in Sources */,
 				350A42B52A5BDED0004B3F50 /* LoginView.swift in Sources */,
-				8886DAAC2A619A9300525BA0 /* CarouselViewModel.swift in Sources */,
 				F3BC63C62A532CB300999F54 /* DailyStoryText.swift in Sources */,
 				F3BC63BC2A53266900999F54 /* MonthlyStoryCollection.swift in Sources */,
 				F3DEBE4E2A5DC43F00375B8D /* ContentTitle.swift in Sources */,
-				8886DAB02A619B4300525BA0 /* UIStateModel.swift in Sources */,
 				F3B93DD52A56FCE10074B9AD /* StoryDetailView.swift in Sources */,
 				F3A57ABC2A5BCF4E00880FDC /* HorizontalImageScrollView.swift in Sources */,
 				F3BC63962A52DCF400999F54 /* StoryViewModel.swift in Sources */,
@@ -609,6 +600,7 @@
 				88D5720C2A5CF029005580EC /* DDayCard.swift in Sources */,
 				F3BE38632A60944400C2B66F /* User.swift in Sources */,
 				F3C786EE2A6144CE004281FA /* UserViewModel.swift in Sources */,
+				F3A558542A62FF6400527CE9 /* CarouselViewModel.swift in Sources */,
 				F3C786EC2A612708004281FA /* Story.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
