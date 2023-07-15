@@ -77,13 +77,13 @@ struct LoginTestView: View {
             } label: {
                 Text("Init Profile")
             }
-            Button {
-                userViewModel.updateProfile(userInfo: [ "nickname" : "owori",
-                                                        "birth_day" : "2023-07-14",
-                                                        "color" : "GREEN"])
-            } label: {
-                Text("Update Member")
-            }
+//            Button {
+//                userViewModel.updateProfile(userInfo: [ "nickname" : "owori",
+//                                                        "birth_day" : "2023-07-14",
+//                                                        "color" : "GREEN"])
+//            } label: {
+//                Text("Update Member")
+//            }
 
             //로그아웃
             HStack(alignment: .center, spacing: 15) {
