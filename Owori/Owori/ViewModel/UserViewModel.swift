@@ -21,6 +21,8 @@ class UserViewModel: ObservableObject {
     @Published var user: User = User()
     
     // MARK: 오월이 API FUNCTIONS (Post)
+    
+    // 멤버 홈화면 조회
     func joinMember(socialToken: Token) {
         guard let sendData = try? JSONSerialization.data(withJSONObject: ["token": socialToken.accessToken, "auth_provider": socialToken.authProvider], options: []) else { return }
         
@@ -133,14 +135,60 @@ class UserViewModel: ObservableObject {
             }
             
             // Test Log
-            self.user.member_profile = User.Profile(nickname: userInfo["nickname"] as! String, birth_day: userInfo["birth_day"] as! String)
+            self.user.member_profile = User.Profile(nickname: userInfo["nickname"] as! String, birthday: userInfo["birthday"] as! String)
             print(self.user)
             
         }.resume()
     }
     
+    func updateEmotionalBadge(body: [String: Any]) {
+        guard let sendData = try? JSONSerialization.data(withJSONObject: body, options: []) else { return }
+        
+        // 요청을 보낼 API의 url 설정
+        // 배포 후 url 설정
+        //        var urlComponents = URLComponents()
+        //        urlComponents.scheme = OworiAPI.scheme
+        //        urlComponents.host = OworiAPI.host
+        //        urlComponents.path = OworiAPI.Path.joinMember.rawValue
+        //        guard let url = urlComponents.url else {
+        //            print("Error: cannot create URL")
+        //            return
+        //        }
+        
+        // 배포 이전 고정 url 설정 (추후 삭제 예정)
+        let url = URL(string: "http://localhost:8080/api/v1/members/emotional-badge")!
+        
+        // url 테스트 log
+        print("[init User url Log]: \(url)")
+        
+        // urlRequeset에 함께 담을 header, body 설정
+        var urlRequest = URLRequest(url: url)
+        urlRequest.httpMethod = "POST"
+        urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        urlRequest.setValue(self.user.member_id, forHTTPHeaderField: "memberId")
+        urlRequest.setValue("Bearer " + (self.user.jwt_token?.access_token)!, forHTTPHeaderField: "Authorization")
+        urlRequest.httpBody = sendData
+        
+        // 요청
+        URLSession.shared.dataTask(with: urlRequest) { (data, response, error) in
+            guard error == nil else {
+                print("Error: error calling GET")
+                print(error!)
+                return
+            }
+            guard let data = data else {
+                print("Error: Did not receive data")
+                return
+            }
+            guard let response = response as? HTTPURLResponse, (200 ..< 300) ~= response.statusCode else {
+                print("Error: HTTP request failed")
+                return
+            }
+        }.resume()
+    }
     
-//    // 포스트맨에서 다시 테스트 후 구현해볼 것. (현재 안됨.)
+    
+//    // 멤버 프로필 업데이트
 //    func updateProfile(userInfo: [String: Any]) {
 //        guard let sendData = try? JSONSerialization.data(withJSONObject: userInfo, options: []) else { return }
 //
