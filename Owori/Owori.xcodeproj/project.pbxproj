@@ -54,9 +54,6 @@
 		F3BE38632A60944400C2B66F /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3BE38622A60944400C2B66F /* User.swift */; };
 		F3C786EC2A612708004281FA /* Story.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C786EB2A612708004281FA /* Story.swift */; };
 		F3C786EE2A6144CE004281FA /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C786ED2A6144CE004281FA /* UserViewModel.swift */; };
-		F3CCE4452A668E18001CBB8A /* OworiUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3CCE4412A668E18001CBB8A /* OworiUITestsLaunchTests.swift */; };
-		F3CCE4462A668E18001CBB8A /* OworiUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3CCE4422A668E18001CBB8A /* OworiUITests.swift */; };
-		F3CCE4472A668E18001CBB8A /* OworiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3CCE4442A668E18001CBB8A /* OworiTests.swift */; };
 		F3CCE4492A66EF3B001CBB8A /* Family.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3CCE4482A66EF3B001CBB8A /* Family.swift */; };
 		F3DCCD302A55F0F6007B55A2 /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3DCCD2F2A55F0F6007B55A2 /* Color+Extension.swift */; };
 		F3DCCD332A56006A007B55A2 /* SortMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3DCCD322A56006A007B55A2 /* SortMenu.swift */; };
@@ -67,23 +64,6 @@
 		F3ECF1D62A5C11DE004CE4A6 /* FavoriteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3ECF1D52A5C11DE004CE4A6 /* FavoriteButton.swift */; };
 		F3ECF1D82A5C185D004CE4A6 /* DetailContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3ECF1D72A5C185D004CE4A6 /* DetailContent.swift */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		F3BC63692A52C6B000999F54 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = F3BC63502A52C6AE00999F54 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = F3BC63572A52C6AE00999F54;
-			remoteInfo = Owori;
-		};
-		F3BC63732A52C6B000999F54 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = F3BC63502A52C6AE00999F54 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = F3BC63572A52C6AE00999F54;
-			remoteInfo = Owori;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		350A42B22A5BDEBD004B3F50 /* LoginButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginButton.swift; sourceTree = "<group>"; };
@@ -133,13 +113,8 @@
 		F3BE38622A60944400C2B66F /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		F3C786EB2A612708004281FA /* Story.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Story.swift; sourceTree = "<group>"; };
 		F3C786ED2A6144CE004281FA /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
-		F3CCE4352A668963001CBB8A /* Owori.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = Owori.app; path = "/Users/kyungsoolee/Git Repositories/Owori-iOS/Owori/build/Debug-iphoneos/Owori.app"; sourceTree = "<absolute>"; };
-		F3CCE43E2A668DCF001CBB8A /* OworiTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = OworiTests.xctest; path = "/Users/kyungsoolee/Git Repositories/Owori-iOS/Owori/build/Debug-iphoneos/OworiTests.xctest"; sourceTree = "<absolute>"; };
-		F3CCE43F2A668DCF001CBB8A /* OworiUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = OworiUITests.xctest; path = "/Users/kyungsoolee/Git Repositories/Owori-iOS/Owori/build/Debug-iphoneos/OworiUITests.xctest"; sourceTree = "<absolute>"; };
-		F3CCE4412A668E18001CBB8A /* OworiUITestsLaunchTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OworiUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		F3CCE4422A668E18001CBB8A /* OworiUITests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OworiUITests.swift; sourceTree = "<group>"; };
-		F3CCE4442A668E18001CBB8A /* OworiTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OworiTests.swift; sourceTree = "<group>"; };
 		F3CCE4482A66EF3B001CBB8A /* Family.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Family.swift; sourceTree = "<group>"; };
+		F3CCE4692A66FBAB001CBB8A /* Owori.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = Owori.app; path = "/Users/kyungsoolee/Git Repositories/Owori-iOS/Owori/build/Debug-iphoneos/Owori.app"; sourceTree = "<absolute>"; };
 		F3DCCD2F2A55F0F6007B55A2 /* Color+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
 		F3DCCD322A56006A007B55A2 /* SortMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortMenu.swift; sourceTree = "<group>"; };
 		F3DEBE4B2A5D847D00375B8D /* View+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extension.swift"; sourceTree = "<group>"; };
@@ -156,20 +131,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				F3BE385C2A60048B00C2B66F /* KakaoSDK in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		F3BC63652A52C6B000999F54 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		F3BC636F2A52C6B000999F54 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -307,8 +268,6 @@
 				F3BC638A2A52D5DC00999F54 /* View */,
 				F3BC63912A52DCC900999F54 /* ViewModel */,
 				F3BC635F2A52C6AF00999F54 /* Assets.xcassets */,
-				F3CCE4432A668E18001CBB8A /* OworiTests */,
-				F3CCE4402A668E18001CBB8A /* OworiUITests */,
 				F3BC63612A52C6AF00999F54 /* Preview Content */,
 			);
 			path = Owori;
@@ -400,23 +359,6 @@
 			path = Extension;
 			sourceTree = "<group>";
 		};
-		F3CCE4402A668E18001CBB8A /* OworiUITests */ = {
-			isa = PBXGroup;
-			children = (
-				F3CCE4412A668E18001CBB8A /* OworiUITestsLaunchTests.swift */,
-				F3CCE4422A668E18001CBB8A /* OworiUITests.swift */,
-			);
-			path = OworiUITests;
-			sourceTree = SOURCE_ROOT;
-		};
-		F3CCE4432A668E18001CBB8A /* OworiTests */ = {
-			isa = PBXGroup;
-			children = (
-				F3CCE4442A668E18001CBB8A /* OworiTests.swift */,
-			);
-			path = OworiTests;
-			sourceTree = SOURCE_ROOT;
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -437,44 +379,8 @@
 				F3BE385B2A60048B00C2B66F /* KakaoSDK */,
 			);
 			productName = Owori;
-			productReference = F3CCE4352A668963001CBB8A /* Owori.app */;
+			productReference = F3CCE4692A66FBAB001CBB8A /* Owori.app */;
 			productType = "com.apple.product-type.application";
-		};
-		F3BC63672A52C6B000999F54 /* OworiTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = F3BC637F2A52C6B000999F54 /* Build configuration list for PBXNativeTarget "OworiTests" */;
-			buildPhases = (
-				F3BC63642A52C6B000999F54 /* Sources */,
-				F3BC63652A52C6B000999F54 /* Frameworks */,
-				F3BC63662A52C6B000999F54 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				F3BC636A2A52C6B000999F54 /* PBXTargetDependency */,
-			);
-			name = OworiTests;
-			productName = OworiTests;
-			productReference = F3CCE43E2A668DCF001CBB8A /* OworiTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		F3BC63712A52C6B000999F54 /* OworiUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = F3BC63822A52C6B000999F54 /* Build configuration list for PBXNativeTarget "OworiUITests" */;
-			buildPhases = (
-				F3BC636E2A52C6B000999F54 /* Sources */,
-				F3BC636F2A52C6B000999F54 /* Frameworks */,
-				F3BC63702A52C6B000999F54 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				F3BC63742A52C6B000999F54 /* PBXTargetDependency */,
-			);
-			name = OworiUITests;
-			productName = OworiUITests;
-			productReference = F3CCE43F2A668DCF001CBB8A /* OworiUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
 
@@ -488,14 +394,6 @@
 				TargetAttributes = {
 					F3BC63572A52C6AE00999F54 = {
 						CreatedOnToolsVersion = 14.3;
-					};
-					F3BC63672A52C6B000999F54 = {
-						CreatedOnToolsVersion = 14.3;
-						TestTargetID = F3BC63572A52C6AE00999F54;
-					};
-					F3BC63712A52C6B000999F54 = {
-						CreatedOnToolsVersion = 14.3;
-						TestTargetID = F3BC63572A52C6AE00999F54;
 					};
 				};
 			};
@@ -516,8 +414,6 @@
 			projectRoot = "";
 			targets = (
 				F3BC63572A52C6AE00999F54 /* Owori */,
-				F3BC63672A52C6B000999F54 /* OworiTests */,
-				F3BC63712A52C6B000999F54 /* OworiUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -532,20 +428,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		F3BC63662A52C6B000999F54 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		F3BC63702A52C6B000999F54 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -553,7 +435,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F3CCE4462A668E18001CBB8A /* OworiUITests.swift in Sources */,
 				F3ECF1D22A5BF023004CE4A6 /* DetailImageCell.swift in Sources */,
 				F3BC63D12A5345DC00999F54 /* AlbumListButton.swift in Sources */,
 				88D5720B2A5CF029005580EC /* DDayView.swift in Sources */,
@@ -570,7 +451,6 @@
 				F3B93DDA2A5716880074B9AD /* CurrentImageOrder.swift in Sources */,
 				F3ECF1D82A5C185D004CE4A6 /* DetailContent.swift in Sources */,
 				350A42BA2A5BEAF6004B3F50 /* OnBoardingView.swift in Sources */,
-				F3CCE4472A668E18001CBB8A /* OworiTests.swift in Sources */,
 				8886DAB72A619C0600525BA0 /* FamilyPhotoItem.swift in Sources */,
 				350A42B32A5BDEBD004B3F50 /* LoginButton.swift in Sources */,
 				88D5720A2A5CF029005580EC /* ProfileText.swift in Sources */,
@@ -582,7 +462,6 @@
 				F3DCCD332A56006A007B55A2 /* SortMenu.swift in Sources */,
 				F3BC635E2A52C6AE00999F54 /* ContentView.swift in Sources */,
 				F3B93DD82A570A0D0074B9AD /* ImageTabView.swift in Sources */,
-				F3CCE4452A668E18001CBB8A /* OworiUITestsLaunchTests.swift in Sources */,
 				8886DAB52A619BE600525BA0 /* Canvas.swift in Sources */,
 				350A42C12A5E93B1004B3F50 /* NumberIndicator.swift in Sources */,
 				350A42BF2A5E8BAE004B3F50 /* LoginTabView.swift in Sources */,
@@ -612,34 +491,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		F3BC63642A52C6B000999F54 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		F3BC636E2A52C6B000999F54 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		F3BC636A2A52C6B000999F54 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = F3BC63572A52C6AE00999F54 /* Owori */;
-			targetProxy = F3BC63692A52C6B000999F54 /* PBXContainerItemProxy */;
-		};
-		F3BC63742A52C6B000999F54 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = F3BC63572A52C6AE00999F54 /* Owori */;
-			targetProxy = F3BC63732A52C6B000999F54 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		F3BC637A2A52C6B000999F54 /* Debug */ = {
@@ -816,78 +668,6 @@
 			};
 			name = Release;
 		};
-		F3BC63802A52C6B000999F54 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.TeamOwori.OworiTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Owori.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Owori";
-			};
-			name = Debug;
-		};
-		F3BC63812A52C6B000999F54 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.TeamOwori.OworiTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Owori.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Owori";
-			};
-			name = Release;
-		};
-		F3BC63832A52C6B000999F54 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.TeamOwori.OworiUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = Owori;
-			};
-			name = Debug;
-		};
-		F3BC63842A52C6B000999F54 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.TeamOwori.OworiUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = Owori;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -905,24 +685,6 @@
 			buildConfigurations = (
 				F3BC637D2A52C6B000999F54 /* Debug */,
 				F3BC637E2A52C6B000999F54 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		F3BC637F2A52C6B000999F54 /* Build configuration list for PBXNativeTarget "OworiTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				F3BC63802A52C6B000999F54 /* Debug */,
-				F3BC63812A52C6B000999F54 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		F3BC63822A52C6B000999F54 /* Build configuration list for PBXNativeTarget "OworiUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				F3BC63832A52C6B000999F54 /* Debug */,
-				F3BC63842A52C6B000999F54 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
