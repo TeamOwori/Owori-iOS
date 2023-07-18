@@ -41,24 +41,33 @@ struct User: Codable {
     
     struct Profile: Codable {
         var nickname: String?
-        var birth_day: String?
+        var birthday: String?
         var color: String?
+        var emotionalBadge: String?
         
         init() {
             self.nickname = ""
-            self.birth_day = ""
+            self.birthday = ""
             self.color = ""
+            self.emotionalBadge = ""
         }
         
-        init(nickname: String, birth_day: String) {
+        init(nickname: String, birthday: String) {
             self.nickname = nickname
-            self.birth_day = birth_day
+            self.birthday = birthday
         }
         
-        init(nickname: String, birth_day: String, color: String) {
+        init(nickname: String, birthday: String, color: String) {
             self.nickname = nickname
-            self.birth_day = birth_day
+            self.birthday = birthday
             self.color = color
+        }
+        
+        init(nickname: String, birthday: String, color: String, emotionalBadge: String) {
+            self.nickname = nickname
+            self.birthday = birthday
+            self.color = color
+            self.emotionalBadge = emotionalBadge
         }
     }
 }
