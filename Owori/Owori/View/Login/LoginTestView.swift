@@ -18,6 +18,7 @@ struct LoginTestView: View {
     @StateObject var loginViewModel: LoginViewModel = LoginViewModel()
     @StateObject var userViewModel: UserViewModel = UserViewModel()
     @StateObject var storyViewModel: StoryViewModel = StoryViewModel()
+    @StateObject var familyViewModel: FamilyViewModel = FamilyViewModel()
     
     
     
@@ -61,22 +62,7 @@ struct LoginTestView: View {
             } label: {
                 Text("Create Story")
             }
-            Button {
-                userViewModel.refreshingToken()
-            } label: {
-                Text("Refreshing Token")
-            }
-            Button {
-                userViewModel.deleteMember()
-            } label: {
-                Text("Delete Member")
-            }
-            Button {
-                userViewModel.initUser(userInfo: [ "nickname" : "owori",
-                                                   "birthday" : "2023-07-14"])
-            } label: {
-                Text("Init Profile")
-            }
+            
             
             //            // 멤버 프로필 업데이트
             //            Button {
@@ -91,6 +77,19 @@ struct LoginTestView: View {
             } label: {
                 Text("Update EmotionalBadge")
             }
+            
+            Button {
+                familyViewModel.addFamilyMember(user: userViewModel.user, family_group_name: "owori")
+            } label: {
+                Text("Add FamilyMember")
+            }
+            
+            Button {
+                familyViewModel.addFamilyMemberInviteCode(user: userViewModel.user, invite_code: "길이가10인문장")
+            } label: {
+                Text("Add FamilyMemberInviteCode")
+            }
+            
             //로그아웃
             HStack(alignment: .center, spacing: 15) {
                 Button {

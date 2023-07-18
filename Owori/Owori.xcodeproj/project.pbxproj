@@ -55,6 +55,7 @@
 		F3C786EC2A612708004281FA /* Story.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C786EB2A612708004281FA /* Story.swift */; };
 		F3C786EE2A6144CE004281FA /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C786ED2A6144CE004281FA /* UserViewModel.swift */; };
 		F3CCE4492A66EF3B001CBB8A /* Family.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3CCE4482A66EF3B001CBB8A /* Family.swift */; };
+		F3CCE4782A66FE4D001CBB8A /* FamilyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3CCE4772A66FE4D001CBB8A /* FamilyViewModel.swift */; };
 		F3DCCD302A55F0F6007B55A2 /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3DCCD2F2A55F0F6007B55A2 /* Color+Extension.swift */; };
 		F3DCCD332A56006A007B55A2 /* SortMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3DCCD322A56006A007B55A2 /* SortMenu.swift */; };
 		F3DEBE4C2A5D847D00375B8D /* View+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3DEBE4B2A5D847D00375B8D /* View+Extension.swift */; };
@@ -114,7 +115,8 @@
 		F3C786EB2A612708004281FA /* Story.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Story.swift; sourceTree = "<group>"; };
 		F3C786ED2A6144CE004281FA /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
 		F3CCE4482A66EF3B001CBB8A /* Family.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Family.swift; sourceTree = "<group>"; };
-		F3CCE46F2A66FD60001CBB8A /* Owori.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = Owori.app; path = "/Users/kyungsoolee/Git Repositories/Owori-iOS/Owori/build/Debug-iphoneos/Owori.app"; sourceTree = "<absolute>"; };
+		F3CCE4762A66FE17001CBB8A /* Owori.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Owori.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F3CCE4772A66FE4D001CBB8A /* FamilyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FamilyViewModel.swift; sourceTree = "<group>"; };
 		F3DCCD2F2A55F0F6007B55A2 /* Color+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
 		F3DCCD322A56006A007B55A2 /* SortMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortMenu.swift; sourceTree = "<group>"; };
 		F3DEBE4B2A5D847D00375B8D /* View+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extension.swift"; sourceTree = "<group>"; };
@@ -255,6 +257,7 @@
 			isa = PBXGroup;
 			children = (
 				F3BC635A2A52C6AE00999F54 /* Owori */,
+				F3CCE4762A66FE17001CBB8A /* Owori.app */,
 			);
 			sourceTree = "<group>";
 		};
@@ -299,6 +302,7 @@
 				F3BC63952A52DCF400999F54 /* StoryViewModel.swift */,
 				F3BE38582A6003BE00C2B66F /* LoginViewModel.swift */,
 				F3C786ED2A6144CE004281FA /* UserViewModel.swift */,
+				F3CCE4772A66FE4D001CBB8A /* FamilyViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -379,7 +383,7 @@
 				F3BE385B2A60048B00C2B66F /* KakaoSDK */,
 			);
 			productName = Owori;
-			productReference = F3CCE46F2A66FD60001CBB8A /* Owori.app */;
+			productReference = F3CCE4762A66FE17001CBB8A /* Owori.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -469,6 +473,7 @@
 				F3ECF1D62A5C11DE004CE4A6 /* FavoriteButton.swift in Sources */,
 				88D572072A5CF029005580EC /* HomeView.swift in Sources */,
 				F37221E32A549F3C004F2E5A /* Image+Extension.swift in Sources */,
+				F3CCE4782A66FE4D001CBB8A /* FamilyViewModel.swift in Sources */,
 				F3BC63CF2A53449700999F54 /* StoryView.swift in Sources */,
 				F3BC63C42A532B0400999F54 /* StoryAlbumView.swift in Sources */,
 				F3BE38592A6003BE00C2B66F /* LoginViewModel.swift in Sources */,
