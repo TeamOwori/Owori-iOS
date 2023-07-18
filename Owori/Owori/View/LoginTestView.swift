@@ -72,11 +72,7 @@ struct LoginTestView: View {
             //            } label: {
             //                Text("Update Member")
             //            }
-            Button {
-                userViewModel.updateEmotionalBadge(body: ["emotional_badge": "HAPPY"])
-            } label: {
-                Text("Update EmotionalBadge")
-            }
+            
             
             Button {
                 familyViewModel.addFamilyMember(user: userViewModel.user, family_group_name: "owori")
@@ -88,6 +84,12 @@ struct LoginTestView: View {
                 familyViewModel.addFamilyMemberInviteCode(user: userViewModel.user, invite_code: "길이가10인문장")
             } label: {
                 Text("Add FamilyMemberInviteCode")
+            }
+            
+            Button {
+                familyViewModel.changeFamilyName(user: userViewModel.user, family_group_name: "우리가족")
+            } label: {
+                Text("Change FamilyName")
             }
             
             //로그아웃

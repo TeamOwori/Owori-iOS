@@ -241,8 +241,9 @@
 		F3430F3C2A67043200DC1B1C /* View */ = {
 			isa = PBXGroup;
 			children = (
-				F3430F3D2A67043200DC1B1C /* Home */,
 				F3430F4E2A67043200DC1B1C /* ContentView.swift */,
+				F3430F512A67043200DC1B1C /* LoginTestView.swift */,
+				F3430F3D2A67043200DC1B1C /* Home */,
 				F3430F4F2A67043200DC1B1C /* Login */,
 				F3430F592A67043200DC1B1C /* Story */,
 			);
@@ -304,7 +305,6 @@
 			isa = PBXGroup;
 			children = (
 				F3430F502A67043200DC1B1C /* LoginView.swift */,
-				F3430F512A67043200DC1B1C /* LoginTestView.swift */,
 				F3430F522A67043200DC1B1C /* LoginTabView */,
 				F3430F552A67043200DC1B1C /* Helper */,
 				F3430F572A67043200DC1B1C /* OnBoarding */,
