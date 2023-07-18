@@ -91,8 +91,6 @@ struct LoginTestView: View {
             } label: {
                 Text("Update EmotionalBadge")
             }
-            
-            
             //로그아웃
             HStack(alignment: .center, spacing: 15) {
                 Button {
