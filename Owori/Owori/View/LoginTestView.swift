@@ -81,15 +81,18 @@ struct LoginTestView: View {
             }
             
             Button {
-                familyViewModel.addFamilyMemberInviteCode(user: userViewModel.user, invite_code: "길이가10인문장")
+                userViewModel.initUser(userInfo: ["nickname" : "owori",
+                                                  "birthday" : "2023-07-17"])
             } label: {
-                Text("Add FamilyMemberInviteCode")
+                Text("Init User")
             }
             
             Button {
-                familyViewModel.changeFamilyName(user: userViewModel.user, family_group_name: "우리가족")
+                userViewModel.updateProfile(userInfo: ["nickname" : "오월이",
+                                                       "birthday" : "2023-07-17",
+                                                       "color" : "GREEN"])
             } label: {
-                Text("Change FamilyName")
+                Text("Update Profile")
             }
             
             //로그아웃
