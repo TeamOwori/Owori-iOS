@@ -114,7 +114,7 @@
 		F3C786EB2A612708004281FA /* Story.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Story.swift; sourceTree = "<group>"; };
 		F3C786ED2A6144CE004281FA /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
 		F3CCE4482A66EF3B001CBB8A /* Family.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Family.swift; sourceTree = "<group>"; };
-		F3CCE4692A66FBAB001CBB8A /* Owori.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = Owori.app; path = "/Users/kyungsoolee/Git Repositories/Owori-iOS/Owori/build/Debug-iphoneos/Owori.app"; sourceTree = "<absolute>"; };
+		F3CCE46F2A66FD60001CBB8A /* Owori.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = Owori.app; path = "/Users/kyungsoolee/Git Repositories/Owori-iOS/Owori/build/Debug-iphoneos/Owori.app"; sourceTree = "<absolute>"; };
 		F3DCCD2F2A55F0F6007B55A2 /* Color+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
 		F3DCCD322A56006A007B55A2 /* SortMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortMenu.swift; sourceTree = "<group>"; };
 		F3DEBE4B2A5D847D00375B8D /* View+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extension.swift"; sourceTree = "<group>"; };
@@ -379,7 +379,7 @@
 				F3BE385B2A60048B00C2B66F /* KakaoSDK */,
 			);
 			productName = Owori;
-			productReference = F3CCE4692A66FBAB001CBB8A /* Owori.app */;
+			productReference = F3CCE46F2A66FD60001CBB8A /* Owori.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
