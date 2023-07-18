@@ -77,14 +77,14 @@ class StoryViewModel: ObservableObject {
             
             // Story를 @Published로 선언했기 때문에 background thread에서 main thread로 업데이트를 전달해야 한다.
             // 그래서 DispatchQueue.main.async 사용.
-            DispatchQueue.main.async {
+            DispatchQueue.main.async { [weak self] in
                 // JSON 데이터를 파싱하여 User 구조체에 할당
                 do {
                     let decoder = JSONDecoder()
-                    self.storyModel.stories.append(try decoder.decode(Story.StoryInfo.self, from: data))
+                    self?.storyModel.stories.append(try decoder.decode(Story.StoryInfo.self, from: data))
                     
                     // User 구조체에 할당된 데이터 사용 (테스트 log)
-                    print("[Story Model Log]: \(self.storyModel)")
+                    print("[Story Model Log]: \(self?.storyModel)")
                 } catch {
                     print("Error: Failed to parse JSON data - \(error)")
                 }

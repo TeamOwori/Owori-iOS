@@ -31,7 +31,7 @@ class LoginViewModel: ObservableObject {
     
     // MARK: 기타 PROPERTIES
     @Published var isLoggedIn: Bool = false
-//    @Published var user: User = UserViewModel().user
+    //    @Published var user: User = UserViewModel().user
     @Published var socialToken: Token = Token()
     
     
@@ -155,17 +155,20 @@ class LoginViewModel: ObservableObject {
                     }
                 }
             }
-            // Test Log
-            // 추후 삭제 예정 코드 (user)
-            self.kakaoUser = user
-            print("[Kakao user test log] : \(String(describing: self.kakaoUser))")
             
-            guard let socialToken = self.kakaoToken else {
-                print("카카오 소셜 로그인 토큰이 정상적으로 발급되지 않았습니다.")
-                return
+            DispatchQueue.main.async { [weak self] in
+                // Test Log
+                // 추후 삭제 예정 코드 (user)
+                self?.kakaoUser = user
+                print("[Kakao user test log] : \(String(describing: self?.kakaoUser))")
+                
+                guard let socialToken = self?.kakaoToken else {
+                    print("카카오 소셜 로그인 토큰이 정상적으로 발급되지 않았습니다.")
+                    return
+                }
+                self?.socialToken = Token(authProvider: "KAKAO", accessToken: socialToken.accessToken, refreshToken: socialToken.refreshToken)
+                print("[Kakao token test log]\(self?.socialToken)")
             }
-            self.socialToken = Token(authProvider: "KAKAO", accessToken: socialToken.accessToken, refreshToken: socialToken.refreshToken)
-            print("[Kakao token test log]\(self.socialToken)")
             
         }
     }
