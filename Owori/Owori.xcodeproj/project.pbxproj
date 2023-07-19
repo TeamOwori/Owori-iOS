@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3580AFA32A6844DB00DC28F7 /* AppleLoginTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3580AFA22A6844DB00DC28F7 /* AppleLoginTestView.swift */; };
+		3580AFA52A68539700DC28F7 /* AppleLoginTestViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3580AFA42A68539700DC28F7 /* AppleLoginTestViewModel.swift */; };
 		F3430F0F2A6701AD00DC1B1C /* OworiApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3430F0E2A6701AD00DC1B1C /* OworiApp.swift */; };
 		F3430F132A6701AD00DC1B1C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F3430F122A6701AD00DC1B1C /* Assets.xcassets */; };
 		F3430F162A6701AD00DC1B1C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F3430F152A6701AD00DC1B1C /* Preview Assets.xcassets */; };
@@ -26,7 +28,6 @@
 		F3430F8C2A67043200DC1B1C /* DDayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3430F4A2A67043200DC1B1C /* DDayView.swift */; };
 		F3430F8D2A67043200DC1B1C /* Carousel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3430F4C2A67043200DC1B1C /* Carousel.swift */; };
 		F3430F8E2A67043200DC1B1C /* Canvas.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3430F4D2A67043200DC1B1C /* Canvas.swift */; };
-		F3430F8F2A67043200DC1B1C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3430F4E2A67043200DC1B1C /* ContentView.swift */; };
 		F3430F902A67043200DC1B1C /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3430F502A67043200DC1B1C /* LoginView.swift */; };
 		F3430F912A67043200DC1B1C /* LoginTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3430F512A67043200DC1B1C /* LoginTestView.swift */; };
 		F3430F922A67043200DC1B1C /* NumberIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3430F532A67043200DC1B1C /* NumberIndicator.swift */; };
@@ -87,6 +88,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3580AFA12A6841DE00DC28F7 /* Owori.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Owori.entitlements; sourceTree = "<group>"; };
+		3580AFA22A6844DB00DC28F7 /* AppleLoginTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleLoginTestView.swift; sourceTree = "<group>"; };
+		3580AFA42A68539700DC28F7 /* AppleLoginTestViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleLoginTestViewModel.swift; sourceTree = "<group>"; };
 		F3430F0B2A6701AD00DC1B1C /* Owori.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Owori.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F3430F0E2A6701AD00DC1B1C /* OworiApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OworiApp.swift; sourceTree = "<group>"; };
 		F3430F122A6701AD00DC1B1C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -109,7 +113,6 @@
 		F3430F4A2A67043200DC1B1C /* DDayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DDayView.swift; sourceTree = "<group>"; };
 		F3430F4C2A67043200DC1B1C /* Carousel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Carousel.swift; sourceTree = "<group>"; };
 		F3430F4D2A67043200DC1B1C /* Canvas.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Canvas.swift; sourceTree = "<group>"; };
-		F3430F4E2A67043200DC1B1C /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		F3430F502A67043200DC1B1C /* LoginView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		F3430F512A67043200DC1B1C /* LoginTestView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginTestView.swift; sourceTree = "<group>"; };
 		F3430F532A67043200DC1B1C /* NumberIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NumberIndicator.swift; sourceTree = "<group>"; };
@@ -201,6 +204,7 @@
 		F3430F0D2A6701AD00DC1B1C /* Owori */ = {
 			isa = PBXGroup;
 			children = (
+				3580AFA12A6841DE00DC28F7 /* Owori.entitlements */,
 				F3430F0E2A6701AD00DC1B1C /* OworiApp.swift */,
 				F3430F3B2A6702EB00DC1B1C /* Info.plist */,
 				F3430F7E2A67043200DC1B1C /* Extension */,
@@ -241,8 +245,8 @@
 		F3430F3C2A67043200DC1B1C /* View */ = {
 			isa = PBXGroup;
 			children = (
-				F3430F4E2A67043200DC1B1C /* ContentView.swift */,
 				F3430F512A67043200DC1B1C /* LoginTestView.swift */,
+				3580AFA22A6844DB00DC28F7 /* AppleLoginTestView.swift */,
 				F3430F3D2A67043200DC1B1C /* Home */,
 				F3430F4F2A67043200DC1B1C /* Login */,
 				F3430F592A67043200DC1B1C /* Story */,
@@ -416,6 +420,7 @@
 				F3430F7B2A67043200DC1B1C /* StoryViewModel.swift */,
 				F3430F7C2A67043200DC1B1C /* FamilyViewModel.swift */,
 				F3430F7D2A67043200DC1B1C /* CarouselViewModel.swift */,
+				3580AFA42A68539700DC28F7 /* AppleLoginTestViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -598,6 +603,7 @@
 				F3430F922A67043200DC1B1C /* NumberIndicator.swift in Sources */,
 				F3430F9C2A67043200DC1B1C /* ContentTitle.swift in Sources */,
 				F3430FB62A67043200DC1B1C /* Image+Extension.swift in Sources */,
+				3580AFA52A68539700DC28F7 /* AppleLoginTestViewModel.swift in Sources */,
 				F3430FB12A67043200DC1B1C /* StoryViewModel.swift in Sources */,
 				F3430FA62A67043200DC1B1C /* MonthlyStoryCollection.swift in Sources */,
 				F3430FA92A67043200DC1B1C /* Family.swift in Sources */,
@@ -609,7 +615,6 @@
 				F3430FA82A67043200DC1B1C /* TestModel.swift in Sources */,
 				F3430F972A67043200DC1B1C /* CurrentImageOrder.swift in Sources */,
 				F3430FAC2A67043200DC1B1C /* User.swift in Sources */,
-				F3430F8F2A67043200DC1B1C /* ContentView.swift in Sources */,
 				F3430FA32A67043200DC1B1C /* DailyStoryListCell.swift in Sources */,
 				F3430F832A67043200DC1B1C /* FamilyCarousel.swift in Sources */,
 				F3430F912A67043200DC1B1C /* LoginTestView.swift in Sources */,
@@ -621,6 +626,7 @@
 				F3430F902A67043200DC1B1C /* LoginView.swift in Sources */,
 				F3430F8B2A67043200DC1B1C /* DDayCard.swift in Sources */,
 				F3430FAD2A67043200DC1B1C /* Story.swift in Sources */,
+				3580AFA32A6844DB00DC28F7 /* AppleLoginTestView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -776,6 +782,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Owori/Owori.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Owori/Preview Content\"";
@@ -793,7 +800,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.TeamOwori.Owori;
+				PRODUCT_BUNDLE_IDENTIFIER = com.umcblue4th.Owori;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -806,6 +813,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Owori/Owori.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Owori/Preview Content\"";
@@ -823,7 +831,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.TeamOwori.Owori;
+				PRODUCT_BUNDLE_IDENTIFIER = com.umcblue4th.Owori;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;

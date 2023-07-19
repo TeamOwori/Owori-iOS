@@ -10,6 +10,7 @@ import Foundation
 import Combine
 import KakaoSDKAuth
 import KakaoSDKUser
+import AuthenticationServices
 
 fileprivate enum OworiAPI {
     static let scheme = "http"
@@ -27,7 +28,6 @@ class LoginViewModel: ObservableObject {
     @Published var kakaoToken:  OAuthToken?
     
     // MARK: 애플 로그인 관련 PROPERTIES
-    
     
     // MARK: 기타 PROPERTIES
     @Published var isLoggedIn: Bool = false
@@ -173,5 +173,8 @@ class LoginViewModel: ObservableObject {
         }
     }
     // MARK: 애플 로그인 관련 FUNCTIONS
+    
+    
+    
     
 }

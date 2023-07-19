@@ -20,8 +20,6 @@ struct LoginTestView: View {
     @StateObject var storyViewModel: StoryViewModel = StoryViewModel()
     @StateObject var familyViewModel: FamilyViewModel = FamilyViewModel()
     
-    
-    
     var body: some View {
         VStack {
             // 로그인

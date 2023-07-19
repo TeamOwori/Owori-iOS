@@ -18,12 +18,14 @@ struct OworiApp: App {
     var body: some Scene {
         
         WindowGroup {
-            LoginTestView()
-                .onOpenURL { url in
-                    if (AuthApi.isKakaoTalkLoginUrl(url)) {
-                        _ = AuthController.handleOpenUrl(url: url)
-                    }
-                }
+            AppleLoginTestView()
+//            LoginTestView()
+//                .onOpenURL { url in
+//                    if (AuthApi.isKakaoTalkLoginUrl(url)) {
+//                        _ = AuthController.handleOpenUrl(url: url)
+//                    }
+//                }
+
         }
     }
 }
