@@ -13,7 +13,7 @@ struct Story: Codable {
 
 extension Story {
     struct StoryInfo: Codable, Identifiable {
-        var id: UUID?
+        var id: String?
         var is_liked: Bool?
         var images: [String]?
         var title: String?
@@ -39,7 +39,7 @@ extension Story {
             self.end_date = ""
         }
         
-        init(id: UUID, is_liked: Bool, images: [String], title: String, writer: String, contents: String, comments: [Comment], heart_cnt: Int, comment_cnt: Int, start_date: String, end_date: String) {
+        init(id: String, is_liked: Bool, images: [String], title: String, writer: String, contents: String, comments: [Comment], heart_cnt: Int, comment_cnt: Int, start_date: String, end_date: String) {
             self.id = id
             self.is_liked = false
             self.images = images

@@ -88,11 +88,9 @@ struct LoginTestView: View {
             }
             
             Button {
-                userViewModel.updateProfile(userInfo: ["nickname" : "오월이",
-                                                       "birthday" : "2023-07-17",
-                                                       "color" : "GREEN"])
+                storyViewModel.toggleHeart(user: userViewModel.user, storyId: storyViewModel.testStoryId)
             } label: {
-                Text("Update Profile")
+                Text("Toggle Heart")
             }
             
             Button {
