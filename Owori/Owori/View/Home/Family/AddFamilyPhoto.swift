@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct AddFamilyPhoto: View {
-    @State private var text: String = ""
+    @State private var photoDescription: String = ""
     @State var photos: [PhotoInfo] = [
         PhotoInfo(name: "1"),
         PhotoInfo(name: "2"),
@@ -45,11 +45,11 @@ struct AddFamilyPhoto: View {
                                 .weight(.semibold)
                         )
                     VStack(alignment: .trailing, spacing: 12) {
-                        TextEditor(text: $text)
+                        TextEditor(text: $photoDescription)
                             .cornerRadius(12)
                             .frame(width: UIScreen.main.bounds.width * 0.7, height: UIScreen.main.bounds.height * 0.15)
                             //.background(Color.green)
-                        Text("\(text.count)/50")
+                        Text("\(photoDescription.count)/50")
                             .foregroundColor(.gray)
                     }
                     .padding(.horizontal, 16)
@@ -62,25 +62,28 @@ struct AddFamilyPhoto: View {
                     )
                 }
                 .padding(.bottom, 125)
-                ZStack {
-                    Rectangle()
-                        .cornerRadius(12)
-                        .frame(width: 295, height: 48)
-                        .foregroundColor(.gray)
-                        .padding(.horizontal, 116)
-                        .padding(.vertical, 11.5)
-                    Text("올리기")
-                        .font(
-                            Font.custom("Pretendard", size: 18)
-                                .weight(.semibold)
-                        )
-                        .foregroundColor(.primary)
+                Button {
+                    
+                } label: {
+                    ZStack {
+                        Rectangle()
+                            .cornerRadius(12)
+                            .frame(width: 295, height: 48)
+                            .foregroundColor(.gray)
+                            .padding(.horizontal, 116)
+                            .padding(.vertical, 11.5)
+                        Text("올리기")
+                            .font(
+                                Font.custom("Pretendard", size: 18)
+                                    .weight(.semibold)
+                            )
+                            .foregroundColor(.primary)
+                    }
                 }
             }
         }
         .navigationBarBackButtonHidden(true)
         .navigationBarItems(leading: BackButton())
-        .navigationTitle("사진 올리기")
     }
 }
 
