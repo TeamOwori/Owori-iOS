@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		3580AFA32A6844DB00DC28F7 /* AppleLoginTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3580AFA22A6844DB00DC28F7 /* AppleLoginTestView.swift */; };
 		3580AFA52A68539700DC28F7 /* AppleLoginTestViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3580AFA42A68539700DC28F7 /* AppleLoginTestViewModel.swift */; };
+		88834F3D2A68A1FF003B3F8C /* TabbarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88834F3C2A68A1FF003B3F8C /* TabbarView.swift */; };
 		F3430F0F2A6701AD00DC1B1C /* OworiApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3430F0E2A6701AD00DC1B1C /* OworiApp.swift */; };
 		F3430F132A6701AD00DC1B1C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F3430F122A6701AD00DC1B1C /* Assets.xcassets */; };
 		F3430F162A6701AD00DC1B1C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F3430F152A6701AD00DC1B1C /* Preview Assets.xcassets */; };
@@ -91,6 +92,7 @@
 		3580AFA12A6841DE00DC28F7 /* Owori.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Owori.entitlements; sourceTree = "<group>"; };
 		3580AFA22A6844DB00DC28F7 /* AppleLoginTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleLoginTestView.swift; sourceTree = "<group>"; };
 		3580AFA42A68539700DC28F7 /* AppleLoginTestViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleLoginTestViewModel.swift; sourceTree = "<group>"; };
+		88834F3C2A68A1FF003B3F8C /* TabbarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarView.swift; sourceTree = "<group>"; };
 		F3430F0B2A6701AD00DC1B1C /* Owori.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Owori.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F3430F0E2A6701AD00DC1B1C /* OworiApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OworiApp.swift; sourceTree = "<group>"; };
 		F3430F122A6701AD00DC1B1C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -181,6 +183,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		88834F3B2A68A1F0003B3F8C /* Tab */ = {
+			isa = PBXGroup;
+			children = (
+				88834F3C2A68A1FF003B3F8C /* TabbarView.swift */,
+			);
+			path = Tab;
+			sourceTree = "<group>";
+		};
 		F3430F022A6701AD00DC1B1C = {
 			isa = PBXGroup;
 			children = (
@@ -245,6 +255,7 @@
 		F3430F3C2A67043200DC1B1C /* View */ = {
 			isa = PBXGroup;
 			children = (
+				88834F3B2A68A1F0003B3F8C /* Tab */,
 				F3430F512A67043200DC1B1C /* LoginTestView.swift */,
 				3580AFA22A6844DB00DC28F7 /* AppleLoginTestView.swift */,
 				F3430F3D2A67043200DC1B1C /* Home */,
@@ -622,6 +633,7 @@
 				F3430F9A2A67043200DC1B1C /* ContentText.swift in Sources */,
 				F3430FA02A67043200DC1B1C /* DetailContent.swift in Sources */,
 				F3430FA42A67043200DC1B1C /* DailyStoryText.swift in Sources */,
+				88834F3D2A68A1FF003B3F8C /* TabbarView.swift in Sources */,
 				F3430F962A67043200DC1B1C /* DailyStoryImageCell.swift in Sources */,
 				F3430F902A67043200DC1B1C /* LoginView.swift in Sources */,
 				F3430F8B2A67043200DC1B1C /* DDayCard.swift in Sources */,
