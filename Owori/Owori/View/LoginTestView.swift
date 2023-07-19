@@ -95,6 +95,12 @@ struct LoginTestView: View {
                 Text("Update Profile")
             }
             
+            Button {
+                familyViewModel.LookupFamilyInfo(user: userViewModel.user)
+            } label: {
+                Text("Lookup Family")
+            }
+            
             //로그아웃
             HStack(alignment: .center, spacing: 15) {
                 Button {
