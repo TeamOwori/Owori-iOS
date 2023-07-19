@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		3580AFA32A6844DB00DC28F7 /* AppleLoginTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3580AFA22A6844DB00DC28F7 /* AppleLoginTestView.swift */; };
 		3580AFA52A68539700DC28F7 /* AppleLoginTestViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3580AFA42A68539700DC28F7 /* AppleLoginTestViewModel.swift */; };
+		88AA70352A68AA9D00254164 /* BackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88AA70342A68AA9D00254164 /* BackButton.swift */; };
+		88AA70372A68AB3300254164 /* AddFamilyPhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88AA70362A68AB3300254164 /* AddFamilyPhoto.swift */; };
+		88AA703B2A68AB6000254164 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88AA703A2A68AB6000254164 /* Home.swift */; };
 		F3430F0F2A6701AD00DC1B1C /* OworiApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3430F0E2A6701AD00DC1B1C /* OworiApp.swift */; };
 		F3430F132A6701AD00DC1B1C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F3430F122A6701AD00DC1B1C /* Assets.xcassets */; };
 		F3430F162A6701AD00DC1B1C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F3430F152A6701AD00DC1B1C /* Preview Assets.xcassets */; };
@@ -91,6 +94,9 @@
 		3580AFA12A6841DE00DC28F7 /* Owori.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Owori.entitlements; sourceTree = "<group>"; };
 		3580AFA22A6844DB00DC28F7 /* AppleLoginTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleLoginTestView.swift; sourceTree = "<group>"; };
 		3580AFA42A68539700DC28F7 /* AppleLoginTestViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleLoginTestViewModel.swift; sourceTree = "<group>"; };
+		88AA70342A68AA9D00254164 /* BackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackButton.swift; sourceTree = "<group>"; };
+		88AA70362A68AB3300254164 /* AddFamilyPhoto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFamilyPhoto.swift; sourceTree = "<group>"; };
+		88AA703A2A68AB6000254164 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
 		F3430F0B2A6701AD00DC1B1C /* Owori.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Owori.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F3430F0E2A6701AD00DC1B1C /* OworiApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OworiApp.swift; sourceTree = "<group>"; };
 		F3430F122A6701AD00DC1B1C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -273,6 +279,7 @@
 				F3430F402A67043200DC1B1C /* FamilyPhotoItem.swift */,
 				F3430F412A67043200DC1B1C /* FamilyView.swift */,
 				F3430F422A67043200DC1B1C /* FamilyPhoto.swift */,
+				88AA70362A68AB3300254164 /* AddFamilyPhoto.swift */,
 			);
 			path = Family;
 			sourceTree = "<group>";
@@ -301,6 +308,7 @@
 			children = (
 				F3430F4C2A67043200DC1B1C /* Carousel.swift */,
 				F3430F4D2A67043200DC1B1C /* Canvas.swift */,
+				88AA70342A68AA9D00254164 /* BackButton.swift */,
 			);
 			path = HomeHelper;
 			sourceTree = "<group>";
@@ -408,6 +416,7 @@
 				F3430F752A67043200DC1B1C /* User.swift */,
 				F3430F762A67043200DC1B1C /* Story.swift */,
 				F3430F772A67043200DC1B1C /* Token.swift */,
+				88AA703A2A68AB6000254164 /* Home.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -604,6 +613,7 @@
 				F3430F9C2A67043200DC1B1C /* ContentTitle.swift in Sources */,
 				F3430FB62A67043200DC1B1C /* Image+Extension.swift in Sources */,
 				3580AFA52A68539700DC28F7 /* AppleLoginTestViewModel.swift in Sources */,
+				88AA703B2A68AB6000254164 /* Home.swift in Sources */,
 				F3430FB12A67043200DC1B1C /* StoryViewModel.swift in Sources */,
 				F3430FA62A67043200DC1B1C /* MonthlyStoryCollection.swift in Sources */,
 				F3430FA92A67043200DC1B1C /* Family.swift in Sources */,
@@ -612,6 +622,7 @@
 				F3430FB52A67043200DC1B1C /* Color+Extension.swift in Sources */,
 				F3430F862A67043200DC1B1C /* FamilyPhoto.swift in Sources */,
 				F3430F0F2A6701AD00DC1B1C /* OworiApp.swift in Sources */,
+				88AA70352A68AA9D00254164 /* BackButton.swift in Sources */,
 				F3430FA82A67043200DC1B1C /* TestModel.swift in Sources */,
 				F3430F972A67043200DC1B1C /* CurrentImageOrder.swift in Sources */,
 				F3430FAC2A67043200DC1B1C /* User.swift in Sources */,
@@ -624,6 +635,7 @@
 				F3430FA42A67043200DC1B1C /* DailyStoryText.swift in Sources */,
 				F3430F962A67043200DC1B1C /* DailyStoryImageCell.swift in Sources */,
 				F3430F902A67043200DC1B1C /* LoginView.swift in Sources */,
+				88AA70372A68AB3300254164 /* AddFamilyPhoto.swift in Sources */,
 				F3430F8B2A67043200DC1B1C /* DDayCard.swift in Sources */,
 				F3430FAD2A67043200DC1B1C /* Story.swift in Sources */,
 				3580AFA32A6844DB00DC28F7 /* AppleLoginTestView.swift in Sources */,
