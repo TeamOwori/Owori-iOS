@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		883B47CD2A686C1D004C2D20 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883B47CC2A686C1D004C2D20 /* SettingView.swift */; };
+		883B47D22A686D17004C2D20 /* FamilyNameChangeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883B47D12A686D17004C2D20 /* FamilyNameChangeView.swift */; };
+		883B47D42A686D25004C2D20 /* InviteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883B47D32A686D25004C2D20 /* InviteView.swift */; };
+		883B47D62A686D44004C2D20 /* LogoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883B47D52A686D44004C2D20 /* LogoutView.swift */; };
+		883B47D82A686D90004C2D20 /* WithdrawalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883B47D72A686D90004C2D20 /* WithdrawalView.swift */; };
+		883B47DB2A686E36004C2D20 /* CustomToggle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883B47DA2A686E36004C2D20 /* CustomToggle.swift */; };
 		3580AFA32A6844DB00DC28F7 /* AppleLoginTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3580AFA22A6844DB00DC28F7 /* AppleLoginTestView.swift */; };
 		3580AFA52A68539700DC28F7 /* AppleLoginTestViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3580AFA42A68539700DC28F7 /* AppleLoginTestViewModel.swift */; };
 		F3430F0F2A6701AD00DC1B1C /* OworiApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3430F0E2A6701AD00DC1B1C /* OworiApp.swift */; };
@@ -88,6 +94,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		883B47CC2A686C1D004C2D20 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
+		883B47D12A686D17004C2D20 /* FamilyNameChangeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FamilyNameChangeView.swift; sourceTree = "<group>"; };
+		883B47D32A686D25004C2D20 /* InviteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InviteView.swift; sourceTree = "<group>"; };
+		883B47D52A686D44004C2D20 /* LogoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutView.swift; sourceTree = "<group>"; };
+		883B47D72A686D90004C2D20 /* WithdrawalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WithdrawalView.swift; sourceTree = "<group>"; };
+		883B47DA2A686E36004C2D20 /* CustomToggle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomToggle.swift; sourceTree = "<group>"; };
 		3580AFA12A6841DE00DC28F7 /* Owori.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Owori.entitlements; sourceTree = "<group>"; };
 		3580AFA22A6844DB00DC28F7 /* AppleLoginTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleLoginTestView.swift; sourceTree = "<group>"; };
 		3580AFA42A68539700DC28F7 /* AppleLoginTestViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleLoginTestViewModel.swift; sourceTree = "<group>"; };
@@ -181,6 +193,43 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		883B47CB2A686C05004C2D20 /* MyPage */ = {
+			isa = PBXGroup;
+			children = (
+				883B47CE2A686C2F004C2D20 /* Setting */,
+			);
+			path = MyPage;
+			sourceTree = "<group>";
+		};
+		883B47CE2A686C2F004C2D20 /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				883B47D92A686DFA004C2D20 /* SettingHelper */,
+				883B47D02A686CF5004C2D20 /* Attribute */,
+				883B47CC2A686C1D004C2D20 /* SettingView.swift */,
+			);
+			path = Setting;
+			sourceTree = "<group>";
+		};
+		883B47D02A686CF5004C2D20 /* Attribute */ = {
+			isa = PBXGroup;
+			children = (
+				883B47D12A686D17004C2D20 /* FamilyNameChangeView.swift */,
+				883B47D32A686D25004C2D20 /* InviteView.swift */,
+				883B47D52A686D44004C2D20 /* LogoutView.swift */,
+				883B47D72A686D90004C2D20 /* WithdrawalView.swift */,
+			);
+			path = Attribute;
+			sourceTree = "<group>";
+		};
+		883B47D92A686DFA004C2D20 /* SettingHelper */ = {
+			isa = PBXGroup;
+			children = (
+				883B47DA2A686E36004C2D20 /* CustomToggle.swift */,
+			);
+			path = SettingHelper;
+			sourceTree = "<group>";
+		};
 		F3430F022A6701AD00DC1B1C = {
 			isa = PBXGroup;
 			children = (
@@ -245,6 +294,8 @@
 		F3430F3C2A67043200DC1B1C /* View */ = {
 			isa = PBXGroup;
 			children = (
+				883B47CB2A686C05004C2D20 /* MyPage */,
+				F3430F4E2A67043200DC1B1C /* ContentView.swift */,
 				F3430F512A67043200DC1B1C /* LoginTestView.swift */,
 				3580AFA22A6844DB00DC28F7 /* AppleLoginTestView.swift */,
 				F3430F3D2A67043200DC1B1C /* Home */,
@@ -589,10 +640,12 @@
 				F3430FB32A67043200DC1B1C /* CarouselViewModel.swift in Sources */,
 				F3430FA52A67043200DC1B1C /* StoryAlbumView.swift in Sources */,
 				F3430F872A67043200DC1B1C /* HomeView.swift in Sources */,
+				883B47D22A686D17004C2D20 /* FamilyNameChangeView.swift in Sources */,
 				F3430F9D2A67043200DC1B1C /* ImageTabView.swift in Sources */,
 				F3430FB22A67043200DC1B1C /* FamilyViewModel.swift in Sources */,
 				F3430F8A2A67043200DC1B1C /* ProfileText.swift in Sources */,
 				F3430F952A67043200DC1B1C /* OnBoardingView.swift in Sources */,
+				883B47CD2A686C1D004C2D20 /* SettingView.swift in Sources */,
 				F3430FA22A67043200DC1B1C /* StoryListView.swift in Sources */,
 				F3430FAF2A67043200DC1B1C /* UserViewModel.swift in Sources */,
 				F3430FB02A67043200DC1B1C /* LoginViewModel.swift in Sources */,
@@ -602,6 +655,7 @@
 				F3430F8E2A67043200DC1B1C /* Canvas.swift in Sources */,
 				F3430F922A67043200DC1B1C /* NumberIndicator.swift in Sources */,
 				F3430F9C2A67043200DC1B1C /* ContentTitle.swift in Sources */,
+				883B47D82A686D90004C2D20 /* WithdrawalView.swift in Sources */,
 				F3430FB62A67043200DC1B1C /* Image+Extension.swift in Sources */,
 				3580AFA52A68539700DC28F7 /* AppleLoginTestViewModel.swift in Sources */,
 				F3430FB12A67043200DC1B1C /* StoryViewModel.swift in Sources */,
@@ -611,12 +665,15 @@
 				F3430F9B2A67043200DC1B1C /* DetailImageCell.swift in Sources */,
 				F3430FB52A67043200DC1B1C /* Color+Extension.swift in Sources */,
 				F3430F862A67043200DC1B1C /* FamilyPhoto.swift in Sources */,
+				883B47D42A686D25004C2D20 /* InviteView.swift in Sources */,
+				883B47DB2A686E36004C2D20 /* CustomToggle.swift in Sources */,
 				F3430F0F2A6701AD00DC1B1C /* OworiApp.swift in Sources */,
 				F3430FA82A67043200DC1B1C /* TestModel.swift in Sources */,
 				F3430F972A67043200DC1B1C /* CurrentImageOrder.swift in Sources */,
 				F3430FAC2A67043200DC1B1C /* User.swift in Sources */,
 				F3430FA32A67043200DC1B1C /* DailyStoryListCell.swift in Sources */,
 				F3430F832A67043200DC1B1C /* FamilyCarousel.swift in Sources */,
+				883B47D62A686D44004C2D20 /* LogoutView.swift in Sources */,
 				F3430F912A67043200DC1B1C /* LoginTestView.swift in Sources */,
 				F3430F842A67043200DC1B1C /* FamilyPhotoItem.swift in Sources */,
 				F3430F9A2A67043200DC1B1C /* ContentText.swift in Sources */,
