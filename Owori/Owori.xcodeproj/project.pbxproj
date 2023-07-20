@@ -12,6 +12,8 @@
 		88AA70352A68AA9D00254164 /* BackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88AA70342A68AA9D00254164 /* BackButton.swift */; };
 		88AA70372A68AB3300254164 /* AddFamilyPhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88AA70362A68AB3300254164 /* AddFamilyPhoto.swift */; };
 		88AA703B2A68AB6000254164 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88AA703A2A68AB6000254164 /* Home.swift */; };
+		88AA703F2A68AFAF00254164 /* FamilyInitialPhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88AA703E2A68AFAF00254164 /* FamilyInitialPhoto.swift */; };
+		88AA70412A68B02500254164 /* ExisitPhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88AA70402A68B02500254164 /* ExisitPhoto.swift */; };
 		F3430F0F2A6701AD00DC1B1C /* OworiApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3430F0E2A6701AD00DC1B1C /* OworiApp.swift */; };
 		F3430F132A6701AD00DC1B1C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F3430F122A6701AD00DC1B1C /* Assets.xcassets */; };
 		F3430F162A6701AD00DC1B1C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F3430F152A6701AD00DC1B1C /* Preview Assets.xcassets */; };
@@ -97,6 +99,8 @@
 		88AA70342A68AA9D00254164 /* BackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackButton.swift; sourceTree = "<group>"; };
 		88AA70362A68AB3300254164 /* AddFamilyPhoto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFamilyPhoto.swift; sourceTree = "<group>"; };
 		88AA703A2A68AB6000254164 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
+		88AA703E2A68AFAF00254164 /* FamilyInitialPhoto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FamilyInitialPhoto.swift; sourceTree = "<group>"; };
+		88AA70402A68B02500254164 /* ExisitPhoto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExisitPhoto.swift; sourceTree = "<group>"; };
 		F3430F0B2A6701AD00DC1B1C /* Owori.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Owori.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F3430F0E2A6701AD00DC1B1C /* OworiApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OworiApp.swift; sourceTree = "<group>"; };
 		F3430F122A6701AD00DC1B1C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -280,6 +284,8 @@
 				F3430F412A67043200DC1B1C /* FamilyView.swift */,
 				F3430F422A67043200DC1B1C /* FamilyPhoto.swift */,
 				88AA70362A68AB3300254164 /* AddFamilyPhoto.swift */,
+				88AA703E2A68AFAF00254164 /* FamilyInitialPhoto.swift */,
+				88AA70402A68B02500254164 /* ExisitPhoto.swift */,
 			);
 			path = Family;
 			sourceTree = "<group>";
@@ -617,6 +623,7 @@
 				F3430FB12A67043200DC1B1C /* StoryViewModel.swift in Sources */,
 				F3430FA62A67043200DC1B1C /* MonthlyStoryCollection.swift in Sources */,
 				F3430FA92A67043200DC1B1C /* Family.swift in Sources */,
+				88AA70412A68B02500254164 /* ExisitPhoto.swift in Sources */,
 				F3430FB42A67043200DC1B1C /* String+Extension.swift in Sources */,
 				F3430F9B2A67043200DC1B1C /* DetailImageCell.swift in Sources */,
 				F3430FB52A67043200DC1B1C /* Color+Extension.swift in Sources */,
@@ -625,6 +632,7 @@
 				88AA70352A68AA9D00254164 /* BackButton.swift in Sources */,
 				F3430FA82A67043200DC1B1C /* TestModel.swift in Sources */,
 				F3430F972A67043200DC1B1C /* CurrentImageOrder.swift in Sources */,
+				88AA703F2A68AFAF00254164 /* FamilyInitialPhoto.swift in Sources */,
 				F3430FAC2A67043200DC1B1C /* User.swift in Sources */,
 				F3430FA32A67043200DC1B1C /* DailyStoryListCell.swift in Sources */,
 				F3430F832A67043200DC1B1C /* FamilyCarousel.swift in Sources */,

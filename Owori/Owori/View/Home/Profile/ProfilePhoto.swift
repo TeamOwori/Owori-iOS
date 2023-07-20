@@ -25,7 +25,7 @@ struct ProfilePhoto: View {
 //              .shadow(color: .black.opacity(0.16), radius: 8, x: 4, y: 4)
 //              .shadow(color: .black.opacity(0.04), radius: 4, x: 4, y: -2)
 //              .padding(4)
-            ProfileText(nickName: .constant("name"))
+            ProfileText(nickName: "name")
         }
     }
 }
