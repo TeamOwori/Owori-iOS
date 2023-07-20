@@ -14,6 +14,9 @@
 		88AA703B2A68AB6000254164 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88AA703A2A68AB6000254164 /* Home.swift */; };
 		88AA703F2A68AFAF00254164 /* FamilyInitialPhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88AA703E2A68AFAF00254164 /* FamilyInitialPhoto.swift */; };
 		88AA70412A68B02500254164 /* ExistPhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88AA70402A68B02500254164 /* ExistPhoto.swift */; };
+		88CC10132A69339400804961 /* ProfileEmotionBadge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88CC10122A69339400804961 /* ProfileEmotionBadge.swift */; };
+		88CC10152A69344100804961 /* ProfileImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88CC10142A69344100804961 /* ProfileImage.swift */; };
+		88CC10172A69378100804961 /* SelectEmotionBadge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88CC10162A69378100804961 /* SelectEmotionBadge.swift */; };
 		F3430F0F2A6701AD00DC1B1C /* OworiApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3430F0E2A6701AD00DC1B1C /* OworiApp.swift */; };
 		F3430F132A6701AD00DC1B1C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F3430F122A6701AD00DC1B1C /* Assets.xcassets */; };
 		F3430F162A6701AD00DC1B1C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F3430F152A6701AD00DC1B1C /* Preview Assets.xcassets */; };
@@ -26,7 +29,7 @@
 		F3430F852A67043200DC1B1C /* FamilyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3430F412A67043200DC1B1C /* FamilyView.swift */; };
 		F3430F872A67043200DC1B1C /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3430F432A67043200DC1B1C /* HomeView.swift */; };
 		F3430F882A67043200DC1B1C /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3430F452A67043200DC1B1C /* ProfileView.swift */; };
-		F3430F892A67043200DC1B1C /* ProfilePhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3430F462A67043200DC1B1C /* ProfilePhoto.swift */; };
+		F3430F892A67043200DC1B1C /* ProfileItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3430F462A67043200DC1B1C /* ProfileItem.swift */; };
 		F3430F8A2A67043200DC1B1C /* ProfileText.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3430F472A67043200DC1B1C /* ProfileText.swift */; };
 		F3430F8B2A67043200DC1B1C /* DDayInitialCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3430F492A67043200DC1B1C /* DDayInitialCard.swift */; };
 		F3430F8C2A67043200DC1B1C /* DDayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3430F4A2A67043200DC1B1C /* DDayView.swift */; };
@@ -100,6 +103,9 @@
 		88AA703A2A68AB6000254164 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
 		88AA703E2A68AFAF00254164 /* FamilyInitialPhoto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FamilyInitialPhoto.swift; sourceTree = "<group>"; };
 		88AA70402A68B02500254164 /* ExistPhoto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExistPhoto.swift; sourceTree = "<group>"; };
+		88CC10122A69339400804961 /* ProfileEmotionBadge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileEmotionBadge.swift; sourceTree = "<group>"; };
+		88CC10142A69344100804961 /* ProfileImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImage.swift; sourceTree = "<group>"; };
+		88CC10162A69378100804961 /* SelectEmotionBadge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectEmotionBadge.swift; sourceTree = "<group>"; };
 		F3430F0B2A6701AD00DC1B1C /* Owori.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Owori.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F3430F0E2A6701AD00DC1B1C /* OworiApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OworiApp.swift; sourceTree = "<group>"; };
 		F3430F122A6701AD00DC1B1C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -115,7 +121,7 @@
 		F3430F412A67043200DC1B1C /* FamilyView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FamilyView.swift; sourceTree = "<group>"; };
 		F3430F432A67043200DC1B1C /* HomeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		F3430F452A67043200DC1B1C /* ProfileView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
-		F3430F462A67043200DC1B1C /* ProfilePhoto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfilePhoto.swift; sourceTree = "<group>"; };
+		F3430F462A67043200DC1B1C /* ProfileItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileItem.swift; sourceTree = "<group>"; };
 		F3430F472A67043200DC1B1C /* ProfileText.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileText.swift; sourceTree = "<group>"; };
 		F3430F492A67043200DC1B1C /* DDayInitialCard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DDayInitialCard.swift; sourceTree = "<group>"; };
 		F3430F4A2A67043200DC1B1C /* DDayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DDayView.swift; sourceTree = "<group>"; };
@@ -291,8 +297,11 @@
 			isa = PBXGroup;
 			children = (
 				F3430F452A67043200DC1B1C /* ProfileView.swift */,
-				F3430F462A67043200DC1B1C /* ProfilePhoto.swift */,
+				88CC10142A69344100804961 /* ProfileImage.swift */,
+				F3430F462A67043200DC1B1C /* ProfileItem.swift */,
 				F3430F472A67043200DC1B1C /* ProfileText.swift */,
+				88CC10122A69339400804961 /* ProfileEmotionBadge.swift */,
+				88CC10162A69378100804961 /* SelectEmotionBadge.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -594,7 +603,8 @@
 				F3430FB72A67043200DC1B1C /* View+Extension.swift in Sources */,
 				F3430FAB2A67043200DC1B1C /* CardModel.swift in Sources */,
 				F3430F982A67043200DC1B1C /* SortMenu.swift in Sources */,
-				F3430F892A67043200DC1B1C /* ProfilePhoto.swift in Sources */,
+				88CC10152A69344100804961 /* ProfileImage.swift in Sources */,
+				F3430F892A67043200DC1B1C /* ProfileItem.swift in Sources */,
 				F3430F992A67043200DC1B1C /* AlbumListButton.swift in Sources */,
 				F3430FA72A67043200DC1B1C /* StoryView.swift in Sources */,
 				F3430FA12A67043200DC1B1C /* FavoriteButton.swift in Sources */,
@@ -636,9 +646,11 @@
 				F3430F842A67043200DC1B1C /* FamilyPhotoItem.swift in Sources */,
 				F3430F9A2A67043200DC1B1C /* ContentText.swift in Sources */,
 				F3430FA02A67043200DC1B1C /* DetailContent.swift in Sources */,
+				88CC10172A69378100804961 /* SelectEmotionBadge.swift in Sources */,
 				F3430FA42A67043200DC1B1C /* DailyStoryText.swift in Sources */,
 				F3430F962A67043200DC1B1C /* DailyStoryImageCell.swift in Sources */,
 				F3430F902A67043200DC1B1C /* LoginView.swift in Sources */,
+				88CC10132A69339400804961 /* ProfileEmotionBadge.swift in Sources */,
 				88AA70372A68AB3300254164 /* AddFamilyPhoto.swift in Sources */,
 				F3430F8B2A67043200DC1B1C /* DDayInitialCard.swift in Sources */,
 				F3430FAD2A67043200DC1B1C /* Story.swift in Sources */,

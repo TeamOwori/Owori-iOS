@@ -8,17 +8,16 @@
 import SwiftUI
 
 struct ProfileView: View {
-    /// - [임시] 가족 구성원 수 데이터
-    /// - 실제 데이터 들어오면 없어질 예정
+    // 임시 가족 구성원 수 정보
     private var familyCount: Int = 4
     
     var body: some View {
         HStack(spacing: 16) {
             ForEach(0..<familyCount, id: \.self) { _ in
-                ProfilePhoto()
+                ProfileItem()
             }
         }
-        //.background(Color(.green))
+//        .background(Color(.green)) // for test
         .padding(EdgeInsets(top: 40, leading: 40, bottom: 40, trailing: 40))
         .frame(width: 375, height: 82, alignment: .leading)
     }
