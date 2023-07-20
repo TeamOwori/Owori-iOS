@@ -23,7 +23,8 @@ struct LoginView: View {
     @EnvironmentObject var userViewModel: UserViewModel
     
     var body: some View {
-        if userViewModel.isLogined {
+        // 배포 전 테스트시 !isLogined로 설정 (서버가 휴대폰에서는 안잡힘)
+        if !userViewModel.isLogined {
             LoginTabView()
         } else {
             VStack {
