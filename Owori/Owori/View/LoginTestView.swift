@@ -43,6 +43,8 @@ struct LoginTestView: View {
             .background(buttonColor)
             .cornerRadius(12)
             
+            loginViewModel.appleLoginButton()
+            
             Text("\(loginViewModel.kakaoUser?.kakaoAccount?.profile?.nickname ?? "nil")")
             Button {
                 userViewModel.joinMember(socialToken: loginViewModel.socialToken)
