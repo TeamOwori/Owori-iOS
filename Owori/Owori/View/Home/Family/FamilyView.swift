@@ -13,21 +13,23 @@ struct FamilyView: View {
     @GestureState private var dragOffset: CGFloat = 0
     @State private var isDetailActive = false
     @State private var isDdayisOn = false
-    @State var photos: [PhotoInfo] = [
-        PhotoInfo(name: "TestImage1"),
-        PhotoInfo(name: "TestImage2"),
-        PhotoInfo(name: "TestImage3"),
+    
+    // 임시 - 가족사진 정보 변수
+    private var familyPhotos = [
+        Photo.PhotoInfo(id: "1", name: "abc"),
+        Photo.PhotoInfo(id: "2", name: "bca"),
+        Photo.PhotoInfo(id: "3", name: "cab"),
     ]
     
     var body: some View {
         NavigationStack {
             ZStack {
                 Color.oworiMainColor
-                if photos.isEmpty {
+                if familyPhotos.isEmpty {
                     FamilyInitialPhoto()
                 } else {
-                    ForEach(0..<photos.count, id: \.self) { index in
-                        Image("\(photos[index].name)")
+                    ForEach(0..<familyPhotos.count, id: \.self) { index in
+                        Image("\(familyPhotos[index].name)")
                             .frame(width: UIScreen.main.bounds.width * 0.76, height: UIScreen.main.bounds.height * 0.21)
                             .cornerRadius(10)
                             .shadow(color: .black.opacity(0.06), radius: 6, x: -4, y: 5)
@@ -54,7 +56,7 @@ struct FamilyView: View {
                             }
                         } else if value.translation.width < -threshold {
                             withAnimation {
-                                currentIndex = min(photos.count - 1, currentIndex + 1)
+                                currentIndex = min(familyPhotos.count - 1, currentIndex + 1)
                             }
                         }
                     }

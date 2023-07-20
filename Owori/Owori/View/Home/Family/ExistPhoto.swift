@@ -1,5 +1,5 @@
 //
-//  ExisitPhoto.swift
+//  ExistPhoto.swift
 //  Owori
 //
 //  Created by 드즈 on 2023/07/20.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ExisitPhoto: View {
+struct ExistPhoto: View {
     var imageName: String
     
     var body: some View {
@@ -18,7 +18,7 @@ struct ExisitPhoto: View {
     }
 }
 
-//struct ExisitPhoto_Previews: PreviewProvider {
+//struct ExistPhoto_Previews: PreviewProvider {
 //    static var previews: some View {
 //        ExisitPhoto()
 //    }

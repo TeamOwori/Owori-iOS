@@ -7,14 +7,26 @@
 
 import Foundation
 
-// 가족사진 임시 모델
-struct PhotoInfo: Hashable {
-    var name: String
+struct Photo: Codable {
+    var photos: [PhotoInfo] = []
 }
 
-// 디데이 임시 모델
-struct DdayInfo: Hashable {
-    var dday: String
-    var date: String
-    var text: String
+extension Photo {
+    struct PhotoInfo: Codable, Identifiable {
+        var id: String//?
+        var name: String//?
+    }
+}
+
+struct DDay: Codable {
+    var ddays: [DdayInfo] = []
+}
+
+extension DDay {
+    struct DdayInfo: Codable, Identifiable {
+        var id: String//?
+        var dday: String//?
+//        var date: String//?
+        var text: String//?
+    }
 }

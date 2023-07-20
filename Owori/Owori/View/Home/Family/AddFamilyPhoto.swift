@@ -8,12 +8,8 @@
 import SwiftUI
 
 struct AddFamilyPhoto: View {
+    // ExisitView(홈/사진올리기)와 연동
     @State private var photoDescription: String = ""
-    @State var photos: [PhotoInfo] = [
-        PhotoInfo(name: "1"),
-        PhotoInfo(name: "2"),
-        PhotoInfo(name: "3"),
-    ]
     
     var body: some View {
         NavigationStack {

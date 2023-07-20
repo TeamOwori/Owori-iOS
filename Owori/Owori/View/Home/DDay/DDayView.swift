@@ -13,21 +13,22 @@ struct DDayView: View {
     @GestureState private var dragOffset: CGFloat = 0
     @State private var isDetailActive = false
     @State private var isDdayisOn = false
-    @State private var ddays = [
-        DdayInfo(dday: "안성기", date: "1952", text: "고삼이 생일파티 아웃백에서"),
-        DdayInfo(dday: "이정재", date: "1972", text: "오늘의 점심은 스파게티"),
-        DdayInfo(dday: "김혜자", date: "1941", text: "나는 왜 여기에 있을까?"),
-        DdayInfo(dday: "전지현", date: "1981", text: "오랜만에 옆집 강아지를 만났다!"),
+    
+    // 임시 - 디데이 정보 변수
+    private var ddayInfos = [
+        DDay.DdayInfo(id: "1", dday: "안녕", text: "하이"),
+        DDay.DdayInfo(id: "2", dday: "안녕", text: "하이"),
+        DDay.DdayInfo(id: "3", dday: "안녕", text: "하이"),
     ]
     
     var body: some View {
         NavigationStack {
             ZStack {
                 Color.oworiMainColor
-                ForEach(0..<ddays.count, id: \.self) { index in
+                ForEach(0..<ddayInfos.count, id: \.self) { index in
                     VStack(alignment: .leading) {
                         HStack(alignment: .center) {
-                            Text(ddays[index].dday)
+                            Text(ddayInfos[index].dday)
                                 .font(
                                     Font.custom("Pretendard", size: 18)
                                         .weight(.semibold)
@@ -35,10 +36,10 @@ struct DDayView: View {
                             Spacer()
                         }
                         .frame(width: 204, alignment: .center)
-                        Text(ddays[index].dday)
+                        Text(ddayInfos[index].dday)
                             .font(Font.custom("Pretendard", size: 12))
                             .kerning(0.18)
-                        Text(ddays[index].text)
+                        Text(ddayInfos[index].text)
                             .font(
                                 Font.custom("Pretendard", size: 16)
                                     .weight(.semibold)
@@ -72,7 +73,7 @@ struct DDayView: View {
                             }
                         } else if value.translation.width < -threshold {
                             withAnimation {
-                                currentIndex = min(ddays.count - 1, currentIndex + 1)
+                                currentIndex = min(ddayInfos.count - 1, currentIndex + 1)
                             }
                         }
                     }
@@ -80,12 +81,6 @@ struct DDayView: View {
         }
     }
 }
-
-//struct DDayView: View {
-//    var body: some View {
-//        DDayCard()
-//    }
-//}
 
 struct DDayView_Previews: PreviewProvider {
     static var previews: some View {
