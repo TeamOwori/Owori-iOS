@@ -12,20 +12,11 @@ import SwiftUI
 
 struct LoginTabView: View {
     var body: some View {
-        
-        HStack(alignment: .top) {
-            
-//            NumberIndicator()
-            Image("Focused")
-            .frame(width: 22, height: 22)
-            .padding(.leading, 20)
-            .padding(.trailing, 20)
-            .padding(.top, 60)
-            .padding(.bottom, 0)
-            
+        VStack {
+            HStack {
+                NumberIndicator()
+            }
         }
-        .padding()
-        
     }
 }
 

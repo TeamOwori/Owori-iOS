@@ -37,21 +37,42 @@ class LoginViewModel: ObservableObject {
     
     // MARK: 카카오 로그인 관련 FUNCTIONS
     
+    
     // 로그인 분기 처리 함수
-    func kakaoLogin(oworiUser: User) {
+    func kakaoLogin(oworiUser: User, completion: @escaping () -> Void) {
+        // 하나 이상의 비동기 작업을 그룹화하여 해당 그룹 내의 모든 작업이 완료되었는지 확인할 수 있는 클래스 선언
+        let dispatchGroup = DispatchGroup()
+        
         // 카카오톡 설치 여부 확인 - 사용자의 핸드폰에 카카오 앱이 설치가 되어있는지?(카카오톡 설치여부)
-        if (UserApi.isKakaoTalkLoginAvailable()) {
+        if UserApi.isKakaoTalkLoginAvailable() {
+            // 비동기 작업 그룹에 추가
+            dispatchGroup.enter()
             // 설치가 되어있으면 카카오 앱을 통해 로그인 - loginWithKakaoTalk()
             handleLoginWithKakaoTalkApp {
-                self.setUserInfo(oworiUser: oworiUser)
+                self.setUserInfo(oworiUser: oworiUser) {
+                    self.getSocialToken()
+                    //비동기 작업 그룹에서 제거
+                    dispatchGroup.leave()
+                }
             }
         } else {    // 설치가 안되어있을 때
-            // 카카오 웹 뷰로 로그인 - loginWithKakaoAccount()
+            // 비동기 작업 그룹에 추가
+            dispatchGroup.enter()
             handleLoginWithKakaoAccount() {
-                self.setUserInfo(oworiUser: oworiUser)
+                self.setUserInfo(oworiUser: oworiUser) {
+                    self.getSocialToken()
+                    // 비동기 작업 그룹에서 제거
+                    dispatchGroup.leave()
+                }
             }
         }
+        
+        // 그룹 내의 모든 비동기 작업이 완료되면 norify 내의 코드 실행 (main 큐에서)
+        dispatchGroup.notify(queue: .main) {
+            completion()
+        }
     }
+    
     
     // 앱으로 로그인
     func handleLoginWithKakaoTalkApp(completion: @escaping () -> Void) {
@@ -105,7 +126,7 @@ class LoginViewModel: ObservableObject {
     }
     
     // 카카오 유저 정보 불러오기
-    func setUserInfo(oworiUser: User) {
+    func setUserInfo(oworiUser: User, completion: @escaping () -> Void) {
         UserApi.shared.me() { (user, error) in
             if let error = error {
                 print(error)
@@ -155,21 +176,23 @@ class LoginViewModel: ObservableObject {
                     }
                 }
             }
+            completion()
+        }
+    }
+    
+    func getSocialToken() {
+        DispatchQueue.main.async { [weak self] in
+            // Test Log
+            // 추후 삭제 예정 코드 (user)
+            //            self?.kakaoUser = user
+            //            print("[Kakao user test log] : \(String(describing: self?.kakaoUser))")
             
-            DispatchQueue.main.async { [weak self] in
-                // Test Log
-                // 추후 삭제 예정 코드 (user)
-                self?.kakaoUser = user
-                print("[Kakao user test log] : \(String(describing: self?.kakaoUser))")
-                
-                guard let socialToken = self?.kakaoToken else {
-                    print("카카오 소셜 로그인 토큰이 정상적으로 발급되지 않았습니다.")
-                    return
-                }
-                self?.socialToken = Token(authProvider: "KAKAO", accessToken: socialToken.accessToken, refreshToken: socialToken.refreshToken)
-                print("[Kakao token test log]\(self?.socialToken)")
+            guard let socialToken = self?.kakaoToken else {
+                print("카카오 소셜 로그인 토큰이 정상적으로 발급되지 않았습니다.")
+                return
             }
-            
+            self?.socialToken = Token(authProvider: "KAKAO", accessToken: socialToken.accessToken, refreshToken: socialToken.refreshToken)
+            print("[Kakao token test log]\(self?.socialToken)")
         }
     }
     

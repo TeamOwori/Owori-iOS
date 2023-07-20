@@ -19,6 +19,7 @@ fileprivate enum OworiAPI {
 
 class UserViewModel: ObservableObject {
     @Published var user: User = User()
+    @Published var isLogined = false
     
     // MARK: 오월이 API FUNCTIONS (Post)
     
@@ -77,6 +78,7 @@ class UserViewModel: ObservableObject {
                     let decoder = JSONDecoder()
                     self?.user = try decoder.decode(User.self, from: data)
                     self?.user.jwt_token?.auth_provider = socialToken.authProvider
+                    self?.isLogined = true
                     
                     // User 구조체에 할당된 데이터 사용 (테스트 log)
                     print("Member ID: \(String(describing: self?.user.member_id))")

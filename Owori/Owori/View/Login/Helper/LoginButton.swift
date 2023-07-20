@@ -13,23 +13,30 @@ struct LoginButton: View {
     let buttonFontStyle: String
     let fontColor: Color
     let buttonColor: Color
+    
+    @EnvironmentObject var loginViewModel: LoginViewModel
+    @EnvironmentObject var userViewModel: UserViewModel
+    
     var body: some View {
         
         //카카오 로그인
         HStack(alignment: .center, spacing: 15) {
-            Button(action: {
-                        // 버튼이 클릭되었을 때 실행되는 코드
-                        print("Button tapped!")
-                    }) {
-                        Text("\(buttonName)")
-                        .font(
+            Button {
+                // 버튼이 클릭되었을 때 실행되는 코드
+                loginViewModel.kakaoLogin(oworiUser: userViewModel.user) {
+                    userViewModel.joinMember(socialToken: loginViewModel.socialToken)
+                }
+                print("Button tapped!")
+            } label: {
+                Text("\(buttonName)")
+                    .font(
                         Font.custom("\(buttonFontStyle)", size: 15)
-                        .weight(.medium)
-                        )
-                        .multilineTextAlignment(.center)
-                        .frame(maxWidth: .infinity, minHeight: 18, maxHeight: 18, alignment: .top)
-                        .foregroundColor(fontColor)
-                    }
+                            .weight(.medium)
+                    )
+                    .multilineTextAlignment(.center)
+                    .frame(maxWidth: .infinity, minHeight: 18, maxHeight: 18, alignment: .top)
+                    .foregroundColor(fontColor)
+            }
             
         }
         .padding(20)
