@@ -14,15 +14,11 @@ struct LoginTabView: View {
     @State private var nickname: String = ""
     
     // -----------------
-    @State private var birthDate: Date = Date()
     @State private var birthDateText: String = ""
     @State private var previousBirthDateText: String = ""
+    @State private var familyName: String = ""
     
-    let dateFormatter: DateFormatter = {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy-MM-dd"
-        return formatter
-    }()
+    
     
     // -----------------
     
@@ -31,6 +27,19 @@ struct LoginTabView: View {
     var body: some View {
         GeometryReader { geometry in
             VStack {
+                if 0 < currentIndex {
+                    Button {
+                        currentIndex = currentIndex - 1
+                        // 왜 그런지 모르겠는데 더블클릭 하면 뷰가 한박자 늦게 반영될 때가 있어서
+                        // 0보다 작아지면 0으로 처리하도록 해놨습니다.
+                        if currentIndex < 0 {
+                            currentIndex = 0
+                        }
+                    } label: {
+                        Text("<")
+                    }
+                }
+                
                 NumberIndicator(currentIndex: $currentIndex)
                     .padding(.top, 60)
                 TabView(selection: $currentIndex) {
@@ -81,21 +90,10 @@ struct LoginTabView: View {
                                 .keyboardType(.numberPad)
                                 .onChange(of: birthDateText) { newValue in
                                     // 사용자가 입력한 값을 변환하는 로직을 구현
-                                    if previousBirthDateText.count > newValue.count {
-                                        if newValue.last == "-" {
-                                            birthDateText = String(newValue.dropLast(1))
-                                        }
-                                    } else {
-                                        if newValue.count == 4 {
-                                            birthDateText = newValue + "-"
-                                        } else if newValue.count == 7 {
-                                            birthDateText = newValue + "-"
-                                        } else if newValue.count > 10 {
-                                            birthDateText = String(newValue.prefix(10))
-                                        }
-                                    }
                                     
-                                    previousBirthDateText = newValue
+                                    if newValue.count > 8 {
+                                        birthDateText = String(newValue.prefix(8))
+                                    }
                                 }
                             
                         }
@@ -103,7 +101,7 @@ struct LoginTabView: View {
                         .foregroundColor(.gray)
                         
                         Button {
-                            if !textInput.isEmpty {
+                            if birthDateText.count >= 8 {
                                 currentIndex = currentIndex + 1
                             }
                         } label: {
@@ -116,28 +114,28 @@ struct LoginTabView: View {
                     // --------------------
                     
                     VStack(alignment: .leading) {
-                        Text("오월이에서 사용할\n닉네임을 입력해주세요.")
+                        Text("우리 가족\n그룹명을 정해주세요.")
                             .font(.title)
                             .bold()
                             .padding(EdgeInsets(top: 0, leading: 0, bottom: 40, trailing: 0))
-                        Text("닉네임")
+                        Text("가족 그룹명")
                             .foregroundColor(Color.oworiGray500)
                             .padding(EdgeInsets(top: 0, leading: 0, bottom: 8, trailing: 0))
                         HStack {
-                            TextField("숫자, 특수문자, 이모티콘 모두 사용 가능", text: $textInput)
+                            TextField("숫자, 특수문자, 이모티콘 모두 사용 가능", text: $familyName)
                             // 텍스트가 변경될 때마다 글자 수 확인
-                                .onChange(of: textInput) { newText in
-                                    if newText.count > 7 {
-                                        textInput = String(newText.prefix(7))
+                                .onChange(of: familyName) { newText in
+                                    if newText.count > 10 {
+                                        familyName = String(newText.prefix(10))
                                     }
                                 }
-                            Text("\(textInput.count)/7")
+                            Text("\(familyName.count)/10")
                         }
                         .overlay(Rectangle().frame(height: 1).padding(.top, 30))
                         .foregroundColor(.gray)
                         
                         Button {
-                            if !textInput.isEmpty {
+                            if !familyName.isEmpty {
                                 currentIndex = currentIndex + 1
                             }
                         } label: {
@@ -150,33 +148,16 @@ struct LoginTabView: View {
                     // --------------------
                     
                     VStack(alignment: .leading) {
-                        Text("오월이에서 사용할\n닉네임을 입력해주세요.")
+                        Text("가족 연결을 해주세요.")
                             .font(.title)
                             .bold()
                             .padding(EdgeInsets(top: 0, leading: 0, bottom: 40, trailing: 0))
-                        Text("닉네임")
+                        Text("초대코드 받았나요?\n없다면 가족들에게 초대코드를 보내봐요!")
                             .foregroundColor(Color.oworiGray500)
                             .padding(EdgeInsets(top: 0, leading: 0, bottom: 8, trailing: 0))
-                        HStack {
-                            TextField("숫자, 특수문자, 이모티콘 모두 사용 가능", text: $textInput)
-                            // 텍스트가 변경될 때마다 글자 수 확인
-                                .onChange(of: textInput) { newText in
-                                    if newText.count > 7 {
-                                        textInput = String(newText.prefix(7))
-                                    }
-                                }
-                            Text("\(textInput.count)/7")
-                        }
-                        .overlay(Rectangle().frame(height: 1).padding(.top, 30))
-                        .foregroundColor(.gray)
                         
-                        Button {
-                            if !textInput.isEmpty {
-                                currentIndex = currentIndex + 1
-                            }
-                        } label: {
-                            Text("확인")
-                        }
+                        
+                        
                     }
                     .padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 20))
                     .tag(3)

@@ -12,6 +12,8 @@ struct NumberIndicator: View {
     @Binding var currentIndex: Int
     
     
+    
+    
     var body: some View {
         ZStack {
             Rectangle()
