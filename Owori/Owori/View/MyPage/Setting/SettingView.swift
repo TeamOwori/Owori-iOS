@@ -63,7 +63,7 @@ struct SettingView: View {
                         }
                         //.foregroundColor(.oworiGray600)
                         NavigationLink {
-                            InviteView()
+                            InviteView() // 삭제 예정 - 초대코드 View 겹침
                         } label: {
                             Text("초대하기")
                                 .foregroundColor(.oworiGray600)
@@ -163,15 +163,15 @@ struct SettingView: View {
                             .foregroundColor(.black)
                     }
                     Section {
-                        NavigationLink {
-                            LogoutView()
+                        Button {
+                            
                         } label: {
                             Text("로그아웃")
                                 .foregroundColor(.oworiGray600)
                         }
                         //.foregroundColor(.oworiGray600)
-                        NavigationLink {
-                            WithdrawalView()
+                        Button {
+                            
                         } label: {
                             Text("탈퇴하기")
                                 .foregroundColor(.oworiGray600)
