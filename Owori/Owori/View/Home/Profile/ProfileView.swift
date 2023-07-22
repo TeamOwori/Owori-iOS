@@ -8,18 +8,16 @@
 import SwiftUI
 
 struct ProfileView: View {
-    // 임시 가족 구성원 수 정보
-    private var familyCount: Int = 4
-    
     var body: some View {
-        HStack(spacing: 16) {
-            ForEach(0..<familyCount, id: \.self) { _ in
-                ProfileItem()
+        NavigationStack {
+            HStack(spacing: 16) {
+                ForEach(1...3, id: \.self) { _ in
+                    ProfileImageWithBadge()
+                }
             }
+            .padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 20))
+            .frame(width: UIScreen.main.bounds.width * 0.95, alignment: .leading)
         }
-//        .background(Color(.green)) // for test
-        .padding(EdgeInsets(top: 40, leading: 40, bottom: 40, trailing: 40))
-        .frame(width: 375, height: 82, alignment: .leading)
     }
 }
 

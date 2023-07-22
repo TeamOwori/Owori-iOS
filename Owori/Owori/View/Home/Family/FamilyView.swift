@@ -15,10 +15,10 @@ struct FamilyView: View {
     @State private var isDdayisOn = false
     
     // 임시 - 가족사진 정보 변수
-    private var familyPhotos = [
-        Photo.PhotoInfo(id: "1", name: "abc"),
-        Photo.PhotoInfo(id: "2", name: "bca"),
-        Photo.PhotoInfo(id: "3", name: "cab"),
+    var familyPhotos = [
+        Photo.PhotoInfo(id: "1", name: "TestImage1"),
+        Photo.PhotoInfo(id: "2", name: "TestImage2"),
+        Photo.PhotoInfo(id: "3", name: "TestImage3"),
     ]
     
     var body: some View {
@@ -30,6 +30,7 @@ struct FamilyView: View {
                 } else {
                     ForEach(0..<familyPhotos.count, id: \.self) { index in
                         Image("\(familyPhotos[index].name)")
+                            .resizable()
                             .frame(width: UIScreen.main.bounds.width * 0.76, height: UIScreen.main.bounds.height * 0.21)
                             .cornerRadius(10)
                             .shadow(color: .black.opacity(0.06), radius: 6, x: -4, y: 5)

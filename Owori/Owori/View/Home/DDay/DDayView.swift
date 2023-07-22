@@ -15,7 +15,7 @@ struct DDayView: View {
     @State private var isDdayisOn = false
     
     // 임시 - 디데이 정보 변수
-    private var ddayInfos = [
+    var ddayInfos = [
         DDay.DdayInfo(id: "1", dday: "안녕", text: "하이"),
         DDay.DdayInfo(id: "2", dday: "안녕", text: "하이"),
         DDay.DdayInfo(id: "3", dday: "안녕", text: "하이"),
@@ -34,9 +34,15 @@ struct DDayView: View {
                                         .weight(.semibold)
                             )
                             Spacer()
+                            Button {
+                                // 디데이 카드 삭제
+                            } label: {
+                                Image(systemName: "xmark.circle.fill")
+                                    .foregroundColor(Color.oworiGray300)
+                            }
                         }
                         .frame(width: 204, alignment: .center)
-                        Text(ddayInfos[index].dday)
+                        Text("7월 22일 (토)") // 임시
                             .font(Font.custom("Pretendard", size: 12))
                             .kerning(0.18)
                         Text(ddayInfos[index].text)

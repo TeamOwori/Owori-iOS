@@ -8,35 +8,14 @@
 import SwiftUI
 
 struct ProfileImage: View {
+    // 임시 프로필 이미지 정보: User.member_profile.nickname과 연동 예정
+    @State var imageName: String = "TestImage2"
+    
     var body: some View {
-        NavigationStack {
-            ZStack {
-                VStack {
-                    Spacer()
-                    HStack {
-                        Spacer()
-                        NavigationLink {
-                            SelectEmotionBadge()
-                        } label: {
-                            ZStack {
-                                Color.white
-                                    .frame(width: 24, height: 24)
-                                    .clipShape(Circle())
-                                    .shadow(color: .black.opacity(0.16), radius: 8, x: 4, y: 4)
-                                    .shadow(color: .black.opacity(0.04), radius: 4, x: 4, y: -2)
-                                ProfileEmotionBadge() // 오늘의 한마디에서는 제거되어야 함
-                            }
-                        }
-                    }
-                }
-            }
+        Image(imageName)
+            .resizable()
             .frame(width: 60, height: 60)
-            .background(
-                Image("TestImage2")
-                    .resizable()
-                    .frame(width: 50, height: 50)
-                    .clipShape(Circle()))
-        }
+            .clipShape(Circle())
     }
 }
 
