@@ -13,7 +13,7 @@ struct ProfileImageWithBadge: View {
     @State var emotionBadge: String = ""
     
     var body: some View {
-        NavigationStack {
+//        NavigationStack {
             VStack(spacing: 4) {
                 ZStack {
                     ProfileImage()
@@ -27,8 +27,8 @@ struct ProfileImageWithBadge: View {
                                     .clipShape(Circle())
                                     .shadow(color: .black.opacity(0.16), radius: 8, x: 4, y: 4)
                                     .shadow(color: .black.opacity(0.04), radius: 4, x: 4, y: -2)
-                                NavigationLink {
-                                    SelectEmotionBadge()
+                                Button {
+//                                    SelectEmotionBadge()
                                 } label: {
                                     Image("squinting-face-with-tongue")
                                         .resizable()
@@ -69,7 +69,7 @@ struct ProfileImageWithBadge: View {
                 
                 ProfileText(nickName: "Name")
             }
-        }
+//        }
     }
 }
 

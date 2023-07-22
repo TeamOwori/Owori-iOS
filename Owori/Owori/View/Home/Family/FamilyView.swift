@@ -8,11 +8,10 @@
 import SwiftUI
 
 struct FamilyView: View {
-    // + CalendarView에서 디데이 기능 선택 여부
     @State private var currentIndex: Int = 0
     @GestureState private var dragOffset: CGFloat = 0
     @State private var isDetailActive = false
-    @State private var isDdayisOn = false
+    @State private var isDdayisOn = false // + CalendarView에서 디데이 기능 선택 여부
     
     // 임시 - 가족사진 정보 변수
     var familyPhotos = [
@@ -61,25 +60,11 @@ struct FamilyView: View {
                             }
                         }
                     }
-
             )
         }
+        .frame(height: UIScreen.main.bounds.height * 0.21)
     }
 }
-
-//struct FamilyView: View {
-//    //@StateObject var cardModel = CardModel()
-//    @StateObject var carouselViewModel = CarouselViewModel() // 임시 ViewModel
-//
-//    var body: some View {
-//        ZStack {
-//            //Text("Active card is \(carouselViewModel.activeCard)")
-//            FamilyCarousel()
-//                .environmentObject(carouselViewModel.stateModel) // 임시 ViewModel
-//        }
-//        .frame(height: 135)
-//    }
-//}
 
 struct FamilyView_Previews: PreviewProvider {
     static var previews: some View {

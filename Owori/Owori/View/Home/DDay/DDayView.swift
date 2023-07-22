@@ -8,11 +8,10 @@
 import SwiftUI
 
 struct DDayView: View {
-    // + CalendarView에서 디데이 기능 선택 여부
     @State private var currentIndex: Int = 0
     @GestureState private var dragOffset: CGFloat = 0
-    @State private var isDetailActive = false
-    @State private var isDdayisOn = false
+//    @State private var isDdayisOn = false // + CalendarView에서 디데이 기능 선택 여부
+//    @State private var isDetailActive = false
     
     // 임시 - 디데이 정보 변수
     var ddayInfos = [
@@ -22,7 +21,7 @@ struct DDayView: View {
     ]
     
     var body: some View {
-        NavigationStack {
+//        NavigationStack {
             ZStack {
                 Color.oworiMainColor
                 ForEach(0..<ddayInfos.count, id: \.self) { index in
@@ -32,7 +31,7 @@ struct DDayView: View {
                                 .font(
                                     Font.custom("Pretendard", size: 18)
                                         .weight(.semibold)
-                            )
+                                )
                             Spacer()
                             Button {
                                 // 디데이 카드 삭제
@@ -59,16 +58,17 @@ struct DDayView: View {
                     .shadow(color: .black.opacity(0.06), radius: 6, x: -4, y: 5)
                     .shadow(color: .black.opacity(0.1), radius: 7, x: 4, y: 2)
                     .offset(x: CGFloat(index - currentIndex) * 250 /* 300 */ + dragOffset, y: 0)
-                    .onTapGesture {
-                        isDetailActive = true
-                    }
+                    //                    .onTapGesture {
+                    //                        isDetailActive = true
+                    //                    }
                 }
-//                NavigationLink(isActive: $isDetailActive) {
-//
-//                } label: {
-//                    EmptyView()
-//                }
+                //                NavigationLink(isActive: $isDetailActive) {
+                //
+                //                } label: {
+                //                    EmptyView()
+                //                }
             }
+            .frame(height: UIScreen.main.bounds.height * 0.15)
             .gesture(
                 DragGesture()
                     .onEnded{ value in
@@ -84,7 +84,7 @@ struct DDayView: View {
                         }
                     }
             )
-        }
+//        }
     }
 }
 

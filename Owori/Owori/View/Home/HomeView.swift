@@ -12,9 +12,8 @@ struct HomeView: View {
         ZStack {
             Color.oworiMainColor
                 .ignoresSafeArea()
-            VStack {
+            VStack(spacing: 40) {
                 ProfileView()
-                    .padding(20)
                 DDayView()
                 FamilyView()
             }

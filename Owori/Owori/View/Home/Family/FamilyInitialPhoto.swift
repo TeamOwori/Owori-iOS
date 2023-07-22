@@ -20,7 +20,7 @@ struct FamilyInitialPhoto: View {
                             .overlay(
                                 RoundedRectangle(cornerRadius: 12)
                                     .inset(by: 0.5)
-                                    .stroke(Color.gray/*300*/, style: StrokeStyle(lineWidth: 1, dash: [5, 5]))
+                                    .stroke(Color.oworiGray300, style: StrokeStyle(lineWidth: 1, dash: [5, 5]))
                             )
                         VStack(spacing: 25) {
                             Text("사진 자유롭게 올리는 공간이에요!\n가족사진을 올려보는건 어떨까요?")

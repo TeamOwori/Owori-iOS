@@ -8,8 +8,9 @@
 import SwiftUI
 
 struct AddFamilyPhoto: View {
-    // ExisitView(홈/사진올리기)와 연동
+    // 임시 - ExisitView(홈/사진올리기)와 연동
     @State private var photoDescription: String = ""
+    @State private var photoisOn: Bool = false
     
     var body: some View {
         NavigationStack {
@@ -28,10 +29,10 @@ struct AddFamilyPhoto: View {
                             .overlay(
                                 RoundedRectangle(cornerRadius: 12)
                                     .inset(by: 0.5)
-                                    .stroke(.gray, style: StrokeStyle(lineWidth: 1, dash: [5, 5]))
+                                    .stroke(Color.oworiGray300, style: StrokeStyle(lineWidth: 1, dash: [5, 5]))
                             )
-                        Image(systemName: "plus")
-                            .foregroundColor(Color.gray/*300*/)
+                        Image(systemName: "plus") // 이미지로 변경
+                            .foregroundColor(Color.oworiGray300)
                     }
                 }
                 VStack(alignment: .leading, spacing: 10) {
@@ -41,39 +42,72 @@ struct AddFamilyPhoto: View {
                                 .weight(.semibold)
                         )
                     VStack(alignment: .trailing, spacing: 12) {
-                        TextEditor(text: $photoDescription)
-                            .cornerRadius(12)
-                            .frame(width: UIScreen.main.bounds.width * 0.7, height: UIScreen.main.bounds.height * 0.15)
-                            //.background(Color.green)
+                        ZStack {
+                            TextEditor(text: $photoDescription)
+                                .cornerRadius(12)
+                                .frame(width: UIScreen.main.bounds.width * 0.7, height: UIScreen.main.bounds.height * 0.15)
+                            if photoDescription.isEmpty {
+                                Text(" 어떤 사진인가요? 짧게 기록을 남겨봐요")
+                                    .font(Font.custom("Pretendard", size: 15))
+                                    .frame(width: 269, height: 109, alignment: .topLeading)
+//                                    .frame(minWidth: 269, maxWidth: 269, minHeight: 109, maxHeight: 109, alignment: .topLeading)
+//                                    .frame(width: UIScreen.main.bounds.width * 0.7, height: UIScreen.main.bounds.height * 0.15, alignment: .topLeading)
+                                    .foregroundColor(Color.oworiGray300)
+//                                    .background(Color.green)
+                                
+                            }
+                        }
                         Text("\(photoDescription.count)/50")
-                            .foregroundColor(.gray)
+                            .foregroundColor(Color.oworiGray300)
+                            .font(Font.custom("Pretendard", size: 12))
+                            .kerning(0.18)
                     }
-                    .padding(.horizontal, 16)
-                    .padding(.vertical, 12)
+                    .padding(EdgeInsets(top: 12, leading: 16, bottom: 12, trailing: 16))
                     .overlay(
                         RoundedRectangle(cornerRadius: 12)
                             .inset(by: 0.5)
-                            .stroke(Color.gray/*200*/)
+                            .stroke(Color.oworiGray200)
                             .opacity(0.5)
                     )
                 }
                 .padding(.bottom, 125)
-                Button {
-                    
-                } label: {
-                    ZStack {
-                        Rectangle()
-                            .cornerRadius(12)
-                            .frame(width: 295, height: 48)
-                            .foregroundColor(.gray)
-                            .padding(.horizontal, 116)
-                            .padding(.vertical, 11.5)
-                        Text("올리기")
-                            .font(
-                                Font.custom("Pretendard", size: 18)
-                                    .weight(.semibold)
-                            )
-                            .foregroundColor(.primary)
+                if photoDescription.isEmpty && photoisOn {
+                    Button {
+                        
+                    } label: {
+                        ZStack {
+                            Rectangle()
+                                .cornerRadius(12)
+                                .frame(width: 295, height: 48)
+                                .foregroundColor(Color.oworiOrange)
+                                .padding(.horizontal, 116)
+                                .padding(.vertical, 11.5)
+                            Text("올리기")
+                                .font(
+                                    Font.custom("Pretendard", size: 18)
+                                        .weight(.semibold)
+                                )
+                                .foregroundColor(.white)
+                        }
+                    }
+                } else {
+                    Button {
+                        
+                    } label: {
+                        ZStack {
+                            Rectangle()
+                                .cornerRadius(12)
+                                .frame(width: 295, height: 48)
+                                .foregroundColor(Color.oworiGray200)
+                                .padding(.horizontal, 116)
+                                .padding(.vertical, 11.5)
+                            Text("올리기")
+                                .font(
+                                    Font.custom("Pretendard", size: 18)
+                                        .weight(.semibold)
+                                )
+                                .foregroundColor(Color.oworiGray400)
+                        }
                     }
                 }
             }

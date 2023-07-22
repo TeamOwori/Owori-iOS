@@ -6,7 +6,7 @@
 //
 
 import Foundation
-
+// 임시 모델
 struct Photo: Codable {
     var photos: [PhotoInfo] = []
 }

@@ -9,13 +9,13 @@ import SwiftUI
 
 struct SelectEmotionBadge: View {
     var body: some View {
-        NavigationStack {
+//        NavigationStack {
             ZStack {
                 Color.oworiMainColor
                     .ignoresSafeArea(.all)
             }
             .navigationBarBackButtonHidden(true)
-        }
+//        }
     }
 }
 

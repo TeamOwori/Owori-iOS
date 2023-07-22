@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ExistPhoto: View {
-    var imageName: String
+    @State var imageName: String = "TestImage1"
     
     var body: some View {
         Image(imageName)
@@ -18,8 +18,8 @@ struct ExistPhoto: View {
     }
 }
 
-//struct ExistPhoto_Previews: PreviewProvider {
-//    static var previews: some View {
-//        ExisitPhoto()
-//    }
-//}
+struct ExistPhoto_Previews: PreviewProvider {
+    static var previews: some View {
+        ExistPhoto()
+    }
+}
