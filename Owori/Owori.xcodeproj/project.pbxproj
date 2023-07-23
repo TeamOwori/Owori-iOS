@@ -37,7 +37,7 @@
 		F3430F902A67043200DC1B1C /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3430F502A67043200DC1B1C /* LoginView.swift */; };
 		F3430F912A67043200DC1B1C /* LoginTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3430F512A67043200DC1B1C /* LoginTestView.swift */; };
 		F3430F922A67043200DC1B1C /* NumberIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3430F532A67043200DC1B1C /* NumberIndicator.swift */; };
-		F3430F932A67043200DC1B1C /* LoginTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3430F542A67043200DC1B1C /* LoginTabView.swift */; };
+		F3430F932A67043200DC1B1C /* JoinView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3430F542A67043200DC1B1C /* JoinView.swift */; };
 		F3430F942A67043200DC1B1C /* LoginButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3430F562A67043200DC1B1C /* LoginButton.swift */; };
 		F3430F952A67043200DC1B1C /* OnBoardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3430F582A67043200DC1B1C /* OnBoardingView.swift */; };
 		F3430F962A67043200DC1B1C /* DailyStoryImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3430F5B2A67043200DC1B1C /* DailyStoryImageCell.swift */; };
@@ -70,6 +70,14 @@
 		F3430FB52A67043200DC1B1C /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3430F802A67043200DC1B1C /* Color+Extension.swift */; };
 		F3430FB62A67043200DC1B1C /* Image+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3430F812A67043200DC1B1C /* Image+Extension.swift */; };
 		F3430FB72A67043200DC1B1C /* View+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3430F822A67043200DC1B1C /* View+Extension.swift */; };
+		F39EF2822A6B93E5005FD6DB /* JoinNickname.swift in Sources */ = {isa = PBXBuildFile; fileRef = F39EF2812A6B93E5005FD6DB /* JoinNickname.swift */; };
+		F39EF2842A6B95D3005FD6DB /* JoinBirthday.swift in Sources */ = {isa = PBXBuildFile; fileRef = F39EF2832A6B95D3005FD6DB /* JoinBirthday.swift */; };
+		F39EF2862A6B96A1005FD6DB /* JoinFamilyName.swift in Sources */ = {isa = PBXBuildFile; fileRef = F39EF2852A6B96A1005FD6DB /* JoinFamilyName.swift */; };
+		F39EF2882A6B972E005FD6DB /* JoinFamily.swift in Sources */ = {isa = PBXBuildFile; fileRef = F39EF2872A6B972E005FD6DB /* JoinFamily.swift */; };
+		F39EF28A2A6B9860005FD6DB /* InviteFamily.swift in Sources */ = {isa = PBXBuildFile; fileRef = F39EF2892A6B9860005FD6DB /* InviteFamily.swift */; };
+		F39EF28C2A6BA429005FD6DB /* BeInviteFamily.swift in Sources */ = {isa = PBXBuildFile; fileRef = F39EF28B2A6BA429005FD6DB /* BeInviteFamily.swift */; };
+		F39EF28E2A6BA80F005FD6DB /* TermsOfUse.swift in Sources */ = {isa = PBXBuildFile; fileRef = F39EF28D2A6BA80F005FD6DB /* TermsOfUse.swift */; };
+		F39EF2922A6DBA2C005FD6DB /* BackToLoginButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F39EF2912A6DBA2C005FD6DB /* BackToLoginButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -124,7 +132,7 @@
 		F3430F502A67043200DC1B1C /* LoginView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		F3430F512A67043200DC1B1C /* LoginTestView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginTestView.swift; sourceTree = "<group>"; };
 		F3430F532A67043200DC1B1C /* NumberIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NumberIndicator.swift; sourceTree = "<group>"; };
-		F3430F542A67043200DC1B1C /* LoginTabView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginTabView.swift; sourceTree = "<group>"; };
+		F3430F542A67043200DC1B1C /* JoinView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JoinView.swift; sourceTree = "<group>"; };
 		F3430F562A67043200DC1B1C /* LoginButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginButton.swift; sourceTree = "<group>"; };
 		F3430F582A67043200DC1B1C /* OnBoardingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnBoardingView.swift; sourceTree = "<group>"; };
 		F3430F5B2A67043200DC1B1C /* DailyStoryImageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DailyStoryImageCell.swift; sourceTree = "<group>"; };
@@ -157,6 +165,14 @@
 		F3430F802A67043200DC1B1C /* Color+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
 		F3430F812A67043200DC1B1C /* Image+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Image+Extension.swift"; sourceTree = "<group>"; };
 		F3430F822A67043200DC1B1C /* View+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "View+Extension.swift"; sourceTree = "<group>"; };
+		F39EF2812A6B93E5005FD6DB /* JoinNickname.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinNickname.swift; sourceTree = "<group>"; };
+		F39EF2832A6B95D3005FD6DB /* JoinBirthday.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinBirthday.swift; sourceTree = "<group>"; };
+		F39EF2852A6B96A1005FD6DB /* JoinFamilyName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinFamilyName.swift; sourceTree = "<group>"; };
+		F39EF2872A6B972E005FD6DB /* JoinFamily.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinFamily.swift; sourceTree = "<group>"; };
+		F39EF2892A6B9860005FD6DB /* InviteFamily.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InviteFamily.swift; sourceTree = "<group>"; };
+		F39EF28B2A6BA429005FD6DB /* BeInviteFamily.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeInviteFamily.swift; sourceTree = "<group>"; };
+		F39EF28D2A6BA80F005FD6DB /* TermsOfUse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsOfUse.swift; sourceTree = "<group>"; };
+		F39EF2912A6DBA2C005FD6DB /* BackToLoginButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackToLoginButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -351,25 +367,33 @@
 			isa = PBXGroup;
 			children = (
 				F3430F502A67043200DC1B1C /* LoginView.swift */,
-				F3430F522A67043200DC1B1C /* LoginTabView */,
+				F3430F522A67043200DC1B1C /* JoinView */,
 				F3430F552A67043200DC1B1C /* Helper */,
 				F3430F572A67043200DC1B1C /* OnBoarding */,
 			);
 			path = Login;
 			sourceTree = "<group>";
 		};
-		F3430F522A67043200DC1B1C /* LoginTabView */ = {
+		F3430F522A67043200DC1B1C /* JoinView */ = {
 			isa = PBXGroup;
 			children = (
 				F3430F532A67043200DC1B1C /* NumberIndicator.swift */,
-				F3430F542A67043200DC1B1C /* LoginTabView.swift */,
+				F3430F542A67043200DC1B1C /* JoinView.swift */,
+				F39EF2812A6B93E5005FD6DB /* JoinNickname.swift */,
+				F39EF2832A6B95D3005FD6DB /* JoinBirthday.swift */,
+				F39EF2852A6B96A1005FD6DB /* JoinFamilyName.swift */,
+				F39EF2872A6B972E005FD6DB /* JoinFamily.swift */,
+				F39EF2892A6B9860005FD6DB /* InviteFamily.swift */,
+				F39EF28B2A6BA429005FD6DB /* BeInviteFamily.swift */,
+				F39EF28D2A6BA80F005FD6DB /* TermsOfUse.swift */,
 			);
-			path = LoginTabView;
+			path = JoinView;
 			sourceTree = "<group>";
 		};
 		F3430F552A67043200DC1B1C /* Helper */ = {
 			isa = PBXGroup;
 			children = (
+				F39EF2912A6DBA2C005FD6DB /* BackToLoginButton.swift */,
 				F3430F562A67043200DC1B1C /* LoginButton.swift */,
 			);
 			path = Helper;
@@ -610,11 +634,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F3430F932A67043200DC1B1C /* LoginTabView.swift in Sources */,
+				F3430F932A67043200DC1B1C /* JoinView.swift in Sources */,
 				F3430F882A67043200DC1B1C /* ProfileView.swift in Sources */,
 				F3430F852A67043200DC1B1C /* FamilyView.swift in Sources */,
 				886F8E002A6C584900D60BCC /* SelectEmotionBadge.swift in Sources */,
 				F3430F8C2A67043200DC1B1C /* DDayView.swift in Sources */,
+				F39EF28C2A6BA429005FD6DB /* BeInviteFamily.swift in Sources */,
 				F3430F942A67043200DC1B1C /* LoginButton.swift in Sources */,
 				F3430FB72A67043200DC1B1C /* View+Extension.swift in Sources */,
 				F3430F982A67043200DC1B1C /* SortMenu.swift in Sources */,
@@ -629,11 +654,14 @@
 				F3430F9D2A67043200DC1B1C /* ImageTabView.swift in Sources */,
 				F3430FB22A67043200DC1B1C /* FamilyViewModel.swift in Sources */,
 				F3430F8A2A67043200DC1B1C /* ProfileText.swift in Sources */,
+				F39EF28A2A6B9860005FD6DB /* InviteFamily.swift in Sources */,
 				F3430F952A67043200DC1B1C /* OnBoardingView.swift in Sources */,
 				886F8DFE2A6C582400D60BCC /* ProfileImageWithBadge.swift in Sources */,
 				883B47CD2A686C1D004C2D20 /* SettingView.swift in Sources */,
 				F3430FA22A67043200DC1B1C /* StoryListView.swift in Sources */,
 				886F8DF42A6C56C100D60BCC /* FamilyInitialPhoto.swift in Sources */,
+				F39EF2882A6B972E005FD6DB /* JoinFamily.swift in Sources */,
+				F39EF2862A6B96A1005FD6DB /* JoinFamilyName.swift in Sources */,
 				F3430FAF2A67043200DC1B1C /* UserViewModel.swift in Sources */,
 				F3430FB02A67043200DC1B1C /* LoginViewModel.swift in Sources */,
 				886F8DF02A6C567800D60BCC /* Home.swift in Sources */,
@@ -643,9 +671,12 @@
 				F3430F922A67043200DC1B1C /* NumberIndicator.swift in Sources */,
 				886F8DF62A6C56E800D60BCC /* AddFamilyPhoto.swift in Sources */,
 				F3430F9C2A67043200DC1B1C /* ContentTitle.swift in Sources */,
+				F39EF2842A6B95D3005FD6DB /* JoinBirthday.swift in Sources */,
 				F3430FB62A67043200DC1B1C /* Image+Extension.swift in Sources */,
 				F3430FB12A67043200DC1B1C /* StoryViewModel.swift in Sources */,
+				F39EF2922A6DBA2C005FD6DB /* BackToLoginButton.swift in Sources */,
 				F3430FA62A67043200DC1B1C /* MonthlyStoryCollection.swift in Sources */,
+				F39EF2822A6B93E5005FD6DB /* JoinNickname.swift in Sources */,
 				F3430FA92A67043200DC1B1C /* Family.swift in Sources */,
 				F3430FB42A67043200DC1B1C /* String+Extension.swift in Sources */,
 				F3430F9B2A67043200DC1B1C /* DetailImageCell.swift in Sources */,
@@ -664,6 +695,7 @@
 				F3430F902A67043200DC1B1C /* LoginView.swift in Sources */,
 				886F8DEC2A6C55E300D60BCC /* BackButton.swift in Sources */,
 				886F8E022A6C586B00D60BCC /* ProfileEmotionBadge.swift in Sources */,
+				F39EF28E2A6BA80F005FD6DB /* TermsOfUse.swift in Sources */,
 				F3430FAD2A67043200DC1B1C /* Story.swift in Sources */,
 				3580AFA32A6844DB00DC28F7 /* AppleLoginTestView.swift in Sources */,
 				886F8DF82A6C570500D60BCC /* ExistPhoto.swift in Sources */,

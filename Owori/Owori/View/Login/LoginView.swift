@@ -24,8 +24,8 @@ struct LoginView: View {
     
     var body: some View {
         // 배포 전 테스트시 !isLogined로 설정 (서버가 휴대폰에서는 안잡힘)
-        if userViewModel.isLogined {
-            LoginTabView()
+        if loginViewModel.isLoggedIn {
+            JoinView()
         } else {
             VStack {
                 //오월이 로고
