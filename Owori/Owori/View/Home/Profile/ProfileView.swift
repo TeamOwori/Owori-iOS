@@ -8,20 +8,21 @@
 import SwiftUI
 
 struct ProfileView: View {
-    /// - [임시] 가족 구성원 수 데이터
-    /// - 실제 데이터 들어오면 없어질 예정
-    private var familyCount: Int = 4
-    
     var body: some View {
-        HStack(spacing: 16) {
-            ForEach(0..<familyCount, id: \.self) { _ in
-                ProfilePhoto()
+//        NavigationStack {
+            ZStack {
+                Color.oworiMainColor
+                HStack(spacing: 16) {
+                    ForEach(1...3, id: \.self) { _ in
+                        ProfileImageWithBadge()
+                    }
+                }
+                .padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 20))
+                .frame(width: UIScreen.main.bounds.width * 0.95, alignment: .leading)
             }
+            .frame(height: UIScreen.main.bounds.height * 0.05)
         }
-        //.background(Color(.green))
-        .padding(EdgeInsets(top: 40, leading: 40, bottom: 40, trailing: 40))
-        .frame(width: 375, height: 82, alignment: .leading)
-    }
+//    }
 }
 
 struct ProfileView_Previews: PreviewProvider {

@@ -8,16 +8,21 @@
 import SwiftUI
 
 struct ProfileText: View {
-    // 사용자 닉네임
-    @Binding var nickName: String
+    // 임시 프로필 닉네임 정보
+    @State var nickName: String = "name"
     
     var body: some View {
         Text(nickName)
+            .font(
+                Font.custom("Pretendard", size: 12)
+                    .weight(.medium)
+            )
+            .kerning(0.18)
     }
 }
 
 struct ProfileText_Previews: PreviewProvider {
     static var previews: some View {
-        ProfileText(nickName: .constant("name"))
+        ProfileText(nickName: "name")
     }
 }
