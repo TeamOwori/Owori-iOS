@@ -18,6 +18,7 @@ struct HomeView: View {
                 FamilyView()
             }
         }
+        .navigationBarBackButtonHidden(true)
     }
 }
 
