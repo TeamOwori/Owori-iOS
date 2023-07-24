@@ -21,15 +21,16 @@ struct ProfileView: View {
     
     var body: some View {
         ScrollView(.horizontal, showsIndicators: false) {
-            LazyHStack(spacing: 16) {
+            LazyHStack(spacing: UIScreen.main.bounds.width * 0.04) {
                 ForEach(0..<profiles.count, id: \.self) { _ in
                     ProfileImageWithBadge()
                 }
             }
-            .padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 20))
-            .frame( alignment: .leading)
+            .frame(height: UIScreen.main.bounds.height * 0.1)
+            .background(Color.red)
         }
-        .frame(height: UIScreen.main.bounds.height * 0.1) // .frame(height: 82)
+        .padding(EdgeInsets(top: 0, leading: UIScreen.main.bounds.width * 0.05, bottom: 0, trailing: 0))
+        .frame(height: UIScreen.main.bounds.height * 0.1) //
     }
 }
 
