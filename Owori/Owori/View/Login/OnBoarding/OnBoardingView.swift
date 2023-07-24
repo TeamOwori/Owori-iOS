@@ -10,84 +10,99 @@ import SwiftUI
 
 struct OnBoardingView: View {
     
-//    // MARK: PROPERITES
-//
-//    //프로퍼티 지정ㅇ -> TitleName필요, BodyName필요
-//    //폰트컬러,버튼컬러 다 필요
-//    //이미지 받을 배열
-//    //페이지 탭 뷰 -> for each
-//
-//    let TitleName: String
-//    let BodyName: String
-//    let fontColor: Color
-//    let buttonColor: Color
-//
-
-    
-    
     //title index
     private var indexOfTitle: Int = 1
-    private var titles: [String] = ["가족끼리 추억을 기록해봐요", "오늘 기분을 공유해요", "그럼 가족을 등록해볼까요?"]
+    private var titles: [String] = ["우리 가족 소통해요", "가족과 일정을 공유해요", "우리 가족만의 추억을 기록해봐요"]
     @State private var titleIndex: Int = 0
     
     //body index
     private var indexOfBody: Int = 1
-    private var bodies: [String] = ["우리 가족의 소중한 추억을 공유할 수 있어요 하루하루를 가족과 함께해요", "가족들에게 현재 나의 기분을 감정뱃지로 표현해봐요 프로필에서 빠르게 확인가능해요", "오월이와 함께 가족방을 만들어봐요!"]
+    private var bodies: [String] = ["‘감정뱃지’로 나의 기분을 표현하고 \n ‘서로에게 한마디’를 나눠봐요", "공유 캘린더로 온가족의 일정을 체크할 수 있어요 중요한 가족행사는 오월이가 알려줄게요", "사진과 함께 그날의 이야기를 공유할 수 있어요 하루하루를 가족과 함께해요"]
     @State private var bodyIndex: Int = 0
     
     
     //Image index
     private var indexOfImage: Int = 1
-    private var images: [String] = ["K1","K2","K3"]
+    private var images: [String] = ["온보딩1","온보딩2","온보딩3"]
     @State private var imageIndex: Int = 0
+    
+    @State private var animationValue: CGFloat = 0
+    @State var offset: CGFloat = 0
+    
+    
     
     var body: some View{
         
         VStack {
             
-            //Zstack안에 텍스트, 이미지 다 넣고 탭뷰 스타일 넣어서
-            ZStack(alignment: .bottomTrailing) {
-                TabView(selection: $titleIndex) {
-                    ForEach(0 ..< titles.count, id: \.self) { index in
-                        VStack(alignment: .leading) {
-                            Text(titles[index])
-                                .font(.title)
-                                .bold()
-                            Text(bodies[index])
-                                .font(
-                                    Font.custom("Pretendard", size: 16)
-                                        .weight(.medium)
-                                )
-                                .foregroundColor(Color(red: 0.56, green: 0.56, blue: 0.56))
-                                .frame(maxWidth: .infinity, minHeight: 48, maxHeight: 48, alignment: .topLeading)
-                            Image(images[index])
-                                .resizable()
-                                .aspectRatio(contentMode: .fill)
-                                .clipped()
-                            
+            ScrollView(.init()){
+                
+                ZStack(alignment: .bottom) {
+                    
+                    TabView(selection: $titleIndex) {
+                        
+                        
+                        ForEach(0 ..< titles.count, id: \.self) { index in
+                            VStack(alignment: .leading) {
+                                
+                                Spacer()
+                                
+                                //Title
+                                Text(titles[index])
+                                    .font(.title)
+                                    .bold()
+                                    .foregroundColor(Color.black)
+                                    .frame(maxWidth: .infinity, alignment: .topLeading)
+                                    .padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 0))
+                                
+                                //Body
+                                Text(bodies[index])
+                                    .font(.title3)
+                                    .foregroundColor(Color.gray)
+                                    .frame(maxWidth: .infinity, alignment: .topLeading)
+                                    .padding(EdgeInsets(top: 3, leading: 20, bottom: 0, trailing: 0))
+                                
+                                //Image
+                                Image(images[index])
+                                    .resizable()
+                                    .frame(maxWidth: .infinity, maxHeight: UIScreen.main.bounds.height*0.5, alignment: .center)
+                                    .aspectRatio(contentMode: .fill)
+                                    .padding(EdgeInsets(top: 10, leading: 0, bottom: 0, trailing: 00))
+                                Spacer()
+                                
+                            }
                         }
                     }
+                    .tabViewStyle(PageTabViewStyle())
+                    .indexViewStyle(.page(backgroundDisplayMode: .always))
+                    .edgesIgnoringSafeArea(.top)
                 }
             }
-            .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
-        }
+            .padding(.bottom, 30)
             
-            HStack(alignment: .center, spacing: 0) {
-                // Title
-                Text("로그인 하기")
-                    .font(
-                        Font.custom("Pretendard", size: 20)
-                            .weight(.bold)
-                    )
+            Spacer()
+            
+            Button{
+                
+            } label: {
+                Text("로그인하기")
+                    .font(.title2)
+                    .bold()
                     .foregroundColor(.white)
             }
             .frame(width: UIScreen.main.bounds.width, height: 52)
-            .background(Color(red: 0.98, green: 0.48, blue: 0.33))
+            .background(Color.oworiOrange)
+            
         }
+        
     }
+    
+}
+
 
 struct OnBoardingView_Previews: PreviewProvider {
     static var previews: some View {
         OnBoardingView()
     }
 }
+
