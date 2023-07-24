@@ -9,10 +9,7 @@ import SwiftUI
 
 struct LoginButton: View {
     // MARK: PROPERITES
-    let buttonName: String
-    let buttonFontStyle: String
-    let fontColor: Color
-    let buttonColor: Color
+    let buttonImage: String
     
     @EnvironmentObject var loginViewModel: LoginViewModel
     @EnvironmentObject var userViewModel: UserViewModel
@@ -26,29 +23,24 @@ struct LoginButton: View {
                 loginViewModel.kakaoLogin(oworiUser: userViewModel.user) {
                     userViewModel.joinMember(socialToken: loginViewModel.socialToken)
                 }
-                print("Button tapped!")
+                
             } label: {
-                Text("\(buttonName)")
-                    .font(
-                        Font.custom("\(buttonFontStyle)", size: 15)
-                            .weight(.medium)
-                    )
-                    .multilineTextAlignment(.center)
-                    .frame(maxWidth: .infinity, minHeight: 18, maxHeight: 18, alignment: .top)
-                    .foregroundColor(fontColor)
+                Image(buttonImage)
+                    .resizable()
+                    .frame(width: 300, height: 44, alignment: .leading)
+                    .cornerRadius(12)
+                    
             }
-            
         }
-        .padding(20)
-        .frame(width: 300, height: 44, alignment: .leading)
-        .background(buttonColor)
-        .cornerRadius(12)
     }
 }
 
+
 struct LoginButton_Previews: PreviewProvider {
     static var previews: some View {
-        LoginButton(buttonName: "카카오 로그인", buttonFontStyle: "Apple SD Gothic Neo", fontColor: .black, buttonColor: .yellow)
+        LoginButton(buttonImage: "카카오로그인버튼")
+        
     }
+    
 }
 

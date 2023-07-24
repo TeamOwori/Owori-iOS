@@ -9,15 +9,11 @@ import SwiftUI
 
 struct SocialLoginStyle: Identifiable {
     let id: UUID
-    let socialLoginName: String
-    let fontStyle: String
-    let fontColor: Color
-    let buttonColor: Color
-    
+    let buttonImage: String
 }
 
 struct LoginView: View {
-    let test1: [SocialLoginStyle] = [SocialLoginStyle(id: UUID(), socialLoginName: "카카오 로그인", fontStyle: "Apple SD Gothic Neo", fontColor: .black, buttonColor: .yellow), SocialLoginStyle(id: UUID(), socialLoginName: "Apple 로그인", fontStyle: "SF Pro Display", fontColor: .white, buttonColor: .black)]
+    let test1: [SocialLoginStyle] = [SocialLoginStyle(id: UUID(), buttonImage: "카카오로그인버튼"), SocialLoginStyle(id: UUID(), buttonImage: "애플로그인버튼")]
     
     @EnvironmentObject var loginViewModel: LoginViewModel
     @EnvironmentObject var userViewModel: UserViewModel
@@ -28,46 +24,39 @@ struct LoginView: View {
             JoinView()
         } else {
             VStack {
-                //오월이 로고
-                ZStack {
-                    Image("Login")
-                    //디자이너 피그마보고 설정했지만,이렇게 코드 짜면 안될 것 같음
-                        .padding(.leading, -200)
-                        .padding(.trailing, -154)
-                        .padding(.top, 52)
-                        .edgesIgnoringSafeArea(.top) // safe area를 고려하여 top 패딩 설정
-                        .padding(.bottom, 410)
-                }
-                
-                .frame(width: 400, height: 349.99988)
+                //오월이 로고 이미지 - SE에서 가장 예쁘게 나옴
+                Image("Login")
+                    .frame(maxWidth: .infinity, alignment: .topLeading)
+                    .padding(EdgeInsets(top: 0, leading: -10, bottom: 0, trailing: 0))
                 
                 //모여봐요 우리 가족 text
                 Text("모여봐요 우리 가족")
-                    .font(
-                        Font.custom("Pretendard", size: 16)
-                            .weight(.semibold)
-                    )
-                    .foregroundColor(Color(red: 0.27, green: 0.27, blue: 0.27))
+                    .foregroundColor(Color.oworiGray600)
+                    .frame(maxWidth: .infinity, alignment: .center)
+                    .padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
+                    .bold()
                 
-                //오월이 이미지
-                Image("owori")
-                    .frame(width: 141.27937, height: 47.472)
+                //오월이 텍스트 로고 이미지
+                Image("오월이로고")
+                    .frame(maxWidth: .infinity, alignment: .center)
+                    .padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
                 
                 //소셜 로그인 버튼
                 VStack(alignment: .leading, spacing: 16) {
                     ForEach(test1) { item in
-                        LoginButton(buttonName: item.socialLoginName, buttonFontStyle: item.fontStyle, fontColor: item.fontColor, buttonColor: item.buttonColor)
+                        LoginButton(buttonImage: item.buttonImage)
                     }
-                }
+                }.padding(.top, 30)
                 
                 Text("소셜로그인으로 가입시 이용약관 및 개인정보처리방침에 동의합니다.")
-                    .font(
-                        Font.custom("Pretendard", size: 11)
-                            .weight(.medium)
-                    )
-                    .kerning(0.11)
-                    .multilineTextAlignment(.center)
-                    .foregroundColor(Color(red: 0.38, green: 0.38, blue: 0.38))
+                .font(
+                Font.custom("Pretendard", size: 11)
+                .weight(.medium)
+                )
+                .padding(.top, 30)
+                .kerning(0.11)
+                .multilineTextAlignment(.center)
+                .foregroundColor(Color.oworiGray600)
                 
             }
         }

@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "F3BC63572A52C6AE00999F54"
+               BlueprintIdentifier = "F3430F0A2A6701AD00DC1B1C"
                BuildableName = "Owori.app"
                BlueprintName = "Owori"
                ReferencedContainer = "container:Owori.xcodeproj">
@@ -34,7 +34,7 @@
             parallelizable = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "F3BC63672A52C6B000999F54"
+               BlueprintIdentifier = "F3430F1A2A6701AE00DC1B1C"
                BuildableName = "OworiTests.xctest"
                BlueprintName = "OworiTests"
                ReferencedContainer = "container:Owori.xcodeproj">
@@ -45,7 +45,7 @@
             parallelizable = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "F3BC63712A52C6B000999F54"
+               BlueprintIdentifier = "F3430F242A6701AE00DC1B1C"
                BuildableName = "OworiUITests.xctest"
                BlueprintName = "OworiUITests"
                ReferencedContainer = "container:Owori.xcodeproj">
@@ -67,7 +67,7 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "F3BC63572A52C6AE00999F54"
+            BlueprintIdentifier = "F3430F0A2A6701AD00DC1B1C"
             BuildableName = "Owori.app"
             BlueprintName = "Owori"
             ReferencedContainer = "container:Owori.xcodeproj">
@@ -84,7 +84,7 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "F3BC63572A52C6AE00999F54"
+            BlueprintIdentifier = "F3430F0A2A6701AD00DC1B1C"
             BuildableName = "Owori.app"
             BlueprintName = "Owori"
             ReferencedContainer = "container:Owori.xcodeproj">
