@@ -8,9 +8,7 @@
 import SwiftUI
 
 struct ProfileImageWithBadge: View {
-    @State var profileImageName: String = ""
-    @State var nickName: String = ""
-    @State var emotionBadge: String = ""
+    //@Binding var profiles: [Family.MemberProfile] // 임시 - 프로필 정보
     
     var body: some View {
 //        NavigationStack {
@@ -30,11 +28,7 @@ struct ProfileImageWithBadge: View {
                                 Button {
 //                                    SelectEmotionBadge()
                                 } label: {
-                                    Image("squinting-face-with-tongue")
-                                        .resizable()
-                                        .aspectRatio(contentMode: .fill)
-                                        .frame(width: 18, height: 18)
-                                        .clipped()
+                                    ProfileEmotionBadge()
                                 }
                             }
                         }
@@ -67,7 +61,8 @@ struct ProfileImageWithBadge: View {
 //                .frame(width: 64, height: 64)
 //                .background(ProfileImage())
                 
-                ProfileText(nickName: "Name")
+                ProfileText()
+                    .padding(0)
             }
 //        }
     }
