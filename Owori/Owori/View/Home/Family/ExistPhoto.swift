@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ExistPhoto: View {
+    // 임시 - 배열에서 클릭된 인덱스의 image_name 데이터
     @State var imageName: String = "TestImage1"
     
     var body: some View {

@@ -8,11 +8,14 @@
 import SwiftUI
 
 struct ProfileImage: View {
-    // 임시 프로필 이미지 정보: User.member_profile.nickname과 연동 예정
-    @State var imageName: String = "TestImage2"
+    //@Binding var profiles: [Family.MemberProfile] // 임시 - 프로필 정보
+    
+    @State private var profiles: [Family.MemberProfile] = [
+        Family.MemberProfile(id: "1", nick_name: "홍길동", profile_image: "DefaultImage", emotional_badge: "squinting-face-with-tongue"),
+    ]
     
     var body: some View {
-        Image(imageName)
+        Image(profiles[0].profile_image ?? "")
             .resizable()
             .frame(width: 60, height: 60)
             .clipShape(Circle())
