@@ -18,15 +18,15 @@ struct FamilyView: View {
         NavigationStack {
             ZStack {
                 Color.oworiMainColor
+                    .ignoresSafeArea()
                 ForEach(0..<(family.family_images?.count ?? 0), id: \.self) { index in
-                    Image(family.family_images?[index] ?? "") // 수정 예정
+                    Image(family.family_images?[index] ?? "")
                         .resizable()
-                        //.scaledToFill()
-                        .frame(width: UIScreen.main.bounds.width * 0.76, height: UIScreen.main.bounds.height * 0.21)
+                        .frame(width: 300, height: 180) //.frame(width: UIScreen.main.bounds.width * 0.76, height: UIScreen.main.bounds.height * 0.21)
                         .cornerRadius(10)
                         .shadow(color: .black.opacity(0.06), radius: 6, x: -4, y: 5)
                         .shadow(color: .black.opacity(0.1), radius: 7, x: 4, y: 2)
-                        .offset(x: CGFloat(index - currentIndex) * UIScreen.main.bounds.width * 0.8 + dragOffset, y: 0) // .offset(x: CGFloat(index - currentIndex) * 325 /* 300 */ + dragOffset, y: 0)
+                        .offset(x: CGFloat(index - currentIndex) * 325 /* 300 */ + dragOffset, y: 0) // .offset(x: CGFloat(index - currentIndex) * UIScreen.main.bounds.width * 0.8 + dragOffset, y: 0)
                 }
             }
             .gesture(
@@ -45,7 +45,7 @@ struct FamilyView: View {
                     }
             )
         }
-        .frame(height: UIScreen.main.bounds.height * 0.21)
+        .frame(height: 200) // .frame(width: UIScreen.main.bounds.height * 0.21)
     }
 }
 
