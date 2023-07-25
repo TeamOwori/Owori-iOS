@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct TermsOfUse: View {
+    @Binding var isLoggedIn: Bool
     @Binding var currentIndex: Int
     @Binding var nickname: String
     @Binding var birthDateText: String
@@ -39,7 +40,7 @@ struct TermsOfUse: View {
                 }
                 .navigationBarTitleDisplayMode(.inline)
                 .toolbar {
-                    BackToLoginButton(currentIndex: $currentIndex)
+                    BackToLoginButton(isLoggedIn: $isLoggedIn, currentIndex: $currentIndex)
                 }
                 .navigationDestination(isPresented: $isSuccessSignUp) {
                     HomeView()
@@ -55,6 +56,6 @@ struct TermsOfUse: View {
 
 struct TermsOfUse_Previews: PreviewProvider {
     static var previews: some View {
-        TermsOfUse(currentIndex: .constant(3), nickname: .constant(""), birthDateText: .constant(""), previousBirthDateText: .constant(""), familyName: .constant(""), inviteCode: .constant(""))
+        TermsOfUse(isLoggedIn: .constant(false), currentIndex: .constant(3), nickname: .constant(""), birthDateText: .constant(""), previousBirthDateText: .constant(""), familyName: .constant(""), inviteCode: .constant(""))
     }
 }

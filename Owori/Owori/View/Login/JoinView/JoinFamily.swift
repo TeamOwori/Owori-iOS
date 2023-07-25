@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct JoinFamily: View {
+    @Binding var isLoggedIn: Bool
     @Binding var currentIndex: Int
     @Binding var nickname: String
     @Binding var birthDateText: String
@@ -15,8 +16,8 @@ struct JoinFamily: View {
     @Binding var familyName: String
     @Binding var inviteCode: String
     
-    @State private var isFourthOneViewActive: Bool = false
-    @State private var isFourthTwoViewActive: Bool = false
+    @State private var isNextViewVisible: Bool = false
+    @State private var createCodeViewVisible: Bool = false
     
     var body: some View {
         VStack {
@@ -31,35 +32,34 @@ struct JoinFamily: View {
                     .foregroundColor(Color.oworiGray500)
                     .padding(EdgeInsets(top: 0, leading: 0, bottom: 8, trailing: 0))
                 
-                NavigationLink (value: 41) {
-                    Button {
-                        isFourthOneViewActive = true
-                    } label: {
-                        Text("초대 코드를 만들게요")
-                    }
-                }
-                .navigationBarTitleDisplayMode(.inline)
-                .toolbar {
-                    BackToLoginButton(currentIndex: $currentIndex)
-                }
-                .navigationDestination(isPresented: $isFourthOneViewActive) {
-                    InviteFamily(currentIndex: $currentIndex, nickname: $nickname, birthDateText: $birthDateText, previousBirthDateText: $previousBirthDateText, familyName: $familyName, inviteCode: $inviteCode)
+                Button {
+                    isNextViewVisible = true
+                    createCodeViewVisible = true
+                } label: {
+                    Text("초대 코드를 만들게요")
                 }
                 
-                NavigationLink (value: 42) {
-                    Button {
-                        isFourthTwoViewActive = true
-                    } label: {
-                        Text("초대 코드를 받았어요")
-                    }
+                Button {
+                    isNextViewVisible = true
+                    createCodeViewVisible = false
+                } label: {
+                    Text("초대 코드를 받았어요")
                 }
-                .navigationBarTitleDisplayMode(.inline)
-                .navigationDestination(isPresented: $isFourthTwoViewActive) {
-                    BeInviteFamily(currentIndex: $currentIndex, nickname: $nickname, birthDateText: $birthDateText, previousBirthDateText: $previousBirthDateText, familyName: $familyName, inviteCode: $inviteCode)
-                }
+                
             }
             .onAppear {
                 currentIndex = 4
+            }
+        }
+        .navigationBarTitleDisplayMode(.inline)
+        .toolbar {
+            BackToLoginButton(isLoggedIn: $isLoggedIn, currentIndex: $currentIndex)
+        }
+        .navigationDestination(isPresented: $isNextViewVisible) {
+            if createCodeViewVisible {
+                InviteFamily(isLoggedIn: $isLoggedIn, currentIndex: $currentIndex, nickname: $nickname, birthDateText: $birthDateText, previousBirthDateText: $previousBirthDateText, familyName: $familyName, inviteCode: $inviteCode)
+            } else {
+                BeInviteFamily(isLoggedIn: $isLoggedIn, currentIndex: $currentIndex, nickname: $nickname, birthDateText: $birthDateText, previousBirthDateText: $previousBirthDateText, familyName: $familyName, inviteCode: $inviteCode)
             }
         }
     }
@@ -67,6 +67,6 @@ struct JoinFamily: View {
 
 struct JoinFamily_Previews: PreviewProvider {
     static var previews: some View {
-        JoinFamily(currentIndex: .constant(4), nickname: .constant(""), birthDateText: .constant(""), previousBirthDateText: .constant(""), familyName: .constant(""), inviteCode: .constant(""))
+        JoinFamily(isLoggedIn: .constant(false), currentIndex: .constant(4), nickname: .constant(""), birthDateText: .constant(""), previousBirthDateText: .constant(""), familyName: .constant(""), inviteCode: .constant(""))
     }
 }

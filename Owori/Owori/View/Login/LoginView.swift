@@ -64,7 +64,7 @@ struct LoginView: View {
                 HomeView()
                     .navigationBarBackButtonHidden(true)
             } else {
-                JoinNickname()
+                JoinNickname(isLoggedIn: $isLoggedIn)
             }
         }
     }

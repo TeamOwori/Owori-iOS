@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct JoinFamilyName: View {
+    @Binding var isLoggedIn: Bool
     @Binding var currentIndex: Int
     @Binding var nickname: String
     @Binding var birthDateText: String
@@ -41,40 +42,37 @@ struct JoinFamilyName: View {
                 .overlay(Rectangle().frame(height: 1).padding(.top, 30))
                 .foregroundColor(.gray)
                 
-                NavigationLink (value: 4) {
-                    Button {
-                        if !familyName.isEmpty {
-                            isFourthViewActive = true
-                        } else {
-                            isFourthViewActive = false
-                        }
-                    } label: {
-                        if !birthDateText.isEmpty {
-                            Text("확인1")
-                        } else {
-                            Text("확인2")
-                        }
+                Button {
+                    if !familyName.isEmpty {
+                        isFourthViewActive = true
+                    } else {
+                        isFourthViewActive = false
                     }
-                    .disabled(birthDateText.isEmpty)
+                } label: {
+                    if !birthDateText.isEmpty {
+                        Text("확인1")
+                    } else {
+                        Text("확인2")
+                    }
                 }
-                .navigationBarTitleDisplayMode(.inline)
-                .toolbar {
-                    BackToLoginButton(currentIndex: $currentIndex)
-                }
-                .navigationDestination(isPresented: $isFourthViewActive) {
-                    JoinFamily(currentIndex: $currentIndex, nickname: $nickname, birthDateText: $birthDateText, previousBirthDateText: $previousBirthDateText, familyName: $familyName, inviteCode: $inviteCode)
-                }
+                .disabled(birthDateText.isEmpty)
             }
             .onAppear {
                 currentIndex = 3
             }
         }
-        
+        .navigationBarTitleDisplayMode(.inline)
+        .toolbar {
+            BackToLoginButton(isLoggedIn: $isLoggedIn, currentIndex: $currentIndex)
+        }
+        .navigationDestination(isPresented: $isFourthViewActive) {
+            JoinFamily(isLoggedIn: $isLoggedIn, currentIndex: $currentIndex, nickname: $nickname, birthDateText: $birthDateText, previousBirthDateText: $previousBirthDateText, familyName: $familyName, inviteCode: $inviteCode)
+        }
     }
 }
 
 struct JoinFamilyName_Previews: PreviewProvider {
     static var previews: some View {
-        JoinFamilyName(currentIndex: .constant(3), nickname: .constant(""), birthDateText: .constant(""), previousBirthDateText: .constant(""), familyName: .constant(""), inviteCode: .constant(""))
+        JoinFamilyName(isLoggedIn: .constant(false), currentIndex: .constant(3), nickname: .constant(""), birthDateText: .constant(""), previousBirthDateText: .constant(""), familyName: .constant(""), inviteCode: .constant(""))
     }
 }

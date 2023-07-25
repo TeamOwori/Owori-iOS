@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct JoinNickname: View {
+    @Binding var isLoggedIn: Bool
     
     @State private var currentIndex: Int = 1
     
@@ -27,7 +28,6 @@ struct JoinNickname: View {
     @State private var isSecondViewActive = false
     var body: some View {
         VStack {
-            
             NumberIndicator(currentIndex: $currentIndex)
                 .padding(.top, 60)
             
@@ -52,44 +52,37 @@ struct JoinNickname: View {
                 .overlay(Rectangle().frame(height: 1).padding(.top, 30))
                 .foregroundColor(.gray)
                 
-                
-                
-                // 여기에서 넘긴 value를 어디에 쓸지 잘 모르겠음... 사실 안넘겨도 되는 값이긴 함
-                // .navigationDestination()에서 뷰 파라미터에 어차피 값 같이 넘김..
-                // 일단 임시방편으로 currentIndex 대신 사용하는 방법 생각해보자..
-                NavigationLink(value: 2) {
-                    Button {
-                        if !nickname.isEmpty {
-                            isSecondViewActive = true
-                        } else {
-                            isSecondViewActive = false
-                        }
-                    } label: {
-                        if !nickname.isEmpty {
-                            Text("확인1")
-                        } else {
-                            Text("확인2")
-                        }
+                Button {
+                    if !nickname.isEmpty {
+                        isSecondViewActive = true
+                    } else {
+                        isSecondViewActive = false
                     }
-                    .disabled(nickname.isEmpty)
+                } label: {
+                    if !nickname.isEmpty {
+                        Text("확인1")
+                    } else {
+                        Text("확인2")
+                    }
                 }
-                .navigationBarTitleDisplayMode(.inline)
-                .toolbar {
-                    BackToLoginButton(currentIndex: $currentIndex)
-                }
-                .navigationDestination(isPresented: $isSecondViewActive) {
-                    JoinBirthday(currentIndex: $currentIndex, nickname: $nickname, birthDateText: $birthDateText, previousBirthDateText: $previousBirthDateText, familyName: $familyName, inviteCode: $inviteCode)
-                }
+                .disabled(nickname.isEmpty)
             }
             .onAppear {
                 currentIndex = 1
             }
+        }
+        .navigationBarTitleDisplayMode(.inline)
+        .toolbar {
+            BackToLoginButton(isLoggedIn: $isLoggedIn, currentIndex: $currentIndex)
+        }
+        .navigationDestination(isPresented: $isSecondViewActive) {
+            JoinBirthday(isLoggedIn: $isLoggedIn, currentIndex: $currentIndex, nickname: $nickname, birthDateText: $birthDateText, previousBirthDateText: $previousBirthDateText, familyName: $familyName, inviteCode: $inviteCode)
         }
     }
 }
 
 struct JoinNickname_Previews: PreviewProvider {
     static var previews: some View {
-        JoinNickname()
+        JoinNickname(isLoggedIn: .constant(false))
     }
 }

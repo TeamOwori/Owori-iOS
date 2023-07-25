@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct BeInviteFamily: View {
+    @Binding var isLoggedIn: Bool
     @Binding var currentIndex: Int
     @Binding var nickname: String
     @Binding var birthDateText: String
@@ -48,10 +49,10 @@ struct BeInviteFamily: View {
                 }
                 .navigationBarTitleDisplayMode(.inline)
                 .toolbar {
-                    BackToLoginButton(currentIndex: $currentIndex)
+                    BackToLoginButton(isLoggedIn: $isLoggedIn, currentIndex: $currentIndex)
                 }
                 .navigationDestination(isPresented: $isFifthViewActive) {
-                    TermsOfUse(currentIndex: $currentIndex, nickname: $nickname, birthDateText: $birthDateText, previousBirthDateText: $previousBirthDateText, familyName: $familyName, inviteCode: $inviteCode)
+                    TermsOfUse(isLoggedIn: $isLoggedIn, currentIndex: $currentIndex, nickname: $nickname, birthDateText: $birthDateText, previousBirthDateText: $previousBirthDateText, familyName: $familyName, inviteCode: $inviteCode)
                 }
             }
             .onAppear {
@@ -63,6 +64,6 @@ struct BeInviteFamily: View {
 
 struct BeInviteFamily_Previews: PreviewProvider {
     static var previews: some View {
-        BeInviteFamily(currentIndex: .constant(3), nickname: .constant(""), birthDateText: .constant(""), previousBirthDateText: .constant(""), familyName: .constant(""), inviteCode: .constant(""))
+        BeInviteFamily(isLoggedIn: .constant(false), currentIndex: .constant(3), nickname: .constant(""), birthDateText: .constant(""), previousBirthDateText: .constant(""), familyName: .constant(""), inviteCode: .constant(""))
     }
 }

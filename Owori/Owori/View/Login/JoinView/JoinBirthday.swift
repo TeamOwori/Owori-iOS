@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct JoinBirthday: View {
+    @Binding var isLoggedIn: Bool
     @Binding var currentIndex: Int
     @Binding var nickname: String
     @Binding var birthDateText: String
@@ -43,44 +44,39 @@ struct JoinBirthday: View {
                 .overlay(Rectangle().frame(height: 1).padding(.top, 30))
                 .foregroundColor(.gray)
                 
-                
-                NavigationLink (value: 3) {
-                    Button {
-                        if birthDateText.count >= 8 {
-                            isThirdViewActive = true
-                        } else {
-                            isThirdViewActive = false
-                        }
-                    } label: {
-                        if !birthDateText.isEmpty {
-                            Text("확인1")
-                        } else {
-                            Text("확인2")
-                        }
+                Button {
+                    if birthDateText.count >= 8 {
+                        isThirdViewActive = true
+                    } else {
+                        isThirdViewActive = false
                     }
-                    .disabled(birthDateText.isEmpty)
+                } label: {
+                    if !birthDateText.isEmpty {
+                        Text("확인1")
+                    } else {
+                        Text("확인2")
+                    }
                 }
-                .navigationBarTitleDisplayMode(.inline)
-                .toolbar {
-                    BackToLoginButton(currentIndex: $currentIndex)
-                }
-                .navigationDestination(isPresented: $isThirdViewActive) {
-                    JoinFamilyName(currentIndex: $currentIndex, nickname: $nickname, birthDateText: $birthDateText, previousBirthDateText: $previousBirthDateText, familyName: $familyName, inviteCode: $inviteCode)
-                }
+                .disabled(birthDateText.isEmpty)
+
             }
             .onAppear {
-                    currentIndex = 2
+                currentIndex = 2
             }
         }
-        
-        
+        .navigationBarTitleDisplayMode(.inline)
+        .toolbar {
+            BackToLoginButton(isLoggedIn: $isLoggedIn, currentIndex: $currentIndex)
+        }
+        .navigationDestination(isPresented: $isThirdViewActive) {
+            JoinFamilyName(isLoggedIn: $isLoggedIn, currentIndex: $currentIndex, nickname: $nickname, birthDateText: $birthDateText, previousBirthDateText: $previousBirthDateText, familyName: $familyName, inviteCode: $inviteCode)
+        }
     }
-    
 }
 
 
 struct JoinBirthday_Previews: PreviewProvider {
     static var previews: some View {
-        JoinBirthday(currentIndex: .constant(2), nickname: .constant(""), birthDateText: .constant(""), previousBirthDateText: .constant(""), familyName: .constant(""), inviteCode: .constant(""))
+        JoinBirthday(isLoggedIn: .constant(false), currentIndex: .constant(2), nickname: .constant(""), birthDateText: .constant(""), previousBirthDateText: .constant(""), familyName: .constant(""), inviteCode: .constant(""))
     }
 }
