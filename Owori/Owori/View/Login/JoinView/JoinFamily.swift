@@ -19,44 +19,48 @@ struct JoinFamily: View {
     @State private var isFourthTwoViewActive: Bool = false
     
     var body: some View {
-        VStack(alignment: .leading) {
-            Text("가족 연결을 해주세요.")
-                .font(.title)
-                .bold()
-                .padding(EdgeInsets(top: 0, leading: 0, bottom: 40, trailing: 0))
-            Text("초대코드 받았나요?\n없다면 가족들에게 초대코드를 보내봐요!")
-                .foregroundColor(Color.oworiGray500)
-                .padding(EdgeInsets(top: 0, leading: 0, bottom: 8, trailing: 0))
-            
-            NavigationLink (value: 41) {
-                Button {
-                    isFourthOneViewActive = true
-                } label: {
-                    Text("초대 코드를 만들게요")
+        VStack {
+            NumberIndicator(currentIndex: $currentIndex)
+                .padding(.top, 60)
+            VStack(alignment: .leading) {
+                Text("가족 연결을 해주세요.")
+                    .font(.title)
+                    .bold()
+                    .padding(EdgeInsets(top: 0, leading: 0, bottom: 40, trailing: 0))
+                Text("초대코드 받았나요?\n없다면 가족들에게 초대코드를 보내봐요!")
+                    .foregroundColor(Color.oworiGray500)
+                    .padding(EdgeInsets(top: 0, leading: 0, bottom: 8, trailing: 0))
+                
+                NavigationLink (value: 41) {
+                    Button {
+                        isFourthOneViewActive = true
+                    } label: {
+                        Text("초대 코드를 만들게요")
+                    }
+                }
+                .navigationBarTitleDisplayMode(.inline)
+                .toolbar {
+                    BackToLoginButton(currentIndex: $currentIndex)
+                }
+                .navigationDestination(isPresented: $isFourthOneViewActive) {
+                    InviteFamily(currentIndex: $currentIndex, nickname: $nickname, birthDateText: $birthDateText, previousBirthDateText: $previousBirthDateText, familyName: $familyName, inviteCode: $inviteCode)
+                }
+                
+                NavigationLink (value: 42) {
+                    Button {
+                        isFourthTwoViewActive = true
+                    } label: {
+                        Text("초대 코드를 받았어요")
+                    }
+                }
+                .navigationBarTitleDisplayMode(.inline)
+                .navigationDestination(isPresented: $isFourthTwoViewActive) {
+                    BeInviteFamily(currentIndex: $currentIndex, nickname: $nickname, birthDateText: $birthDateText, previousBirthDateText: $previousBirthDateText, familyName: $familyName, inviteCode: $inviteCode)
                 }
             }
-            .navigationBarTitleDisplayMode(.inline)
-            .toolbar {
-                BackToLoginButton(currentIndex: $currentIndex)
-            }
-            .navigationDestination(isPresented: $isFourthOneViewActive) {
-                InviteFamily(currentIndex: $currentIndex, nickname: $nickname, birthDateText: $birthDateText, previousBirthDateText: $previousBirthDateText, familyName: $familyName, inviteCode: $inviteCode)
-            }
-            
-            NavigationLink (value: 42) {
-                Button {
-                    isFourthTwoViewActive = true
-                } label: {
-                    Text("초대 코드를 받았어요")
-                }
-            }
-            .navigationBarTitleDisplayMode(.inline)
-            .navigationDestination(isPresented: $isFourthTwoViewActive) {
-                BeInviteFamily(currentIndex: $currentIndex, nickname: $nickname, birthDateText: $birthDateText, previousBirthDateText: $previousBirthDateText, familyName: $familyName, inviteCode: $inviteCode)
-            }
-        }
-        .onAppear {
+            .onAppear {
                 currentIndex = 4
+            }
         }
     }
 }

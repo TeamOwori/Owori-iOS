@@ -20,31 +20,35 @@ struct TermsOfUse: View {
     @EnvironmentObject var loginViewModel: LoginViewModel
     
     var body: some View {
-        VStack(alignment: .leading) {
-            Text("오월이가 처음이시죠?\n필수약관에 동의해주세요")
-                .font(.title)
-                .bold()
-                .padding(EdgeInsets(top: 0, leading: 0, bottom: 40, trailing: 0))
-            
-            NavigationLink (value: 6) {
-                Button {
-                    currentIndex = 0
-                    isSuccessSignUp = true
-                } label: {
-                    Text("임시 확인")
+        VStack {
+            NumberIndicator(currentIndex: $currentIndex)
+                .padding(.top, 60)
+            VStack(alignment: .leading) {
+                Text("오월이가 처음이시죠?\n필수약관에 동의해주세요")
+                    .font(.title)
+                    .bold()
+                    .padding(EdgeInsets(top: 0, leading: 0, bottom: 40, trailing: 0))
+                
+                NavigationLink (value: 6) {
+                    Button {
+                        currentIndex = 0
+                        isSuccessSignUp = true
+                    } label: {
+                        Text("임시 확인")
+                    }
+                }
+                .navigationBarTitleDisplayMode(.inline)
+                .toolbar {
+                    BackToLoginButton(currentIndex: $currentIndex)
+                }
+                .navigationDestination(isPresented: $isSuccessSignUp) {
+                    HomeView()
+                    
                 }
             }
-            .navigationBarTitleDisplayMode(.inline)
-            .toolbar {
-                BackToLoginButton(currentIndex: $currentIndex)
-            }
-            .navigationDestination(isPresented: $isSuccessSignUp) {
-                HomeView()
-                
-            }
-        }
-        .onAppear {
+            .onAppear {
                 currentIndex = 5
+            }
         }
     }
 }

@@ -29,15 +29,12 @@ struct OnBoardingView: View {
     @State private var animationValue: CGFloat = 0
     @State var offset: CGFloat = 0
     
-    @State private var isLoginViewActive: Bool = false
+    @State private var isLoginViewVisible: Bool = false
     
     
     
     var body: some View{
-        
-        if isLoginViewActive {
-            LoginView()
-        } else {
+        NavigationStack {
             VStack {
                 ScrollView(.init()){
                     ZStack(alignment: .bottom) {
@@ -83,7 +80,7 @@ struct OnBoardingView: View {
                 Spacer()
                 
                 Button{
-                    isLoginViewActive = true
+                    isLoginViewVisible = true
                 } label: {
                     Text("로그인하기")
                         .font(.title2)
@@ -92,6 +89,10 @@ struct OnBoardingView: View {
                         .frame(width: UIScreen.main.bounds.width, height: 52)
                         .background(Color.oworiOrange)
                 }
+            }
+            .navigationDestination(isPresented: $isLoginViewVisible) {
+                LoginView()
+                    .navigationBarBackButtonHidden(true)
             }
         }
     }
