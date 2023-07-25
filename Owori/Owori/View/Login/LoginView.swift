@@ -21,7 +21,9 @@ struct LoginView: View {
     var body: some View {
         // 배포 전 테스트시 !isLogined로 설정 (서버가 휴대폰에서는 안잡힘)
         if loginViewModel.isLoggedIn {
-            JoinView()
+            NavigationStack {
+                JoinView()
+            }
         } else {
             VStack {
                 //오월이 로고 이미지 - SE에서 가장 예쁘게 나옴
@@ -49,14 +51,14 @@ struct LoginView: View {
                 }.padding(.top, 30)
                 
                 Text("소셜로그인으로 가입시 이용약관 및 개인정보처리방침에 동의합니다.")
-                .font(
-                Font.custom("Pretendard", size: 11)
-                .weight(.medium)
-                )
-                .padding(.top, 30)
-                .kerning(0.11)
-                .multilineTextAlignment(.center)
-                .foregroundColor(Color.oworiGray600)
+                    .font(
+                        Font.custom("Pretendard", size: 11)
+                            .weight(.medium)
+                    )
+                    .padding(.top, 30)
+                    .kerning(0.11)
+                    .multilineTextAlignment(.center)
+                    .foregroundColor(Color.oworiGray600)
                 
             }
         }
