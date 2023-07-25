@@ -20,7 +20,7 @@ struct OworiApp: App {
     var body: some Scene {
         
         WindowGroup {
-            LoginView()
+            OnBoardingView()
                 .onOpenURL { url in
                     if (AuthApi.isKakaoTalkLoginUrl(url)) {
                         _ = AuthController.handleOpenUrl(url: url)
