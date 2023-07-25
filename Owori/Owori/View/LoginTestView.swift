@@ -90,9 +90,9 @@ struct LoginTestView: View {
             }
             
             Button {
-                familyViewModel.regenInvitecode(user: userViewModel.user)
+                userViewModel.lookupProfile()
             } label: {
-                Text("regenInvitecode Heart")
+                Text("lookupProfile")
             }
             
             Button {
