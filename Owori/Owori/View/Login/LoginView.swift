@@ -19,7 +19,7 @@ struct LoginView: View {
     @EnvironmentObject var userViewModel: UserViewModel
     @State private var isLoggedIn: Bool = false
     // 서버에 등록되어있는 멤버인지 아닌지 체크
-    @State private var alreadyMember: Bool = true
+    @State private var alreadyMember: Bool = false
     
     var body: some View {
         
