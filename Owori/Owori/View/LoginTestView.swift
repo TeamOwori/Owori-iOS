@@ -47,7 +47,7 @@ struct LoginTestView: View {
             
             loginViewModel.appleLoginButton()
             
-            Text("\(loginViewModel.kakaoUser?.kakaoAccount?.profile?.nickname ?? "nil")")
+            Text("\(userViewModel.user.member_id ?? "nil")")
             Button {
                 userViewModel.joinMember(socialToken: loginViewModel.socialToken)
             } label: {
@@ -90,9 +90,9 @@ struct LoginTestView: View {
             }
             
             Button {
-                storyViewModel.toggleHeart(user: userViewModel.user, storyId: storyViewModel.testStoryId)
+                userViewModel.lookupUnmodifiableColor()
             } label: {
-                Text("Toggle Heart")
+                Text("lookupUnmodifiableColor")
             }
             
             Button {
