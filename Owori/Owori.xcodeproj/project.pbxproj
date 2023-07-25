@@ -21,6 +21,7 @@
 		886F8DFE2A6C582400D60BCC /* ProfileImageWithBadge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 886F8DFD2A6C582400D60BCC /* ProfileImageWithBadge.swift */; };
 		886F8E002A6C584900D60BCC /* SelectEmotionBadge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 886F8DFF2A6C584900D60BCC /* SelectEmotionBadge.swift */; };
 		886F8E022A6C586B00D60BCC /* ProfileEmotionBadge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 886F8E012A6C586B00D60BCC /* ProfileEmotionBadge.swift */; };
+		88A392DA2A7003BB00ACBD71 /* BackCancel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88A392D92A7003BB00ACBD71 /* BackCancel.swift */; };
 		F3430F0F2A6701AD00DC1B1C /* OworiApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3430F0E2A6701AD00DC1B1C /* OworiApp.swift */; };
 		F3430F132A6701AD00DC1B1C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F3430F122A6701AD00DC1B1C /* Assets.xcassets */; };
 		F3430F162A6701AD00DC1B1C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F3430F152A6701AD00DC1B1C /* Preview Assets.xcassets */; };
@@ -104,6 +105,7 @@
 		886F8DFD2A6C582400D60BCC /* ProfileImageWithBadge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImageWithBadge.swift; sourceTree = "<group>"; };
 		886F8DFF2A6C584900D60BCC /* SelectEmotionBadge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectEmotionBadge.swift; sourceTree = "<group>"; };
 		886F8E012A6C586B00D60BCC /* ProfileEmotionBadge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileEmotionBadge.swift; sourceTree = "<group>"; };
+		88A392D92A7003BB00ACBD71 /* BackCancel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackCancel.swift; sourceTree = "<group>"; };
 		F3430F0B2A6701AD00DC1B1C /* Owori.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Owori.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F3430F0E2A6701AD00DC1B1C /* OworiApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OworiApp.swift; sourceTree = "<group>"; };
 		F3430F122A6701AD00DC1B1C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -341,6 +343,7 @@
 			isa = PBXGroup;
 			children = (
 				886F8DEB2A6C55E300D60BCC /* BackButton.swift */,
+				88A392D92A7003BB00ACBD71 /* BackCancel.swift */,
 			);
 			path = HomeHelper;
 			sourceTree = "<group>";
@@ -645,6 +648,7 @@
 				F3430FA92A67043200DC1B1C /* Family.swift in Sources */,
 				F3430FB42A67043200DC1B1C /* String+Extension.swift in Sources */,
 				F3430F9B2A67043200DC1B1C /* DetailImageCell.swift in Sources */,
+				88A392DA2A7003BB00ACBD71 /* BackCancel.swift in Sources */,
 				F3430FB52A67043200DC1B1C /* Color+Extension.swift in Sources */,
 				883B47D42A686D25004C2D20 /* InviteView.swift in Sources */,
 				883B47DB2A686E36004C2D20 /* CustomToggle.swift in Sources */,

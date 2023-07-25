@@ -1,28 +1,28 @@
 //
-//  BackButton.swift
+//  BackCancel.swift
 //  Owori
 //
-//  Created by 드즈 on 2023/07/23.
+//  Created by 드즈 on 2023/07/25.
 //
 
 import SwiftUI
 
-struct BackButton: View {
+struct BackCancel: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
     var body: some View {
         Button {
             self.presentationMode.wrappedValue.dismiss()
         } label: {
-            Image(systemName: "chevron.backward")
+            Image(systemName: "xmark")
                 .aspectRatio(contentMode: .fit)
-                .foregroundColor(.black)
+                .foregroundColor(.white)
         }
     }
 }
 
-struct BackButton_Previews: PreviewProvider {
+struct BackCancel_Previews: PreviewProvider {
     static var previews: some View {
-        BackButton()
+        BackCancel()
     }
 }
