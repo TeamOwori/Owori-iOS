@@ -15,11 +15,11 @@ struct ProfileEmotionBadge: View {
     
     var body: some View {
         // 임시 감정 이모티콘 이미지
-        Image(profiles[0].emotional_badge ?? "")
-            .resizable()
-            .aspectRatio(contentMode: .fill)
-            .frame(width: 18, height: 18)
-            .clipped()
+            Image(profiles[0].emotional_badge ?? "")
+                .resizable()
+                .aspectRatio(contentMode: .fill)
+                .frame(width: 18, height: 18)
+                .clipped()
     }
 }
 
