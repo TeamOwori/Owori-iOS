@@ -28,7 +28,7 @@ struct ProfileView: View {
             }
         }
         .padding(EdgeInsets(top: 0, leading: UIScreen.main.bounds.width * 0.05, bottom: 0, trailing: UIScreen.main.bounds.width * 0.05))
-        .frame(height: UIScreen.main.bounds.height * 0.125)
+        .frame(height: 80) //.frame(height: UIScreen.main.bounds.height * 0.125)
     }
 }
 
