@@ -37,7 +37,6 @@
 		F3430F902A67043200DC1B1C /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3430F502A67043200DC1B1C /* LoginView.swift */; };
 		F3430F912A67043200DC1B1C /* LoginTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3430F512A67043200DC1B1C /* LoginTestView.swift */; };
 		F3430F922A67043200DC1B1C /* NumberIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3430F532A67043200DC1B1C /* NumberIndicator.swift */; };
-		F3430F932A67043200DC1B1C /* JoinView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3430F542A67043200DC1B1C /* JoinView.swift */; };
 		F3430F942A67043200DC1B1C /* LoginButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3430F562A67043200DC1B1C /* LoginButton.swift */; };
 		F3430F952A67043200DC1B1C /* OnBoardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3430F582A67043200DC1B1C /* OnBoardingView.swift */; };
 		F3430F962A67043200DC1B1C /* DailyStoryImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3430F5B2A67043200DC1B1C /* DailyStoryImageCell.swift */; };
@@ -70,6 +69,7 @@
 		F3430FB52A67043200DC1B1C /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3430F802A67043200DC1B1C /* Color+Extension.swift */; };
 		F3430FB62A67043200DC1B1C /* Image+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3430F812A67043200DC1B1C /* Image+Extension.swift */; };
 		F3430FB72A67043200DC1B1C /* View+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3430F822A67043200DC1B1C /* View+Extension.swift */; };
+		F352856F2A7058E500466C61 /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F352856E2A7058E500466C61 /* SplashView.swift */; };
 		F39EF2822A6B93E5005FD6DB /* JoinNickname.swift in Sources */ = {isa = PBXBuildFile; fileRef = F39EF2812A6B93E5005FD6DB /* JoinNickname.swift */; };
 		F39EF2842A6B95D3005FD6DB /* JoinBirthday.swift in Sources */ = {isa = PBXBuildFile; fileRef = F39EF2832A6B95D3005FD6DB /* JoinBirthday.swift */; };
 		F39EF2862A6B96A1005FD6DB /* JoinFamilyName.swift in Sources */ = {isa = PBXBuildFile; fileRef = F39EF2852A6B96A1005FD6DB /* JoinFamilyName.swift */; };
@@ -132,7 +132,6 @@
 		F3430F502A67043200DC1B1C /* LoginView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		F3430F512A67043200DC1B1C /* LoginTestView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginTestView.swift; sourceTree = "<group>"; };
 		F3430F532A67043200DC1B1C /* NumberIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NumberIndicator.swift; sourceTree = "<group>"; };
-		F3430F542A67043200DC1B1C /* JoinView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JoinView.swift; sourceTree = "<group>"; };
 		F3430F562A67043200DC1B1C /* LoginButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginButton.swift; sourceTree = "<group>"; };
 		F3430F582A67043200DC1B1C /* OnBoardingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnBoardingView.swift; sourceTree = "<group>"; };
 		F3430F5B2A67043200DC1B1C /* DailyStoryImageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DailyStoryImageCell.swift; sourceTree = "<group>"; };
@@ -165,6 +164,7 @@
 		F3430F802A67043200DC1B1C /* Color+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
 		F3430F812A67043200DC1B1C /* Image+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Image+Extension.swift"; sourceTree = "<group>"; };
 		F3430F822A67043200DC1B1C /* View+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "View+Extension.swift"; sourceTree = "<group>"; };
+		F352856E2A7058E500466C61 /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
 		F39EF2812A6B93E5005FD6DB /* JoinNickname.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinNickname.swift; sourceTree = "<group>"; };
 		F39EF2832A6B95D3005FD6DB /* JoinBirthday.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinBirthday.swift; sourceTree = "<group>"; };
 		F39EF2852A6B96A1005FD6DB /* JoinFamilyName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinFamilyName.swift; sourceTree = "<group>"; };
@@ -379,7 +379,6 @@
 			isa = PBXGroup;
 			children = (
 				F3430F532A67043200DC1B1C /* NumberIndicator.swift */,
-				F3430F542A67043200DC1B1C /* JoinView.swift */,
 				F39EF2812A6B93E5005FD6DB /* JoinNickname.swift */,
 				F39EF2832A6B95D3005FD6DB /* JoinBirthday.swift */,
 				F39EF2852A6B96A1005FD6DB /* JoinFamilyName.swift */,
@@ -404,6 +403,7 @@
 			isa = PBXGroup;
 			children = (
 				F3430F582A67043200DC1B1C /* OnBoardingView.swift */,
+				F352856E2A7058E500466C61 /* SplashView.swift */,
 			);
 			path = OnBoarding;
 			sourceTree = "<group>";
@@ -634,8 +634,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F3430F932A67043200DC1B1C /* JoinView.swift in Sources */,
 				F3430F882A67043200DC1B1C /* ProfileView.swift in Sources */,
+				F352856F2A7058E500466C61 /* SplashView.swift in Sources */,
 				F3430F852A67043200DC1B1C /* FamilyView.swift in Sources */,
 				886F8E002A6C584900D60BCC /* SelectEmotionBadge.swift in Sources */,
 				F3430F8C2A67043200DC1B1C /* DDayView.swift in Sources */,

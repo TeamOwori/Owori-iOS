@@ -8,19 +8,14 @@
 import SwiftUI
 
 struct BackToLoginButton: View {
+    @Binding var isLoggedIn: Bool
     @Binding var currentIndex: Int
-    @EnvironmentObject var loginViewModel: LoginViewModel
+    @Environment(\.presentationMode) private var presentationMode
     var body: some View {
         
-        if 1 < currentIndex && currentIndex <= 5 {
+        if 1 <= currentIndex && currentIndex <= 5 {
             Button {
-                // 왜 그런지 모르겠는데 더블클릭 하면 뷰가 한박자 늦게 반영될 때가 있어서
-                // 0보다 작아지면 0으로 처리하도록 해놨습니다.
-                if currentIndex < 1 {
-                    currentIndex = 1
-                } else {
-                    loginViewModel.isLoggedIn = false
-                }
+                isLoggedIn = false
             } label: {
                 Text("X")
             }
@@ -30,7 +25,7 @@ struct BackToLoginButton: View {
 
 struct BackToLoginButton_Previews: PreviewProvider {
     static var previews: some View {
-        BackToLoginButton(currentIndex: .constant(1))
+        BackToLoginButton(isLoggedIn: .constant(true), currentIndex: .constant(1))
             .environmentObject(LoginViewModel())
     }
 }

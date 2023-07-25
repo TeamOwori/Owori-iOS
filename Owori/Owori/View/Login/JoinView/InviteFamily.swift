@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct InviteFamily: View {
+    @Binding var isLoggedIn: Bool
     @Binding var currentIndex: Int
     @Binding var nickname: String
     @Binding var birthDateText: String
@@ -18,48 +19,52 @@ struct InviteFamily: View {
     // 임시로 true로 변경. 기본값 = false
     
     var body: some View {
-        VStack(alignment: .leading) {
-            Text("가족그룹을 만들었어요.\n가족을 초대해볼까요?")
-                .font(.title)
-                .bold()
-                .padding(EdgeInsets(top: 0, leading: 0, bottom: 40, trailing: 0))
-            Button {
-                ShareLink(
-                    item: URL(string: "https://developer.apple.com/xcode/swiftui/")!,
+        VStack {
+            NumberIndicator(currentIndex: $currentIndex)
+                .padding(.top, 60)
+            VStack(alignment: .leading) {
+                Text("가족그룹을 만들었어요.\n가족을 초대해볼까요?")
+                    .font(.title)
+                    .bold()
+                    .padding(EdgeInsets(top: 0, leading: 0, bottom: 40, trailing: 0))
+                Button {
+                    ShareLink(
+                        item: URL(string: "https://developer.apple.com/xcode/swiftui/")!,
                         preview: SharePreview(
                             "SwiftUI",
                             image: Image("SwiftUI")
                         )
-                )
-            } label: {
-                Text("초대코드 공유")
-            }
-            
-            
-            NavigationLink (value: 5) {
-                Button {
-                    isFifthViewActive = true
+                    )
                 } label: {
-                    Text("임시 확인")
+                    Text("초대코드 공유")
                 }
+                
+                
+                NavigationLink (value: 5) {
+                    Button {
+                        isFifthViewActive = true
+                    } label: {
+                        Text("임시 확인")
+                    }
+                }
+                .navigationBarTitleDisplayMode(.inline)
+                .toolbar {
+                    BackToLoginButton(isLoggedIn: $isLoggedIn, currentIndex: $currentIndex)
+                }
+                .navigationDestination(isPresented: $isFifthViewActive) {
+                    TermsOfUse(isLoggedIn: $isLoggedIn, currentIndex: $currentIndex, nickname: $nickname, birthDateText: $birthDateText, previousBirthDateText: $previousBirthDateText, familyName: $familyName, inviteCode: $inviteCode)
+                }
+                
             }
-            .navigationBarTitleDisplayMode(.inline)
-            .toolbar {
-                BackToLoginButton(currentIndex: $currentIndex)
-            }
-            .navigationDestination(isPresented: $isFifthViewActive) {
-                TermsOfUse(currentIndex: $currentIndex, nickname: $nickname, birthDateText: $birthDateText, previousBirthDateText: $previousBirthDateText, familyName: $familyName, inviteCode: $inviteCode)
-            }
-            
-        }
-        .onAppear {
+            .onAppear {
                 currentIndex = 4
+            }
         }
     }
 }
 
 struct InviteFamily_Previews: PreviewProvider {
     static var previews: some View {
-        InviteFamily(currentIndex: .constant(3), nickname: .constant(""), birthDateText: .constant(""), previousBirthDateText: .constant(""), familyName: .constant(""), inviteCode: .constant(""))
+        InviteFamily(isLoggedIn: .constant(false), currentIndex: .constant(3), nickname: .constant(""), birthDateText: .constant(""), previousBirthDateText: .constant(""), familyName: .constant(""), inviteCode: .constant(""))
     }
 }
