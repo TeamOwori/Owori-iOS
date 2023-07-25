@@ -90,9 +90,9 @@ struct LoginTestView: View {
             }
             
             Button {
-                userViewModel.lookupProfile()
+                userViewModel.lookupUnmodifiableColor()
             } label: {
-                Text("lookupProfile")
+                Text("lookupUnmodifiableColor")
             }
             
             Button {
