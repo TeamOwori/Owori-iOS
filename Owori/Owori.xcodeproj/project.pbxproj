@@ -82,6 +82,7 @@
 		F3C1BE672A70F26E002ADB3B /* FamilyViewModelTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C1BE662A70F26E002ADB3B /* FamilyViewModelTestView.swift */; };
 		F3C1BE692A70F2C6002ADB3B /* StoryViewModelTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C1BE682A70F2C6002ADB3B /* StoryViewModelTestView.swift */; };
 		F3C1BE6B2A710544002ADB3B /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C1BE6A2A710544002ADB3B /* MainView.swift */; };
+		F3C1BE6D2A710820002ADB3B /* StoryViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C1BE6C2A710820002ADB3B /* StoryViewHeader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -181,6 +182,7 @@
 		F3C1BE662A70F26E002ADB3B /* FamilyViewModelTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FamilyViewModelTestView.swift; sourceTree = "<group>"; };
 		F3C1BE682A70F2C6002ADB3B /* StoryViewModelTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryViewModelTestView.swift; sourceTree = "<group>"; };
 		F3C1BE6A2A710544002ADB3B /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		F3C1BE6C2A710820002ADB3B /* StoryViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryViewHeader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -308,12 +310,12 @@
 		F3430F3C2A67043200DC1B1C /* View */ = {
 			isa = PBXGroup;
 			children = (
+				F3C1BE6A2A710544002ADB3B /* MainView.swift */,
 				F3C1BE632A70F1A7002ADB3B /* TestView */,
 				883B47CB2A686C05004C2D20 /* MyPage */,
 				F3430F3D2A67043200DC1B1C /* Home */,
 				F3430F4F2A67043200DC1B1C /* Login */,
 				F3430F592A67043200DC1B1C /* Story */,
-				F3C1BE6A2A710544002ADB3B /* MainView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -435,6 +437,7 @@
 				F3430F5C2A67043200DC1B1C /* CurrentImageOrder.swift */,
 				F3430F5D2A67043200DC1B1C /* SortMenu.swift */,
 				F3430F5E2A67043200DC1B1C /* AlbumListButton.swift */,
+				F3C1BE6C2A710820002ADB3B /* StoryViewHeader.swift */,
 			);
 			path = StoryHelper;
 			sourceTree = "<group>";
@@ -705,6 +708,7 @@
 				F3430F9B2A67043200DC1B1C /* DetailImageCell.swift in Sources */,
 				88A392DA2A7003BB00ACBD71 /* BackCancel.swift in Sources */,
 				F3430FB52A67043200DC1B1C /* Color+Extension.swift in Sources */,
+				F3C1BE6D2A710820002ADB3B /* StoryViewHeader.swift in Sources */,
 				883B47D42A686D25004C2D20 /* InviteView.swift in Sources */,
 				883B47DB2A686E36004C2D20 /* CustomToggle.swift in Sources */,
 				F3430F0F2A6701AD00DC1B1C /* OworiApp.swift in Sources */,

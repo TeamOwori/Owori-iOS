@@ -25,7 +25,7 @@ struct SelectEmotionBadge: View {
     var body: some View {
 //        NavigationStack {
             ZStack {
-                Color.oworiMainColor
+                Color.oworiMain
                     .ignoresSafeArea()
                 ScrollView(showsIndicators: false) {
                     VStack(spacing: 0) {

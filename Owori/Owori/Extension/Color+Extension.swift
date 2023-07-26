@@ -29,7 +29,7 @@ extension Color {
     static let oworiGray500 = Color(hex: "#787878")
     static let oworiGray600 = Color(hex: "#626262")
     static let oworiGray700 = Color(hex: "#464646")
-    static let oworiMainColor = Color(hex: "#FFEEB2")
+    static let oworiMain = Color(hex: "#FFEEB2")
     static let oworiOrange = Color(hex: "#FA7B53")
     static let oworiDarkGray = Color(hex: "#212121")
 }
