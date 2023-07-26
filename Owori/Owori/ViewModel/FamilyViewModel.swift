@@ -9,12 +9,12 @@ import Foundation
 
 fileprivate enum OworiAPI {
     static let scheme = "http"
-    static let host = "localhost:8080"
+    static let host = "owori.store"
     
     enum Path: String {
-        case createFamily = "api/v1/families"
-        case inviteFamilyMember = "api/v1/families/member"
-        case changeFamilyName = "api/v1/families/group-name"
+        case createFamily = "/api/v1/families"
+        case inviteFamilyMember = "/api/v1/families/member"
+        case changeFamilyName = "/api/v1/families/group-name"
     }
 }
 

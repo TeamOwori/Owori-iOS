@@ -96,19 +96,19 @@ class UserViewModel: ObservableObject {
     func initUser(userInfo: [String: Any]) {
         guard let sendData = try? JSONSerialization.data(withJSONObject: userInfo, options: []) else { return }
         
-        // 요청을 보낼 API의 url 설정
-        // 배포 후 url 설정
-        //        var urlComponents = URLComponents()
-        //        urlComponents.scheme = OworiAPI.scheme
-        //        urlComponents.host = OworiAPI.host
-        //        urlComponents.path = OworiAPI.Path.joinMember.rawValue
-        //        guard let url = urlComponents.url else {
-        //            print("Error: cannot create URL")
-        //            return
-        //        }
+        //         요청을 보낼 API의 url 설정
+        //         배포 후 url 설정
+        var url = URLComponents()
+        url.scheme = OworiAPI.scheme
+        url.host = OworiAPI.host
+        url.path = OworiAPI.Path.joinMember.rawValue
+        guard let url = url.url else {
+            print("Error: cannot create URL")
+            return
+        }
         
         // 배포 이전 고정 url 설정 (추후 삭제 예정)
-        let url = URL(string: "http://localhost:8080/api/v1/members/details")!
+        //        let url = URL(string: "http://localhost:8080/api/v1/members/details")!
         
         // url 테스트 log
         print("[init User url Log]: \(url)")

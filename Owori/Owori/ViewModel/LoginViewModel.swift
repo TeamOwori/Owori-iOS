@@ -14,10 +14,10 @@ import AuthenticationServices
 
 fileprivate enum OworiAPI {
     static let scheme = "http"
-    static let host = "localhost:8080"
+    static let host = "owori.store"
     
     enum Path: String {
-        case joinMember = "api/v1/members"
+        case joinMember = "/api/v1/members"
     }
 }
 
