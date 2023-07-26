@@ -13,17 +13,19 @@ fileprivate enum OworiAPI {
     
     enum Path: String {
         case members = "/api/v1/members"
-        case refreshingToken = "/api/v1/auth/refresh"
-        case initUser = "/api/v1/members/details"
-        case updateEmotionalBadge = "/api/v1/members/emotional-badge"
-        case profile = "/api/v1/members/profile"
-        case lookupUnmodifiableColor = "/v1/members/colors"
+        case refresh = "/api/v1/auth/refresh"
+        case membersDetails = "/api/v1/members/details"
+        case membersEmtionalBadge = "/api/v1/members/emotional-badge"
+        case membersProfile = "/api/v1/members/profile"
+        case membersColors = "/api/v1/members/colors"
     }
 }
 
 class UserViewModel: ObservableObject {
     @Published var user: User = User()
     @Published var isLogined = false
+    
+    @Published var tempInviteCode: String = ""
     
     // MARK: 오월이 API FUNCTIONS (Post)
     
@@ -104,7 +106,7 @@ class UserViewModel: ObservableObject {
         var urlComponents = URLComponents()
         urlComponents.scheme = OworiAPI.scheme
         urlComponents.host = OworiAPI.host
-        urlComponents.path = OworiAPI.Path.initUser.rawValue
+        urlComponents.path = OworiAPI.Path.membersDetails.rawValue
         guard let url = urlComponents.url else {
             print("Error: cannot create URL")
             return
@@ -158,7 +160,7 @@ class UserViewModel: ObservableObject {
         var urlComponents = URLComponents()
         urlComponents.scheme = OworiAPI.scheme
         urlComponents.host = OworiAPI.host
-        urlComponents.path = OworiAPI.Path.updateEmotionalBadge.rawValue
+        urlComponents.path = OworiAPI.Path.membersEmtionalBadge.rawValue
         guard let url = urlComponents.url else {
             print("Error: cannot create URL")
             return
@@ -207,7 +209,7 @@ class UserViewModel: ObservableObject {
         var urlComponents = URLComponents()
         urlComponents.scheme = OworiAPI.scheme
         urlComponents.host = OworiAPI.host
-        urlComponents.path = OworiAPI.Path.profile.rawValue
+        urlComponents.path = OworiAPI.Path.membersProfile.rawValue
         guard let url = urlComponents.url else {
             print("Error: cannot create URL")
             return
@@ -239,11 +241,7 @@ class UserViewModel: ObservableObject {
                 return
             }
             
-            guard let jsonDictionary = try? JSONSerialization.jsonObject(with: Data(data), options: []) as? [String: Any] else {
-                print("Error: convert failed json to dictionary")
-                return
-            }
-            print(jsonDictionary)
+            print(response)
             
             guard let response = response as? HTTPURLResponse, (200 ..< 300) ~= response.statusCode else {
                 print("Error: HTTP request failed")
@@ -261,7 +259,7 @@ class UserViewModel: ObservableObject {
         var urlComponents = URLComponents()
         urlComponents.scheme = OworiAPI.scheme
         urlComponents.host = OworiAPI.host
-        urlComponents.path = OworiAPI.Path.refreshingToken.rawValue
+        urlComponents.path = OworiAPI.Path.refresh.rawValue
         guard let url = urlComponents.url else {
             print("Error: cannot create URL")
             return
@@ -271,7 +269,7 @@ class UserViewModel: ObservableObject {
         //        let url = URL(string: "http://localhost:8080/api/v1/auth/refresh")!
         
         // url 테스트 log
-        print("[joinMember url Log] : \(url)")
+        print("[refreshingToken url Log] : \(url)")
         
         // urlRequeset에 함께 담을 header, body 설정
         var urlRequest = URLRequest(url: url)
@@ -324,6 +322,7 @@ class UserViewModel: ObservableObject {
         }.resume()
     }
     
+    // 유저 마이 프로필 조회
     func lookupProfile() {
         
         // 요청을 보낼 API의 url 설정
@@ -331,7 +330,7 @@ class UserViewModel: ObservableObject {
         var urlComponents = URLComponents()
         urlComponents.scheme = OworiAPI.scheme
         urlComponents.host = OworiAPI.host
-        urlComponents.path = OworiAPI.Path.profile.rawValue
+        urlComponents.path = OworiAPI.Path.membersProfile.rawValue
         guard let url = urlComponents.url else {
             print("Error: cannot create URL")
             return
@@ -396,7 +395,7 @@ class UserViewModel: ObservableObject {
         var urlComponents = URLComponents()
         urlComponents.scheme = OworiAPI.scheme
         urlComponents.host = OworiAPI.host
-        urlComponents.path = OworiAPI.Path.lookupUnmodifiableColor.rawValue
+        urlComponents.path = OworiAPI.Path.membersColors.rawValue
         guard let url = urlComponents.url else {
             print("Error: cannot create URL")
             return
@@ -426,7 +425,7 @@ class UserViewModel: ObservableObject {
                 print("Error: Did not receive data")
                 return
             }
-            print(data)
+
             guard let jsonDictionary = try? JSONSerialization.jsonObject(with: Data(data), options: []) as? [String: Any] else {
                 print("Error: convert failed json to dictionary")
                 return
@@ -435,6 +434,7 @@ class UserViewModel: ObservableObject {
                 print("Error: HTTP request failed")
                 return
             }
+            print(response)
             
             print(jsonDictionary)
             
@@ -478,8 +478,8 @@ class UserViewModel: ObservableObject {
         var urlRequest = URLRequest(url: url)
         urlRequest.httpMethod = "GET"
         urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
-//        urlRequest.setValue("Bearer " + (self.user.jwt_token?.access_token)!, forHTTPHeaderField: "Authorization")
-//        urlRequest.setValue(self.user.member_id, forHTTPHeaderField: "memberId")
+        urlRequest.setValue("Bearer " + (self.user.jwt_token?.access_token)!, forHTTPHeaderField: "Authorization")
+        urlRequest.setValue(self.user.member_id, forHTTPHeaderField: "memberId")
         
         // 요청
         URLSession.shared.dataTask(with: urlRequest) { (data, response, error) in
@@ -492,28 +492,23 @@ class UserViewModel: ObservableObject {
                 print("Error: Did not receive data")
                 return
             }
-            print(data)
-            guard let jsonDictionary = try? JSONSerialization.jsonObject(with: Data(data), options: []) as? [String: Any] else {
-                print("Error: convert failed json to dictionary")
+            guard let jsonString = String(data: data, encoding: .utf8) else {
+                print("Error: Failed to convert data to string")
                 return
             }
             guard let response = response as? HTTPURLResponse, (200 ..< 300) ~= response.statusCode else {
                 print("Error: HTTP request failed")
                 return
             }
-            
-            print(jsonDictionary)
+            print(response)
+            print(jsonString)
             
             // User를 @Published로 선언했기 때문에 background thread에서 main thread로 업데이트를 전달해야 한다.
             // 그래서 DispatchQueue.main.async 사용.
             DispatchQueue.main.async { [weak self] in
                 // JSON 데이터를 파싱하여 User 구조체에 할당
                 do {
-                    let decoder = JSONDecoder()
-                    //                    self?.user.member_profile = try decoder.decode(User.Profile.self, from: data)
-                    
-                    // User 구조체에 할당된 데이터 사용 (테스트 log)
-                    //                    print("Member Profile: \(String(describing: self?.user.member_profile))")
+                    self?.tempInviteCode = jsonString
                 } catch {
                     print("Error: Failed to parse JSON data - \(error)")
                 }
