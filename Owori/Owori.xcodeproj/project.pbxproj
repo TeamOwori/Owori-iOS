@@ -81,6 +81,7 @@
 		F3C1BE652A70F1C5002ADB3B /* UserViewModelTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C1BE642A70F1C5002ADB3B /* UserViewModelTestView.swift */; };
 		F3C1BE672A70F26E002ADB3B /* FamilyViewModelTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C1BE662A70F26E002ADB3B /* FamilyViewModelTestView.swift */; };
 		F3C1BE692A70F2C6002ADB3B /* StoryViewModelTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C1BE682A70F2C6002ADB3B /* StoryViewModelTestView.swift */; };
+		F3C1BE6B2A710544002ADB3B /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C1BE6A2A710544002ADB3B /* MainView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -179,6 +180,7 @@
 		F3C1BE642A70F1C5002ADB3B /* UserViewModelTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModelTestView.swift; sourceTree = "<group>"; };
 		F3C1BE662A70F26E002ADB3B /* FamilyViewModelTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FamilyViewModelTestView.swift; sourceTree = "<group>"; };
 		F3C1BE682A70F2C6002ADB3B /* StoryViewModelTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryViewModelTestView.swift; sourceTree = "<group>"; };
+		F3C1BE6A2A710544002ADB3B /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -311,6 +313,7 @@
 				F3430F3D2A67043200DC1B1C /* Home */,
 				F3430F4F2A67043200DC1B1C /* Login */,
 				F3430F592A67043200DC1B1C /* Story */,
+				F3C1BE6A2A710544002ADB3B /* MainView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -670,6 +673,7 @@
 				883B47D22A686D17004C2D20 /* FamilyNameChangeView.swift in Sources */,
 				886F8DFA2A6C578B00D60BCC /* DDayInitialCard.swift in Sources */,
 				F3430F9D2A67043200DC1B1C /* ImageTabView.swift in Sources */,
+				F3C1BE6B2A710544002ADB3B /* MainView.swift in Sources */,
 				F3430FB22A67043200DC1B1C /* FamilyViewModel.swift in Sources */,
 				F3430F8A2A67043200DC1B1C /* ProfileText.swift in Sources */,
 				F39EF28A2A6B9860005FD6DB /* InviteFamily.swift in Sources */,
