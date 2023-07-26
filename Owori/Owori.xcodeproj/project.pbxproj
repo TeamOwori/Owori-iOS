@@ -81,6 +81,11 @@
 		F3C1BE652A70F1C5002ADB3B /* UserViewModelTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C1BE642A70F1C5002ADB3B /* UserViewModelTestView.swift */; };
 		F3C1BE672A70F26E002ADB3B /* FamilyViewModelTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C1BE662A70F26E002ADB3B /* FamilyViewModelTestView.swift */; };
 		F3C1BE692A70F2C6002ADB3B /* StoryViewModelTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C1BE682A70F2C6002ADB3B /* StoryViewModelTestView.swift */; };
+		F3C1BE6B2A710544002ADB3B /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C1BE6A2A710544002ADB3B /* MainView.swift */; };
+		F3C1BE6D2A710820002ADB3B /* StoryViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C1BE6C2A710820002ADB3B /* StoryViewHeader.swift */; };
+		F3C1BE712A711024002ADB3B /* StorySearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C1BE702A711024002ADB3B /* StorySearchView.swift */; };
+		F3C1BE732A71147C002ADB3B /* RecentSearchList.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C1BE722A71147C002ADB3B /* RecentSearchList.swift */; };
+		F3C1BE752A711D74002ADB3B /* CustomNavigationBackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C1BE742A711D74002ADB3B /* CustomNavigationBackButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -179,6 +184,11 @@
 		F3C1BE642A70F1C5002ADB3B /* UserViewModelTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModelTestView.swift; sourceTree = "<group>"; };
 		F3C1BE662A70F26E002ADB3B /* FamilyViewModelTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FamilyViewModelTestView.swift; sourceTree = "<group>"; };
 		F3C1BE682A70F2C6002ADB3B /* StoryViewModelTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryViewModelTestView.swift; sourceTree = "<group>"; };
+		F3C1BE6A2A710544002ADB3B /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		F3C1BE6C2A710820002ADB3B /* StoryViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryViewHeader.swift; sourceTree = "<group>"; };
+		F3C1BE702A711024002ADB3B /* StorySearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorySearchView.swift; sourceTree = "<group>"; };
+		F3C1BE722A71147C002ADB3B /* RecentSearchList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentSearchList.swift; sourceTree = "<group>"; };
+		F3C1BE742A711D74002ADB3B /* CustomNavigationBackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationBackButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -306,6 +316,7 @@
 		F3430F3C2A67043200DC1B1C /* View */ = {
 			isa = PBXGroup;
 			children = (
+				F3C1BE6A2A710544002ADB3B /* MainView.swift */,
 				F3C1BE632A70F1A7002ADB3B /* TestView */,
 				883B47CB2A686C05004C2D20 /* MyPage */,
 				F3430F3D2A67043200DC1B1C /* Home */,
@@ -416,6 +427,7 @@
 		F3430F592A67043200DC1B1C /* Story */ = {
 			isa = PBXGroup;
 			children = (
+				F3C1BE6E2A711008002ADB3B /* Search */,
 				F3430F5A2A67043200DC1B1C /* StoryHelper */,
 				F3430F5F2A67043200DC1B1C /* Detail */,
 				F3430F682A67043200DC1B1C /* List */,
@@ -432,6 +444,8 @@
 				F3430F5C2A67043200DC1B1C /* CurrentImageOrder.swift */,
 				F3430F5D2A67043200DC1B1C /* SortMenu.swift */,
 				F3430F5E2A67043200DC1B1C /* AlbumListButton.swift */,
+				F3C1BE6C2A710820002ADB3B /* StoryViewHeader.swift */,
+				F3C1BE742A711D74002ADB3B /* CustomNavigationBackButton.swift */,
 			);
 			path = StoryHelper;
 			sourceTree = "<group>";
@@ -513,6 +527,15 @@
 				F3C1BE682A70F2C6002ADB3B /* StoryViewModelTestView.swift */,
 			);
 			path = TestView;
+			sourceTree = "<group>";
+		};
+		F3C1BE6E2A711008002ADB3B /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				F3C1BE702A711024002ADB3B /* StorySearchView.swift */,
+				F3C1BE722A71147C002ADB3B /* RecentSearchList.swift */,
+			);
+			path = Search;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -655,6 +678,7 @@
 				F352856F2A7058E500466C61 /* SplashView.swift in Sources */,
 				F3430F852A67043200DC1B1C /* FamilyView.swift in Sources */,
 				886F8E002A6C584900D60BCC /* SelectEmotionBadge.swift in Sources */,
+				F3C1BE732A71147C002ADB3B /* RecentSearchList.swift in Sources */,
 				F3C1BE652A70F1C5002ADB3B /* UserViewModelTestView.swift in Sources */,
 				F3430F8C2A67043200DC1B1C /* DDayView.swift in Sources */,
 				F39EF28C2A6BA429005FD6DB /* BeInviteFamily.swift in Sources */,
@@ -670,6 +694,7 @@
 				883B47D22A686D17004C2D20 /* FamilyNameChangeView.swift in Sources */,
 				886F8DFA2A6C578B00D60BCC /* DDayInitialCard.swift in Sources */,
 				F3430F9D2A67043200DC1B1C /* ImageTabView.swift in Sources */,
+				F3C1BE6B2A710544002ADB3B /* MainView.swift in Sources */,
 				F3430FB22A67043200DC1B1C /* FamilyViewModel.swift in Sources */,
 				F3430F8A2A67043200DC1B1C /* ProfileText.swift in Sources */,
 				F39EF28A2A6B9860005FD6DB /* InviteFamily.swift in Sources */,
@@ -678,6 +703,7 @@
 				883B47CD2A686C1D004C2D20 /* SettingView.swift in Sources */,
 				F3430FA22A67043200DC1B1C /* StoryListView.swift in Sources */,
 				886F8DF42A6C56C100D60BCC /* FamilyInitialPhoto.swift in Sources */,
+				F3C1BE712A711024002ADB3B /* StorySearchView.swift in Sources */,
 				F3C1BE692A70F2C6002ADB3B /* StoryViewModelTestView.swift in Sources */,
 				F39EF2882A6B972E005FD6DB /* JoinFamily.swift in Sources */,
 				F39EF2862A6B96A1005FD6DB /* JoinFamilyName.swift in Sources */,
@@ -701,6 +727,7 @@
 				F3430F9B2A67043200DC1B1C /* DetailImageCell.swift in Sources */,
 				88A392DA2A7003BB00ACBD71 /* BackCancel.swift in Sources */,
 				F3430FB52A67043200DC1B1C /* Color+Extension.swift in Sources */,
+				F3C1BE6D2A710820002ADB3B /* StoryViewHeader.swift in Sources */,
 				883B47D42A686D25004C2D20 /* InviteView.swift in Sources */,
 				883B47DB2A686E36004C2D20 /* CustomToggle.swift in Sources */,
 				F3430F0F2A6701AD00DC1B1C /* OworiApp.swift in Sources */,
@@ -717,6 +744,7 @@
 				886F8E022A6C586B00D60BCC /* ProfileEmotionBadge.swift in Sources */,
 				F39EF28E2A6BA80F005FD6DB /* TermsOfUse.swift in Sources */,
 				F3430FAD2A67043200DC1B1C /* Story.swift in Sources */,
+				F3C1BE752A711D74002ADB3B /* CustomNavigationBackButton.swift in Sources */,
 				3580AFA32A6844DB00DC28F7 /* AppleLoginTestView.swift in Sources */,
 				886F8DF82A6C570500D60BCC /* ExistPhoto.swift in Sources */,
 			);

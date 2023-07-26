@@ -21,7 +21,7 @@ struct DDayView: View {
     var body: some View {
 //        NavigationStack {
             ZStack {
-                Color.oworiMainColor
+                Color.oworiMain
                 ForEach(0..<ddayInfos.count, id: \.self) { index in
                     VStack(alignment: .leading) {
                         HStack(alignment: .center) {

@@ -17,7 +17,7 @@ struct FamilyView: View {
     var body: some View {
         NavigationStack {
             ZStack {
-                Color.oworiMainColor
+                Color.oworiMain
                     .ignoresSafeArea()
                 ForEach(0..<(family.family_images?.count ?? 0), id: \.self) { index in
                     Image(family.family_images?[index] ?? "")

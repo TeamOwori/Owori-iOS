@@ -10,7 +10,7 @@ import SwiftUI
 struct HomeView: View {
     var body: some View {
         ZStack {
-            Color.oworiMainColor
+            Color.oworiMain
                 .ignoresSafeArea()
             GeometryReader { geometry in
                 VStack(alignment: .center, spacing: 30) {

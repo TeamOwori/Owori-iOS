@@ -15,12 +15,13 @@ struct StoryView: View {
     // MARK: BODY
     var body: some View {
         VStack {
+            StoryViewHeader()
             HStack {
                 AlbumListButton(buttonSet: $buttonSet)
                 Spacer()
                 SortMenu()
             }
-            .padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 20))
+            .padding(EdgeInsets(top: 20, leading: 20, bottom: 20, trailing: 20))
             ScrollView {
                 if buttonSet {
                     StoryListView()
