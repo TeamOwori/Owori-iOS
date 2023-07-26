@@ -32,7 +32,7 @@ struct UserViewModelTestView: View {
                                                        "birthday" : "2023-07-14",
                                                        "color" : "GREEN"])
             } label: {
-                Text("update Profile")
+                Text("update Profile(완)")
             }
             
             Button {
@@ -40,15 +40,7 @@ struct UserViewModelTestView: View {
             } label: {
                 Text("update Emotional Badge(완)")
             }
-            
-            // 멤버 프로필 업데이트
-            Button {
-                userViewModel.updateProfile(userInfo: [ "nickname" : "owori",
-                                                        "birthday" : "2023-07-18",
-                                                        "color" : "GREEN"])
-            } label: {
-                Text("Update Member")
-            }
+    
             
             
             Button {
@@ -57,12 +49,18 @@ struct UserViewModelTestView: View {
                 Text("Refreshing Token(완)")
             }
             
+            Button {
+                userViewModel.lookupProfile()
+            } label: {
+                Text("lookup Profile(완)")
+            }
+            
             
             
             Button {
                 userViewModel.lookupUnmodifiableColor()
             } label: {
-                Text("lookup Unmodifiable Color")
+                Text("lookup Unmodifiable Color(완)")
             }
             
             Button {
@@ -74,7 +72,7 @@ struct UserViewModelTestView: View {
             Button {
                 userViewModel.getDummyData()
             } label: {
-                Text("get Dummy Data")
+                Text("get Dummy Data(완)")
             }
             
             
