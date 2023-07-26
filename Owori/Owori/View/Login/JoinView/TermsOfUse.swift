@@ -30,27 +30,26 @@ struct TermsOfUse: View {
                     .bold()
                     .padding(EdgeInsets(top: 0, leading: 0, bottom: 40, trailing: 0))
                 
-                NavigationLink (value: 6) {
-                    Button {
-                        currentIndex = 0
-                        isSuccessSignUp = true
-                    } label: {
-                        Text("임시 확인")
-                    }
-                }
-                .navigationBarTitleDisplayMode(.inline)
-                .toolbar {
-                    BackToLoginButton(isLoggedIn: $isLoggedIn, currentIndex: $currentIndex)
-                }
-                .navigationDestination(isPresented: $isSuccessSignUp) {
-                    HomeView()
-                    
+                
+                Button {
+                    currentIndex = 0
+                    isSuccessSignUp = true
+                } label: {
+                    Text("임시 확인")
                 }
             }
             .onAppear {
                 currentIndex = 5
             }
-        }
+        }.navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                BackToLoginButton(isLoggedIn: $isLoggedIn, currentIndex: $currentIndex)
+            }
+            .navigationDestination(isPresented: $isSuccessSignUp) {
+                MainView()
+                    .navigationBarBackButtonHidden(true)
+                
+            }
     }
 }
 

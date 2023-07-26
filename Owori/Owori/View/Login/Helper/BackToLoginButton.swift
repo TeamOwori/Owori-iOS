@@ -10,7 +10,6 @@ import SwiftUI
 struct BackToLoginButton: View {
     @Binding var isLoggedIn: Bool
     @Binding var currentIndex: Int
-    @Environment(\.presentationMode) private var presentationMode
     var body: some View {
         
         if 1 <= currentIndex && currentIndex <= 5 {
