@@ -33,7 +33,6 @@ struct NumberIndicator: View {
                                             .foregroundColor(.white)
                                     )
                             } else {
-                                
                                 Circle()
                                     .foregroundColor(Color.white)
                                     .frame(width: 20, height: 20)
