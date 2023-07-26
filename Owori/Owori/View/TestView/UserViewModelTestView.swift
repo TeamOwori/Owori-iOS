@@ -18,19 +18,27 @@ struct UserViewModelTestView: View {
             Button {
                 userViewModel.joinMember(socialToken: loginViewModel.socialToken)
             } label: {
-                Text("Join Member")
+                Text("Join Member(완)")
             }
             Button {
                 userViewModel.initUser(userInfo: ["nickname" : "owori",
                                                   "birthday" : "2023-07-17"])
             } label: {
-                Text("Init User")
+                Text("Init User(완)")
             }
             
             Button {
-                userViewModel.lookupUnmodifiableColor()
+                userViewModel.updateProfile(userInfo: ["nickname" : "오월이",
+                                                       "birthday" : "2023-07-14",
+                                                       "color" : "GREEN"])
             } label: {
-                Text("lookupUnmodifiableColor")
+                Text("update Profile")
+            }
+            
+            Button {
+                userViewModel.updateEmotionalBadge(body: ["emotional_badge" : "HAPPY"])
+            } label: {
+                Text("update Emotional Badge(완)")
             }
             
             // 멤버 프로필 업데이트
@@ -41,6 +49,35 @@ struct UserViewModelTestView: View {
             } label: {
                 Text("Update Member")
             }
+            
+            
+            Button {
+                userViewModel.refreshingToken()
+            } label: {
+                Text("Refreshing Token(완)")
+            }
+            
+            
+            
+            Button {
+                userViewModel.lookupUnmodifiableColor()
+            } label: {
+                Text("lookup Unmodifiable Color")
+            }
+            
+            Button {
+                userViewModel.deleteMember()
+            } label: {
+                Text("delete Member(완)")
+            }
+            
+            Button {
+                userViewModel.getDummyData()
+            } label: {
+                Text("get Dummy Data")
+            }
+            
+            
             
         }
     }
