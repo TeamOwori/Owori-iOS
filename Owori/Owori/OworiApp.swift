@@ -17,6 +17,8 @@ struct OworiApp: App {
     }
     @StateObject var loginViewModel = LoginViewModel()
     @StateObject var userViewModel = UserViewModel()
+    @StateObject var familyViewModel = FamilyViewModel()
+    @StateObject var storyViewModel = StoryViewModel()
     var body: some Scene {
         
         WindowGroup {
@@ -28,6 +30,8 @@ struct OworiApp: App {
                 }
                 .environmentObject(loginViewModel)
                 .environmentObject(userViewModel)
+                .environmentObject(familyViewModel)
+                .environmentObject(storyViewModel)
 
         }
     }

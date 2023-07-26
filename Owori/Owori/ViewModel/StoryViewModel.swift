@@ -10,10 +10,10 @@ import Foundation
 
 fileprivate enum OworiAPI {
     static let scheme = "http"
-    static let host = "localhost:8080"
+    static let host = "owori.store"
     
     enum Path: String {
-        case stories = "api/v1/stories"
+        case stories = "/api/v1/stories"
     }
 }
 

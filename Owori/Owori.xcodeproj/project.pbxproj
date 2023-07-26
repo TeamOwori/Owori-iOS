@@ -78,6 +78,9 @@
 		F39EF28C2A6BA429005FD6DB /* BeInviteFamily.swift in Sources */ = {isa = PBXBuildFile; fileRef = F39EF28B2A6BA429005FD6DB /* BeInviteFamily.swift */; };
 		F39EF28E2A6BA80F005FD6DB /* TermsOfUse.swift in Sources */ = {isa = PBXBuildFile; fileRef = F39EF28D2A6BA80F005FD6DB /* TermsOfUse.swift */; };
 		F39EF2922A6DBA2C005FD6DB /* BackToLoginButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F39EF2912A6DBA2C005FD6DB /* BackToLoginButton.swift */; };
+		F3C1BE652A70F1C5002ADB3B /* UserViewModelTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C1BE642A70F1C5002ADB3B /* UserViewModelTestView.swift */; };
+		F3C1BE672A70F26E002ADB3B /* FamilyViewModelTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C1BE662A70F26E002ADB3B /* FamilyViewModelTestView.swift */; };
+		F3C1BE692A70F2C6002ADB3B /* StoryViewModelTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C1BE682A70F2C6002ADB3B /* StoryViewModelTestView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -173,6 +176,9 @@
 		F39EF28B2A6BA429005FD6DB /* BeInviteFamily.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeInviteFamily.swift; sourceTree = "<group>"; };
 		F39EF28D2A6BA80F005FD6DB /* TermsOfUse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsOfUse.swift; sourceTree = "<group>"; };
 		F39EF2912A6DBA2C005FD6DB /* BackToLoginButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackToLoginButton.swift; sourceTree = "<group>"; };
+		F3C1BE642A70F1C5002ADB3B /* UserViewModelTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModelTestView.swift; sourceTree = "<group>"; };
+		F3C1BE662A70F26E002ADB3B /* FamilyViewModelTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FamilyViewModelTestView.swift; sourceTree = "<group>"; };
+		F3C1BE682A70F2C6002ADB3B /* StoryViewModelTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryViewModelTestView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -300,9 +306,8 @@
 		F3430F3C2A67043200DC1B1C /* View */ = {
 			isa = PBXGroup;
 			children = (
+				F3C1BE632A70F1A7002ADB3B /* TestView */,
 				883B47CB2A686C05004C2D20 /* MyPage */,
-				F3430F512A67043200DC1B1C /* LoginTestView.swift */,
-				3580AFA22A6844DB00DC28F7 /* AppleLoginTestView.swift */,
 				F3430F3D2A67043200DC1B1C /* Home */,
 				F3430F4F2A67043200DC1B1C /* Login */,
 				F3430F592A67043200DC1B1C /* Story */,
@@ -498,6 +503,18 @@
 			path = Extension;
 			sourceTree = "<group>";
 		};
+		F3C1BE632A70F1A7002ADB3B /* TestView */ = {
+			isa = PBXGroup;
+			children = (
+				F3430F512A67043200DC1B1C /* LoginTestView.swift */,
+				3580AFA22A6844DB00DC28F7 /* AppleLoginTestView.swift */,
+				F3C1BE642A70F1C5002ADB3B /* UserViewModelTestView.swift */,
+				F3C1BE662A70F26E002ADB3B /* FamilyViewModelTestView.swift */,
+				F3C1BE682A70F2C6002ADB3B /* StoryViewModelTestView.swift */,
+			);
+			path = TestView;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -638,6 +655,7 @@
 				F352856F2A7058E500466C61 /* SplashView.swift in Sources */,
 				F3430F852A67043200DC1B1C /* FamilyView.swift in Sources */,
 				886F8E002A6C584900D60BCC /* SelectEmotionBadge.swift in Sources */,
+				F3C1BE652A70F1C5002ADB3B /* UserViewModelTestView.swift in Sources */,
 				F3430F8C2A67043200DC1B1C /* DDayView.swift in Sources */,
 				F39EF28C2A6BA429005FD6DB /* BeInviteFamily.swift in Sources */,
 				F3430F942A67043200DC1B1C /* LoginButton.swift in Sources */,
@@ -660,10 +678,12 @@
 				883B47CD2A686C1D004C2D20 /* SettingView.swift in Sources */,
 				F3430FA22A67043200DC1B1C /* StoryListView.swift in Sources */,
 				886F8DF42A6C56C100D60BCC /* FamilyInitialPhoto.swift in Sources */,
+				F3C1BE692A70F2C6002ADB3B /* StoryViewModelTestView.swift in Sources */,
 				F39EF2882A6B972E005FD6DB /* JoinFamily.swift in Sources */,
 				F39EF2862A6B96A1005FD6DB /* JoinFamilyName.swift in Sources */,
 				F3430FAF2A67043200DC1B1C /* UserViewModel.swift in Sources */,
 				F3430FB02A67043200DC1B1C /* LoginViewModel.swift in Sources */,
+				F3C1BE672A70F26E002ADB3B /* FamilyViewModelTestView.swift in Sources */,
 				F3430FAE2A67043200DC1B1C /* Token.swift in Sources */,
 				F3430F9E2A67043200DC1B1C /* HorizontalImageScrollView.swift in Sources */,
 				F3430F9F2A67043200DC1B1C /* StoryDetailView.swift in Sources */,
