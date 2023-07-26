@@ -12,10 +12,11 @@ struct JoinBirthday: View {
     @Binding var currentIndex: Int
     @Binding var nickname: String
     @Binding var birthDateText: String
-    @Binding var previousBirthDateText: String
     @Binding var familyName: String
     @Binding var inviteCode: String
     
+    
+    @State private var previousBirthDateText: String = ""
     @State private var isThirdViewActive: Bool = false
     
     var body: some View {
@@ -65,11 +66,8 @@ struct JoinBirthday: View {
             }
         }
         .navigationBarTitleDisplayMode(.inline)
-        .toolbar {
-            BackToLoginButton(isLoggedIn: $isLoggedIn, currentIndex: $currentIndex)
-        }
         .navigationDestination(isPresented: $isThirdViewActive) {
-            JoinFamilyName(isLoggedIn: $isLoggedIn, currentIndex: $currentIndex, nickname: $nickname, birthDateText: $birthDateText, previousBirthDateText: $previousBirthDateText, familyName: $familyName, inviteCode: $inviteCode)
+            JoinFamilyName(isLoggedIn: $isLoggedIn, currentIndex: $currentIndex, nickname: $nickname, birthDateText: $birthDateText, familyName: $familyName, inviteCode: $inviteCode)
         }
     }
 }
@@ -77,6 +75,6 @@ struct JoinBirthday: View {
 
 struct JoinBirthday_Previews: PreviewProvider {
     static var previews: some View {
-        JoinBirthday(isLoggedIn: .constant(false), currentIndex: .constant(2), nickname: .constant(""), birthDateText: .constant(""), previousBirthDateText: .constant(""), familyName: .constant(""), inviteCode: .constant(""))
+        JoinBirthday(isLoggedIn: .constant(false), currentIndex: .constant(2), nickname: .constant(""), birthDateText: .constant(""), familyName: .constant(""), inviteCode: .constant(""))
     }
 }

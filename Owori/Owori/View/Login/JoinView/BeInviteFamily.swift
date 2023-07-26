@@ -12,16 +12,15 @@ struct BeInviteFamily: View {
     @Binding var currentIndex: Int
     @Binding var nickname: String
     @Binding var birthDateText: String
-    @Binding var previousBirthDateText: String
     @Binding var familyName: String
     @Binding var inviteCode: String
-    @State private var isFifthViewActive: Bool = false
+    @Binding var isCreateCodeViewVisible: Bool
+    @Binding var isReceiveCodeViewVisible: Bool
+    @Binding var isFifthViewVisible: Bool
     // 임시로 true로 변경. 기본값 = false
     
     var body: some View {
         VStack {
-            NumberIndicator(currentIndex: $currentIndex)
-                .padding(.top, 60)
             VStack(alignment: .leading) {
                 
                 Text("초대코드를 입력해주세요")
@@ -36,34 +35,33 @@ struct BeInviteFamily: View {
                         .foregroundColor(.gray)
                 }
                 
-                NavigationLink (value: 5) {
-                    Button {
-                        if inviteCode == "testInvite" {
-                            isFifthViewActive = true
-                        } else {
-                            isFifthViewActive = false
-                        }
-                    } label: {
-                        Text("testInvite")
+                Button {
+                    if inviteCode == "testInvite" {
+                        isFifthViewVisible = true
+                        isCreateCodeViewVisible = false
+                        isReceiveCodeViewVisible = false
+                    } else {
+                        isFifthViewVisible = false
                     }
+                } label: {
+                    Text("testInvite")
                 }
-                .navigationBarTitleDisplayMode(.inline)
-                .toolbar {
-                    BackToLoginButton(isLoggedIn: $isLoggedIn, currentIndex: $currentIndex)
-                }
-                .navigationDestination(isPresented: $isFifthViewActive) {
-                    TermsOfUse(isLoggedIn: $isLoggedIn, currentIndex: $currentIndex, nickname: $nickname, birthDateText: $birthDateText, previousBirthDateText: $previousBirthDateText, familyName: $familyName, inviteCode: $inviteCode)
-                }
+                
             }
             .onAppear {
                 currentIndex = 4
             }
+        }
+        .navigationBarTitleDisplayMode(.inline)
+        .navigationBarBackButtonHidden(true)
+        .toolbar {
+            BackToFamilyLinkViewButton(isCreateCodeViewVisible: $isCreateCodeViewVisible, isReceiveCodeViewVisible: $isReceiveCodeViewVisible)
         }
     }
 }
 
 struct BeInviteFamily_Previews: PreviewProvider {
     static var previews: some View {
-        BeInviteFamily(isLoggedIn: .constant(false), currentIndex: .constant(3), nickname: .constant(""), birthDateText: .constant(""), previousBirthDateText: .constant(""), familyName: .constant(""), inviteCode: .constant(""))
+        BeInviteFamily(isLoggedIn: .constant(false), currentIndex: .constant(4), nickname: .constant(""), birthDateText: .constant(""), familyName: .constant(""), inviteCode: .constant(""), isCreateCodeViewVisible: .constant(false), isReceiveCodeViewVisible: .constant(false), isFifthViewVisible: .constant(false))
     }
 }

@@ -20,7 +20,7 @@ struct StorySearchView: View {
                 HStack {
                     TextField("추억을 검색해보세요", text: $searchText)
                     Button {
-                        
+                        searchText = ""
                     } label: {
                         if searchText.isEmpty {
                             EmptyView()

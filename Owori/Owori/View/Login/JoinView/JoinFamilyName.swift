@@ -12,7 +12,6 @@ struct JoinFamilyName: View {
     @Binding var currentIndex: Int
     @Binding var nickname: String
     @Binding var birthDateText: String
-    @Binding var previousBirthDateText: String
     @Binding var familyName: String
     @Binding var inviteCode: String
     @State private var isFourthViewActive: Bool = false
@@ -62,17 +61,14 @@ struct JoinFamilyName: View {
             }
         }
         .navigationBarTitleDisplayMode(.inline)
-        .toolbar {
-            BackToLoginButton(isLoggedIn: $isLoggedIn, currentIndex: $currentIndex)
-        }
         .navigationDestination(isPresented: $isFourthViewActive) {
-            JoinFamily(isLoggedIn: $isLoggedIn, currentIndex: $currentIndex, nickname: $nickname, birthDateText: $birthDateText, previousBirthDateText: $previousBirthDateText, familyName: $familyName, inviteCode: $inviteCode)
+            JoinFamily(isLoggedIn: $isLoggedIn, currentIndex: $currentIndex, nickname: $nickname, birthDateText: $birthDateText, familyName: $familyName, inviteCode: $inviteCode)
         }
     }
 }
 
 struct JoinFamilyName_Previews: PreviewProvider {
     static var previews: some View {
-        JoinFamilyName(isLoggedIn: .constant(false), currentIndex: .constant(3), nickname: .constant(""), birthDateText: .constant(""), previousBirthDateText: .constant(""), familyName: .constant(""), inviteCode: .constant(""))
+        JoinFamilyName(isLoggedIn: .constant(false), currentIndex: .constant(3), nickname: .constant(""), birthDateText: .constant(""), familyName: .constant(""), inviteCode: .constant(""))
     }
 }

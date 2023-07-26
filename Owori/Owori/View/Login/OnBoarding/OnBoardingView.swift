@@ -36,58 +36,75 @@ struct OnBoardingView: View {
     var body: some View{
         NavigationStack {
             VStack {
-                ScrollView(.init()){
-                    ZStack(alignment: .bottom) {
-                        TabView(selection: $titleIndex) {
-                            ForEach(0 ..< titles.count, id: \.self) { index in
-                                VStack(alignment: .leading) {
-                                    
-                                    Spacer()
-                                    
-                                    //Title
-                                    Text(titles[index])
-                                        .font(.title)
-                                        .bold()
-                                        .foregroundColor(Color.black)
-                                        .frame(maxWidth: .infinity, alignment: .topLeading)
-                                        .padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 0))
-                                    
-                                    //Body
-                                    Text(bodies[index])
-                                        .font(.title3)
-                                        .foregroundColor(Color.gray)
-                                        .frame(maxWidth: .infinity, alignment: .topLeading)
-                                        .padding(EdgeInsets(top: 3, leading: 20, bottom: 0, trailing: 0))
-                                    
-                                    //Image
-                                    Image(images[index])
-                                        .resizable()
-                                        .frame(maxWidth: .infinity, maxHeight: UIScreen.main.bounds.height*0.5, alignment: .center)
-                                        .aspectRatio(contentMode: .fill)
-                                        .padding(EdgeInsets(top: 10, leading: 0, bottom: 0, trailing: 00))
-                                    Spacer()
-                                    
-                                }
+                //                ScrollView(.init()){
+                ZStack(alignment: .bottom) {
+                    TabView(selection: $titleIndex) {
+                        ForEach(0 ..< titles.count, id: \.self) { index in
+                            VStack(alignment: .leading) {
+                                
+                                Spacer()
+                                
+                                //Title
+                                Text(titles[index])
+                                    .font(.title)
+                                    .bold()
+                                    .foregroundColor(Color.black)
+                                    .frame(maxWidth: .infinity, alignment: .topLeading)
+                                    .padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 0))
+                                    .tag(0)
+                                
+                                //Body
+                                Text(bodies[index])
+                                    .font(.title3)
+                                    .foregroundColor(Color.gray)
+                                    .frame(maxWidth: .infinity, alignment: .topLeading)
+                                    .padding(EdgeInsets(top: 3, leading: 20, bottom: 0, trailing: 0))
+                                    .tag(1)
+                                
+                                //Image
+                                Image(images[index])
+                                    .resizable()
+                                    .frame(maxWidth: .infinity, maxHeight: UIScreen.main.bounds.height*0.5, alignment: .center)
+                                    .aspectRatio(contentMode: .fill)
+                                    .padding(EdgeInsets(top: 10, leading: 0, bottom: 0, trailing: 0))
+                                    .tag(2)
+                                Spacer()
+                                
                             }
                         }
-                        .tabViewStyle(PageTabViewStyle())
-                        .indexViewStyle(.page(backgroundDisplayMode: .always))
-                        .edgesIgnoringSafeArea(.top)
                     }
+                    .tabViewStyle(PageTabViewStyle())
+                    .indexViewStyle(.page(backgroundDisplayMode: .always))
+                    .edgesIgnoringSafeArea(.top)
                 }
-                .padding(.bottom, 30)
+                //                }
+                //                .padding(.bottom, 30)
                 
                 Spacer()
                 
                 Button{
-                    isLoginViewVisible = true
+                    if titleIndex >= 2 {
+                        isLoginViewVisible = true
+                    } else {
+                        titleIndex = titleIndex + 1
+                    }
                 } label: {
-                    Text("로그인하기")
-                        .font(.title2)
-                        .bold()
-                        .foregroundColor(.white)
-                        .frame(width: UIScreen.main.bounds.width, height: 52)
-                        .background(Color.oworiOrange)
+                    if titleIndex < 2 {
+                        Text("다음")
+                            .font(.title2)
+                            .bold()
+                            .foregroundColor(.white)
+                            .frame(width: UIScreen.main.bounds.width, height: 52)
+                            .background(Color.oworiOrange)
+                    } else {
+                        Text("로그인하기")
+                            .font(.title2)
+                            .bold()
+                            .foregroundColor(.white)
+                            .frame(width: UIScreen.main.bounds.width, height: 52)
+                            .background(Color.oworiOrange)
+                    }
+                    
                 }
             }
             .navigationDestination(isPresented: $isLoginViewVisible) {

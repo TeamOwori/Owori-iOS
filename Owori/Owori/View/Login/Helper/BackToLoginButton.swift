@@ -7,24 +7,23 @@
 
 import SwiftUI
 
+// 안쓰임
 struct BackToLoginButton: View {
-    @Binding var isLoggedIn: Bool
-    @Binding var currentIndex: Int
+    @Environment(\.presentationMode) private var presentationMode
     var body: some View {
         
-        if 1 <= currentIndex && currentIndex <= 5 {
-            Button {
-                isLoggedIn = false
-            } label: {
-                Text("X")
-            }
+        
+        Button {
+            presentationMode.wrappedValue.dismiss()
+        } label: {
+            Text("X")
         }
+        
     }
 }
 
 struct BackToLoginButton_Previews: PreviewProvider {
     static var previews: some View {
-        BackToLoginButton(isLoggedIn: .constant(true), currentIndex: .constant(1))
-            .environmentObject(LoginViewModel())
+        BackToLoginButton()
     }
 }

@@ -12,7 +12,6 @@ struct TermsOfUse: View {
     @Binding var currentIndex: Int
     @Binding var nickname: String
     @Binding var birthDateText: String
-    @Binding var previousBirthDateText: String
     @Binding var familyName: String
     @Binding var inviteCode: String
     
@@ -29,8 +28,6 @@ struct TermsOfUse: View {
                     .font(.title)
                     .bold()
                     .padding(EdgeInsets(top: 0, leading: 0, bottom: 40, trailing: 0))
-                
-                
                 Button {
                     currentIndex = 0
                     isSuccessSignUp = true
@@ -41,20 +38,17 @@ struct TermsOfUse: View {
             .onAppear {
                 currentIndex = 5
             }
-        }.navigationBarTitleDisplayMode(.inline)
-            .toolbar {
-                BackToLoginButton(isLoggedIn: $isLoggedIn, currentIndex: $currentIndex)
-            }
-            .navigationDestination(isPresented: $isSuccessSignUp) {
-                MainView()
-                    .navigationBarBackButtonHidden(true)
-                
-            }
+        }
+        .navigationBarTitleDisplayMode(.inline)
+        .navigationDestination(isPresented: $isSuccessSignUp) {
+            MainView()
+            
+        }
     }
 }
 
 struct TermsOfUse_Previews: PreviewProvider {
     static var previews: some View {
-        TermsOfUse(isLoggedIn: .constant(false), currentIndex: .constant(3), nickname: .constant(""), birthDateText: .constant(""), previousBirthDateText: .constant(""), familyName: .constant(""), inviteCode: .constant(""))
+        TermsOfUse(isLoggedIn: .constant(false), currentIndex: .constant(3), nickname: .constant(""), birthDateText: .constant(""), familyName: .constant(""), inviteCode: .constant(""))
     }
 }

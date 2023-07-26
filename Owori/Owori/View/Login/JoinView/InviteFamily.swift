@@ -12,16 +12,15 @@ struct InviteFamily: View {
     @Binding var currentIndex: Int
     @Binding var nickname: String
     @Binding var birthDateText: String
-    @Binding var previousBirthDateText: String
     @Binding var familyName: String
     @Binding var inviteCode: String
-    @State var isFifthViewActive: Bool = false
+    @Binding var isCreateCodeViewVisible: Bool
+    @Binding var isReceiveCodeViewVisible: Bool
+    @Binding var isFifthViewVisible: Bool
     // 임시로 true로 변경. 기본값 = false
     
     var body: some View {
         VStack {
-            NumberIndicator(currentIndex: $currentIndex)
-                .padding(.top, 60)
             VStack(alignment: .leading) {
                 Text("가족그룹을 만들었어요.\n가족을 초대해볼까요?")
                     .font(.title)
@@ -40,31 +39,29 @@ struct InviteFamily: View {
                 }
                 
                 
-                NavigationLink (value: 5) {
-                    Button {
-                        isFifthViewActive = true
-                    } label: {
-                        Text("임시 확인")
-                    }
-                }
-                .navigationBarTitleDisplayMode(.inline)
-                .toolbar {
-                    BackToLoginButton(isLoggedIn: $isLoggedIn, currentIndex: $currentIndex)
-                }
-                .navigationDestination(isPresented: $isFifthViewActive) {
-                    TermsOfUse(isLoggedIn: $isLoggedIn, currentIndex: $currentIndex, nickname: $nickname, birthDateText: $birthDateText, previousBirthDateText: $previousBirthDateText, familyName: $familyName, inviteCode: $inviteCode)
-                }
                 
+                Button {
+                    isFifthViewVisible = true
+                    isCreateCodeViewVisible = false
+                    isReceiveCodeViewVisible = false
+                } label: {
+                    Text("임시 확인")
+                }
             }
             .onAppear {
                 currentIndex = 4
             }
+        }
+        .navigationBarTitleDisplayMode(.inline)
+        .navigationBarBackButtonHidden(true)
+        .toolbar {
+            BackToFamilyLinkViewButton(isCreateCodeViewVisible: $isCreateCodeViewVisible, isReceiveCodeViewVisible: $isCreateCodeViewVisible)
         }
     }
 }
 
 struct InviteFamily_Previews: PreviewProvider {
     static var previews: some View {
-        InviteFamily(isLoggedIn: .constant(false), currentIndex: .constant(3), nickname: .constant(""), birthDateText: .constant(""), previousBirthDateText: .constant(""), familyName: .constant(""), inviteCode: .constant(""))
+        InviteFamily(isLoggedIn: .constant(false), currentIndex: .constant(3), nickname: .constant(""), birthDateText: .constant(""), familyName: .constant(""), inviteCode: .constant(""), isCreateCodeViewVisible: .constant(false), isReceiveCodeViewVisible: .constant(false), isFifthViewVisible: .constant(false))
     }
 }

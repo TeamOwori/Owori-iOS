@@ -70,6 +70,7 @@
 		F3430FB62A67043200DC1B1C /* Image+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3430F812A67043200DC1B1C /* Image+Extension.swift */; };
 		F3430FB72A67043200DC1B1C /* View+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3430F822A67043200DC1B1C /* View+Extension.swift */; };
 		F352856F2A7058E500466C61 /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F352856E2A7058E500466C61 /* SplashView.swift */; };
+		F36A82952A71921A00C6A90C /* BackToFamilyLinkViewButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F36A82942A71921A00C6A90C /* BackToFamilyLinkViewButton.swift */; };
 		F39EF2822A6B93E5005FD6DB /* JoinNickname.swift in Sources */ = {isa = PBXBuildFile; fileRef = F39EF2812A6B93E5005FD6DB /* JoinNickname.swift */; };
 		F39EF2842A6B95D3005FD6DB /* JoinBirthday.swift in Sources */ = {isa = PBXBuildFile; fileRef = F39EF2832A6B95D3005FD6DB /* JoinBirthday.swift */; };
 		F39EF2862A6B96A1005FD6DB /* JoinFamilyName.swift in Sources */ = {isa = PBXBuildFile; fileRef = F39EF2852A6B96A1005FD6DB /* JoinFamilyName.swift */; };
@@ -173,6 +174,7 @@
 		F3430F812A67043200DC1B1C /* Image+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Image+Extension.swift"; sourceTree = "<group>"; };
 		F3430F822A67043200DC1B1C /* View+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "View+Extension.swift"; sourceTree = "<group>"; };
 		F352856E2A7058E500466C61 /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
+		F36A82942A71921A00C6A90C /* BackToFamilyLinkViewButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackToFamilyLinkViewButton.swift; sourceTree = "<group>"; };
 		F39EF2812A6B93E5005FD6DB /* JoinNickname.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinNickname.swift; sourceTree = "<group>"; };
 		F39EF2832A6B95D3005FD6DB /* JoinBirthday.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinBirthday.swift; sourceTree = "<group>"; };
 		F39EF2852A6B96A1005FD6DB /* JoinFamilyName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinFamilyName.swift; sourceTree = "<group>"; };
@@ -411,6 +413,7 @@
 			children = (
 				F39EF2912A6DBA2C005FD6DB /* BackToLoginButton.swift */,
 				F3430F562A67043200DC1B1C /* LoginButton.swift */,
+				F36A82942A71921A00C6A90C /* BackToFamilyLinkViewButton.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -728,6 +731,7 @@
 				88A392DA2A7003BB00ACBD71 /* BackCancel.swift in Sources */,
 				F3430FB52A67043200DC1B1C /* Color+Extension.swift in Sources */,
 				F3C1BE6D2A710820002ADB3B /* StoryViewHeader.swift in Sources */,
+				F36A82952A71921A00C6A90C /* BackToFamilyLinkViewButton.swift in Sources */,
 				883B47D42A686D25004C2D20 /* InviteView.swift in Sources */,
 				883B47DB2A686E36004C2D20 /* CustomToggle.swift in Sources */,
 				F3430F0F2A6701AD00DC1B1C /* OworiApp.swift in Sources */,
