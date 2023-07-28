@@ -22,10 +22,10 @@ struct JoinNickname: View {
             Text("오월이에서 사용할\n닉네임을 입력해주세요.")
                 .font(.title)
                 .bold()
-                .padding(EdgeInsets(top: 0, leading: 0, bottom: 40, trailing: 0))
+                .padding(EdgeInsets(top: 100, leading: 20, bottom: 20, trailing: 0))
             Text("닉네임")
                 .foregroundColor(Color.oworiGray500)
-                .padding(EdgeInsets(top: 0, leading: 0, bottom: 8, trailing: 0))
+                .padding(EdgeInsets(top: 0, leading: 20, bottom: 10, trailing: 0))
             HStack {
                 TextField("숫자, 특수문자, 이모티콘 모두 사용 가능", text: $nickname)
                 // 텍스트가 변경될 때마다 글자 수 확인
@@ -37,9 +37,22 @@ struct JoinNickname: View {
                 Text("\(nickname.count)/7")
             }
             .overlay(Rectangle().frame(height: 1).padding(.top, 30))
+            .padding(.leading,20)
+            .padding(.trailing,20)
             .foregroundColor(.gray)
             
+            Spacer()
             
+            Button{
+                
+            } label: {
+                Text("확인")
+                    .font(.title2)
+                    .bold()
+                    .foregroundColor(.white)
+            }
+            .frame(width: UIScreen.main.bounds.width, height: 52)
+            .background(Color.oworiOrange)
             
             // 여기에서 넘긴 value를 어디에 쓸지 잘 모르겠음... 사실 안넘겨도 되는 값이긴 함
             // .navigationDestination()에서 뷰 파라미터에 어차피 값 같이 넘김..
@@ -53,9 +66,30 @@ struct JoinNickname: View {
                     }
                 } label: {
                     if !nickname.isEmpty {
-                        Text("확인1")
+//                        Button(action: {
+//                            // 버튼이 클릭되었을 때 실행되는 코드
+//                            print("확인1 버튼 클릭!")
+//                        }) {
+//                            Text("확인")
+//                                .foregroundColor(Color.white)
+//
+//                        }
+//                        .background(Color.oworiOrange)
+//                        .frame(maxWidth: .infinity)
+//                        .frame(height: 52)
+                        
+
                     } else {
-                        Text("확인2")
+//                        Button(action: {
+//                            // 버튼이 클릭되었을 때 실행되는 코드
+//                            print("확인2 버튼 클릭!")
+//                        }) {
+//                            Text("확인")
+//                                .foregroundColor(Color.oworiGray400)
+//                        }
+//                        .background(Color.oworiGray200)
+//                        .frame(maxWidth: .infinity)
+//                        .frame(height: 52)
                     }
                 }
                 .disabled(nickname.isEmpty)

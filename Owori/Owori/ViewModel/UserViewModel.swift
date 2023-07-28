@@ -9,7 +9,7 @@ import SwiftUI
 
 fileprivate enum OworiAPI {
     static let scheme = "http"
-    static let host = "localhost:8080"
+    static let host = "owori.store"
     
     enum Path: String {
         case refreshingToken = "api/v1/auth/refresh"
