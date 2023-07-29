@@ -80,7 +80,9 @@ struct InviteFamily: View {
                 Spacer()
                 
                 Button{
-                    
+                    isFifthViewVisible = true
+                    isCreateCodeViewVisible = false
+                    isReceiveCodeViewVisible = false
                 } label: {
                     Text("확인")
                         .font(.title2)
@@ -91,13 +93,13 @@ struct InviteFamily: View {
                 .background(Color.oworiOrange)
                 
                 
-                Button {
-                    isFifthViewVisible = true
-                    isCreateCodeViewVisible = false
-                    isReceiveCodeViewVisible = false
-                } label: {
-//                    Text("임시 확인")
-                }
+//                Button {
+//                    isFifthViewVisible = true
+//                    isCreateCodeViewVisible = false
+//                    isReceiveCodeViewVisible = false
+//                } label: {
+////                    Text("임시 확인")
+//                }
             }
             .onAppear {
                 currentIndex = 4
