@@ -8,9 +8,11 @@
 import SwiftUI
 
 struct AddFamilyPhoto: View {
-    // 임시 - ExisitView(홈/사진올리기)와 연동
-    @State private var photoDescription: String = ""
+    // FamilyInitialPhoto 클릭 시 Navigate 됨
+    // 사진이 들어왔을 때 -> 올리기 버튼 활성화
     @State private var photoisOn: Bool = false
+    // ExistPhoto
+    @State private var photoDescription: String = ""
     
     var body: some View {
         NavigationStack {
@@ -18,10 +20,7 @@ struct AddFamilyPhoto: View {
                 VStack(alignment: .leading, spacing: 10) {
                     Spacer(minLength: 50)
                     Text("사진 하나를 올려봐요")
-                        .font(
-                            Font.custom("Pretendard", size: 18)
-                                .weight(.semibold)
-                        )
+                        .font( Font.custom("Pretendard", size: 18)  .weight(.semibold))
                     ZStack {
                         RoundedRectangle(cornerRadius: 12)
                             .foregroundColor(.white)
@@ -47,11 +46,9 @@ struct AddFamilyPhoto: View {
                                 .cornerRadius(12)
                                 .frame(width: UIScreen.main.bounds.width * 0.7, height: UIScreen.main.bounds.height * 0.15)
                             if photoDescription.isEmpty {
-                                Text(" 어떤 사진인가요? 짧게 기록을 남겨봐요")
+                                Text("어떤 사진인가요? 짧게 기록을 남겨봐요")
                                     .font(Font.custom("Pretendard", size: 15))
-                                    .frame(width: 269, height: 109, alignment: .topLeading)
-//                                    .frame(minWidth: 269, maxWidth: 269, minHeight: 109, maxHeight: 109, alignment: .topLeading)
-//                                    .frame(width: UIScreen.main.bounds.width * 0.7, height: UIScreen.main.bounds.height * 0.15, alignment: .topLeading)
+                                    .frame(width: 269, height: 109, alignment: .topLeading) // .frame(width: UIScreen.main.bounds.width * 0.7, height: UIScreen.main.bounds.height * 0.15, alignment: .topLeading)
                                     .foregroundColor(Color.oworiGray300)
 //                                    .background(Color.green)
                                 
@@ -70,7 +67,8 @@ struct AddFamilyPhoto: View {
                             .opacity(0.5)
                     )
                 }
-                .padding(.bottom, 125)
+//                .padding(.bottom, 125)
+                .padding(.bottom, UIScreen.main.bounds.height * 0.1)
                 if photoDescription.isEmpty && photoisOn {
                     Button {
                         
@@ -83,10 +81,7 @@ struct AddFamilyPhoto: View {
                                 .padding(.horizontal, 116)
                                 .padding(.vertical, 11.5)
                             Text("올리기")
-                                .font(
-                                    Font.custom("Pretendard", size: 18)
-                                        .weight(.semibold)
-                                )
+                                .font(Font.custom("Pretendard", size: 18)  .weight(.semibold))
                                 .foregroundColor(.white)
                         }
                     }

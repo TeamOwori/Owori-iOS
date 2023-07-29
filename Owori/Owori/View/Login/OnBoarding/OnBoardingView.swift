@@ -29,19 +29,16 @@ struct OnBoardingView: View {
     @State private var animationValue: CGFloat = 0
     @State var offset: CGFloat = 0
     
+    @State private var isLoginViewVisible: Bool = false
+    
     
     
     var body: some View{
-        
-        VStack {
-            
-            ScrollView(.init()){
-                
+        NavigationStack {
+            VStack {
+                //                ScrollView(.init()){
                 ZStack(alignment: .bottom) {
-                    
                     TabView(selection: $titleIndex) {
-                        
-                        
                         ForEach(0 ..< titles.count, id: \.self) { index in
                             VStack(alignment: .leading) {
                                 
@@ -54,6 +51,7 @@ struct OnBoardingView: View {
                                     .foregroundColor(Color.black)
                                     .frame(maxWidth: .infinity, alignment: .topLeading)
                                     .padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 0))
+                                    .tag(0)
                                 
                                 //Body
                                 Text(bodies[index])
@@ -61,13 +59,15 @@ struct OnBoardingView: View {
                                     .foregroundColor(Color.gray)
                                     .frame(maxWidth: .infinity, alignment: .topLeading)
                                     .padding(EdgeInsets(top: 3, leading: 20, bottom: 0, trailing: 0))
+                                    .tag(1)
                                 
                                 //Image
                                 Image(images[index])
                                     .resizable()
                                     .frame(maxWidth: .infinity, maxHeight: UIScreen.main.bounds.height*0.5, alignment: .center)
                                     .aspectRatio(contentMode: .fill)
-                                    .padding(EdgeInsets(top: 10, leading: 0, bottom: 0, trailing: 00))
+                                    .padding(EdgeInsets(top: 10, leading: 0, bottom: 0, trailing: 0))
+                                    .tag(2)
                                 Spacer()
                                 
                             }
@@ -77,26 +77,42 @@ struct OnBoardingView: View {
                     .indexViewStyle(.page(backgroundDisplayMode: .always))
                     .edgesIgnoringSafeArea(.top)
                 }
-            }
-            .padding(.bottom, 30)
-            
-            Spacer()
-            
-            Button{
+                //                }
+                //                .padding(.bottom, 30)
                 
-            } label: {
-                Text("로그인하기")
-                    .font(.title2)
-                    .bold()
-                    .foregroundColor(.white)
+                Spacer()
+                
+                Button{
+                    if titleIndex >= 2 {
+                        isLoginViewVisible = true
+                    } else {
+                        titleIndex = titleIndex + 1
+                    }
+                } label: {
+                    if titleIndex < 2 {
+                        Text("다음")
+                            .font(.title2)
+                            .bold()
+                            .foregroundColor(.white)
+                            .frame(width: UIScreen.main.bounds.width, height: 52)
+                            .background(Color.oworiOrange)
+                    } else {
+                        Text("로그인하기")
+                            .font(.title2)
+                            .bold()
+                            .foregroundColor(.white)
+                            .frame(width: UIScreen.main.bounds.width, height: 52)
+                            .background(Color.oworiOrange)
+                    }
+                    
+                }
             }
-            .frame(width: UIScreen.main.bounds.width, height: 52)
-            .background(Color.oworiOrange)
-            
+            .navigationDestination(isPresented: $isLoginViewVisible) {
+                LoginView()
+                    .navigationBarBackButtonHidden(true)
+            }
         }
-        
     }
-    
 }
 
 

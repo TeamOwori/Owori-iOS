@@ -8,12 +8,21 @@
 import SwiftUI
 
 struct JoinNickname: View {
-    @Binding var currentIndex: Int
-    @Binding var nickname: String
-    @Binding var birthDateText: String
-    @Binding var previousBirthDateText: String
-    @Binding var familyName: String
-    @Binding var inviteCode: String
+    @Binding var isLoggedIn: Bool
+    
+    @State private var currentIndex: Int = 1
+    
+    // First
+    @State private var nickname: String = ""
+    
+    // Second
+    @State private var birthDateText: String = ""
+    
+    // Third
+    @State private var familyName: String = ""
+    
+    // Fourth
+    @State private var inviteCode: String = ""
     
     @State private var isSecondViewActive = false
     var body: some View {
@@ -94,24 +103,19 @@ struct JoinNickname: View {
                 }
                 .disabled(nickname.isEmpty)
             }
-            .navigationBarTitleDisplayMode(.inline)
-            .toolbar {
-                BackToLoginButton(currentIndex: $currentIndex)
+            .onAppear {
+                currentIndex = 1
             }
-            .navigationDestination(isPresented: $isSecondViewActive) {
-                JoinBirthday(currentIndex: $currentIndex, nickname: $nickname, birthDateText: $birthDateText, previousBirthDateText: $previousBirthDateText, familyName: $familyName, inviteCode: $inviteCode)
-            }
-            
         }
-        .onAppear {
-            currentIndex = 1
+        .navigationBarTitleDisplayMode(.inline)
+        .navigationDestination(isPresented: $isSecondViewActive) {
+            JoinBirthday(isLoggedIn: $isLoggedIn, currentIndex: $currentIndex, nickname: $nickname, birthDateText: $birthDateText, familyName: $familyName, inviteCode: $inviteCode)
         }
     }
-    
 }
 
 struct JoinNickname_Previews: PreviewProvider {
     static var previews: some View {
-        JoinNickname(currentIndex: .constant(1), nickname: .constant(""), birthDateText: .constant(""), previousBirthDateText: .constant(""), familyName: .constant(""), inviteCode: .constant(""))
+        JoinNickname(isLoggedIn: .constant(false))
     }
 }

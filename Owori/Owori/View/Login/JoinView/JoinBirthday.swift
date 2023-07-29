@@ -8,16 +8,19 @@
 import SwiftUI
 
 struct JoinBirthday: View {
+    @Binding var isLoggedIn: Bool
     @Binding var currentIndex: Int
     @Binding var nickname: String
     @Binding var birthDateText: String
-    @Binding var previousBirthDateText: String
     @Binding var familyName: String
     @Binding var inviteCode: String
     
+    
+    @State private var previousBirthDateText: String = ""
     @State private var isThirdViewActive: Bool = false
     
     var body: some View {
+
         VStack(alignment: .leading) {
             Text("생년월일 8자리를 입력해주세요")
                 .font(.title)
@@ -73,26 +76,22 @@ struct JoinBirthday: View {
                     }
                 }
                 .disabled(birthDateText.isEmpty)
+
             }
-            .navigationBarTitleDisplayMode(.inline)
-            .toolbar {
-                BackToLoginButton(currentIndex: $currentIndex)
-            }
-            .navigationDestination(isPresented: $isThirdViewActive) {
-                JoinFamilyName(currentIndex: $currentIndex, nickname: $nickname, birthDateText: $birthDateText, previousBirthDateText: $previousBirthDateText, familyName: $familyName, inviteCode: $inviteCode)
-            }
-        }
-        .onAppear {
+            .onAppear {
                 currentIndex = 2
+            }
         }
-        
+        .navigationBarTitleDisplayMode(.inline)
+        .navigationDestination(isPresented: $isThirdViewActive) {
+            JoinFamilyName(isLoggedIn: $isLoggedIn, currentIndex: $currentIndex, nickname: $nickname, birthDateText: $birthDateText, familyName: $familyName, inviteCode: $inviteCode)
+        }
     }
-    
 }
 
 
 struct JoinBirthday_Previews: PreviewProvider {
     static var previews: some View {
-        JoinBirthday(currentIndex: .constant(2), nickname: .constant(""), birthDateText: .constant(""), previousBirthDateText: .constant(""), familyName: .constant(""), inviteCode: .constant(""))
+        JoinBirthday(isLoggedIn: .constant(false), currentIndex: .constant(2), nickname: .constant(""), birthDateText: .constant(""), familyName: .constant(""), inviteCode: .constant(""))
     }
 }

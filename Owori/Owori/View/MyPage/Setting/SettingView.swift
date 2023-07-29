@@ -16,7 +16,7 @@ struct SettingView: View {
     init() {
         // 커스텀된 네비게이션바 배경색 설정
         let coloredNavigationBar = UINavigationBarAppearance()
-        coloredNavigationBar.backgroundColor = UIColor(Color.oworiMainColor)
+        coloredNavigationBar.backgroundColor = UIColor(Color.oworiMain)
         
         // 스크롤 할 떄, 스크롤하지 않을 때의 색상 적용
         UINavigationBar.appearance().scrollEdgeAppearance = coloredNavigationBar
@@ -188,7 +188,7 @@ struct SettingView: View {
                     .navigationBarTitle("설정")
                     .navigationBarTitleDisplayMode(.inline)
                 }
-                .listRowBackground(Color.oworiMainColor.opacity(0.5))
+                .listRowBackground(Color.oworiMain.opacity(0.5))
             }
             .navigationBarTitleDisplayMode(.inline)
         }

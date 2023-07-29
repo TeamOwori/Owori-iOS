@@ -8,15 +8,16 @@
 import SwiftUI
 
 struct JoinFamily: View {
+    @Binding var isLoggedIn: Bool
     @Binding var currentIndex: Int
     @Binding var nickname: String
     @Binding var birthDateText: String
-    @Binding var previousBirthDateText: String
     @Binding var familyName: String
     @Binding var inviteCode: String
     
-    @State private var isFourthOneViewActive: Bool = false
-    @State private var isFourthTwoViewActive: Bool = false
+    @State private var isCreateCodeViewVisible: Bool = false
+    @State private var isReceiveCodeViewVisible: Bool = false
+    @State private var isFifthViewVisible: Bool = false
     
     var body: some View {
         VStack(alignment: .leading) {
@@ -100,18 +101,16 @@ struct JoinFamily: View {
                 }
             }
             .navigationBarTitleDisplayMode(.inline)
-            .navigationDestination(isPresented: $isFourthTwoViewActive) {
-                BeInviteFamily(currentIndex: $currentIndex, nickname: $nickname, birthDateText: $birthDateText, previousBirthDateText: $previousBirthDateText, familyName: $familyName, inviteCode: $inviteCode)
+            .navigationDestination(isPresented: $isFifthViewVisible) {
+                TermsOfUse(isLoggedIn: $isLoggedIn, currentIndex: $currentIndex, nickname: $nickname, birthDateText: $birthDateText, familyName: $familyName, inviteCode: $inviteCode)
             }
         }
-        .onAppear {
-                currentIndex = 4
-        }
+        
     }
 }
 
 struct JoinFamily_Previews: PreviewProvider {
     static var previews: some View {
-        JoinFamily(currentIndex: .constant(4), nickname: .constant(""), birthDateText: .constant(""), previousBirthDateText: .constant(""), familyName: .constant(""), inviteCode: .constant(""))
+        JoinFamily(isLoggedIn: .constant(false), currentIndex: .constant(4), nickname: .constant(""), birthDateText: .constant(""), familyName: .constant(""), inviteCode: .constant(""))
     }
 }

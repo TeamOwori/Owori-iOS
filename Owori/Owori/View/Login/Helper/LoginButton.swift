@@ -13,6 +13,7 @@ struct LoginButton: View {
     
     @EnvironmentObject var loginViewModel: LoginViewModel
     @EnvironmentObject var userViewModel: UserViewModel
+    @Binding var isLoggedIn: Bool
     
     var body: some View {
         
@@ -20,8 +21,15 @@ struct LoginButton: View {
         HStack(alignment: .center, spacing: 15) {
             Button {
                 // 버튼이 클릭되었을 때 실행되는 코드
+                // 이 부분 코드 수정 필요함 (loginViewModel과 UserViewModel이 떨어져 있어야 함)
+                // joinMember
                 loginViewModel.kakaoLogin(oworiUser: userViewModel.user) {
                     userViewModel.joinMember(socialToken: loginViewModel.socialToken)
+                }
+                if loginViewModel.isLoggedIn {
+                    isLoggedIn = true
+                } else {
+                    isLoggedIn = false
                 }
                 
             } label: {
@@ -38,7 +46,7 @@ struct LoginButton: View {
 
 struct LoginButton_Previews: PreviewProvider {
     static var previews: some View {
-        LoginButton(buttonImage: "카카오로그인버튼")
+        LoginButton(buttonImage: "카카오로그인버튼", isLoggedIn: .constant(false))
         
     }
     

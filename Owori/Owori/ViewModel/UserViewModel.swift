@@ -12,14 +12,20 @@ fileprivate enum OworiAPI {
     static let host = "owori.store"
     
     enum Path: String {
-        case refreshingToken = "api/v1/auth/refresh"
-        case initUser = "api/v1/members/details"
+        case members = "/api/v1/members"
+        case refresh = "/api/v1/auth/refresh"
+        case membersDetails = "/api/v1/members/details"
+        case membersEmtionalBadge = "/api/v1/members/emotional-badge"
+        case membersProfile = "/api/v1/members/profile"
+        case membersColors = "/api/v1/members/colors"
     }
 }
 
 class UserViewModel: ObservableObject {
     @Published var user: User = User()
     @Published var isLogined = false
+    
+    @Published var tempInviteCode: String = ""
     
     // MARK: 오월이 API FUNCTIONS (Post)
     
@@ -29,17 +35,17 @@ class UserViewModel: ObservableObject {
         
         // 요청을 보낼 API의 url 설정
         // 배포 후 url 설정
-        //        var urlComponents = URLComponents()
-        //        urlComponents.scheme = OworiAPI.scheme
-        //        urlComponents.host = OworiAPI.host
-        //        urlComponents.path = OworiAPI.Path.joinMember.rawValue
-        //        guard let url = urlComponents.url else {
-        //            print("Error: cannot create URL")
-        //            return
-        //        }
+        var urlComponents = URLComponents()
+        urlComponents.scheme = OworiAPI.scheme
+        urlComponents.host = OworiAPI.host
+        urlComponents.path = OworiAPI.Path.members.rawValue
+        guard let url = urlComponents.url else {
+            print("Error: cannot create URL")
+            return
+        }
         
         // 배포 이전 고정 url 설정 (추후 삭제 예정)
-        let url = URL(string: "http://localhost:8080/api/v1/members")!
+        //        let url = URL(string: "http://localhost:8080/api/v1/members")!
         
         // url 테스트 log
         print("[joinMember url Log] : \(url)")
@@ -95,19 +101,19 @@ class UserViewModel: ObservableObject {
     func initUser(userInfo: [String: Any]) {
         guard let sendData = try? JSONSerialization.data(withJSONObject: userInfo, options: []) else { return }
         
-        // 요청을 보낼 API의 url 설정
-        // 배포 후 url 설정
-        //        var urlComponents = URLComponents()
-        //        urlComponents.scheme = OworiAPI.scheme
-        //        urlComponents.host = OworiAPI.host
-        //        urlComponents.path = OworiAPI.Path.joinMember.rawValue
-        //        guard let url = urlComponents.url else {
-        //            print("Error: cannot create URL")
-        //            return
-        //        }
+        //         요청을 보낼 API의 url 설정
+        //         배포 후 url 설정
+        var urlComponents = URLComponents()
+        urlComponents.scheme = OworiAPI.scheme
+        urlComponents.host = OworiAPI.host
+        urlComponents.path = OworiAPI.Path.membersDetails.rawValue
+        guard let url = urlComponents.url else {
+            print("Error: cannot create URL")
+            return
+        }
         
         // 배포 이전 고정 url 설정 (추후 삭제 예정)
-        let url = URL(string: "http://localhost:8080/api/v1/members/details")!
+        //        let url = URL(string: "http://localhost:8080/api/v1/members/details")!
         
         // url 테스트 log
         print("[init User url Log]: \(url)")
@@ -149,19 +155,19 @@ class UserViewModel: ObservableObject {
     func updateEmotionalBadge(body: [String: Any]) {
         guard let sendData = try? JSONSerialization.data(withJSONObject: body, options: []) else { return }
         
-        // 요청을 보낼 API의 url 설정
-        // 배포 후 url 설정
-        //        var urlComponents = URLComponents()
-        //        urlComponents.scheme = OworiAPI.scheme
-        //        urlComponents.host = OworiAPI.host
-        //        urlComponents.path = OworiAPI.Path.joinMember.rawValue
-        //        guard let url = urlComponents.url else {
-        //            print("Error: cannot create URL")
-        //            return
-        //        }
+        //         요청을 보낼 API의 url 설정
+        //         배포 후 url 설정
+        var urlComponents = URLComponents()
+        urlComponents.scheme = OworiAPI.scheme
+        urlComponents.host = OworiAPI.host
+        urlComponents.path = OworiAPI.Path.membersEmtionalBadge.rawValue
+        guard let url = urlComponents.url else {
+            print("Error: cannot create URL")
+            return
+        }
         
         // 배포 이전 고정 url 설정 (추후 삭제 예정)
-        let url = URL(string: "http://localhost:8080/api/v1/members/emotional-badge")!
+        //        let url = URL(string: "http://localhost:8080/api/v1/members/emotional-badge")!
         
         // url 테스트 log
         print("[init User url Log]: \(url)")
@@ -189,6 +195,7 @@ class UserViewModel: ObservableObject {
                 print("Error: HTTP request failed")
                 return
             }
+            print(response)
         }.resume()
     }
     
@@ -196,24 +203,24 @@ class UserViewModel: ObservableObject {
     // 멤버 프로필 업데이트
     func updateProfile(userInfo: [String: Any]) {
         guard let sendData = try? JSONSerialization.data(withJSONObject: userInfo, options: []) else { return }
-
+        
         // 요청을 보낼 API의 url 설정
         // 배포 후 url 설정
-        //        var urlComponents = URLComponents()
-        //        urlComponents.scheme = OworiAPI.scheme
-        //        urlComponents.host = OworiAPI.host
-        //        urlComponents.path = OworiAPI.Path.joinMember.rawValue
-        //        guard let url = urlComponents.url else {
-        //            print("Error: cannot create URL")
-        //            return
-        //        }
-
+        var urlComponents = URLComponents()
+        urlComponents.scheme = OworiAPI.scheme
+        urlComponents.host = OworiAPI.host
+        urlComponents.path = OworiAPI.Path.membersProfile.rawValue
+        guard let url = urlComponents.url else {
+            print("Error: cannot create URL")
+            return
+        }
+        
         // 배포 이전 고정 url 설정 (추후 삭제 예정)
-        let url = URL(string: "http://localhost:8080/api/v1/members/profile")!
-
+        //        let url = URL(string: "http://localhost:8080/api/v1/members/profile")!
+        
         // url 테스트 log
         print("[Update Profile User url Log]: \(url)")
-
+        
         // urlRequeset에 함께 담을 header, body 설정
         var urlRequest = URLRequest(url: url)
         urlRequest.httpMethod = "POST"
@@ -221,7 +228,7 @@ class UserViewModel: ObservableObject {
         urlRequest.setValue(self.user.member_id, forHTTPHeaderField: "memberId")
         urlRequest.setValue("Bearer " + (self.user.jwt_token?.access_token)!, forHTTPHeaderField: "Authorization")
         urlRequest.httpBody = sendData
-
+        
         // 요청
         URLSession.shared.dataTask(with: urlRequest) { (data, response, error) in
             guard error == nil else {
@@ -233,12 +240,14 @@ class UserViewModel: ObservableObject {
                 print("Error: Did not receive data")
                 return
             }
-
+            
+            print(response)
+            
             guard let response = response as? HTTPURLResponse, (200 ..< 300) ~= response.statusCode else {
                 print("Error: HTTP request failed")
                 return
             }
-
+            
         }.resume()
     }
     
@@ -247,20 +256,20 @@ class UserViewModel: ObservableObject {
         
         // 요청을 보낼 API의 url 설정
         // 배포 후 url 설정
-        //        var urlComponents = URLComponents()
-        //        urlComponents.scheme = OworiAPI.scheme
-        //        urlComponents.host = OworiAPI.host
-        //        urlComponents.path = OworiAPI.Path.joinMember.rawValue
-        //        guard let url = urlComponents.url else {
-        //            print("Error: cannot create URL")
-        //            return
-        //        }
+        var urlComponents = URLComponents()
+        urlComponents.scheme = OworiAPI.scheme
+        urlComponents.host = OworiAPI.host
+        urlComponents.path = OworiAPI.Path.refresh.rawValue
+        guard let url = urlComponents.url else {
+            print("Error: cannot create URL")
+            return
+        }
         
         // 배포 이전 고정 url 설정 (추후 삭제 예정)
-        let url = URL(string: "http://localhost:8080/api/v1/auth/refresh")!
+        //        let url = URL(string: "http://localhost:8080/api/v1/auth/refresh")!
         
         // url 테스트 log
-        print("[joinMember url Log] : \(url)")
+        print("[refreshingToken url Log] : \(url)")
         
         // urlRequeset에 함께 담을 header, body 설정
         var urlRequest = URLRequest(url: url)
@@ -313,22 +322,216 @@ class UserViewModel: ObservableObject {
         }.resume()
     }
     
+    // 유저 마이 프로필 조회
+    func lookupProfile() {
+        
+        // 요청을 보낼 API의 url 설정
+        // 배포 후 url 설정
+        var urlComponents = URLComponents()
+        urlComponents.scheme = OworiAPI.scheme
+        urlComponents.host = OworiAPI.host
+        urlComponents.path = OworiAPI.Path.membersProfile.rawValue
+        guard let url = urlComponents.url else {
+            print("Error: cannot create URL")
+            return
+        }
+        
+        // 배포 이전 고정 url 설정 (추후 삭제 예정)
+        //        let url = URL(string: "http://localhost:8080/api/v1/members/profile")!
+        
+        // url 테스트 log
+        print("[lookupProfile url Log] : \(urlComponents)")
+        
+        // urlRequeset에 함께 담을 header, body 설정
+        var urlRequest = URLRequest(url: url)
+        urlRequest.httpMethod = "GET"
+        urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        urlRequest.setValue("Bearer " + (self.user.jwt_token?.access_token)!, forHTTPHeaderField: "Authorization")
+        urlRequest.setValue(self.user.member_id, forHTTPHeaderField: "memberId")
+        
+        // 요청
+        URLSession.shared.dataTask(with: urlRequest) { (data, response, error) in
+            guard error == nil else {
+                print("Error: error calling GET")
+                print(error!)
+                return
+            }
+            guard let data = data else {
+                print("Error: Did not receive data")
+                return
+            }
+            guard let jsonDictionary = try? JSONSerialization.jsonObject(with: Data(data), options: []) as? [String: Any] else {
+                print("Error: convert failed json to dictionary")
+                return
+            }
+            guard let response = response as? HTTPURLResponse, (200 ..< 300) ~= response.statusCode else {
+                print("Error: HTTP request failed")
+                return
+            }
+            
+            print(jsonDictionary)
+            
+            // User를 @Published로 선언했기 때문에 background thread에서 main thread로 업데이트를 전달해야 한다.
+            // 그래서 DispatchQueue.main.async 사용.
+            DispatchQueue.main.async { [weak self] in
+                // JSON 데이터를 파싱하여 User 구조체에 할당
+                do {
+                    let decoder = JSONDecoder()
+                    self?.user.member_profile = try decoder.decode(User.Profile.self, from: data)
+                    
+                    // User 구조체에 할당된 데이터 사용 (테스트 log)
+                    print("Member Profile: \(String(describing: self?.user.member_profile))")
+                } catch {
+                    print("Error: Failed to parse JSON data - \(error)")
+                }
+            }
+        }.resume()
+    }
+    
+    func lookupUnmodifiableColor() {
+        
+        // 요청을 보낼 API의 url 설정
+        // 배포 후 url 설정
+        var urlComponents = URLComponents()
+        urlComponents.scheme = OworiAPI.scheme
+        urlComponents.host = OworiAPI.host
+        urlComponents.path = OworiAPI.Path.membersColors.rawValue
+        guard let url = urlComponents.url else {
+            print("Error: cannot create URL")
+            return
+        }
+        
+        // 배포 이전 고정 url 설정 (추후 삭제 예정)
+        //        let url = URL(string: "http://localhost:8080/api/v1/members/colors")!
+        
+        // url 테스트 log
+        print("[lookupUnmodifiableColor url Log] : \(url)")
+        
+        // urlRequeset에 함께 담을 header, body 설정
+        var urlRequest = URLRequest(url: url)
+        urlRequest.httpMethod = "GET"
+        urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        urlRequest.setValue("Bearer " + (self.user.jwt_token?.access_token)!, forHTTPHeaderField: "Authorization")
+        urlRequest.setValue(self.user.member_id, forHTTPHeaderField: "memberId")
+        
+        // 요청
+        URLSession.shared.dataTask(with: urlRequest) { (data, response, error) in
+            guard error == nil else {
+                print("Error: error calling GET")
+                print(error!)
+                return
+            }
+            guard let data = data else {
+                print("Error: Did not receive data")
+                return
+            }
+
+            guard let jsonDictionary = try? JSONSerialization.jsonObject(with: Data(data), options: []) as? [String: Any] else {
+                print("Error: convert failed json to dictionary")
+                return
+            }
+            guard let response = response as? HTTPURLResponse, (200 ..< 300) ~= response.statusCode else {
+                print("Error: HTTP request failed")
+                return
+            }
+            print(response)
+            
+            print(jsonDictionary)
+            
+            // User를 @Published로 선언했기 때문에 background thread에서 main thread로 업데이트를 전달해야 한다.
+            // 그래서 DispatchQueue.main.async 사용.
+            DispatchQueue.main.async { [weak self] in
+                // JSON 데이터를 파싱하여 User 구조체에 할당
+                do {
+                    let decoder = JSONDecoder()
+                    //                    self?.user.member_profile = try decoder.decode(User.Profile.self, from: data)
+                    
+                    // User 구조체에 할당된 데이터 사용 (테스트 log)
+                    //                    print("Member Profile: \(String(describing: self?.user.member_profile))")
+                } catch {
+                    print("Error: Failed to parse JSON data - \(error)")
+                }
+            }
+        }.resume()
+    }
+    
+    func getDummyData() {
+        
+        // 요청을 보낼 API의 url 설정
+        // 배포 후 url 설정
+//        var urlComponents = URLComponents()
+//        urlComponents.scheme = OworiAPI.scheme
+//        urlComponents.host = OworiAPI.host
+//        urlComponents.path = OworiAPI.Path.lookupUnmodifiableColor.rawValue
+//        guard let url = urlComponents.url else {
+//            print("Error: cannot create URL")
+//            return
+//        }
+//
+        // 배포 이전 고정 url 설정 (추후 삭제 예정)
+                let url = URL(string: "http://owori.store/api/v1/tests")!
+        
+        // url 테스트 log
+        print("[get dommy data url Log] : \(url)")
+        
+        // urlRequeset에 함께 담을 header, body 설정
+        var urlRequest = URLRequest(url: url)
+        urlRequest.httpMethod = "GET"
+        urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        urlRequest.setValue("Bearer " + (self.user.jwt_token?.access_token)!, forHTTPHeaderField: "Authorization")
+        urlRequest.setValue(self.user.member_id, forHTTPHeaderField: "memberId")
+        
+        // 요청
+        URLSession.shared.dataTask(with: urlRequest) { (data, response, error) in
+            guard error == nil else {
+                print("Error: error calling GET")
+                print(error!)
+                return
+            }
+            guard let data = data else {
+                print("Error: Did not receive data")
+                return
+            }
+            guard let jsonString = String(data: data, encoding: .utf8) else {
+                print("Error: Failed to convert data to string")
+                return
+            }
+            guard let response = response as? HTTPURLResponse, (200 ..< 300) ~= response.statusCode else {
+                print("Error: HTTP request failed")
+                return
+            }
+            print(response)
+            print(jsonString)
+            
+            // User를 @Published로 선언했기 때문에 background thread에서 main thread로 업데이트를 전달해야 한다.
+            // 그래서 DispatchQueue.main.async 사용.
+            DispatchQueue.main.async { [weak self] in
+                // JSON 데이터를 파싱하여 User 구조체에 할당
+                do {
+                    self?.tempInviteCode = jsonString
+                } catch {
+                    print("Error: Failed to parse JSON data - \(error)")
+                }
+            }
+        }.resume()
+    }
+    
     // MARK: 오월이 API FUNCTIONS (DELETE)
     func deleteMember() {
         
         // 요청을 보낼 API의 url 설정
         // 배포 후 url 설정
-        //        var urlComponents = URLComponents()
-        //        urlComponents.scheme = OworiAPI.scheme
-        //        urlComponents.host = OworiAPI.host
-        //        urlComponents.path = OworiAPI.Path.joinMember.rawValue
-        //        guard let url = urlComponents.url else {
-        //            print("Error: cannot create URL")
-        //            return
-        //        }
+        var urlComponents = URLComponents()
+        urlComponents.scheme = OworiAPI.scheme
+        urlComponents.host = OworiAPI.host
+        urlComponents.path = OworiAPI.Path.members.rawValue
+        guard let url = urlComponents.url else {
+            print("Error: cannot create URL")
+            return
+        }
         
         // 배포 이전 고정 url 설정 (추후 삭제 예정)
-        let url = URL(string: "http://localhost:8080/api/v1/members")!
+        //        let url = URL(string: "http://localhost:8080/api/v1/members")!
         
         // url 테스트 log
         print("[delete Member url Log : ]\(url)")
@@ -351,18 +554,15 @@ class UserViewModel: ObservableObject {
                 print("Error: Did not receive data")
                 return
             }
-            guard let response = response else {
-                print("Error: response error")
-                return
-            }
-//            guard let jsonDictionary = try? JSONSerialization.jsonObject(with: Data(data), options: []) as? [String: Any] else {
-//                print("Error: convert failed json to dictionary")
-//                return
-//            }
+            //            guard let jsonDictionary = try? JSONSerialization.jsonObject(with: Data(data), options: []) as? [String: Any] else {
+            //                print("Error: convert failed json to dictionary")
+            //                return
+            //            }
             guard let response = response as? HTTPURLResponse, (200 ..< 300) ~= response.statusCode else {
                 print("Error: HTTP request failed")
                 return
             }
+            print(response)
         }.resume()
     }
 }

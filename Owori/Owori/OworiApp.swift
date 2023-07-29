@@ -17,10 +17,12 @@ struct OworiApp: App {
     }
     @StateObject var loginViewModel = LoginViewModel()
     @StateObject var userViewModel = UserViewModel()
+    @StateObject var familyViewModel = FamilyViewModel()
+    @StateObject var storyViewModel = StoryViewModel()
     var body: some Scene {
         
         WindowGroup {
-            LoginView()
+            LoginTestView()
                 .onOpenURL { url in
                     if (AuthApi.isKakaoTalkLoginUrl(url)) {
                         _ = AuthController.handleOpenUrl(url: url)
@@ -28,6 +30,8 @@ struct OworiApp: App {
                 }
                 .environmentObject(loginViewModel)
                 .environmentObject(userViewModel)
+                .environmentObject(familyViewModel)
+                .environmentObject(storyViewModel)
 
         }
     }
