@@ -34,10 +34,12 @@ struct JoinNickname: View {
                 Text("오월이에서 사용할\n닉네임을 입력해주세요.")
                     .font(.title)
                     .bold()
-                    .padding(EdgeInsets(top: 0, leading: 0, bottom: 40, trailing: 0))
+                    .padding(EdgeInsets(top: 100, leading: 20, bottom: 20, trailing: 0))
+                
                 Text("닉네임")
                     .foregroundColor(Color.oworiGray500)
-                    .padding(EdgeInsets(top: 0, leading: 0, bottom: 8, trailing: 0))
+                    .padding(EdgeInsets(top: 0, leading: 20, bottom: 10, trailing: 0))
+                
                 HStack {
                     TextField("숫자, 특수문자, 이모티콘 모두 사용 가능", text: $nickname)
                     // 텍스트가 변경될 때마다 글자 수 확인
@@ -49,7 +51,22 @@ struct JoinNickname: View {
                     Text("\(nickname.count)/7")
                 }
                 .overlay(Rectangle().frame(height: 1).padding(.top, 30))
+                .padding(.leading,20)
+                .padding(.trailing,20)
                 .foregroundColor(.gray)
+                
+                Spacer()
+                
+                Button{
+                    
+                } label: {
+                    Text("확인")
+                        .font(.title2)
+                        .bold()
+                        .foregroundColor(.white)
+                }
+                .frame(width: UIScreen.main.bounds.width, height: 52)
+                .background(Color.oworiOrange)
                 
                 Button {
                     if !nickname.isEmpty {
@@ -59,9 +76,9 @@ struct JoinNickname: View {
                     }
                 } label: {
                     if !nickname.isEmpty {
-                        Text("확인1")
+//                        Text("확인1")
                     } else {
-                        Text("확인2")
+//                        Text("확인2")
                     }
                 }
                 .disabled(nickname.isEmpty)
