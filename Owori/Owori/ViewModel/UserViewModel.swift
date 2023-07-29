@@ -71,6 +71,8 @@ class UserViewModel: ObservableObject {
                 print("Error: convert failed json to dictionary")
                 return
             }
+            print(jsonDictionary)
+            print(response)
             guard let response = response as? HTTPURLResponse, (200 ..< 300) ~= response.statusCode else {
                 print("Error: HTTP request failed")
                 return
@@ -123,7 +125,7 @@ class UserViewModel: ObservableObject {
         var urlRequest = URLRequest(url: url)
         urlRequest.httpMethod = "POST"
         urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        urlRequest.setValue(self.user.member_id, forHTTPHeaderField: "memberId")
+        urlRequest.setValue(self.user.member_id, forHTTPHeaderField: "member_id")
         urlRequest.setValue("Bearer " + (self.user.jwt_token?.access_token)!, forHTTPHeaderField: "Authorization")
         urlRequest.httpBody = sendData
         
@@ -177,7 +179,7 @@ class UserViewModel: ObservableObject {
         var urlRequest = URLRequest(url: url)
         urlRequest.httpMethod = "POST"
         urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        urlRequest.setValue(self.user.member_id, forHTTPHeaderField: "memberId")
+        urlRequest.setValue(self.user.member_id, forHTTPHeaderField: "member_id")
         urlRequest.setValue("Bearer " + (self.user.jwt_token?.access_token)!, forHTTPHeaderField: "Authorization")
         urlRequest.httpBody = sendData
         
@@ -226,7 +228,7 @@ class UserViewModel: ObservableObject {
         var urlRequest = URLRequest(url: url)
         urlRequest.httpMethod = "POST"
         urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        urlRequest.setValue(self.user.member_id, forHTTPHeaderField: "memberId")
+        urlRequest.setValue(self.user.member_id, forHTTPHeaderField: "member_id")
         urlRequest.setValue("Bearer " + (self.user.jwt_token?.access_token)!, forHTTPHeaderField: "Authorization")
         urlRequest.httpBody = sendData
         
@@ -348,7 +350,7 @@ class UserViewModel: ObservableObject {
         urlRequest.httpMethod = "GET"
         urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
         urlRequest.setValue("Bearer " + (self.user.jwt_token?.access_token)!, forHTTPHeaderField: "Authorization")
-        urlRequest.setValue(self.user.member_id, forHTTPHeaderField: "memberId")
+        urlRequest.setValue(self.user.member_id, forHTTPHeaderField: "member_id")
         
         // 요청
         URLSession.shared.dataTask(with: urlRequest) { (data, response, error) in
@@ -413,7 +415,7 @@ class UserViewModel: ObservableObject {
         urlRequest.httpMethod = "GET"
         urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
         urlRequest.setValue("Bearer " + (self.user.jwt_token?.access_token)!, forHTTPHeaderField: "Authorization")
-        urlRequest.setValue(self.user.member_id, forHTTPHeaderField: "memberId")
+        urlRequest.setValue(self.user.member_id, forHTTPHeaderField: "member_id")
         
         // 요청
         URLSession.shared.dataTask(with: urlRequest) { (data, response, error) in
@@ -480,7 +482,7 @@ class UserViewModel: ObservableObject {
         urlRequest.httpMethod = "GET"
         urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
         urlRequest.setValue("Bearer " + (self.user.jwt_token?.access_token)!, forHTTPHeaderField: "Authorization")
-        urlRequest.setValue(self.user.member_id, forHTTPHeaderField: "memberId")
+        urlRequest.setValue(self.user.member_id, forHTTPHeaderField: "member_id")
         
         // 요청
         URLSession.shared.dataTask(with: urlRequest) { (data, response, error) in
@@ -542,7 +544,7 @@ class UserViewModel: ObservableObject {
         urlRequest.httpMethod = "DELETE"
         urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
         urlRequest.setValue("Bearer " + (self.user.jwt_token?.access_token)!, forHTTPHeaderField: "Authorization")
-        urlRequest.setValue(self.user.member_id, forHTTPHeaderField: "memberId")
+        urlRequest.setValue(self.user.member_id, forHTTPHeaderField: "member_id")
         
         // 요청
         URLSession.shared.dataTask(with: urlRequest) { (data, response, error) in

@@ -11,16 +11,21 @@ import Foundation
 struct User: Codable {
     var member_id: String?
     var jwt_token: JwtToken?
+    var is_service_member: Bool?
     var member_profile: Profile?
     
     init() {
         self.member_id = ""
+        self.is_service_member = false
         self.jwt_token = JwtToken()
+        self.member_profile = Profile()
     }
     
-    init(member_id: String, jwt_token: JwtToken) {
+    init(member_id: String, jwt_token: JwtToken, is_service_member: Bool, member_profile: Profile) {
         self.member_id = member_id
         self.jwt_token = jwt_token
+        self.is_service_member = is_service_member
+        self.member_profile = member_profile
     }
     
     struct JwtToken: Codable {
@@ -31,11 +36,13 @@ struct User: Codable {
         init() {
             self.access_token = ""
             self.refresh_token = ""
+            self.auth_provider = ""
         }
         
-        init(access_token: String, refresh_token: String) {
+        init(access_token: String, refresh_token: String, auth_provider: String) {
             self.access_token = access_token
             self.refresh_token = refresh_token
+            self.auth_provider = auth_provider
         }
     }
     
@@ -43,13 +50,13 @@ struct User: Codable {
         var nickname: String?
         var birthday: String?
         var color: String?
-        var emotionalBadge: String?
+        var emotional_badge: String?
         
         init() {
             self.nickname = ""
             self.birthday = ""
             self.color = ""
-            self.emotionalBadge = ""
+            self.emotional_badge = ""
         }
         
         init(nickname: String, birthday: String) {
@@ -63,11 +70,11 @@ struct User: Codable {
             self.color = color
         }
         
-        init(nickname: String, birthday: String, color: String, emotionalBadge: String) {
+        init(nickname: String, birthday: String, color: String, emotional_badge: String) {
             self.nickname = nickname
             self.birthday = birthday
             self.color = color
-            self.emotionalBadge = emotionalBadge
+            self.emotional_badge = emotional_badge
         }
     }
 }
