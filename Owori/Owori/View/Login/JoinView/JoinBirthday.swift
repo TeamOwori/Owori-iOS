@@ -53,30 +53,30 @@ struct JoinBirthday: View {
                 Spacer()
                 
                 Button{
-                    
-                } label: {
-                    Text("확인")
-                        .font(.title2)
-                        .bold()
-                        .foregroundColor(.white)
-                }
-                .frame(width: UIScreen.main.bounds.width, height: 52)
-                .background(Color.oworiOrange)
-                
-                Button {
                     if birthDateText.count >= 8 {
                         isThirdViewActive = true
                     } else {
                         isThirdViewActive = false
                     }
                 } label: {
-                    if !birthDateText.isEmpty {
-//                        Text("확인1")
-                    } else {
-//                        Text("확인2")
-                    }
+                    Text("확인")
+                        .font(.title2)
+                        .bold()
+                        .foregroundColor(.white)
+                        .frame(width: UIScreen.main.bounds.width, height: 52)
                 }
+                .background(Color.oworiOrange)
                 .disabled(birthDateText.isEmpty)
+                
+//                Button {
+//
+//                } label: {
+//                    if !birthDateText.isEmpty {
+////                        Text("확인1")
+//                    } else {
+////                        Text("확인2")
+//                    }
+//                }
 
             }
             .onAppear {

@@ -48,31 +48,36 @@ struct JoinFamilyName: View {
                             Spacer()
                             
                             Button{
-                                
+                                if !familyName.isEmpty {
+                                    isFourthViewActive = true
+                                } else {
+                                    isFourthViewActive = false
+                                }
                             } label: {
                                 Text("확인")
                                     .font(.title2)
                                     .bold()
                                     .foregroundColor(.white)
+                                    .frame(width: UIScreen.main.bounds.width, height: 52)
                             }
-                            .frame(width: UIScreen.main.bounds.width, height: 52)
                             .background(Color.oworiOrange)
+                            .disabled(birthDateText.isEmpty)
 
                 
-                Button {
-                    if !familyName.isEmpty {
-                        isFourthViewActive = true
-                    } else {
-                        isFourthViewActive = false
-                    }
-                } label: {
-                    if !birthDateText.isEmpty {
-//                        Text("확인1")
-                    } else {
-//                        Text("확인2")
-                    }
-                }
-                .disabled(birthDateText.isEmpty)
+//                Button {
+//                    if !familyName.isEmpty {
+//                        isFourthViewActive = true
+//                    } else {
+//                        isFourthViewActive = false
+//                    }
+//                } label: {
+//                    if !birthDateText.isEmpty {
+////                        Text("확인1")
+//                    } else {
+////                        Text("확인2")
+//                    }
+//                }
+//                .disabled(birthDateText.isEmpty)
             }
             .onAppear {
                 currentIndex = 3
