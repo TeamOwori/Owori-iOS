@@ -26,26 +26,55 @@ struct BeInviteFamily: View {
                 Text("초대코드를 입력해주세요")
                     .font(.title)
                     .bold()
-                    .padding(EdgeInsets(top: 0, leading: 0, bottom: 40, trailing: 0))
+                    .padding(EdgeInsets(top: 100, leading: 20, bottom: 0, trailing: 20))
+                
+                Text("가족에게 초대코드를 받으셨나요?").foregroundColor(Color.oworiGray500)
+                    .padding(EdgeInsets(top: 0, leading: 20, bottom: 10, trailing: 0))
                 
                 HStack {
-                    Text("초대코드 ")
+                    Text("초대코드")
+                    
+                    Image("초대코드입력")
+                        .frame(width: 1, height: 21)
+                    
                     TextField("", text: $inviteCode)
                         .overlay(Rectangle().frame(height: 1).padding(.top, 30))
                         .foregroundColor(.gray)
                 }
+                .overlay(Rectangle().frame(height: 1).padding(.top, 30))
+                .padding(.leading,20)
+                .padding(.trailing,20)
+                .foregroundColor(.gray)
                 
-                Button {
-                    if inviteCode == "testInvite" {
+                Spacer()
+                
+                HStack(alignment: .center) {
+                    Button {
                         isFifthViewVisible = true
                         isCreateCodeViewVisible = false
                         isReceiveCodeViewVisible = false
-                    } else {
-                        isFifthViewVisible = false
+                    } label: {
+                        Text("다음")
+                            .font(.title2)
+                            .bold()
+                            .foregroundColor(.white)
+                            .frame(width: UIScreen.main.bounds.width, height: 52, alignment: .center)
+                        
                     }
-                } label: {
-                    Text("testInvite")
+                    .background(Color.oworiOrange)
                 }
+                
+                //                Button {
+                //                    if inviteCode == "testInvite" {
+                //                        isFifthViewVisible = true
+                //                        isCreateCodeViewVisible = false
+                //                        isReceiveCodeViewVisible = false
+                //                    } else {
+                //                        isFifthViewVisible = false
+                //                    }
+                //                } label: {
+                //                    Text("testInvite")
+                //                }
                 
             }
             .onAppear {

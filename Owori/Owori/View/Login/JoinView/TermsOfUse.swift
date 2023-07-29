@@ -22,7 +22,10 @@ struct TermsOfUse: View {
     var body: some View {
         VStack {
             NumberIndicator(currentIndex: $currentIndex)
-                .padding(.top, 60)
+                .offset(y: 0)
+            
+            Spacer()
+            
             VStack(alignment: .leading) {
                 Text("오월이가 처음이시죠?\n필수약관에 동의해주세요")
                     .font(.title)
@@ -35,20 +38,20 @@ struct TermsOfUse: View {
                     Text("임시 확인")
                 }
             }
-            .onAppear {
-                currentIndex = 5
-            }
+            Spacer()
         }
         .navigationBarTitleDisplayMode(.inline)
         .navigationDestination(isPresented: $isSuccessSignUp) {
             MainView()
-            
+        }
+        .onAppear {
+            currentIndex = 5
         }
     }
 }
 
 struct TermsOfUse_Previews: PreviewProvider {
     static var previews: some View {
-        TermsOfUse(isLoggedIn: .constant(false), currentIndex: .constant(3), nickname: .constant(""), birthDateText: .constant(""), familyName: .constant(""), inviteCode: .constant(""))
+        TermsOfUse(isLoggedIn: .constant(false), currentIndex: .constant(5), nickname: .constant(""), birthDateText: .constant(""), familyName: .constant(""), inviteCode: .constant(""))
     }
 }

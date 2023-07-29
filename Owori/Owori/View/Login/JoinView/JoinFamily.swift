@@ -20,7 +20,6 @@ struct JoinFamily: View {
     @State private var isFifthViewVisible: Bool = false
     
     var body: some View {
-        
         if isCreateCodeViewVisible && !isFifthViewVisible {
             InviteFamily(isLoggedIn: $isLoggedIn, currentIndex: $currentIndex, nickname: $nickname, birthDateText: $birthDateText, familyName: $familyName, inviteCode: $inviteCode, isCreateCodeViewVisible: $isCreateCodeViewVisible, isReceiveCodeViewVisible: $isReceiveCodeViewVisible, isFifthViewVisible: $isFifthViewVisible)
         } else if isReceiveCodeViewVisible && !isFifthViewVisible {
@@ -28,7 +27,7 @@ struct JoinFamily: View {
         } else {
             VStack {
                 NumberIndicator(currentIndex: $currentIndex)
-                    .padding(.top, 60)
+                    .offset(y: 0)
                 VStack(alignment: .leading) {
                     Text("가족 연결을 해주세요.")
                         .font(.title)
@@ -44,6 +43,7 @@ struct JoinFamily: View {
                     Image("초대코드")
                         .frame(maxWidth: .infinity, alignment: .center)
                         .padding(EdgeInsets(top: 20, leading: 0, bottom: 50, trailing: 0))
+                        
                     
                     VStack(alignment: .leading, spacing: 16) {
                         HStack(alignment: .center, spacing: 16) {
@@ -65,7 +65,7 @@ struct JoinFamily: View {
                         .background(Color.oworiOrange)
                         .cornerRadius(12)
                         
-                        HStack(alignment: .center, spacing: 10) {
+                        HStack(alignment: .center, spacing: 0) {
                             Button(action: {
                                 // 버튼이 클릭되었을 때 실행되는 코드
                                 isReceiveCodeViewVisible = true
@@ -90,7 +90,6 @@ struct JoinFamily: View {
                     }
                     .padding(EdgeInsets(top: 10, leading: 50, bottom: 30, trailing: 50))
                     
-                    
                 }
                 .onAppear {
                     currentIndex = 4
@@ -100,8 +99,11 @@ struct JoinFamily: View {
             .navigationDestination(isPresented: $isFifthViewVisible) {
                 TermsOfUse(isLoggedIn: $isLoggedIn, currentIndex: $currentIndex, nickname: $nickname, birthDateText: $birthDateText, familyName: $familyName, inviteCode: $inviteCode)
             }
+//            .toolbar {
+//                ToolbarItem(placement: .principal) {
+//                }
+//            }
         }
-        
     }
 }
 

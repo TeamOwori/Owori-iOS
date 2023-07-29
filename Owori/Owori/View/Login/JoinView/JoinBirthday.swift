@@ -22,7 +22,7 @@ struct JoinBirthday: View {
     var body: some View {
         VStack {
             NumberIndicator(currentIndex: $currentIndex)
-                .padding(.top, 60)
+                .offset(y: 0)
             VStack(alignment: .leading) {
                 Text("생년월일 8자리를 입력해주세요")
                     .font(.title)

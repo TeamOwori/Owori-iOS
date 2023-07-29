@@ -28,7 +28,7 @@ struct JoinNickname: View {
     var body: some View {
         VStack {
             NumberIndicator(currentIndex: $currentIndex)
-                .padding(.top, 60)
+                .offset(y: 0)
             
             VStack(alignment: .leading) {
                 Text("오월이에서 사용할\n닉네임을 입력해주세요.")
