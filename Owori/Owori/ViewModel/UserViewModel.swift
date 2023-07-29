@@ -112,6 +112,7 @@ class UserViewModel: ObservableObject {
             return
         }
         
+        
         // 배포 이전 고정 url 설정 (추후 삭제 예정)
         //        let url = URL(string: "http://localhost:8080/api/v1/members/details")!
         
