@@ -93,6 +93,7 @@ class UserViewModel: ObservableObject {
                     print("Access Token: \(String(describing: self?.user.jwt_token?.access_token))")
                     print("Refresh Token: \(String(describing: self?.user.jwt_token?.refresh_token))")
                     print("Auth Provider: \(self?.user.jwt_token?.auth_provider ?? "Empty Provider")")
+                    print("Member: \(self?.user)")
                 } catch {
                     print("Error: Failed to parse JSON data - \(error)")
                 }
