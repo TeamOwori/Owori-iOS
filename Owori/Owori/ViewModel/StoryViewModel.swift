@@ -30,17 +30,17 @@ class StoryViewModel: ObservableObject {
         
         // 요청을 보낼 API의 url 설정
         // 배포 후 url 설정
-        //        var urlComponents = URLComponents()
-        //        urlComponents.scheme = OworiAPI.scheme
-        //        urlComponents.host = OworiAPI.host
-        //        urlComponents.path = OworiAPI.Path.joinMember.rawValue
-        //        guard let url = urlComponents.url else {
-        //            print("Error: cannot create URL")
-        //            return
-        //        }
+                var urlComponents = URLComponents()
+                urlComponents.scheme = OworiAPI.scheme
+                urlComponents.host = OworiAPI.host
+                urlComponents.path = OworiAPI.Path.stories.rawValue
+                guard let url = urlComponents.url else {
+                    print("Error: cannot create URL")
+                    return
+                }
         
         // 배포 이전 고정 url 설정 (추후 삭제 예정)
-        let url = URL(string: "http://localhost:8080/api/v1/stories")!
+//        let url = URL(string: "http://localhost:8080/api/v1/stories")!
         
         // url 테스트 log
         print("[createStory url Log] : \(url)")
@@ -50,7 +50,7 @@ class StoryViewModel: ObservableObject {
         urlRequest.httpMethod = "POST"
         urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
         urlRequest.setValue("Bearer " + (user.jwt_token?.access_token)!, forHTTPHeaderField: "Authorization")
-        urlRequest.setValue(user.member_id, forHTTPHeaderField: "memberId")
+        urlRequest.setValue(user.member_id, forHTTPHeaderField: "member_id")
         urlRequest.httpBody = sendData
         
         // 요청
@@ -64,14 +64,14 @@ class StoryViewModel: ObservableObject {
                 print("Error: Did not receive data")
                 return
             }
-            guard let response = response else {
-                print("Error: response error")
-                return
-            }
             guard let jsonDictionary = try? JSONSerialization.jsonObject(with: Data(data), options: []) as? [String: Any] else {
                 print("Error: convert failed json to dictionary")
                 return
             }
+
+            print(jsonDictionary)
+            print(data)
+            print(response)
             guard let response = response as? HTTPURLResponse, (200 ..< 300) ~= response.statusCode else {
                 print("Error: HTTP request failed")
                 return
@@ -84,15 +84,18 @@ class StoryViewModel: ObservableObject {
                 do {
                     let decoder = JSONDecoder()
                     self?.storyModel.stories.append(try decoder.decode(Story.StoryInfo.self, from: data))
-                    self?.testStoryId = self?.storyModel.stories[0].id ?? "1"
+                    // 임시
+                    self?.testStoryId = jsonDictionary["story_id"] as! String
                     
                     // User 구조체에 할당된 데이터 사용 (테스트 log)
                     print("[Story Model Log]: \(self?.storyModel)")
+                    // 임시
+                    print(self?.testStoryId)
                 } catch {
                     print("Error: Failed to parse JSON data - \(error)")
                 }
             }
-            print("[Create Story Log]: \(jsonDictionary)")
+//            print("[Create Story Log]: \(jsonDictionary)")
         }.resume()
     }
     
@@ -100,17 +103,17 @@ class StoryViewModel: ObservableObject {
         
         // 요청을 보낼 API의 url 설정
         // 배포 후 url 설정
-        //        var urlComponents = URLComponents()
-        //        urlComponents.scheme = OworiAPI.scheme
-        //        urlComponents.host = OworiAPI.host
-        //        urlComponents.path = OworiAPI.Path.joinMember.rawValue
-        //        guard let url = urlComponents.url else {
-        //            print("Error: cannot create URL")
-        //            return
-        //        }
+                var urlComponents = URLComponents()
+                urlComponents.scheme = OworiAPI.scheme
+                urlComponents.host = OworiAPI.host
+                urlComponents.path = OworiAPI.Path.storiesUpdate.rawValue
+                guard let url = urlComponents.url else {
+                    print("Error: cannot create URL")
+                    return
+                }
         
         // 배포 이전 고정 url 설정 (추후 삭제 예정)
-        let url = URL(string: "http://localhost:8080/api/v1/hearts/\(storyId)")!
+//        let url = URL(string: "http://localhost:8080/api/v1/hearts/\(storyId)")!
         
         // url 테스트 log
         print("[createStory url Log] : \(url)")
@@ -120,7 +123,7 @@ class StoryViewModel: ObservableObject {
         urlRequest.httpMethod = "POST"
         urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
         urlRequest.setValue("Bearer " + (user.jwt_token?.access_token)!, forHTTPHeaderField: "Authorization")
-        urlRequest.setValue(user.member_id, forHTTPHeaderField: "memberId")
+        urlRequest.setValue(user.member_id, forHTTPHeaderField: "member_id")
         
         // 요청
         URLSession.shared.dataTask(with: urlRequest) { (data, response, error) in
@@ -133,10 +136,7 @@ class StoryViewModel: ObservableObject {
                 print("Error: Did not receive data")
                 return
             }
-            guard let response = response else {
-                print("Error: response error")
-                return
-            }
+
             
             guard let response = response as? HTTPURLResponse, (200 ..< 300) ~= response.statusCode else {
                 print("Error: HTTP request failed")
@@ -208,10 +208,15 @@ class StoryViewModel: ObservableObject {
                 print("Error: Did not receive data")
                 return
             }
-            guard let response = response else {
-                print("Error: response error")
+            guard let jsonDictionary = try? JSONSerialization.jsonObject(with: Data(data), options: []) as? [String: Any] else {
+                print("Error: convert failed json to dictionary")
                 return
             }
+
+            print(self.testStoryId)
+            print(jsonDictionary)
+            print(data)
+            print(response)
             
             guard let response = response as? HTTPURLResponse, (200 ..< 300) ~= response.statusCode else {
                 print("Error: HTTP request failed")
