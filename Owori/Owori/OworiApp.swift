@@ -32,7 +32,7 @@ struct OworiApp: App {
                 .environmentObject(userViewModel)
                 .environmentObject(familyViewModel)
                 .environmentObject(storyViewModel)
-
+            
         }
     }
 }

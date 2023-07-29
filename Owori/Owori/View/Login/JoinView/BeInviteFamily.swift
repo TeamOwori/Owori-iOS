@@ -77,14 +77,14 @@ struct BeInviteFamily: View {
                 //                }
                 
             }
-            .onAppear {
-                currentIndex = 4
-            }
         }
         .navigationBarTitleDisplayMode(.inline)
         .navigationBarBackButtonHidden(true)
         .toolbar {
             BackToFamilyLinkViewButton(isCreateCodeViewVisible: $isCreateCodeViewVisible, isReceiveCodeViewVisible: $isReceiveCodeViewVisible)
+        }
+        .onAppear {
+            currentIndex = 4
         }
     }
 }

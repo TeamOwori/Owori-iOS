@@ -20,7 +20,7 @@ struct InviteFamily: View {
     // 임시로 true로 변경. 기본값 = false
     
     var body: some View {
-        VStack(spacing: 10) {
+        VStack {
             Text("가족그룹을 만들었어요.")
                 .font(.title)
                 .bold()
@@ -42,17 +42,17 @@ struct InviteFamily: View {
             //                } label: {
             ////                    Text("초대코드 공유")
             //                }
-            
+
             //Image 넣어야함
             Image("가족초대코드")
-                .frame(maxWidth: .infinity, alignment: .center)
+                .frame(maxWidth: UIScreen.main.bounds.width, alignment: .center)
                 .padding(EdgeInsets(top: 0, leading: 30, bottom: 0, trailing: 30))
-                .aspectRatio(contentMode: .fill)
-            
+                .aspectRatio(contentMode: .fit)
+
             Spacer()
-            
+
             Button {
-                
+
             } label: {
                 Text("초대코드 공유")
                     .bold()
@@ -62,9 +62,9 @@ struct InviteFamily: View {
                     .cornerRadius(8)
             }
             .padding(EdgeInsets(top: 0, leading: 140, bottom: 0, trailing: 140))
-            
+
             Spacer()
-            
+
             Text("초대 코드는 발급 후 30분 이내로 입력가능해요\n입력 시간을 놓치셨더라도 걱정마세요!\n[설정] - [맞춤설정] - [초대하기]를 통해\n초대코드 발급 가능해요")
                 .font(
                     Font.custom("Pretendard", size: 15)
@@ -75,10 +75,10 @@ struct InviteFamily: View {
                 .foregroundColor(Color.oworiGray300)
                 .frame(maxWidth: .infinity, alignment: .top)
                 .padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
-            
+
             Spacer()
 
-            
+
             HStack(alignment: .center) {
                 Button {
                     isFifthViewVisible = true
@@ -90,13 +90,13 @@ struct InviteFamily: View {
                         .bold()
                         .foregroundColor(.white)
                         .frame(width: UIScreen.main.bounds.width, height: 52, alignment: .center)
-                    
+
                 }
                 .background(Color.oworiOrange)
             }
             //                .padding(.trailing, 0 )
-            
-            
+
+
             //                Button {
             //                    isFifthViewVisible = true
             //                    isCreateCodeViewVisible = false
@@ -107,6 +107,9 @@ struct InviteFamily: View {
         }
         .navigationBarTitleDisplayMode(.inline)
         .navigationBarBackButtonHidden(true)
+        .toolbar {
+                    BackToFamilyLinkViewButton(isCreateCodeViewVisible: $isCreateCodeViewVisible, isReceiveCodeViewVisible: $isReceiveCodeViewVisible)
+                }
         .onAppear {
             currentIndex = 4
         }
