@@ -27,9 +27,12 @@ struct JoinBirthday: View {
                 Text("생년월일 8자리를 입력해주세요")
                     .font(.title)
                     .bold()
+                    .padding(EdgeInsets(top: 100, leading: 20, bottom: 20, trailing: 20))
+                
                 Text("원활한 서비스를 위해 생년월일이 필요해요\n매년 오월이가 생일을 챙겨줄게요!")
                     .foregroundColor(Color.oworiGray500)
-                    .padding(EdgeInsets(top: 0, leading: 0, bottom: 8, trailing: 0))
+                    .padding(EdgeInsets(top: 0, leading: 20, bottom: 10, trailing: 0))
+                
                 HStack {
                     Text("생년월일  ")
                     TextField("yyyy-mm-dd", text: $birthDateText)
@@ -43,7 +46,22 @@ struct JoinBirthday: View {
                         }
                 }
                 .overlay(Rectangle().frame(height: 1).padding(.top, 30))
+                .padding(.leading,20)
+                .padding(.trailing,20)
                 .foregroundColor(.gray)
+                
+                Spacer()
+                
+                Button{
+                    
+                } label: {
+                    Text("확인")
+                        .font(.title2)
+                        .bold()
+                        .foregroundColor(.white)
+                }
+                .frame(width: UIScreen.main.bounds.width, height: 52)
+                .background(Color.oworiOrange)
                 
                 Button {
                     if birthDateText.count >= 8 {
@@ -53,9 +71,9 @@ struct JoinBirthday: View {
                     }
                 } label: {
                     if !birthDateText.isEmpty {
-                        Text("확인1")
+//                        Text("확인1")
                     } else {
-                        Text("확인2")
+//                        Text("확인2")
                     }
                 }
                 .disabled(birthDateText.isEmpty)
