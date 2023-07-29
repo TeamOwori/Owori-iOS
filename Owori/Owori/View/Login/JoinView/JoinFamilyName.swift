@@ -19,12 +19,13 @@ struct JoinFamilyName: View {
     var body: some View {
         VStack {
             NumberIndicator(currentIndex: $currentIndex)
-                .padding(.top, 60)
+                .offset(y: 0)
+            
             VStack(alignment: .leading) {
                 Text("우리 가족\n그룹명을 정해주세요.")
                     .font(.title)
                     .bold()
-                    .padding(EdgeInsets(top: 100, leading: 20, bottom: 20, trailing: 20))
+                    .padding(EdgeInsets(top: 100, leading: 20, bottom: 20, trailing: 0))
                 
                 Text("가족 그룹명")
                     .foregroundColor(Color.oworiGray500)
@@ -45,7 +46,7 @@ struct JoinFamilyName: View {
                             .padding(.trailing,20)
                             .foregroundColor(.gray)
                             
-                            Spacer()
+                Spacer()
                             
                             Button{
                                 if !familyName.isEmpty {
@@ -63,6 +64,7 @@ struct JoinFamilyName: View {
                             .background(Color.oworiOrange)
                             .disabled(birthDateText.isEmpty)
 
+                
                 
 //                Button {
 //                    if !familyName.isEmpty {
