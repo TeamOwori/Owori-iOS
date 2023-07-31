@@ -24,12 +24,11 @@ struct LoginButton: View {
                 // 이 부분 코드 수정 필요함 (loginViewModel과 UserViewModel이 떨어져 있어야 함)
                 // joinMember
                 loginViewModel.kakaoLogin(oworiUser: userViewModel.user) {
-                    userViewModel.joinMember(socialToken: loginViewModel.socialToken)
-                }
-                if loginViewModel.isLoggedIn {
-                    isLoggedIn = true
-                } else {
-                    isLoggedIn = false
+                    if loginViewModel.isLoggedIn {
+                        isLoggedIn = true
+                    } else {
+                        isLoggedIn = false
+                    }
                 }
                 
             } label: {
