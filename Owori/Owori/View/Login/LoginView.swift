@@ -25,6 +25,14 @@ struct LoginView: View {
         
         // 배포 전 테스트시 !isLogined로 설정 (서버가 휴대폰에서는 안잡힘)
         VStack {
+            
+            //test
+            NavigationLink {
+                LoginTestView()
+            } label: {
+                Text("TEST")
+            }
+            
             //오월이 로고 이미지 - SE에서 가장 예쁘게 나옴
             Image("Login")
                 .frame(maxWidth: .infinity, alignment: .topLeading)
@@ -45,7 +53,7 @@ struct LoginView: View {
             //소셜 로그인 버튼
             VStack(alignment: .leading, spacing: 16) {
                 ForEach(test1) { item in
-                    LoginButton(buttonImage: item.buttonImage, isLoggedIn: $isLoggedIn)
+                    LoginButton(buttonImage: item.buttonImage, isLoggedIn: $isLoggedIn, alreadyMember: $alreadyMember)
                 }
             }.padding(.top, 30)
             
@@ -60,9 +68,8 @@ struct LoginView: View {
                 .foregroundColor(Color.oworiGray600)
         }
         .navigationDestination(isPresented: $isLoggedIn) {
-            if alreadyMember {
-                HomeView()
-                    .navigationBarBackButtonHidden(true)
+            if userViewModel.user.is_service_member! && userViewModel.user.member_profile != nil {
+                MainView()
             } else {
                 JoinNickname(isLoggedIn: $isLoggedIn)
             }

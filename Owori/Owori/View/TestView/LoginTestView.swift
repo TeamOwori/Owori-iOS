@@ -27,7 +27,7 @@ struct LoginTestView: View {
                 HStack(alignment: .center, spacing: 15) {
                     Button {
                         loginViewModel.kakaoLogin(oworiUser: userViewModel.user) {
-                            userViewModel.joinMember(socialToken: loginViewModel.socialToken)
+                            print(loginViewModel.socialToken)
                         }
                     } label: {
                         Text("\(buttonName)")

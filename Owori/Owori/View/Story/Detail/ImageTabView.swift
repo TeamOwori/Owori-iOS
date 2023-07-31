@@ -15,7 +15,11 @@ struct ImageTabView: View {
         ZStack(alignment: .bottomTrailing) {
             TabView(selection: $currentIndex) {
                 ForEach(0 ..< images.count, id: \.self) { index in
-                    DetailImageCell(image: images[index])
+                    NavigationLink {
+                        ZoomImages()
+                    } label: {
+                        DetailImageCell(image: images[index])
+                    }
                 }
             }
             CurrentImageOrder(images: $images, currentIndex: $currentIndex)
