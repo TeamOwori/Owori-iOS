@@ -15,15 +15,18 @@ struct DDayView: View {
     @State private var ddayInfos: [Family.Schedule] = [
         Family.Schedule(id: "1", title: "장보기", start_datd: "2023-07-05", end_date: "2023/07/16", schedule_type: "", member_nickname: "고삼이", color: "FFFFFF", alarm_option: nil, dday_option: true, dday: "D-Day"),
         Family.Schedule(id: "2", title: "장보기", start_datd: "2023-07-05", end_date: "2023/07/25", schedule_type: "", member_nickname: "고삼이", color: "FFFFFF", alarm_option: nil, dday_option: false, dday: "D-Day"),
-        Family.Schedule(id: "3", title: "장보기", start_datd: "2023-07-05", end_date: "2023/07/26", schedule_type: "", member_nickname: "고삼이", color: "FFFFFF", alarm_option: nil, dday_option: true, dday: "D-Day")
+        Family.Schedule(id: "3", title: "장보기", start_datd: "2023-07-05", end_date: "2023/07/26", schedule_type: "", member_nickname: "고삼이", color: "FFFFFF", alarm_option: nil, dday_option: true, dday: "D-Day"),
+        Family.Schedule(id: "4", title: "전시회", start_datd: "2023-07-05", end_date: "2023/07/26", schedule_type: "", member_nickname: "고삼이", color: "FFFFFF", alarm_option: nil, dday_option: true, dday: "D-Day"),
+        Family.Schedule(id: "5", title: "장보기", start_datd: "2023-07-05", end_date: "2023/07/26", schedule_type: "", member_nickname: "고삼이", color: "FFFFFF", alarm_option: nil, dday_option: true, dday: "D-Day")
     ]
     
     var body: some View {
-//        NavigationStack {
-            ZStack {
-                Color.oworiMain
+        
+        ScrollView(.horizontal, showsIndicators: false){
+            HStack(spacing: 16){
                 ForEach(0..<ddayInfos.count, id: \.self) { index in
                     VStack(alignment: .leading) {
+                        
                         HStack(alignment: .center) {
                             Text(ddayInfos[index].dday ?? "")
                                 .font(Font.custom("Pretendard", size: 18)  .weight(.semibold))
@@ -49,27 +52,29 @@ struct DDayView: View {
                     .cornerRadius(10)
                     .shadow(color: .black.opacity(0.06), radius: 6, x: -4, y: 5)
                     .shadow(color: .black.opacity(0.1), radius: 7, x: 4, y: 2)
-                    .offset(x: CGFloat(index - currentIndex) * 275 /* 300 */ + dragOffset - UIScreen.main.bounds.width * 0.2, y: 0)
+                    .frame(width: 240, height: UIScreen.main.bounds.height * 0.15, alignment: .leading)
+//                    .offset(x: CGFloat(index - currentIndex) * 275 /* 300 */ + dragOffset - UIScreen.main.bounds.width * 0.2, y: 0)
                 }
             }
-            .frame(height: UIScreen.main.bounds.height * 0.15)
-            .gesture(
-                DragGesture()
-                    .onEnded { value in
-                        let threshold: CGFloat = 50
-                        if value.translation.width > threshold {
-                            withAnimation {
-                                currentIndex = max(0, currentIndex - 1)
-                            }
-                        } else if value.translation.width < -threshold {
-                            withAnimation {
-                                currentIndex = min(ddayInfos.count - 1, currentIndex + 1)
-                            }
+        .padding(.horizontal, 15)
+        }
+//        .frame(height: UIScreen.main.bounds.height * 0.15)
+        .gesture(
+            DragGesture()
+                .onEnded { value in
+                    let threshold: CGFloat = 50
+                    if value.translation.width > threshold {
+                        withAnimation {
+                            currentIndex = max(0, currentIndex - 1)
+                        }
+                    } else if value.translation.width < -threshold {
+                        withAnimation {
+                            currentIndex = min(ddayInfos.count - 1, currentIndex + 1)
                         }
                     }
-            )
-//        }
-    }
+                }
+        )
+}
 }
 
 struct DDayView_Previews: PreviewProvider {
