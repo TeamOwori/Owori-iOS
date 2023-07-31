@@ -30,7 +30,7 @@ class UserViewModel: ObservableObject {
     // MARK: 오월이 API FUNCTIONS (Post)
     
     // 멤버 홈화면 조회
-    func joinMember(socialToken: Token) {
+    func joinMember(socialToken: Token, completion: @escaping () -> Void) {
         guard let sendData = try? JSONSerialization.data(withJSONObject: ["token": socialToken.accessToken, "auth_provider": socialToken.authProvider], options: []) else { return }
         
         // 요청을 보낼 API의 url 설정
@@ -97,6 +97,7 @@ class UserViewModel: ObservableObject {
                 } catch {
                     print("Error: Failed to parse JSON data - \(error)")
                 }
+                completion()
             }
         }.resume()
     }
@@ -141,6 +142,11 @@ class UserViewModel: ObservableObject {
                 print("Error: Did not receive data")
                 return
             }
+            guard let jsonDictionary = try? JSONSerialization.jsonObject(with: Data(data), options: []) as? [String: Any] else {
+                print("Error: convert failed json to dictionary")
+                return
+            }
+            print("Init Profile test : \(jsonDictionary)")
             guard let response = response as? HTTPURLResponse, (200 ..< 300) ~= response.statusCode else {
                 print("Error: HTTP request failed")
                 return
@@ -148,6 +154,7 @@ class UserViewModel: ObservableObject {
             
             DispatchQueue.main.async { [weak self] in
                 // Test Log
+                self?.user.is_service_member = jsonDictionary["is_service_member"] as! Bool
                 self?.user.member_profile = User.Profile(nickname: userInfo["nickname"] as! String, birthday: userInfo["birthday"] as! String)
                 print(self?.user)
             }
@@ -364,16 +371,18 @@ class UserViewModel: ObservableObject {
                 print("Error: Did not receive data")
                 return
             }
+            
+            print(response)
             guard let jsonDictionary = try? JSONSerialization.jsonObject(with: Data(data), options: []) as? [String: Any] else {
                 print("Error: convert failed json to dictionary")
                 return
             }
+            print(jsonDictionary)
             guard let response = response as? HTTPURLResponse, (200 ..< 300) ~= response.statusCode else {
                 print("Error: HTTP request failed")
                 return
             }
             
-            print(jsonDictionary)
             
             // User를 @Published로 선언했기 때문에 background thread에서 main thread로 업데이트를 전달해야 한다.
             // 그래서 DispatchQueue.main.async 사용.
@@ -500,6 +509,7 @@ class UserViewModel: ObservableObject {
                 print("Error: Failed to convert data to string")
                 return
             }
+            print(response)
             guard let response = response as? HTTPURLResponse, (200 ..< 300) ~= response.statusCode else {
                 print("Error: HTTP request failed")
                 return

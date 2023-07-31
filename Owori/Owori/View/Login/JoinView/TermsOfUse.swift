@@ -18,6 +18,8 @@ struct TermsOfUse: View {
     @State private var isSuccessSignUp = false
     
     @EnvironmentObject var loginViewModel: LoginViewModel
+    @EnvironmentObject var userViewModel: UserViewModel
+    @EnvironmentObject var familyViewModel: FamilyViewModel
     
     //CheckBox 코드
     @State private var checkForService = false
@@ -131,7 +133,17 @@ struct TermsOfUse: View {
                 HStack(alignment: .center) {
                     Button {
                         if checkForService && checkForUseOfInformation {
-                            isSuccessSignUp = true
+                            if loginViewModel.isLoggedIn {
+                                userViewModel.initUser(userInfo: [
+                                    "nickname" : "\(nickname)",
+                                    "birthday" : "\(birthDateText)"])
+                                familyViewModel.addFamilyMember(user: userViewModel.user, family_group_name: familyName)
+                                print(familyName)
+                                print(userViewModel.user)
+                                print(familyViewModel.family)
+                                
+                                isSuccessSignUp = true
+                            }
                         } else {
                             isSuccessSignUp = false
                         }

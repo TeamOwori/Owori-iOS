@@ -16,7 +16,9 @@ struct UserViewModelTestView: View {
     var body: some View {
         VStack {
             Button {
-                userViewModel.joinMember(socialToken: loginViewModel.socialToken)
+                userViewModel.joinMember(socialToken: loginViewModel.socialToken) {
+                    print(userViewModel.user.is_service_member!)
+                }
             } label: {
                 Text("Join Member(완)")
             }

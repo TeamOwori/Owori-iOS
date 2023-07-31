@@ -34,8 +34,12 @@ struct MonthlyStoryCollection: View {
             // Album Collection View
             LazyVGrid(columns: columns, spacing: 12) {
                 ForEach(images[0 ..< images.count], id: \.self) { imageName in
-                    DailyStoryImageCell()
-                        .frame(width: UIScreen.main.bounds.width * 0.3, height: UIScreen.main.bounds.width * 0.3)
+                    NavigationLink {
+                        StoryDetailView()
+                    } label: {
+                        DailyStoryImageCell()
+                            .frame(width: UIScreen.main.bounds.width * 0.3, height: UIScreen.main.bounds.width * 0.3)
+                    }
                 }
             }
             .padding(EdgeInsets(top: 16, leading: 0, bottom: 20, trailing: 0))

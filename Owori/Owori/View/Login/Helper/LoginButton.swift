@@ -14,6 +14,7 @@ struct LoginButton: View {
     @EnvironmentObject var loginViewModel: LoginViewModel
     @EnvironmentObject var userViewModel: UserViewModel
     @Binding var isLoggedIn: Bool
+    @Binding var alreadyMember: Bool
     
     var body: some View {
         
@@ -25,6 +26,10 @@ struct LoginButton: View {
                 // joinMember
                 loginViewModel.kakaoLogin(oworiUser: userViewModel.user) {
                     if loginViewModel.isLoggedIn {
+                        userViewModel.joinMember(socialToken: loginViewModel.socialToken) {
+                            alreadyMember = userViewModel.user.is_service_member!
+                            print("alreadyMember\(alreadyMember)")
+                        }
                         isLoggedIn = true
                     } else {
                         isLoggedIn = false
@@ -45,7 +50,7 @@ struct LoginButton: View {
 
 struct LoginButton_Previews: PreviewProvider {
     static var previews: some View {
-        LoginButton(buttonImage: "카카오로그인버튼", isLoggedIn: .constant(false))
+        LoginButton(buttonImage: "카카오로그인버튼", isLoggedIn: .constant(false), alreadyMember: .constant(false))
         
     }
     
