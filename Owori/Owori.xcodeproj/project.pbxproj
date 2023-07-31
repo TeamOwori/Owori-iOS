@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3580AFA32A6844DB00DC28F7 /* AppleLoginTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3580AFA22A6844DB00DC28F7 /* AppleLoginTestView.swift */; };
+		35A2D0FB2A781D3400FF8A5B /* RealHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A2D0FA2A781D3400FF8A5B /* RealHomeView.swift */; };
 		883B47CD2A686C1D004C2D20 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883B47CC2A686C1D004C2D20 /* SettingView.swift */; };
 		883B47D22A686D17004C2D20 /* FamilyNameChangeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883B47D12A686D17004C2D20 /* FamilyNameChangeView.swift */; };
 		883B47D42A686D25004C2D20 /* InviteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883B47D32A686D25004C2D20 /* InviteView.swift */; };
@@ -109,6 +110,7 @@
 /* Begin PBXFileReference section */
 		3580AFA12A6841DE00DC28F7 /* Owori.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Owori.entitlements; sourceTree = "<group>"; };
 		3580AFA22A6844DB00DC28F7 /* AppleLoginTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleLoginTestView.swift; sourceTree = "<group>"; };
+		35A2D0FA2A781D3400FF8A5B /* RealHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealHomeView.swift; sourceTree = "<group>"; };
 		883B47CC2A686C1D004C2D20 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
 		883B47D12A686D17004C2D20 /* FamilyNameChangeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FamilyNameChangeView.swift; sourceTree = "<group>"; };
 		883B47D32A686D25004C2D20 /* InviteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InviteView.swift; sourceTree = "<group>"; };
@@ -336,6 +338,7 @@
 				F3430F442A67043200DC1B1C /* Profile */,
 				F3430F482A67043200DC1B1C /* DDay */,
 				F3430F4B2A67043200DC1B1C /* HomeHelper */,
+				35A2D0FA2A781D3400FF8A5B /* RealHomeView.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -740,6 +743,7 @@
 				F3430FA32A67043200DC1B1C /* DailyStoryListCell.swift in Sources */,
 				F3430F912A67043200DC1B1C /* LoginTestView.swift in Sources */,
 				F3430F9A2A67043200DC1B1C /* ContentText.swift in Sources */,
+				35A2D0FB2A781D3400FF8A5B /* RealHomeView.swift in Sources */,
 				F3430FA02A67043200DC1B1C /* DetailContent.swift in Sources */,
 				F3430FA42A67043200DC1B1C /* DailyStoryText.swift in Sources */,
 				F3430F962A67043200DC1B1C /* DailyStoryImageCell.swift in Sources */,

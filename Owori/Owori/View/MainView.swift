@@ -12,7 +12,7 @@ struct MainView: View {
     var body: some View {
         TabView(selection: $selectedTab) {
             
-            HomeView()
+            RealHomeView()
                 .tabItem {
                     if selectedTab == 0 {
                         Image("HomeTabSelected")
