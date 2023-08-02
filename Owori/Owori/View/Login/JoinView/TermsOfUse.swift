@@ -137,7 +137,7 @@ struct TermsOfUse: View {
                                 userViewModel.initUser(userInfo: [
                                     "nickname" : "\(nickname)",
                                     "birthday" : "\(birthDateText)"])
-                                familyViewModel.addFamilyMember(user: userViewModel.user, family_group_name: familyName)
+                                familyViewModel.createMember(user: userViewModel.user, family_group_name: familyName)
                                 print(familyName)
                                 print(userViewModel.user)
                                 print(familyViewModel.family)

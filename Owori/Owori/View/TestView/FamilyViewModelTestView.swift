@@ -15,7 +15,7 @@ struct FamilyViewModelTestView: View {
     var body: some View {
         VStack {
             Button {
-                familyViewModel.addFamilyMember(user: userViewModel.user, family_group_name: "owori")
+                familyViewModel.createMember(user: userViewModel.user, family_group_name: "owori")
             } label: {
                 Text("Add FamilyMember(완)")
             }
@@ -34,7 +34,7 @@ struct FamilyViewModelTestView: View {
             }
             
             Button {
-                familyViewModel.LookupFamilyInfo(user: userViewModel.user)
+                familyViewModel.lookUpHomeView(user: userViewModel.user)
             } label: {
                 Text("Lookup Family")
             }
@@ -43,6 +43,12 @@ struct FamilyViewModelTestView: View {
                 familyViewModel.regenInvitecode(user: userViewModel.user)
             } label: {
                 Text("regen Invitecode(완)")
+            }
+            
+            Button {
+                familyViewModel.getFamily()
+            } label : {
+                Text("get Family")
             }
             
         }

@@ -9,7 +9,7 @@ import Foundation
 
 struct Family: Codable {
     var family_group_name: String?
-    var family_name: String?    // 테스트용(서버측에서 변수명 변경하기 전까지 사용. family_group_name이랑 같은 역할 하는 프로퍼티)
+//    var family_name: String?    // 테스트용(서버측에서 변수명 변경하기 전까지 사용. family_group_name이랑 같은 역할 하는 프로퍼티)
     var invite_code: String?
     var url: String?
     var member_profiles: [MemberProfile]?
@@ -29,22 +29,32 @@ struct Family: Codable {
         self.url = url
     }
     
+    init(family_group_name: String, invite_code: String, url: String, member_profiles: [MemberProfile], family_images: [String], family_saying: [Saying], dday_schedules: [Schedule]) {
+        self.family_group_name = family_group_name
+        self.invite_code = invite_code
+        self.url = url
+        self.member_profiles = member_profiles
+        self.family_images = family_images
+        self.family_sayings = family_saying
+        self.dday_schedules = dday_schedules
+    }
+    
     struct MemberProfile: Codable {
         var id: String?
-        var nick_name: String?
+        var nickname: String?
         var profile_image: String?
         var emotional_badge: String?
         
         init() {
             self.id = ""
-            self.nick_name = ""
+            self.nickname = ""
             self.profile_image = ""
             self.emotional_badge = ""
         }
         
         init(id: String, nick_name: String, profile_image: String, emotional_badge: String) {
             self.id = id
-            self.nick_name = nick_name
+            self.nickname = nick_name
             self.profile_image = profile_image
             self.emotional_badge = emotional_badge
         }
