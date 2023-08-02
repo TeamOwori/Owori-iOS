@@ -15,7 +15,7 @@ struct ProfileText: View {
     ]
     
     var body: some View {
-        Text(profiles[0].nick_name ?? "")
+        Text(profiles[0].nickname ?? "")
             .font(Font.custom("Pretendard", size: 12).weight(.medium))
             .kerning(0.18)
             .foregroundColor(Color.oworiGray700)

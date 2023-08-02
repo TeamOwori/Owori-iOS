@@ -48,7 +48,7 @@ struct AppleLoginTestView: View {
             
             
             Button {
-                familyViewModel.addFamilyMember(user: userViewModel.user, family_group_name: "owori")
+                familyViewModel.createMember(user: userViewModel.user, family_group_name: "owori")
             } label: {
                 Text("Add FamilyMember")
             }
