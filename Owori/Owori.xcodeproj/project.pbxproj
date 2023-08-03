@@ -31,7 +31,6 @@
 		F3430F2C2A6701AE00DC1B1C /* OworiUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3430F2B2A6701AE00DC1B1C /* OworiUITestsLaunchTests.swift */; };
 		F3430F3A2A67024A00DC1B1C /* KakaoSDK in Frameworks */ = {isa = PBXBuildFile; productRef = F3430F392A67024A00DC1B1C /* KakaoSDK */; };
 		F3430F852A67043200DC1B1C /* FamilyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3430F412A67043200DC1B1C /* FamilyView.swift */; };
-		F3430F872A67043200DC1B1C /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3430F432A67043200DC1B1C /* HomeView.swift */; };
 		F3430F882A67043200DC1B1C /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3430F452A67043200DC1B1C /* ProfileView.swift */; };
 		F3430F8A2A67043200DC1B1C /* ProfileText.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3430F472A67043200DC1B1C /* ProfileText.swift */; };
 		F3430F8C2A67043200DC1B1C /* DDayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3430F4A2A67043200DC1B1C /* DDayView.swift */; };
@@ -137,7 +136,6 @@
 		F3430F2B2A6701AE00DC1B1C /* OworiUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OworiUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		F3430F3B2A6702EB00DC1B1C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		F3430F412A67043200DC1B1C /* FamilyView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FamilyView.swift; sourceTree = "<group>"; };
-		F3430F432A67043200DC1B1C /* HomeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		F3430F452A67043200DC1B1C /* ProfileView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		F3430F472A67043200DC1B1C /* ProfileText.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileText.swift; sourceTree = "<group>"; };
 		F3430F4A2A67043200DC1B1C /* DDayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DDayView.swift; sourceTree = "<group>"; };
@@ -336,7 +334,6 @@
 			isa = PBXGroup;
 			children = (
 				F3430F3E2A67043200DC1B1C /* Family */,
-				F3430F432A67043200DC1B1C /* HomeView.swift */,
 				F3430F442A67043200DC1B1C /* Profile */,
 				F3430F482A67043200DC1B1C /* DDay */,
 				F3430F4B2A67043200DC1B1C /* HomeHelper */,
@@ -700,7 +697,6 @@
 				886F8DFC2A6C57E600D60BCC /* ProfileImage.swift in Sources */,
 				F3430FA12A67043200DC1B1C /* FavoriteButton.swift in Sources */,
 				F3430FA52A67043200DC1B1C /* StoryAlbumView.swift in Sources */,
-				F3430F872A67043200DC1B1C /* HomeView.swift in Sources */,
 				883B47D22A686D17004C2D20 /* FamilyNameChangeView.swift in Sources */,
 				886F8DFA2A6C578B00D60BCC /* DDayInitialCard.swift in Sources */,
 				F3430F9D2A67043200DC1B1C /* ImageTabView.swift in Sources */,
