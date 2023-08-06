@@ -50,6 +50,8 @@ struct LoginButton: View {
 struct LoginButton_Previews: PreviewProvider {
     static var previews: some View {
         LoginButton(buttonImage: "카카오로그인버튼", isLoggedIn: .constant(false), alreadyMember: .constant(false))
+            .environmentObject(UserViewModel())
+            .environmentObject(LoginViewModel())
         
     }
     

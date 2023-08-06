@@ -17,5 +17,4 @@ extension String {
         dateFormatter.locale = Locale(identifier: "ko_KR")
         return dateFormatter.string(from: now)
     }
-    
 }

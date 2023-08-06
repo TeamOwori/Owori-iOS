@@ -110,5 +110,9 @@ struct LoginTestView: View {
 struct LoginTestView_Previews: PreviewProvider {
     static var previews: some View {
         LoginTestView()
+            .environmentObject(UserViewModel())
+            .environmentObject(FamilyViewModel())
+            .environmentObject(LoginViewModel())
+            .environmentObject(StoryViewModel())
     }
 }

@@ -12,6 +12,9 @@ struct StoryView: View {
     /// - true : 앨범형 / false : 리스트형
     @State private var buttonSet: Bool = true
     
+    @EnvironmentObject var userViewModel: UserViewModel
+    @EnvironmentObject var storyViewModel: StoryViewModel
+    
     // MARK: BODY
     var body: some View {
         VStack {
@@ -30,6 +33,9 @@ struct StoryView: View {
                 }
             }
         }
+        .onAppear {
+            storyViewModel.lookUpStoryLatestOrder(user: userViewModel.user)
+        }
     }
 }
 
@@ -38,5 +44,7 @@ struct StoryView: View {
 struct StoryView_Previews: PreviewProvider {
     static var previews: some View {
         StoryView()
+            .environmentObject(UserViewModel())
+            .environmentObject(StoryViewModel())
     }
 }
