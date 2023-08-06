@@ -39,12 +39,9 @@ struct DDayInitialCard: View {
                 }
                 
             }
-            .navigationBarTitleDisplayMode(.inline)
             .navigationDestination(isPresented: $isAddDdayViewActive) {
-                
                 WriteDDay()
             }
-            
         }
     }
 }

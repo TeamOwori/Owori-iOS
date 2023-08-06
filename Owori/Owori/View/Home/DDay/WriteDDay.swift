@@ -9,59 +9,31 @@ import SwiftUI
 
 struct WriteDDay: View {
     
+    //화면으로 돌아가기
+    @State private var isAddDdayViewActive = false
+    
     //가족 탭
     @State private var checkForFirstTab = false
     
     //고삼이 탭
     @State private var checkForSecondTab = false
+    
     @State private var title: String = ""
     
     //DatePicker
-    @State private var selectedDate = Date()
+    @State private var date = Date()
+    
+    //DatePicker
+    @State private var date1 = Date()
+    
+    //DDayToggle
+    @State private var DDayToggle = true
+    
+    //AlarmToggle
+    @State private var AlarmToggle = true
     
     var body: some View {
-        
-        
-        
-        VStack{
-            
-            //고민되는게 X버튼이든 체크표시 버튼이든 둘다 누르면 홈화면으로 가야함.전자는 홈뷰로 고대로 돌아가면 되지만, 후자는 뷰가 업데이트 된 상황으로 가야함 -> 이걸 if문으로 써서 처리를 하는 게 나을지도
-            
-            //MARK: HEADER 작성하기
-            HStack(alignment: .center) {
-                
-                Button {
-                    //X버튼 누르면 그냥 홈으로 회귀
-                } label: {
-                    Text("X")
-                        .foregroundColor(.black)
-                        .bold()
-                        .frame(width: 30, height: 30)
-                }
-                
-                Spacer()
-                
-                Text("작성하기")
-                    .font(
-                        Font.custom("Pretendard", size: 20)
-                            .weight(.bold)
-                    )
-                    .foregroundColor(Color(red: 0.13, green: 0.13, blue: 0.13))
-                
-                Spacer()
-                
-                Button {
-                    //View가 업데이트 된 상황에서 홈으로 복귀
-                    
-                } label: {
-                    Image("Check")
-                        .frame(width: 30, height: 30)
-                }
-                
-                
-            }
-            .frame(width: UIScreen.main.bounds.width*0.9, height: 50, alignment: .center)
-            .padding(EdgeInsets(top: 0, leading: 30, bottom: 20, trailing: 30))
+        VStack {
             
             //MARK: 가족 탭 선택
             HStack{
@@ -110,7 +82,7 @@ struct WriteDDay: View {
                 
             }
             .frame(width: UIScreen.main.bounds.width*0.8,height: 60,alignment: .center)
-            .padding(EdgeInsets(top: 0, leading: 30, bottom: 30, trailing: 30))
+            .padding(EdgeInsets(top: 30, leading: 30, bottom: 30, trailing: 30))
             
             //MARK: 제목입력
             TextField("제목을 입력해주세요", text: $title)
@@ -125,33 +97,51 @@ struct WriteDDay: View {
             //MARK: DDAY 설정
             VStack(alignment: .center, spacing: 24) {
                 
-                HStack(alignment: .top, spacing: 16) {
+                //DatePicker
+                HStack(alignment: .top,spacing: 16) {
                     
-                    HStack(alignment: .center, spacing: 4) {
-                        Text("시작일")
-                            .font(.title3)
-                            .foregroundColor(.oworiGray700)
-                        
-                        
-                        
-                        DatePicker("", selection: $selectedDate, displayedComponents: [.date])
-                            .datePickerStyle(GraphicalDatePickerStyle())
-                            .labelsHidden()
-                        
-                        
-                    }
-                    
-                    Text("선택한 날짜: \(formattedDate)")
+                    DatePicker(
+                        "시작일",
+                        selection: $date,
+                        displayedComponents: [.date]
+                    ).frame(width: UIScreen.main.bounds.width*0.4)
                     
                     
-                    Spacer()
-                    
-                    HStack(alignment: .center, spacing: 4) {
-                        
-                    }
+                    DatePicker(
+                        "종료일",
+                        selection: $date1,
+                        displayedComponents: [.date]
+                    ).frame(width: UIScreen.main.bounds.width*0.4)
                     
                 }
                 
+                //DDay - Switch Button
+                HStack(alignment: .top,spacing: 16) {
+                    Image("DDay")
+                        .padding(EdgeInsets(top: 8, leading: 10, bottom: 0, trailing: 10))
+                    
+                    
+                    Toggle("D-day 기능", isOn: $DDayToggle)
+                        .toggleStyle(SwitchToggleStyle(tint: Color.oworiOrange))
+                    
+                    
+                    
+                }
+                
+                //Alarm - Switch Button
+                HStack(alignment: .top,spacing: 16) {
+                    Image("Alarm")
+                        .padding(EdgeInsets(top: 8, leading: 10, bottom: 0, trailing: 10))
+                    
+                    
+                    Toggle("알림", isOn: $AlarmToggle)
+                        .toggleStyle(SwitchToggleStyle(tint: Color.oworiOrange))
+                    
+                    
+                    
+                }
+                
+
                 
                 
             }
@@ -164,26 +154,52 @@ struct WriteDDay: View {
                     .inset(by: 0.25)
                     .stroke(Color.oworiGray300)
             )
-            
-            
-            
-            
-            
-            
+            Spacer()
         }
-        
-        
-        
-        
-        
-        
-        
-    }
-    
-    private var formattedDate: String {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateStyle = .long
-        return dateFormatter.string(from: selectedDate)
+        .navigationBarBackButtonHidden(true)
+        .navigationBarTitleDisplayMode(.inline)
+        .toolbar {
+            ToolbarItem(placement: .principal) {
+                //고민되는게 X버튼이든 체크표시 버튼이든 둘다 누르면 홈화면으로 가야함.전자는 홈뷰로 고대로 돌아가면 되지만, 후자는 뷰가 업데이트 된 상황으로 가야함 -> ?? 질문...!
+                            //MARK: HEADER 작성하기
+                            HStack(alignment: .center) {
+                                
+//                                Button {
+//                                    //X버튼 누르면 그냥 홈으로 회귀
+//                                    isAddDdayViewActive = false
+//
+//                                } label: {
+//                                    Text("X")
+//                                        .foregroundColor(.black)
+//                                        .bold()
+//                                        .frame(width: 30, height: 30)
+//                                }
+                                BackToLoginButton()
+
+                                Spacer()
+                                
+                                Text("작성하기")
+                                    .font(
+                                        Font.custom("Pretendard", size: 20)
+                                            .weight(.bold)
+                                    )
+                                    .foregroundColor(Color(red: 0.13, green: 0.13, blue: 0.13))
+                                
+                                Spacer()
+                                
+                                Button {
+                                    //View가 업데이트 된 상황에서 홈으로 복귀
+                                    isAddDdayViewActive = false
+                                } label: {
+                                    Image("Check")
+                                        .frame(width: 30, height: 30)
+                                }
+                            }
+//                            .frame(width: UIScreen.main.bounds.width*0.9, height: 50, alignment: .center)
+//                            .padding(EdgeInsets(top: 0, leading: 30, bottom: 20, trailing: 30))
+            }
+        }
+
     }
 }
 
