@@ -53,12 +53,11 @@ struct DDayView: View {
                     .shadow(color: .black.opacity(0.06), radius: 6, x: -4, y: 5)
                     .shadow(color: .black.opacity(0.1), radius: 7, x: 4, y: 2)
                     .frame(width: 240, height: UIScreen.main.bounds.height * 0.15, alignment: .leading)
-//                    .offset(x: CGFloat(index - currentIndex) * 275 /* 300 */ + dragOffset - UIScreen.main.bounds.width * 0.2, y: 0)
+                    
                 }
             }
-        .padding(.horizontal, 15)
+            .padding(.horizontal, 15)
         }
-//        .frame(height: UIScreen.main.bounds.height * 0.15)
         .gesture(
             DragGesture()
                 .onEnded { value in
