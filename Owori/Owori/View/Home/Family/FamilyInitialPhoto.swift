@@ -38,9 +38,6 @@ struct FamilyInitialPhoto: View {
                 }
             }
             .navigationBarTitleDisplayMode(.inline)
-            
-            //MARK: header에 안 뜹니다
-            .navigationBarTitle(Text("사진 올리기"))
             .navigationDestination(isPresented: $isAddFamilyPhotoActive) {
                 AddFamilyPhoto()
             }
