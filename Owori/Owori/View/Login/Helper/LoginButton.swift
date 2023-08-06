@@ -28,9 +28,8 @@ struct LoginButton: View {
                     if loginViewModel.isLoggedIn {
                         userViewModel.joinMember(socialToken: loginViewModel.socialToken) {
                             alreadyMember = userViewModel.user.is_service_member!
-                            print("alreadyMember\(alreadyMember)")
+                            isLoggedIn = true
                         }
-                        isLoggedIn = true
                     } else {
                         isLoggedIn = false
                     }
@@ -41,7 +40,7 @@ struct LoginButton: View {
                     .resizable()
                     .frame(width: 300, height: 44, alignment: .leading)
                     .cornerRadius(12)
-                    
+                
             }
         }
     }

@@ -68,7 +68,7 @@ struct LoginView: View {
                 .foregroundColor(Color.oworiGray600)
         }
         .navigationDestination(isPresented: $isLoggedIn) {
-            if userViewModel.user.is_service_member! && userViewModel.user.member_profile != nil {
+            if alreadyMember {
                 MainView()
             } else {
                 JoinNickname(isLoggedIn: $isLoggedIn)

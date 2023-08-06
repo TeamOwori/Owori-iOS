@@ -138,9 +138,8 @@ struct TermsOfUse: View {
                                     "nickname" : "\(nickname)",
                                     "birthday" : "\(birthDateText)"])
                                 familyViewModel.createMember(user: userViewModel.user, family_group_name: familyName)
-                                print(familyName)
-                                print(userViewModel.user)
-                                print(familyViewModel.family)
+                                
+                                
                                 
                                 isSuccessSignUp = true
                             }

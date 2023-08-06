@@ -34,7 +34,9 @@ struct FamilyViewModelTestView: View {
             }
             
             Button {
-                familyViewModel.lookUpHomeView(user: userViewModel.user)
+                familyViewModel.lookUpHomeView(user: userViewModel.user) {
+                    familyViewModel.getFamily()
+                }
             } label: {
                 Text("Lookup Family")
             }
