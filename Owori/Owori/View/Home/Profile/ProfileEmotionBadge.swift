@@ -12,19 +12,20 @@ struct ProfileEmotionBadge: View {
     @State private var profiles: [Family.MemberProfile] = [
         Family.MemberProfile(id: "1", nick_name: "홍길동", profile_image: "DefaultImage", emotional_badge: "squinting-face-with-tongue"),
     ]
+    var emotionalBadge: String
     
     var body: some View {
         // 임시 감정 이모티콘 이미지
-            Image(profiles[0].emotional_badge ?? "")
-                .resizable()
-                .aspectRatio(contentMode: .fill)
-                .frame(width: 18, height: 18)
-                .clipped()
+        Image(emotionalBadge)
+            .resizable()
+            .aspectRatio(contentMode: .fill)
+            .frame(width: 18, height: 18)
+            .clipped()
     }
 }
 
 struct ProfileEmotionBadge_Previews: PreviewProvider {
     static var previews: some View {
-        ProfileEmotionBadge()
+        ProfileEmotionBadge(emotionalBadge: "squinting-face-with-tongue")
     }
 }

@@ -9,7 +9,6 @@ import Foundation
 
 struct Family: Codable {
     var family_group_name: String?
-//    var family_name: String?    // 테스트용(서버측에서 변수명 변경하기 전까지 사용. family_group_name이랑 같은 역할 하는 프로퍼티)
     var invite_code: String?
     var url: String?
     var member_profiles: [MemberProfile]?
@@ -39,7 +38,7 @@ struct Family: Codable {
         self.dday_schedules = dday_schedules
     }
     
-    struct MemberProfile: Codable {
+    struct MemberProfile: Hashable, Codable, Identifiable {
         var id: String?
         var nickname: String?
         var profile_image: String?

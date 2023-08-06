@@ -9,6 +9,10 @@ import SwiftUI
 
 struct MainView: View {
     @State private var selectedTab = 0
+    
+    @EnvironmentObject var userViewModel: UserViewModel
+    @EnvironmentObject var familyViewModel: FamilyViewModel
+    
     var body: some View {
         TabView(selection: $selectedTab) {
             
@@ -39,5 +43,7 @@ struct MainView: View {
 struct MainView_Previews: PreviewProvider {
     static var previews: some View {
         MainView()
+            .environmentObject(UserViewModel())
+            .environmentObject(FamilyViewModel())
     }
 }

@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct RealHomeView: View {
+    @EnvironmentObject var userViewModel: UserViewModel
+    @EnvironmentObject var familyViewModel: FamilyViewModel
+    
     var body: some View {
         ZStack {
             Color.oworiMain.ignoresSafeArea()
@@ -17,7 +20,7 @@ struct RealHomeView: View {
                 //MARK: Header 설정
                 HStack{
                     HStack{
-                        Text("우당탕탕 우리가족❤️")
+                        Text(familyViewModel.family.family_group_name ?? "Error")
                             .font(.title)
                             .bold()
                             .foregroundColor(.black)
@@ -84,11 +87,18 @@ struct RealHomeView: View {
                 
             }
         }
+        .onAppear {
+            familyViewModel.lookUpHomeView(user: userViewModel.user) {
+                familyViewModel.getFamily()
+            }
+        }
     }
 }
 
 struct RealHomeView_Previews: PreviewProvider {
     static var previews: some View {
         RealHomeView()
+            .environmentObject(UserViewModel())
+            .environmentObject(FamilyViewModel())
     }
 }
