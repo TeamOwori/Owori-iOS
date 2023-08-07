@@ -16,8 +16,8 @@ extension Story {
         var id: Int?
         var story_id: String?
         var is_liked: Bool?
-        var images: [String]?
-        var image: String?
+        var images_id: [String]?
+        var thumbnail: String?
         var title: String?
         var writer: String?
         var content: String?
@@ -32,8 +32,8 @@ extension Story {
             self.id = 0
             self.story_id = ""
             self.is_liked = false
-            self.images = []
-            self.image = ""
+            self.images_id = []
+            self.thumbnail = ""
             self.title = ""
             self.writer = ""
             self.content = ""
@@ -44,12 +44,12 @@ extension Story {
             self.end_date = ""
         }
         
-        init(id: Int, story_id: String, is_liked: Bool, images: [String], image: String, title: String, writer: String, content: String, comments: [Comment], heart_count: Int, comment_count: Int, start_date: String, end_date: String) {
+        init(id: Int, story_id: String, is_liked: Bool, images_id: [String], thumbnail: String, title: String, writer: String, content: String, comments: [Comment], heart_count: Int, comment_count: Int, start_date: String, end_date: String) {
             self.id = 0
             self.story_id = ""
             self.is_liked = false
-            self.images = images
-            self.image = image
+            self.images_id = images_id
+            self.thumbnail = thumbnail
             self.title = title
             self.writer = writer
             self.content = content

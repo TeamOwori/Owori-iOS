@@ -15,6 +15,8 @@ struct StoryView: View {
     @EnvironmentObject var userViewModel: UserViewModel
     @EnvironmentObject var storyViewModel: StoryViewModel
     
+    @State private var stories: [Story.StoryInfo] = []
+    
     // MARK: BODY
     var body: some View {
         VStack {
@@ -27,14 +29,17 @@ struct StoryView: View {
             .padding(EdgeInsets(top: 20, leading: 20, bottom: 20, trailing: 20))
             ScrollView {
                 if buttonSet {
-                    StoryListView()
+                    StoryListView(stories: $stories)
                 } else {
-                    StoryAlbumView()
+                    StoryAlbumView(stories: $stories)
                 }
             }
         }
         .onAppear {
-            storyViewModel.lookUpStoryLatestOrder(user: userViewModel.user)
+            storyViewModel.lookUpStory(user: userViewModel.user) {
+                stories = storyViewModel.getStoryTest()
+                print("[getStoryTest]\(stories)")
+            }
         }
     }
 }

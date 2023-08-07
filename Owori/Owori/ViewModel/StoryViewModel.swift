@@ -89,7 +89,7 @@ class StoryViewModel: ObservableObject {
                     self?.testStoryId = jsonDictionary["story_id"] as! String
                     
                     // User 구조체에 할당된 데이터 사용 (테스트 log)
-                    print("[Story Model Log]: \(self?.storyModel)")
+                    print("[create Story Log]: \(self?.storyModel)")
                     // 임시
                     print(self?.testStoryId)
                 } catch {
@@ -164,7 +164,7 @@ class StoryViewModel: ObservableObject {
                     self?.storyModel.stories[index].is_liked = jsonDictionary["is_liked"] as! Bool
                     
                     // User 구조체에 할당된 데이터 사용 (테스트 log)
-                    print("[Story Model Log]: \(self?.storyModel)")
+                    print("[toggle Heart Log]: \(self?.storyModel)")
                 } catch {
                     print("Error: Failed to parse JSON data - \(error)")
                 }
@@ -235,7 +235,7 @@ class StoryViewModel: ObservableObject {
                         print("Error: convert failed json to dictionary")
                         return
                     }
-                    print("jsonDictionary story_id : \(jsonDictionary)")
+                    print("[updateStory] jsonDictionary story_id : \(jsonDictionary)")
                     //                    self?.storyModel.stories[index].is_liked = jsonDictionary["is_liked"] as! Bool
                     
                     // User 구조체에 할당된 데이터 사용 (테스트 log)
@@ -249,7 +249,9 @@ class StoryViewModel: ObservableObject {
     }
     
     // MARK: Story API FUNCTIONS (GET)
-    func lookUpStoryLatestOrder(user: User) {
+    
+    // 파라미터로 쿼리값 조절해서 스토리 조회 순서 변경할 수 있을 것 같음.
+    func lookUpStory(user: User, completion: @escaping () -> Void) {
         
         // 요청을 보낼 API의 url 설정
         // 배포 후 url 설정
@@ -258,8 +260,8 @@ class StoryViewModel: ObservableObject {
         urlComponents.host = OworiAPI.host
         urlComponents.path = OworiAPI.Path.stories.rawValue
         urlComponents.queryItems = [
-            URLQueryItem(name: "sort", value: "created_at"),
-            URLQueryItem(name: "last_viewed", value: "yyyy-MM-dd".stringFromDate())
+//            URLQueryItem(name: "sort", value: "created_at"),
+//            URLQueryItem(name: "last_viewed", value: "yyyy-MM-dd".stringFromDate())
             
         ]
         guard let url = urlComponents.url else {
@@ -268,7 +270,7 @@ class StoryViewModel: ObservableObject {
         }
         
         // url 테스트 log
-        print("[lookUpStoryLatestOrder url Log] : \(url)")
+        print("[lookUpStory url Log] : \(url)")
         
         // urlRequeset에 함께 담을 header, body 설정
         var urlRequest = URLRequest(url: url)
@@ -311,14 +313,17 @@ class StoryViewModel: ObservableObject {
                     self?.storyModel = try decoder.decode(Story.self, from: data)
                     
                     // User 구조체에 할당된 데이터 사용 (테스트 log)
-                    print("[Story Model Log]: \(String(describing: self?.storyModel))")
-                    
+                    print("[lookUpStory Story Model Log]: \(String(describing: self?.storyModel))")
+                    completion()
                 } catch {
                     print("Error: Failed to parse JSON data - \(error)")
                 }
             }
-            
         }.resume()
+    }
+    
+    func getStoryTest() -> [Story.StoryInfo] {
+        return self.storyModel.stories
     }
     
     func lookUpStoryDetail(user: User, storyId: String, completion: @escaping () -> Void) {
@@ -378,7 +383,7 @@ class StoryViewModel: ObservableObject {
                     let decoder = JSONDecoder()
                     if let storyIndex = self?.storyModel.stories.firstIndex(where: { $0.story_id == storyId }) {
                         self?.storyModel.stories[storyIndex] = try decoder.decode(Story.StoryInfo.self, from: data)
-                        print("[Story Model Detail Log]: \(String(describing: self?.storyModel.stories[storyIndex]))")
+                        print("[lookUp Story Detail Log]: \(String(describing: self?.storyModel.stories[storyIndex]))")
                     } else {
                         print("파싱 에러")
                     }

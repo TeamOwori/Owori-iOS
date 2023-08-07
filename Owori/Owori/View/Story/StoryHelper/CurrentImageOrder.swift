@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct CurrentImageOrder: View {
-    @Binding var images: [String]
+//    @Binding var images: [String]
+    var images: [String]
     @Binding var currentIndex: Int
     
     var body: some View {
@@ -25,6 +26,6 @@ struct CurrentImageOrder: View {
 
 struct CurrentImageOrder_Previews: PreviewProvider {
     static var previews: some View {
-        CurrentImageOrder(images: .constant(["TestImage1", "TestImage2", "TestImage3", "TestImage4", "TestImage5", "TestImage6", "TestImage7", "TestImage8", "TestImage9", "TestImage10"]), currentIndex: .constant(0))
+        CurrentImageOrder(images: ["TestImage1", "TestImage2", "TestImage3", "TestImage4", "TestImage5", "TestImage6", "TestImage7", "TestImage8", "TestImage9", "TestImage10"], currentIndex: .constant(0))
     }
 }

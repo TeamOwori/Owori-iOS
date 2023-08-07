@@ -94,6 +94,7 @@
 		F3C1BE712A711024002ADB3B /* StorySearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C1BE702A711024002ADB3B /* StorySearchView.swift */; };
 		F3C1BE732A71147C002ADB3B /* RecentSearchList.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C1BE722A71147C002ADB3B /* RecentSearchList.swift */; };
 		F3C1BE752A711D74002ADB3B /* CustomNavigationBackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C1BE742A711D74002ADB3B /* CustomNavigationBackButton.swift */; };
+		F3E8CDCA2A810719007A0C3A /* TextTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E8CDC92A810719007A0C3A /* TextTestView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -205,6 +206,7 @@
 		F3C1BE702A711024002ADB3B /* StorySearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorySearchView.swift; sourceTree = "<group>"; };
 		F3C1BE722A71147C002ADB3B /* RecentSearchList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentSearchList.swift; sourceTree = "<group>"; };
 		F3C1BE742A711D74002ADB3B /* CustomNavigationBackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationBackButton.swift; sourceTree = "<group>"; };
+		F3E8CDC92A810719007A0C3A /* TextTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextTestView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -557,6 +559,7 @@
 				F3C1BE642A70F1C5002ADB3B /* UserViewModelTestView.swift */,
 				F3C1BE662A70F26E002ADB3B /* FamilyViewModelTestView.swift */,
 				F3C1BE682A70F2C6002ADB3B /* StoryViewModelTestView.swift */,
+				F3E8CDC92A810719007A0C3A /* TextTestView.swift */,
 			);
 			path = TestView;
 			sourceTree = "<group>";
@@ -731,6 +734,7 @@
 				F3430F8A2A67043200DC1B1C /* ProfileText.swift in Sources */,
 				F39EF28A2A6B9860005FD6DB /* InviteFamily.swift in Sources */,
 				F3430F952A67043200DC1B1C /* OnBoardingView.swift in Sources */,
+				F3E8CDCA2A810719007A0C3A /* TextTestView.swift in Sources */,
 				35B3CD672A8008B300127259 /* MyPageProfilePhoto.swift in Sources */,
 				886F8DFE2A6C582400D60BCC /* ProfileImageWithBadge.swift in Sources */,
 				883B47CD2A686C1D004C2D20 /* SettingView.swift in Sources */,
