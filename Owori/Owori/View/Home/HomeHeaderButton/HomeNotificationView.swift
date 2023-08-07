@@ -31,75 +31,49 @@ struct HomeNotificationView: View {
             
             ForEach(0..<lists.count, id: \.self) { index in
                 
-                    HStack(spacing: 16) {
+                HStack(spacing: 16) {
+                    
+                    Image(Images[index])
+                        .resizable()
+                        .frame(width: 20, height: 20)
+                        .offset(y: -20)
+                    
+                    VStack(alignment: .leading, spacing: 4) {
+                        Text(sender[index])
+                            .font(.headline)
+                            .foregroundColor(Color.oworiGray700)
                         
-                        Image(Images[index])
-                            .resizable()
-                            .frame(width: 20, height: 20)
-                            .offset(y: -20)
+                        Text(messages[index])
+                            .font(.body)
+                            .foregroundColor(Color.oworiGray700)
                         
-                        VStack(alignment: .leading, spacing: 4) {
-                            Text(sender[index])
-                                .font(.headline)
-                                .foregroundColor(Color.oworiGray700)
-                            
-                            Text(messages[index])
-                                .font(.body)
-                                .foregroundColor(Color.oworiGray700)
-                            
-                            Text(date)
-                                .font(.caption)
-                                .foregroundColor(Color.oworiGray400)
-                        }
+                        Text(date)
+                            .font(.caption)
+                            .foregroundColor(Color.oworiGray400)
                     }
                 }
+            }
             
         }
         .padding(EdgeInsets(top: 30, leading: 20, bottom: 0, trailing: 20))
         .navigationBarBackButtonHidden(true)
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
+            ToolbarItem(placement: .navigationBarLeading) {
+                BackButton()
+            }
             ToolbarItem(placement: .principal) {
-                            //MARK: HEADER 작성하기
-                            HStack(alignment: .center) {
-                                
-//                                Button {
-//                                    //X버튼 누르면 그냥 홈으로 회귀
-//                                    isAddDdayViewActive = false
-//
-//                                } label: {
-//                                    Text("X")
-//                                        .foregroundColor(.black)
-//                                        .bold()
-//                                        .frame(width: 30, height: 30)
-//                                }
-                                BackButton()
-
-                                Spacer()
-                                
-                                Text("알림")
-                                    .font(
-                                        Font.custom("Pretendard", size: 20)
-                                            .weight(.bold)
-                                    )
-                                    .foregroundColor(Color(red: 0.13, green: 0.13, blue: 0.13))
-                                
-                                Spacer()
-                                
-                                Button {
-                                    //View가 업데이트 된 상황에서 홈으로 복귀
-                                    
-                                } label: {
-                                    Image("Check")
-                                        .frame(width: 30, height: 30)
-                                }
-                            }
-//                            .frame(width: UIScreen.main.bounds.width*0.9, height: 50, alignment: .center)
-//                            .padding(EdgeInsets(top: 0, leading: 30, bottom: 20, trailing: 30))
+                Text("알림")
+                    .font(
+                        Font.custom("Pretendard", size: 20)
+                            .weight(.bold)
+                    )
+                    .foregroundColor(Color(red: 0.13, green: 0.13, blue: 0.13))
             }
         }
     }
 }
+
 
 struct HomeNotificationView_Previews: PreviewProvider {
     static var previews: some View {
