@@ -46,7 +46,6 @@ struct StoryListView: View {
             print(stories)
         }
         .navigationDestination(isPresented: $storyDetailViewIsActive) {
-            
             StoryDetailView(storyInfo: $storyInfo)
         }
     }

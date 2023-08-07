@@ -20,7 +20,6 @@ struct StoryDetailView: View {
     var body: some View {
         ScrollView {
             VStack(spacing: 0) {
-                // 이부분 수정해야됨
                 ImageTabView(storyInfo: $storyInfo, currentIndex: $currentIndex)
                     .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height * 0.4)
                     .clipped()

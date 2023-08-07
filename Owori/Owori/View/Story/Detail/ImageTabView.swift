@@ -16,7 +16,7 @@ struct ImageTabView: View {
     var body: some View {
         ZStack(alignment: .bottomTrailing) {
             TabView(selection: $currentIndex) {
-                ForEach(storyInfo.story_images!, id: \.self) { image in
+                ForEach(storyInfo.story_images ?? [], id: \.self) { image in
                     NavigationLink {
                         ZoomImages(storyInfo: storyInfo)
                     } label: {
