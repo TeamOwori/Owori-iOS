@@ -15,7 +15,7 @@ struct DetailImageCell: View {
                 .resizable()
                 .aspectRatio(contentMode: .fill)
         } placeholder: {
-            Image("DefaultImage")
+            Image("TestImage1")
         }
     }
 }

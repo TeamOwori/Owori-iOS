@@ -49,7 +49,7 @@ struct StoryViewModelTestView: View {
             
             Button {
                 storyViewModel.lookUpStoryDetail(user: userViewModel.user, storyId: storyViewModel.testStoryId) {
-//                    print("lookUPStoryDetail test log : \(storyViewModel.searchStory(story_id: storyViewModel.testStoryId))")
+                    
                 }
             } label: {
                 Text("lookUp Story Detail")

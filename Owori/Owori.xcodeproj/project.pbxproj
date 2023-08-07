@@ -76,6 +76,8 @@
 		F3430FB62A67043200DC1B1C /* Image+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3430F812A67043200DC1B1C /* Image+Extension.swift */; };
 		F3430FB72A67043200DC1B1C /* View+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3430F822A67043200DC1B1C /* View+Extension.swift */; };
 		F352856F2A7058E500466C61 /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F352856E2A7058E500466C61 /* SplashView.swift */; };
+		F35A44F62A8140260092F342 /* RecordButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35A44F52A8140260092F342 /* RecordButton.swift */; };
+		F36508532A81278400A14217 /* StoryRecordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F36508522A81278400A14217 /* StoryRecordView.swift */; };
 		F36A82952A71921A00C6A90C /* BackToFamilyLinkViewButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F36A82942A71921A00C6A90C /* BackToFamilyLinkViewButton.swift */; };
 		F39EF2822A6B93E5005FD6DB /* JoinNickname.swift in Sources */ = {isa = PBXBuildFile; fileRef = F39EF2812A6B93E5005FD6DB /* JoinNickname.swift */; };
 		F39EF2842A6B95D3005FD6DB /* JoinBirthday.swift in Sources */ = {isa = PBXBuildFile; fileRef = F39EF2832A6B95D3005FD6DB /* JoinBirthday.swift */; };
@@ -188,6 +190,8 @@
 		F3430F812A67043200DC1B1C /* Image+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Image+Extension.swift"; sourceTree = "<group>"; };
 		F3430F822A67043200DC1B1C /* View+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "View+Extension.swift"; sourceTree = "<group>"; };
 		F352856E2A7058E500466C61 /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
+		F35A44F52A8140260092F342 /* RecordButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordButton.swift; sourceTree = "<group>"; };
+		F36508522A81278400A14217 /* StoryRecordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryRecordView.swift; sourceTree = "<group>"; };
 		F36A82942A71921A00C6A90C /* BackToFamilyLinkViewButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackToFamilyLinkViewButton.swift; sourceTree = "<group>"; };
 		F39EF2812A6B93E5005FD6DB /* JoinNickname.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinNickname.swift; sourceTree = "<group>"; };
 		F39EF2832A6B95D3005FD6DB /* JoinBirthday.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinBirthday.swift; sourceTree = "<group>"; };
@@ -468,6 +472,7 @@
 		F3430F592A67043200DC1B1C /* Story */ = {
 			isa = PBXGroup;
 			children = (
+				F36508512A81262E00A14217 /* Record */,
 				F3C1BE6E2A711008002ADB3B /* Search */,
 				F3430F5A2A67043200DC1B1C /* StoryHelper */,
 				F3430F5F2A67043200DC1B1C /* Detail */,
@@ -487,6 +492,7 @@
 				F3430F5E2A67043200DC1B1C /* AlbumListButton.swift */,
 				F3C1BE6C2A710820002ADB3B /* StoryViewHeader.swift */,
 				F3C1BE742A711D74002ADB3B /* CustomNavigationBackButton.swift */,
+				F35A44F52A8140260092F342 /* RecordButton.swift */,
 			);
 			path = StoryHelper;
 			sourceTree = "<group>";
@@ -557,6 +563,14 @@
 				F3430F822A67043200DC1B1C /* View+Extension.swift */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		F36508512A81262E00A14217 /* Record */ = {
+			isa = PBXGroup;
+			children = (
+				F36508522A81278400A14217 /* StoryRecordView.swift */,
+			);
+			path = Record;
 			sourceTree = "<group>";
 		};
 		F3C1BE632A70F1A7002ADB3B /* TestView */ = {
@@ -773,6 +787,7 @@
 				F3430FB42A67043200DC1B1C /* String+Extension.swift in Sources */,
 				F3430F9B2A67043200DC1B1C /* DetailImageCell.swift in Sources */,
 				88A392DA2A7003BB00ACBD71 /* BackCancel.swift in Sources */,
+				F36508532A81278400A14217 /* StoryRecordView.swift in Sources */,
 				F3430FB52A67043200DC1B1C /* Color+Extension.swift in Sources */,
 				F3C1BE6D2A710820002ADB3B /* StoryViewHeader.swift in Sources */,
 				F36A82952A71921A00C6A90C /* BackToFamilyLinkViewButton.swift in Sources */,
@@ -796,6 +811,7 @@
 				35B3CD612A80086E00127259 /* MyPageProfile.swift in Sources */,
 				F39EF28E2A6BA80F005FD6DB /* TermsOfUse.swift in Sources */,
 				F3430FAD2A67043200DC1B1C /* Story.swift in Sources */,
+				F35A44F62A8140260092F342 /* RecordButton.swift in Sources */,
 				F3C1BE752A711D74002ADB3B /* CustomNavigationBackButton.swift in Sources */,
 				3580AFA32A6844DB00DC28F7 /* AppleLoginTestView.swift in Sources */,
 				886F8DF82A6C570500D60BCC /* ExistPhoto.swift in Sources */,
