@@ -246,6 +246,14 @@
 			path = MyPageInfo;
 			sourceTree = "<group>";
 		};
+		35B3CD682A8010F900127259 /* HomeHeaderButton */ = {
+			isa = PBXGroup;
+			children = (
+				35B3CD5D2A8004A900127259 /* HomeNotificationView.swift */,
+			);
+			path = HomeHeaderButton;
+			sourceTree = "<group>";
+		};
 		883B47CB2A686C05004C2D20 /* MyPage */ = {
 			isa = PBXGroup;
 			children = (
@@ -364,7 +372,7 @@
 				F3430F482A67043200DC1B1C /* DDay */,
 				F3430F4B2A67043200DC1B1C /* HomeHelper */,
 				35A2D0FA2A781D3400FF8A5B /* RealHomeView.swift */,
-				35B3CD5D2A8004A900127259 /* HomeNotificationView.swift */,
+				35B3CD682A8010F900127259 /* HomeHeaderButton */,
 			);
 			path = Home;
 			sourceTree = "<group>";

@@ -33,12 +33,13 @@ struct DDayInitialCard: View {
                     VStack(spacing: 25) {
                         Text("아직 D-day가 없어요\n캘린더에서 D-day를 추가해봐요")
                             .foregroundColor(Color.oworiGray500)
+                            .frame(width: 260, height: 140)
                     }
-                    .frame(width: 260, height: 140)
                     
                 }
                 
             }
+            .navigationBarTitleDisplayMode(.inline)
             .navigationDestination(isPresented: $isAddDdayViewActive) {
                 WriteDDay()
             }
