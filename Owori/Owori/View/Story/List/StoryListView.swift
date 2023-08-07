@@ -22,7 +22,7 @@ struct StoryListView: View {
     // MARK: BODY
     var body: some View {
         VStack {
-            ForEach(stories, id: \.self) { story in
+            ForEach($stories, id: \.self) { story in
                 NavigationLink {
                     StoryDetailView(storyInfo: story)
                 } label: {

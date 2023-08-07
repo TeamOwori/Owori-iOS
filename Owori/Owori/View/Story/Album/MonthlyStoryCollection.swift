@@ -24,7 +24,7 @@ struct MonthlyStoryCollection: View {
     @EnvironmentObject var userViewModel: UserViewModel
     @EnvironmentObject var storyViewModel: StoryViewModel
     
-    var storyInfo: Story.StoryInfo
+    @Binding var storyInfo: Story.StoryInfo
     
     
     // MARK: BODY
@@ -42,8 +42,7 @@ struct MonthlyStoryCollection: View {
                     NavigationLink {
 //                        StoryDetailView()
                     } label: {
-                        DailyStoryImageCell(storyImage: story.thumbnail
-                                            ?? "DefaultImage", storyImagesNumber: story.images_id?.count ?? 1)
+                        DailyStoryImageCell(storyInfo: $storyInfo)
                             .frame(width: UIScreen.main.bounds.width * 0.3, height: UIScreen.main.bounds.width * 0.3)
                     }
                 }
@@ -54,9 +53,9 @@ struct MonthlyStoryCollection: View {
 }
 
 
-// MARK: PREVIEWS
-struct MonthlyStoryCollection_Previews: PreviewProvider {
-    static var previews: some View {
-        MonthlyStoryCollection(storyInfo: Story.StoryInfo(id: 0, story_id: "0", is_liked: true, images_id: [], thumbnail: "DefaultImage", title: "Test", writer: "Test", content: "Test", comments: [], heart_count: 0, comment_count: 0, start_date: "2023-07-07", end_date: "2023-07-08"))
-    }
-}
+//// MARK: PREVIEWS
+//struct MonthlyStoryCollection_Previews: PreviewProvider {
+//    static var previews: some View {
+//        MonthlyStoryCollection(storyInfo: Story.StoryInfo(id: 0, story_id: "0", is_liked: true, story_images: [], thumbnail: "DefaultImage", title: "Test", writer: "Test", content: "Test", comments: [], heart_count: 0, comment_count: 0, start_date: "2023-07-07", end_date: "2023-07-08"))
+//    }
+//}

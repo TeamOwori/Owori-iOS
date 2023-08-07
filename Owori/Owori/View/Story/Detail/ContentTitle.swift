@@ -39,7 +39,7 @@ struct ContentTitle: View {
 
 struct ContentTitle_Previews: PreviewProvider {
     static var previews: some View {
-        ContentTitle(isFavorite: .constant(true), storyInfo: Story.StoryInfo(id: 0, story_id: "0", is_liked: true, images_id: [], thumbnail: "DefaultImage", title: "Test", writer: "Test", content: "Test", comments: [], heart_count: 0, comment_count: 0, start_date: "2023-07-07", end_date: "2023-07-08"))
+        ContentTitle(isFavorite: .constant(true), storyInfo: Story.StoryInfo(id: 0, story_id: "0", is_liked: true, story_images: [], thumbnail: "DefaultImage", title: "Test", writer: "Test", content: "Test", comments: [], heart_count: 0, comment_count: 0, start_date: "2023-07-07", end_date: "2023-07-08"))
             .environmentObject(UserViewModel())
             .environmentObject(StoryViewModel())
     }

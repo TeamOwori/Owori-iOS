@@ -21,7 +21,7 @@ struct DailyStoryListCell: View {
 //    /// - 실제 이미지가 들어오면 없어질 예정
 //    private var author: String = "쥐렁이"
     
-    var storyInfo: Story.StoryInfo
+    @Binding var storyInfo: Story.StoryInfo
     
     // MARK: BODY
     var body: some View {
@@ -30,7 +30,7 @@ struct DailyStoryListCell: View {
                 DailyStoryText(storyTitle: storyInfo.title ?? "Title", storyContent: storyInfo.content ?? "Content")
                     .padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 16))
                 Spacer()
-                DailyStoryImageCell(storyImage: storyInfo.thumbnail ?? "DefaultImage", storyImagesNumber: storyInfo.images_id?.count ?? 1)
+                DailyStoryImageCell(storyInfo: $storyInfo)
                 // ImageCell 크기 처리하는 부분 PM이랑 상의해보기(태블릿 대응)
                     .frame(width: UIScreen.main.bounds.width * 0.25, height: UIScreen.main.bounds.width * 0.25)
             }
@@ -54,6 +54,6 @@ struct DailyStoryListCell: View {
 // MARK: PREVIEWS
 struct DailyStoryListCell_Previews: PreviewProvider {
     static var previews: some View {
-        DailyStoryListCell(storyInfo: Story.StoryInfo(id: 0, story_id: "0", is_liked: true, images_id: [], thumbnail: "DefaultImage", title: "Test", writer: "Test", content: "Test", comments: [], heart_count: 0, comment_count: 0, start_date: "2023-07-07", end_date: "2023-07-08"))
+        DailyStoryListCell(storyInfo: .constant(Story.StoryInfo(id: 0, story_id: "0", is_liked: true, story_images: [], thumbnail: "DefaultImage", title: "Test", writer: "Test", content: "Test", comments: [], heart_count: 0, comment_count: 0, start_date: "2023-07-07", end_date: "2023-07-08")))
     }
 }

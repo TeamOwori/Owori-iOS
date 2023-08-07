@@ -16,7 +16,7 @@ extension Story {
         var id: Int?
         var story_id: String?
         var is_liked: Bool?
-        var images_id: [String]?
+        var story_images: [String]?
         var thumbnail: String?
         var title: String?
         var writer: String?
@@ -32,7 +32,7 @@ extension Story {
             self.id = 0
             self.story_id = ""
             self.is_liked = false
-            self.images_id = []
+            self.story_images = []
             self.thumbnail = ""
             self.title = ""
             self.writer = ""
@@ -44,11 +44,11 @@ extension Story {
             self.end_date = ""
         }
         
-        init(id: Int, story_id: String, is_liked: Bool, images_id: [String], thumbnail: String, title: String, writer: String, content: String, comments: [Comment], heart_count: Int, comment_count: Int, start_date: String, end_date: String) {
+        init(id: Int, story_id: String, is_liked: Bool, story_images: [String], thumbnail: String, title: String, writer: String, content: String, comments: [Comment], heart_count: Int, comment_count: Int, start_date: String, end_date: String) {
             self.id = 0
             self.story_id = ""
             self.is_liked = false
-            self.images_id = images_id
+            self.story_images = story_images
             self.thumbnail = thumbnail
             self.title = title
             self.writer = writer
@@ -65,8 +65,8 @@ extension Story {
 extension Story.StoryInfo {
     struct Comment: Hashable, Codable, Identifiable {
         var id: Int?
-        var parent_comment_id: Int?
-        var comment_id: Int?
+        var parent_comment_id: String?
+        var comment_id: String?
         var comment: String?
         var writer: String?
         var time_before_writing: String?

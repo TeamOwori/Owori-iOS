@@ -93,7 +93,7 @@ class StoryViewModel: ObservableObject {
                     // 임시
                     print(self?.testStoryId)
                 } catch {
-                    print("Error: Failed to parse JSON data - \(error)")
+                    print("[createStory] Error: Failed to parse JSON data - \(error)")
                 }
             }
             //            print("[Create Story Log]: \(jsonDictionary)")
@@ -166,7 +166,7 @@ class StoryViewModel: ObservableObject {
                     // User 구조체에 할당된 데이터 사용 (테스트 log)
                     print("[toggle Heart Log]: \(self?.storyModel)")
                 } catch {
-                    print("Error: Failed to parse JSON data - \(error)")
+                    print("[toggleHeart] Error: Failed to parse JSON data - \(error)")
                 }
             }
         }.resume()
@@ -242,7 +242,7 @@ class StoryViewModel: ObservableObject {
                     //                    print("[Story Model Log]: \(self?.storyModel)")
                     
                 } catch {
-                    print("Error: Failed to parse JSON data - \(error)")
+                    print("[updateStory] Error: Failed to parse JSON data - \(error)")
                 }
             }
         }.resume()
@@ -316,7 +316,7 @@ class StoryViewModel: ObservableObject {
                     print("[lookUpStory Story Model Log]: \(String(describing: self?.storyModel))")
                     completion()
                 } catch {
-                    print("Error: Failed to parse JSON data - \(error)")
+                    print("[lookUPStory] Error: Failed to parse JSON data - \(error)")
                 }
             }
         }.resume()
@@ -384,6 +384,7 @@ class StoryViewModel: ObservableObject {
                     if let storyIndex = self?.storyModel.stories.firstIndex(where: { $0.story_id == storyId }) {
                         self?.storyModel.stories[storyIndex] = try decoder.decode(Story.StoryInfo.self, from: data)
                         print("[lookUp Story Detail Log]: \(String(describing: self?.storyModel.stories[storyIndex]))")
+                        completion()
                     } else {
                         print("파싱 에러")
                     }
@@ -391,10 +392,9 @@ class StoryViewModel: ObservableObject {
                     // User 구조체에 할당된 데이터 사용 (테스트 log)
                     
                 } catch {
-                    print("Error: Failed to parse JSON data - \(error)")
+                    print("[lookUpStoryDetail] Error: Failed to parse JSON data - \(error)")
                 }
             }
-            
         }.resume()
         
     }
