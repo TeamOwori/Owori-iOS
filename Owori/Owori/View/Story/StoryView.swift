@@ -19,28 +19,34 @@ struct StoryView: View {
     
     // MARK: BODY
     var body: some View {
-        VStack {
-            StoryViewHeader()
-            HStack {
-                AlbumListButton(buttonSet: $buttonSet)
-                Spacer()
-                SortMenu()
-            }
-            .padding(EdgeInsets(top: 20, leading: 20, bottom: 20, trailing: 20))
-            ScrollView {
-                if buttonSet {
-                    StoryListView(stories: $stories)
-                } else {
-                    StoryAlbumView(stories: $stories)
+        ZStack(alignment: .bottom) {
+            VStack {
+                StoryViewHeader()
+                HStack {
+                    AlbumListButton(buttonSet: $buttonSet)
+                    Spacer()
+                    SortMenu()
+                }
+                .padding(EdgeInsets(top: 20, leading: 20, bottom: 20, trailing: 20))
+                ScrollView {
+                    if buttonSet {
+                        StoryListView(stories: $stories)
+                    } else {
+                        StoryAlbumView(stories: $stories)
+                    }
                 }
             }
-        }
-        .onAppear {
-            storyViewModel.lookUpStory(user: userViewModel.user) {
-                stories = storyViewModel.getStoryTest()
-                print("[getStoryTest]\(stories)")
+            .onAppear {
+                storyViewModel.lookUpStory(user: userViewModel.user) {
+                    stories = storyViewModel.getStoryTest()
+                    print("[getStoryTest]\(stories)")
+                }
             }
+            RecordButton()
+                // 임시로 설정
+                .padding(.bottom, 30)
         }
+        
     }
 }
 

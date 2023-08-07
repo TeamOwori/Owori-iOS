@@ -19,28 +19,27 @@ struct MainView: View {
             SelectEmotionBadge(emotionalBadgeViewIsActive: $emotionalBadgeViewIsActive)
         } else {
             TabView(selection: $selectedTab) {
-                        
-                        RealHomeView(emotionalBadgeViewIsActive: $emotionalBadgeViewIsActive)
-                            .tabItem {
-                                if selectedTab == 0 {
-                                    Image("HomeTabSelected")
-                                } else {
-                                    Image("HomeTabUnselected")
-                                }
-                            }
-                            .tag(0)
-                        
-                        StoryView()
-                            .tabItem {
-                                if selectedTab == 1 {
-                                    Image("StoryTabSelected")
-                                } else {
-                                    Image("StoryTabUnselected")
-                                }
-                            }
-                            .tag(1)
+                RealHomeView(emotionalBadgeViewIsActive: $emotionalBadgeViewIsActive)
+                    .tabItem {
+                        if selectedTab == 0 {
+                            Image("HomeTabSelected")
+                        } else {
+                            Image("HomeTabUnselected")
+                        }
                     }
-                    .navigationBarBackButtonHidden(true)
+                    .tag(0)
+                
+                StoryView()
+                    .tabItem {
+                        if selectedTab == 1 {
+                            Image("StoryTabSelected")
+                        } else {
+                            Image("StoryTabUnselected")
+                        }
+                    }
+                    .tag(1)
+            }
+            .navigationBarBackButtonHidden(true)
         }
     }
 }
