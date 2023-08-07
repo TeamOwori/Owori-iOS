@@ -1,0 +1,187 @@
+//
+//  EditMyPage.swift
+//  Owori
+//
+//  Created by 신예진 on 8/8/23.
+//
+
+import SwiftUI
+
+struct EditMyPage: View {
+    
+
+    @State private var nickname: String = ""
+    
+    @State private var birth: String = ""
+    
+    //임시 Color data
+    @State private var color = ["Orange","Pink","Yellow","Green","LightBlue","Blue","Purple"]
+    
+    @State private var isColor: Bool = false
+    
+    @State private var colors: String = ""
+    
+    var body: some View {
+        
+        VStack{
+            
+            Image("background(1)")
+                .resizable()
+                .aspectRatio(contentMode: .fill)
+                .edgesIgnoringSafeArea(.top)
+                .frame(height: UIScreen.main.bounds.height * 0.4)
+                .padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
+            
+            MyPageProfilePhoto()
+                .offset(y: -60)
+            
+            VStack(alignment: .leading, spacing: 40) {
+                
+                    VStack(alignment: .leading, spacing: 40) {
+                        
+                        //MARK: 닉네임
+                        HStack(alignment: .center, spacing: 20) {
+                            
+                            HStack {
+                                Text("닉네임")
+                                
+                                Image("초대코드입력")
+                                    .frame(width: 1, height: 21)
+                                
+                                TextField("", text: $nickname)
+                                // 텍스트가 변경될 때마다 글자 수 확인
+                                    .onChange(of: nickname) { newText in
+                                        if newText.count > 7 {
+                                            nickname = String(newText.prefix(7))
+                                        }
+                                    }
+                                Text("\(nickname.count)/7")
+                                    .overlay(Rectangle().frame(height: 1).padding(.top, 30))
+                                    .foregroundColor(.gray)
+                            }
+                            .overlay(Rectangle().frame(height: 1).padding(.top, 30))
+                            .padding(.leading,20)
+                            .padding(.trailing,20)
+                            .foregroundColor(.gray)
+                            
+                        }
+                        
+                        //MARK: 생년월일
+                        HStack(alignment: .center, spacing: 20) {
+                            
+                            HStack {
+                                Text("생년월일")
+                                
+                                TextField("", text: $birth)
+                                
+                            }
+                            .overlay(Rectangle().frame(height: 1).padding(.top, 30))
+                            .padding(.leading,20)
+                            .padding(.trailing,20)
+                            .foregroundColor(.gray)
+                            
+                        }
+                        
+                        //MARK: 마이컬러
+                        HStack(alignment: .center, spacing: 20) {
+                            
+                            HStack {
+                                Text("마이 컬러")
+                                
+                            }
+                            .padding(.leading,20)
+                            .padding(.trailing,20)
+                            .foregroundColor(.gray)
+                            
+                        }
+                        
+                    
+                      
+                        HStack(alignment: .center, spacing: 10) {
+                            
+                            ForEach(color[0 ..< color.count], id: \.self) { colorName in
+                                Button {
+                                    if colors == colorName {
+                                        isColor = false
+                                        colors = ""
+                                        
+                                    } else {
+                                        isColor = true
+                                        colors = colorName
+                                    }
+                                } label: {
+                                    ZStack {
+                                        Image(colorName)
+                                            .padding(EdgeInsets(top: 10, leading: 10, bottom: 10, trailing: 10))
+                                            .background(
+                                                Circle()
+                                                    .foregroundColor(.white)
+                                                
+                                            )
+                                        
+                                        if colors == colorName {
+                                            Image(systemName: "checkmark")
+                                                .foregroundColor(Color.oworiOrange)
+                                                .padding(EdgeInsets(top: 10, leading: 10, bottom: 10, trailing: 10))
+                                                .background(
+                                                    Circle()
+                                                        .foregroundColor(.black.opacity(0.4))
+                                                       
+                                                    
+                                                )
+                                        }
+                                    }
+                                }
+                            }
+                            
+                            
+                        }.frame(width: UIScreen.main.bounds.width*0.9)
+                        
+                    }
+                    
+                
+            }
+            .frame(width: UIScreen.main.bounds.width*0.9, alignment: .leading)
+            
+            Spacer()
+            
+        }
+        .navigationBarBackButtonHidden(true)
+        .navigationBarTitleDisplayMode(.inline)
+        .toolbar {
+            ToolbarItem(placement: .principal) {
+                
+                HStack(alignment: .center) {
+                    
+                    
+                    BackButton()
+                    
+                    Spacer()
+                    
+                    Text("프로필 편집")
+                        .font(
+                            Font.custom("Pretendard", size: 20)
+                                .weight(.bold)
+                        )
+                        .foregroundColor(Color(red: 0.13, green: 0.13, blue: 0.13))
+                    
+                    Spacer()
+                    
+                    Button {
+                       
+                    } label: {
+                        Image("Check")
+                            .frame(width: 30, height: 30)
+                    }
+                }
+                
+            }
+        }
+    }
+}
+
+struct EditMyPage_Previews: PreviewProvider {
+    static var previews: some View {
+        EditMyPage()
+    }
+}
