@@ -60,5 +60,9 @@ struct FamilyViewModelTestView: View {
 struct FamilyViewModelTestView_Previews: PreviewProvider {
     static var previews: some View {
         FamilyViewModelTestView()
+            .environmentObject(UserViewModel())
+            .environmentObject(FamilyViewModel())
+            .environmentObject(LoginViewModel())
+            .environmentObject(StoryViewModel())
     }
 }

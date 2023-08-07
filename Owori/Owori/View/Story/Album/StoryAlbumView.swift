@@ -11,14 +11,17 @@ struct StoryAlbumView: View {
     // MARK: PROPERTIES
     /// - [임시] 컬렉션의 갯수
     /// - 실제 데이터 들어오면 없어질 예정
-    private var collections = ["1", "2", "3", "4"]
+//    private var collections = ["1", "2", "3", "4"]
+    @EnvironmentObject var userViewModel: UserViewModel
+    @EnvironmentObject var storyViewModel: StoryViewModel
+    @Binding var stories: [Story.StoryInfo]
     
     // MARK: BODY
     var body: some View {
         VStack {
-            ForEach(collections, id: \.self) { collection in
-                MonthlyStoryCollection()
-                    .padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 20))
+            ForEach(stories, id: \.self) { collection in
+//                MonthlyStoryCollection()
+//                    .padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 20))
                 Divider()
                     .frame(height: 1)
                     .overlay(Color.oworiGray200)
@@ -30,6 +33,6 @@ struct StoryAlbumView: View {
 // MARK: PREVIEWS
 struct StoryAlbumView_Previews: PreviewProvider {
     static var previews: some View {
-        StoryAlbumView()
+        StoryAlbumView(stories: .constant([]))
     }
 }

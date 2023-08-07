@@ -12,6 +12,11 @@ struct StoryView: View {
     /// - true : 앨범형 / false : 리스트형
     @State private var buttonSet: Bool = true
     
+    @EnvironmentObject var userViewModel: UserViewModel
+    @EnvironmentObject var storyViewModel: StoryViewModel
+    
+    @State private var stories: [Story.StoryInfo] = []
+    
     // MARK: BODY
     var body: some View {
         VStack {
@@ -24,10 +29,16 @@ struct StoryView: View {
             .padding(EdgeInsets(top: 20, leading: 20, bottom: 20, trailing: 20))
             ScrollView {
                 if buttonSet {
-                    StoryListView()
+                    StoryListView(stories: $stories)
                 } else {
-                    StoryAlbumView()
+                    StoryAlbumView(stories: $stories)
                 }
+            }
+        }
+        .onAppear {
+            storyViewModel.lookUpStory(user: userViewModel.user) {
+                stories = storyViewModel.getStoryTest()
+                print("[getStoryTest]\(stories)")
             }
         }
     }
@@ -38,5 +49,7 @@ struct StoryView: View {
 struct StoryView_Previews: PreviewProvider {
     static var previews: some View {
         StoryView()
+            .environmentObject(UserViewModel())
+            .environmentObject(StoryViewModel())
     }
 }

@@ -172,6 +172,9 @@ struct TermsOfUse: View {
     struct TermsOfUse_Previews: PreviewProvider {
         static var previews: some View {
             TermsOfUse(isLoggedIn: .constant(false), currentIndex: .constant(5), nickname: .constant(""), birthDateText: .constant(""), familyName: .constant(""), inviteCode: .constant(""))
+                .environmentObject(UserViewModel())
+                .environmentObject(FamilyViewModel())
+                .environmentObject(LoginViewModel())
         }
     }
 }

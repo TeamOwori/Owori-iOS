@@ -86,5 +86,9 @@ struct UserViewModelTestView: View {
 struct UserViewModelTestView_Previews: PreviewProvider {
     static var previews: some View {
         UserViewModelTestView()
+            .environmentObject(UserViewModel())
+            .environmentObject(FamilyViewModel())
+            .environmentObject(LoginViewModel())
+            .environmentObject(StoryViewModel())
     }
 }

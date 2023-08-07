@@ -10,14 +10,18 @@ import SwiftUI
 struct DetailImageCell: View {
     var image: String
     var body: some View {
-        Image(image)
-            .resizable()
-            .aspectRatio(contentMode: .fill)
+        AsyncImage(url: URL(string: image)) { image in
+            image
+                .resizable()
+                .aspectRatio(contentMode: .fill)
+        } placeholder: {
+            Image("DefaultImage")
+        }
     }
 }
 
 struct DetailImageCell_Previews: PreviewProvider {
     static var previews: some View {
-        DetailImageCell(image: "TestImage1")
+        DetailImageCell(image: "DefaultImage")
     }
 }

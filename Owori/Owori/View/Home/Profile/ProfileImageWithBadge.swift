@@ -32,11 +32,7 @@ struct ProfileImageWithBadge: View {
                                     .clipShape(Circle())
                                     .shadow(color: .black.opacity(0.16), radius: 8, x: 4, y: 4)
                                     .shadow(color: .black.opacity(0.04), radius: 4, x: 4, y: -2)
-                                Button {
-                                    //                                    SelectEmotionBadge()
-                                } label: {
-                                    ProfileEmotionBadge(emotionalBadge: memberProfile.emotional_badge ?? "NONE")
-                                }
+                                ProfileEmotionBadge(emotionalBadge: memberProfile.emotional_badge ?? "NONE")
                             }
                         }
                     }
@@ -55,5 +51,7 @@ struct ProfileImageWithBadge: View {
 struct ProfileImageWithBadge_Previews: PreviewProvider {
     static var previews: some View {
         ProfileImageWithBadge(memberProfile: Family.MemberProfile())
+            .environmentObject(UserViewModel())
+            .environmentObject(FamilyViewModel())
     }
 }
