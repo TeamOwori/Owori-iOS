@@ -13,20 +13,26 @@ struct StoryListView: View {
     /// - 실제 데이터 들어오면 없어질 예정
     
     // 근데 왜 여기 private를 넣으면 에러가 나는지 이해를 못하겠음...
-//    private var lists = ["1", "2", "3", "4"]
+    //    private var lists = ["1", "2", "3", "4"]
     @EnvironmentObject var userViewModel: UserViewModel
     @EnvironmentObject var storyViewModel: StoryViewModel
     @Binding var stories: [Story.StoryInfo]
+    @State private var storyInfo: Story.StoryInfo = Story.StoryInfo()
+    @State private var storyDetailViewIsActive: Bool = false
     
     
     // MARK: BODY
     var body: some View {
         VStack {
-            ForEach($stories, id: \.self) { story in
-                NavigationLink {
-                    StoryDetailView(storyInfo: story)
+            ForEach($stories, id: \.self) { $story in
+                Button {
+                    storyViewModel.lookUpStoryDetail(user: userViewModel.user, storyId: story.story_id!) {
+                        storyInfo = storyViewModel.searchStory(story_id: story.story_id!)!
+                        print("테스트테스트테스트\(story)")
+                        storyDetailViewIsActive = true
+                    }
                 } label: {
-                    DailyStoryListCell(storyInfo: story)
+                    DailyStoryListCell(storyInfo: $story)
                         .padding(EdgeInsets(top: 20, leading: 20, bottom: 10, trailing: 20))
                     Divider()
                         .frame(height: 1)
@@ -39,7 +45,12 @@ struct StoryListView: View {
             print("리스트 테스트")
             print(stories)
         }
+        .navigationDestination(isPresented: $storyDetailViewIsActive) {
+            
+            StoryDetailView(storyInfo: $storyInfo)
+        }
     }
+    
 }
 
 // MARK: PREVIEWS

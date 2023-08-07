@@ -35,14 +35,12 @@ struct StoryDetailView: View {
         }
         .edgesIgnoringSafeArea(.top)
         .onAppear {
-            storyViewModel.lookUpStoryDetail(user: userViewModel.user, storyId: storyInfo.story_id!) {
-                storyInfo = storyViewModel.searchStory(story_id: storyInfo.story_id!)!
-                print("테스트테스트테스트\(storyInfo)")
-            }
             
         }
+        
     }
 }
+
 
 
 struct StoryDetailView_Previews: PreviewProvider {
