@@ -11,6 +11,9 @@ struct RealHomeView: View {
     @EnvironmentObject var userViewModel: UserViewModel
     @EnvironmentObject var familyViewModel: FamilyViewModel
     
+    @Binding var emotionalBadgeViewIsActive: Bool
+    @State private var notificationViewIsActive: Bool = false
+    
     var body: some View {
         ZStack {
             Color.oworiMain.ignoresSafeArea()
@@ -33,6 +36,7 @@ struct RealHomeView: View {
                         //종 버튼
                         Button {
                             // 종 버튼이 눌리면 종 버튼이 떠야됨
+                            notificationViewIsActive = true
                         } label: {
                             Image("Bell")
                                 .frame(width: 25, height: 25)
@@ -42,6 +46,7 @@ struct RealHomeView: View {
                         //스마일 버튼
                         Button {
                             // 스마일버튼이 눌리면 종 버튼이 떠야됨
+                            emotionalBadgeViewIsActive = true
                         } label: {
                             Image("smile")
                                 .frame(width: 25, height: 25)
@@ -58,13 +63,7 @@ struct RealHomeView: View {
                     .padding(.bottom, 50)
                 
                 
-                Button {
-                    //클릭하면 움직여야지
-                } label: {
-                    DDayInitialCard()
-                    
-                    
-                }
+                DDayInitialCard()
                 
                 
                 //MARK: FamilyAlbumView
@@ -78,12 +77,15 @@ struct RealHomeView: View {
                 familyViewModel.getFamily()
             }
         }
+        .navigationDestination(isPresented: $notificationViewIsActive) {
+            HomeNotificationView()
+        }
     }
 }
 
 struct RealHomeView_Previews: PreviewProvider {
     static var previews: some View {
-        RealHomeView()
+        RealHomeView(emotionalBadgeViewIsActive: .constant(false))
             .environmentObject(UserViewModel())
             .environmentObject(FamilyViewModel())
     }

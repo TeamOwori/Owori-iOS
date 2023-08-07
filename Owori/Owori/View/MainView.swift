@@ -12,31 +12,36 @@ struct MainView: View {
     
     @EnvironmentObject var userViewModel: UserViewModel
     @EnvironmentObject var familyViewModel: FamilyViewModel
+    @State private var emotionalBadgeViewIsActive: Bool = false
     
     var body: some View {
-        TabView(selection: $selectedTab) {
-            
-            RealHomeView()
-                .tabItem {
-                    if selectedTab == 0 {
-                        Image("HomeTabSelected")
-                    } else {
-                        Image("HomeTabUnselected")
+        if emotionalBadgeViewIsActive {
+            SelectEmotionBadge(emotionalBadgeViewIsActive: $emotionalBadgeViewIsActive)
+        } else {
+            TabView(selection: $selectedTab) {
+                        
+                        RealHomeView(emotionalBadgeViewIsActive: $emotionalBadgeViewIsActive)
+                            .tabItem {
+                                if selectedTab == 0 {
+                                    Image("HomeTabSelected")
+                                } else {
+                                    Image("HomeTabUnselected")
+                                }
+                            }
+                            .tag(0)
+                        
+                        StoryView()
+                            .tabItem {
+                                if selectedTab == 1 {
+                                    Image("StoryTabSelected")
+                                } else {
+                                    Image("StoryTabUnselected")
+                                }
+                            }
+                            .tag(1)
                     }
-                }
-                .tag(0)
-            
-            StoryView()
-                .tabItem {
-                    if selectedTab == 1 {
-                        Image("StoryTabSelected")
-                    } else {
-                        Image("StoryTabUnselected")
-                    }
-                }
-                .tag(1)
+                    .navigationBarBackButtonHidden(true)
         }
-        .navigationBarBackButtonHidden(true)
     }
 }
 
