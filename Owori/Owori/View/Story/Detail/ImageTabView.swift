@@ -8,22 +8,27 @@
 import SwiftUI
 
 struct ImageTabView: View {
-//    @Binding var images: [String]
-//    var images: [String]
+    //    @Binding var images: [String]
+    //    var images: [String]
     @Binding var storyInfo: Story.StoryInfo
     @Binding var currentIndex: Int
     
     var body: some View {
         ZStack(alignment: .bottomTrailing) {
-            TabView(selection: $currentIndex) {
-                ForEach(storyInfo.story_images ?? [], id: \.self) { image in
-                    NavigationLink {
-                        ZoomImages(storyInfo: storyInfo)
-                    } label: {
-                        DetailImageCell(image: image)
+            if !storyInfo.story_images!.isEmpty {
+                TabView(selection: $currentIndex) {
+                    ForEach(0 ..< (storyInfo.story_images?.count ?? 0), id: \.self) { index in
+                        NavigationLink {
+                            ZoomImages(currentIndex: $currentIndex, storyInfo: storyInfo)
+                        } label: {
+                            DetailImageCell(image: storyInfo.story_images![index])
+                        }
                     }
                 }
+            } else {
+                DetailImageCell(image: "DefaultImage")
             }
+            
             if !storyInfo.story_images!.isEmpty {
                 CurrentImageOrder(images: storyInfo.story_images!, currentIndex: $currentIndex)
                     .padding(EdgeInsets(top: 0, leading: 0, bottom: 10, trailing: 10))

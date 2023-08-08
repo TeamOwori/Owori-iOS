@@ -260,8 +260,8 @@ class StoryViewModel: ObservableObject {
         urlComponents.host = OworiAPI.host
         urlComponents.path = OworiAPI.Path.stories.rawValue
         urlComponents.queryItems = [
-//            URLQueryItem(name: "sort", value: "created_at"),
-//            URLQueryItem(name: "last_viewed", value: "yyyy-MM-dd".stringFromDate())
+            //            URLQueryItem(name: "sort", value: "created_at"),
+            //            URLQueryItem(name: "last_viewed", value: "yyyy-MM-dd".stringFromDate())
             
         ]
         guard let url = urlComponents.url else {
@@ -322,8 +322,33 @@ class StoryViewModel: ObservableObject {
         }.resume()
     }
     
-    func getStoryTest() -> [Story.StoryInfo] {
+    func getStories() -> [Story.StoryInfo] {
         return self.storyModel.stories
+    }
+    
+    func getStoriesForCollection() -> [String: [Story.StoryInfo]] {
+        
+        // "년-월"별로 스토리를 묶을 딕셔너리
+        var storiesByYearAndMonth: [String: [Story.StoryInfo]] = [:]
+        
+        // stories 배열을 돌면서 월 별로 묶고 딕셔너리 형태로 월을 표시해서 저장
+        for story in self.storyModel.stories {
+            if let startDate = story.start_date {
+                let components = startDate.components(separatedBy: "-")
+                
+                let year = components[0]
+                let month = components[1]
+                let yearAndMonth = "\(year)-\(month)"
+                
+                if storiesByYearAndMonth[yearAndMonth] == nil {
+                    storiesByYearAndMonth[yearAndMonth] = []
+                }
+                storiesByYearAndMonth[yearAndMonth]?.append(story)
+                
+            }
+        }
+        
+        return storiesByYearAndMonth
     }
     
     func lookUpStoryDetail(user: User, storyId: String, completion: @escaping () -> Void) {
@@ -399,12 +424,12 @@ class StoryViewModel: ObservableObject {
         
     }
     
-    func searchStory(story_id: String) -> Story.StoryInfo? {
+    func searchStoryByStoryId(story_id: String) -> Story.StoryInfo? {
         
         if let storyInfo = storyModel.stories.first(where: { $0.story_id == story_id }) {
             return storyInfo
         } else {
-            print("에러")
+            print("찾는 스토리가 없습니다. (storyId가 존재하지 않습니다.)")
             return nil
         }
         
