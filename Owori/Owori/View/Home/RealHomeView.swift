@@ -14,6 +14,8 @@ struct RealHomeView: View {
     @Binding var emotionalBadgeViewIsActive: Bool
     @State private var notificationViewIsActive: Bool = false
     
+    @State private var myPageViewIsActive: Bool = false
+    
     var body: some View {
         ZStack {
             Color.oworiMain.ignoresSafeArea()
@@ -46,7 +48,7 @@ struct RealHomeView: View {
                         //스마일 버튼
                         Button {
                             // 스마일버튼이 눌리면 종 버튼이 떠야됨
-                            emotionalBadgeViewIsActive = true
+                            myPageViewIsActive = true
                         } label: {
                             Image("smile")
                                 .frame(width: 25, height: 25)
@@ -80,6 +82,9 @@ struct RealHomeView: View {
         .navigationDestination(isPresented: $notificationViewIsActive) {
             HomeNotificationView()
         }
+        .navigationDestination(isPresented: $myPageViewIsActive) {
+                    MyPageProfile()
+                }
     }
 }
 

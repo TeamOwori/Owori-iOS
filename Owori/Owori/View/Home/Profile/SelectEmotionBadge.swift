@@ -97,13 +97,13 @@ struct SelectEmotionBadge: View {
                         .font(.title3)
                         .bold()
                         .foregroundColor(.white)
-                    
+                        .frame(width: UIScreen.main.bounds.width*0.6,height: UIScreen.main.bounds.height*0.05, alignment: .center)
                 }
-                .frame(width: UIScreen.main.bounds.width*0.6,height: UIScreen.main.bounds.height*0.05, alignment: .center)
                 .background(Color.oworiOrange)
                 .cornerRadius(12)
                 .shadow(color: .black.opacity(0.12), radius: 12, x: 4, y: 4)
                 .shadow(color: .black.opacity(0.1), radius: 5.5, x: 2, y: 2)
+                .padding(.bottom, 50)
                 
             }
             

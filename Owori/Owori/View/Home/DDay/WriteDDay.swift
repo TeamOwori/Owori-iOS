@@ -141,7 +141,7 @@ struct WriteDDay: View {
                     
                 }
                 
-
+                
                 
                 
             }
@@ -160,46 +160,36 @@ struct WriteDDay: View {
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
             ToolbarItem(placement: .principal) {
-                //고민되는게 X버튼이든 체크표시 버튼이든 둘다 누르면 홈화면으로 가야함.전자는 홈뷰로 고대로 돌아가면 되지만, 후자는 뷰가 업데이트 된 상황으로 가야함 -> ?? 질문...!
-                            //MARK: HEADER 작성하기
-                            HStack(alignment: .center) {
-                                
-//                                Button {
-//                                    //X버튼 누르면 그냥 홈으로 회귀
-//                                    isAddDdayViewActive = false
-//
-//                                } label: {
-//                                    Text("X")
-//                                        .foregroundColor(.black)
-//                                        .bold()
-//                                        .frame(width: 30, height: 30)
-//                                }
-                                BackToLoginButton()
-
-                                Spacer()
-                                
-                                Text("작성하기")
-                                    .font(
-                                        Font.custom("Pretendard", size: 20)
-                                            .weight(.bold)
-                                    )
-                                    .foregroundColor(Color(red: 0.13, green: 0.13, blue: 0.13))
-                                
-                                Spacer()
-                                
-                                Button {
-                                    //View가 업데이트 된 상황에서 홈으로 복귀
-                                    isAddDdayViewActive = false
-                                } label: {
-                                    Image("Check")
-                                        .frame(width: 30, height: 30)
-                                }
-                            }
-//                            .frame(width: UIScreen.main.bounds.width*0.9, height: 50, alignment: .center)
-//                            .padding(EdgeInsets(top: 0, leading: 30, bottom: 20, trailing: 30))
+                
+                //MARK: HEADER 작성하기
+                HStack(alignment: .center) {
+                    
+                    
+                    BackToLoginButton()
+                    
+                    Spacer()
+                    
+                    Text("작성하기")
+                        .font(
+                            Font.custom("Pretendard", size: 20)
+                                .weight(.bold)
+                        )
+                        .foregroundColor(Color(red: 0.13, green: 0.13, blue: 0.13))
+                    
+                    Spacer()
+                    
+                    Button {
+                        //View가 업데이트 된 상황에서 홈으로 복귀
+                        isAddDdayViewActive = false
+                    } label: {
+                        Image("Check")
+                            .frame(width: 30, height: 30)
+                    }
+                }
+                
             }
         }
-
+        
     }
 }
 

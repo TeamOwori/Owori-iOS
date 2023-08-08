@@ -10,16 +10,23 @@ import SwiftUI
 struct MyPageProfilePhoto: View {
     var body: some View {
         VStack(spacing: 4) {
-            Rectangle()
-              .foregroundColor(.clear)
-              .frame(width: 100, height: 100)
-              .background(
-                ZStack {
-                    Image("ProfileImage")
-                        .resizable()
-                }
-              )
-              .cornerRadius(60)
+            
+            Button{
+                //프로필 사진 변경하게 앨범으로 들어가게끔 해야함??!
+            }label: {
+                Rectangle()
+                  .foregroundColor(.clear)
+                  .frame(width: 100, height: 100)
+                  .background(
+                    ZStack {
+                        Image("ProfileImage")
+                            .resizable()
+                    }
+                  )
+                  .cornerRadius(60)
+                
+            }
+        
         }
     }
 }
