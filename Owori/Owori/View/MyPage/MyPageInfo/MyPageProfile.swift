@@ -16,14 +16,14 @@ struct MyPageProfile: View {
         
         VStack{
             
-            Image("background(1)")
+            Image("background")
                 .resizable()
                 .aspectRatio(contentMode: .fill)
-                .edgesIgnoringSafeArea(.top)
+                .edgesIgnoringSafeArea(.all)
                 .frame(height: UIScreen.main.bounds.height * 0.4)
-                .padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
             
-            MyPageProfilePhoto().offset(y: -60)
+            MyPageProfilePhoto()
+                .offset(y: -60)
             
             VStack(alignment: .leading, spacing: 40) {
                 
@@ -36,18 +36,21 @@ struct MyPageProfile: View {
                     }
                     
                 }
-                .padding(0)
-                .frame(maxWidth: .infinity, alignment: .leading)
-                
             }
-            .padding(0)
-            .frame(width: 298, alignment: .leading)
+//            .frame(width: 298, alignment: .leading)
             
             Spacer()
             
         }
         .navigationBarBackButtonHidden(true)
         .navigationBarTitleDisplayMode(.inline)
+        //이렇게 말고
+//        .navigationDestination(isPresented: $editMyPageIsActive) {
+//            EditMyPage()
+//        }
+//        .navigationDestination(isPresented: $settingViewIsActive) {
+//            SettingView()
+//        }
         .toolbar {
             ToolbarItem(placement: .navigationBarLeading) {
                 BackButton()
@@ -78,12 +81,6 @@ struct MyPageProfile: View {
                 }
                 
             }
-        }
-        .navigationDestination(isPresented: $editMyPageIsActive) {
-            EditMyPage()
-        }
-        .navigationDestination(isPresented: $settingViewIsActive) {
-            SettingView()
         }
     }
 }

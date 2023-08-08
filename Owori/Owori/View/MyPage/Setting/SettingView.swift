@@ -25,12 +25,13 @@ struct SettingView: View {
     }
     
     var body: some View {
-        NavigationStack {
+        
             List {
                 Group {
                     Section {
                         HStack {
                             Text("자동 로그인")
+                            
                                 .foregroundColor(.oworiGray700)
                             Spacer()
                             Toggle("", isOn: $autoLogin)
@@ -71,10 +72,8 @@ struct SettingView: View {
                         //.foregroundColor(.oworiGray600)
                     } header: {
                         Text("맞춤설정")
-                            .font(
-                                Font.custom("Pretendard", size: 18)
-                                    .weight(.semibold)
-                            )
+                            .font(.title3)
+                            .bold()
                             .foregroundColor(.black)
                     }
                     Section {
@@ -96,10 +95,8 @@ struct SettingView: View {
                         }
                     } header: {
                         Text("고객센터")
-                            .font(
-                                Font.custom("Pretendard", size: 18)
-                                    .weight(.semibold)
-                            )
+                            .font(.title3)
+                            .bold()
                             .foregroundColor(.black)
                     }
                     Section {
@@ -139,10 +136,8 @@ struct SettingView: View {
                         }
                     } header: {
                         Text("앱 정보")
-                            .font(
-                                Font.custom("Pretendard", size: 18)
-                                    .weight(.semibold)
-                            )
+                            .font(.title3)
+                            .bold()
                             .foregroundColor(.black)
                     }
                     Section {
@@ -156,10 +151,8 @@ struct SettingView: View {
                         }
                     } header: {
                         Text("About 오월이")
-                            .font(
-                                Font.custom("Pretendard", size: 18)
-                                    .weight(.semibold)
-                            )
+                            .font(.title3)
+                            .bold()
                             .foregroundColor(.black)
                     }
                     Section {
@@ -179,19 +172,26 @@ struct SettingView: View {
                         //.foregroundColor(.oworiGray600)
                     } header: {
                         Text("기타")
-                            .font(
-                                Font.custom("Pretendard", size: 18)
-                                    .weight(.semibold)
-                            )
+                            .font(.title3)
+                            .bold()
                             .foregroundColor(.black)
                     }
-                    .navigationBarTitle("설정")
-                    .navigationBarTitleDisplayMode(.inline)
                 }
                 .listRowBackground(Color.oworiMain.opacity(0.5))
             }
+            .navigationBarBackButtonHidden(true)
             .navigationBarTitleDisplayMode(.inline)
-        }
+            .toolbar {
+                ToolbarItem(placement: .navigationBarLeading) {
+                    BackButton()
+                }
+                ToolbarItem(placement: .principal) {
+                    Text("설정")
+                        .font(.title)
+                        .bold()
+                        .foregroundColor(Color.black)
+                }
+            }.background(Color.oworiMain)
     }
 }
 

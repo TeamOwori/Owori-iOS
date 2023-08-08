@@ -40,8 +40,7 @@ struct MyPageProfileInfo: View {
                         .bold())
                     .foregroundColor(Color.oworiGray700)
             }
-            .padding(0)
-            .frame(maxWidth: .infinity, alignment: .leading)
+            
             
             HStack(alignment: .center, spacing: 20) {
                 Text("생년월일\t")
@@ -56,8 +55,7 @@ struct MyPageProfileInfo: View {
                     .foregroundColor(Color.oworiGray700)
                 
             }
-            .padding(0)
-            .frame(maxWidth: .infinity, alignment: .leading)
+            
             
             HStack(alignment: .center, spacing: 16) {
                 Text("마이 컬러\t")
@@ -71,7 +69,6 @@ struct MyPageProfileInfo: View {
                     .frame(width: 24, height: 24)
                 
             }
-            .padding(0)
             
         }
     }

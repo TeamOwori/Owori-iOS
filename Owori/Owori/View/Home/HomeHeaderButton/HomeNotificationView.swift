@@ -24,8 +24,8 @@ struct HomeNotificationView: View {
     // 날짜,시간
     private var date = "05/21 12:34"
     
+    
     var body: some View {
-        
         
         VStack(alignment: .leading, spacing: 30){
             
