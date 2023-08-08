@@ -24,30 +24,39 @@ struct MonthlyStoryCollection: View {
     @EnvironmentObject var userViewModel: UserViewModel
     @EnvironmentObject var storyViewModel: StoryViewModel
     
-    @Binding var storyInfo: Story.StoryInfo
+    //    @Binding var storyInfo: Story.StoryInfo
+    var storiesForCollection: [String: [Story.StoryInfo]]
     
     
     // MARK: BODY
     var body: some View {
         VStack(alignment: .leading) {
-            // 날짜
-            Text("yyyy.MM".stringFromDate())
-                .font(.title3)
-                .bold()
-                .padding(EdgeInsets(top: 20, leading: 0, bottom: 0, trailing: 0))
             
-            // Album Collection View
-            LazyVGrid(columns: columns, spacing: 12) {
-                ForEach(storyViewModel.storyModel.stories, id: \.self) { story in
-                    NavigationLink {
-//                        StoryDetailView()
-                    } label: {
-                        DailyStoryImageCell(storyInfo: $storyInfo)
-                            .frame(width: UIScreen.main.bounds.width * 0.3, height: UIScreen.main.bounds.width * 0.3)
+            ForEach(storiesForCollection.sorted(by: { $0.key < $1.key}), id: \.key) { yearAndMonth, stories in
+                // 날짜
+                Text(yearAndMonth.stringFromDate())
+                    .font(.title3)
+                    .bold()
+                    .padding(EdgeInsets(top: 20, leading: 0, bottom: 0, trailing: 0))
+                
+                // Album Collection View
+                LazyVGrid(columns: columns, spacing: 12) {
+                    ForEach(stories, id: \.self) { story in
+                        NavigationLink {
+                            //                        StoryDetailView()
+                        } label: {
+                            // 임시
+                            Text("\(story.title!)")
+                            //                        DailyStoryImageCell(storyInfo: story)
+                            //                            .frame(width: UIScreen.main.bounds.width * 0.3, height: UIScreen.main.bounds.width * 0.3)
+                        }
                     }
                 }
             }
             .padding(EdgeInsets(top: 16, leading: 0, bottom: 20, trailing: 0))
+        }
+        .onAppear {
+            print("TEST StoriesForCollection : \(storiesForCollection)")
         }
     }
 }

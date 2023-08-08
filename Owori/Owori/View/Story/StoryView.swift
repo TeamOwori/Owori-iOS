@@ -38,8 +38,9 @@ struct StoryView: View {
             }
             .onAppear {
                 storyViewModel.lookUpStory(user: userViewModel.user) {
-                    stories = storyViewModel.getStoryTest()
+                    stories = storyViewModel.getStories()
                     print("[getStoryTest]\(stories)")
+                    print("[getStoriesForcollection] : \(storyViewModel.getStoriesForCollection())")
                 }
             }
             RecordButton()
