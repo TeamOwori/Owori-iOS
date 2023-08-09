@@ -27,11 +27,12 @@ struct ZoomImages: View {
                 // storyInfo 적용해야 함.
                 TabView(selection: $currentIndex) {
                     ForEach(0 ..< (storyInfo.story_images?.count ?? 0), id: \.self) { index in
-                        DetailImageCell(image: storyInfo.story_images![index])
+                        ZoomDetailImageCell(image: storyInfo.story_images![index])
                     }
                 }
                 HorizontalImageScrollView(images: storyInfo.story_images ?? [], currentIndex: $currentIndex)
                     .padding(EdgeInsets(top: 0, leading: 0, bottom: 20, trailing: 0))
+                Spacer()
             }
             
         }
