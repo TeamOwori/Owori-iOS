@@ -102,6 +102,8 @@ class StoryViewModel: ObservableObject {
     
     func toggleHeart(user: User, storyId: String) {
         
+        guard let sendData = try? JSONSerialization.data(withJSONObject: storyId, options: []) else { return }
+        
         // 요청을 보낼 API의 url 설정
         // 배포 후 url 설정
         var urlComponents = URLComponents()
@@ -117,7 +119,7 @@ class StoryViewModel: ObservableObject {
         //        let url = URL(string: "http://localhost:8080/api/v1/hearts/\(storyId)")!
         
         // url 테스트 log
-        print("[createStory url Log] : \(url)")
+        print("[toggleHeart url Log] : \(url)")
         
         // urlRequeset에 함께 담을 header, body 설정
         var urlRequest = URLRequest(url: url)
@@ -125,6 +127,7 @@ class StoryViewModel: ObservableObject {
         urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
         urlRequest.setValue("Bearer " + (user.jwt_token?.access_token)!, forHTTPHeaderField: "Authorization")
         urlRequest.setValue(user.member_id, forHTTPHeaderField: "member_id")
+        urlRequest.httpBody = sendData
         
         // 요청
         URLSession.shared.dataTask(with: urlRequest) { (data, response, error) in
@@ -173,6 +176,7 @@ class StoryViewModel: ObservableObject {
     }
     
     func updateStory(user: User, storyInfo: [String: Any]) {
+        guard let sendData = try? JSONSerialization.data(withJSONObject: storyInfo, options: []) else { return }
         
         // 요청을 보낼 API의 url 설정
         // 배포 후 url 설정
@@ -197,6 +201,7 @@ class StoryViewModel: ObservableObject {
         urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
         urlRequest.setValue("Bearer " + (user.jwt_token?.access_token)!, forHTTPHeaderField: "Authorization")
         urlRequest.setValue(user.member_id, forHTTPHeaderField: "member_id")
+        urlRequest.httpBody = sendData
         
         // 요청
         URLSession.shared.dataTask(with: urlRequest) { (data, response, error) in
