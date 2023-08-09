@@ -19,6 +19,13 @@ struct StoryRecordView: View {
     
     @State private var content: String = ""
     
+    
+    // 자료형 임시 설정
+    @State private var storyInfo: [String: Any] = [:]
+    
+    @EnvironmentObject var storyViewModel: StoryViewModel
+    @EnvironmentObject var userViewModel: UserViewModel
+    
     var contentPlaceholder: String = "추억을 기록해봐요:) 500자까지 입력할 수 있어요"
     
     var body: some View {
@@ -124,7 +131,17 @@ struct StoryRecordView: View {
             
             
             Button {
-                
+                // story_images 임시
+                // date 포멘 변경 임시
+                storyInfo = [
+                    "start_date": /*"\(startDate)"*/"2021-12-12",
+                    "end_date": /*"\(endDate)"*/"2021-12-12",
+                    "title": "\(title)",
+                    "content": "\(content)",
+                    "story_images": []
+                    ]
+                print("storyInfo 작성 테스트 : \(storyInfo)")
+                storyViewModel.createStory(user: userViewModel.user, storyInfo: storyInfo)
             } label: {
                 Text("작성 완료")
                     .frame(width: 300, height: 50)
