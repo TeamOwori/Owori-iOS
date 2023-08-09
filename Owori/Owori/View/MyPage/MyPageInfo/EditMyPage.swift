@@ -95,8 +95,6 @@ struct EditMyPage: View {
                             
                         }
                         
-                    
-                      
                         HStack(alignment: .center, spacing: 10) {
                             
                             ForEach(color[0 ..< color.count], id: \.self) { colorName in
