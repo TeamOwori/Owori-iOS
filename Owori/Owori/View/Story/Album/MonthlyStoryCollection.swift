@@ -26,6 +26,8 @@ struct MonthlyStoryCollection: View {
     
     //    @Binding var storyInfo: Story.StoryInfo
     var storiesForCollection: [String: [Story.StoryInfo]]
+    @Binding var storyInfo: Story.StoryInfo
+    @State private var storyDetailViewIsActiveFromStoryAlbum: Bool = false
     
     
     // MARK: BODY
@@ -42,18 +44,26 @@ struct MonthlyStoryCollection: View {
                 // Album Collection View
                 LazyVGrid(columns: columns, spacing: 12) {
                     ForEach(stories, id: \.self) { story in
-                        NavigationLink {
-                            //                        StoryDetailView()
+                        Button {
+                            storyViewModel.lookUpStoryDetail(user: userViewModel.user, storyId: story.story_id!) {
+                                storyInfo = storyViewModel.searchStoryByStoryId(story_id: story.story_id!)!
+                                print("테스트테스트테스트\(story)")
+                                storyDetailViewIsActiveFromStoryAlbum = true
+                            }
                         } label: {
                             // 임시
-                            Text("\(story.title!)")
-                            //                        DailyStoryImageCell(storyInfo: story)
-                            //                            .frame(width: UIScreen.main.bounds.width * 0.3, height: UIScreen.main.bounds.width * 0.3)
+                            //                            Text("\(story.title!)")
+                            // 바인딩 된 값은... .constant()로 묶어서 보내면 바인딩처리 해줄 수 있습니다...
+                            DailyStoryImageCell(storyInfo: .constant(story))
+                                .frame(width: UIScreen.main.bounds.width * 0.3, height: UIScreen.main.bounds.width * 0.3)
                         }
                     }
                 }
             }
             .padding(EdgeInsets(top: 16, leading: 0, bottom: 20, trailing: 0))
+        }
+        .navigationDestination(isPresented: $storyDetailViewIsActiveFromStoryAlbum) {
+            StoryDetailView(storyInfo: $storyInfo)
         }
         .onAppear {
             print("TEST StoriesForCollection : \(storiesForCollection)")
@@ -62,9 +72,9 @@ struct MonthlyStoryCollection: View {
 }
 
 
-//// MARK: PREVIEWS
-//struct MonthlyStoryCollection_Previews: PreviewProvider {
-//    static var previews: some View {
-//        MonthlyStoryCollection(storyInfo: Story.StoryInfo(id: 0, story_id: "0", is_liked: true, story_images: [], thumbnail: "DefaultImage", title: "Test", writer: "Test", content: "Test", comments: [], heart_count: 0, comment_count: 0, start_date: "2023-07-07", end_date: "2023-07-08"))
-//    }
-//}
+// MARK: PREVIEWS
+struct MonthlyStoryCollection_Previews: PreviewProvider {
+    static var previews: some View {
+        MonthlyStoryCollection(storiesForCollection: ["2023-08": [ Story.StoryInfo(id: 0, story_id: "0", is_liked: true, story_images: [], thumbnail: "DefaultImage", title: "Test", writer: "Test", content: "Test", comments: [], heart_count: 0, comment_count: 0, start_date: "2023-07-07", end_date: "2023-07-08"), Story.StoryInfo(id: 0, story_id: "0", is_liked: true, story_images: [], thumbnail: "DefaultImage", title: "Test", writer: "Test", content: "Test", comments: [], heart_count: 0, comment_count: 0, start_date: "2023-07-07", end_date: "2023-07-08"), Story.StoryInfo(id: 0, story_id: "0", is_liked: true, story_images: [], thumbnail: "DefaultImage", title: "Test", writer: "Test", content: "Test", comments: [], heart_count: 0, comment_count: 0, start_date: "2023-07-07", end_date: "2023-07-08")]], storyInfo: .constant(Story.StoryInfo(id: 0, story_id: "0", is_liked: true, story_images: [], thumbnail: "DefaultImage", title: "Test", writer: "Test", content: "Test", comments: [], heart_count: 0, comment_count: 0, start_date: "2023-07-07", end_date: "2023-07-08")))
+    }
+}

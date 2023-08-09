@@ -15,7 +15,7 @@ struct ImageTabView: View {
     
     var body: some View {
         ZStack(alignment: .bottomTrailing) {
-            if !storyInfo.story_images!.isEmpty {
+            if !(storyInfo.story_images ?? []).isEmpty {
                 TabView(selection: $currentIndex) {
                     ForEach(0 ..< (storyInfo.story_images?.count ?? 0), id: \.self) { index in
                         NavigationLink {
@@ -29,8 +29,8 @@ struct ImageTabView: View {
                 DetailImageCell(image: "DefaultImage")
             }
             
-            if !storyInfo.story_images!.isEmpty {
-                CurrentImageOrder(images: storyInfo.story_images!, currentIndex: $currentIndex)
+            if !(storyInfo.story_images ?? []).isEmpty {
+                CurrentImageOrder(images: (storyInfo.story_images ?? []), currentIndex: $currentIndex)
                     .padding(EdgeInsets(top: 0, leading: 0, bottom: 10, trailing: 10))
             }
         }

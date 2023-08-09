@@ -15,6 +15,7 @@ struct StoryAlbumView: View {
     @EnvironmentObject var userViewModel: UserViewModel
     @EnvironmentObject var storyViewModel: StoryViewModel
     @Binding var stories: [Story.StoryInfo]
+    @State private var storyInfo: Story.StoryInfo = Story.StoryInfo()
     @State private var storiesForCollection: [String: [Story.StoryInfo]] = [:]
     
     // MARK: BODY
@@ -22,7 +23,7 @@ struct StoryAlbumView: View {
         VStack {
             // 임시 테스트 storiViewModle -> stories로 사용해야됨
             ForEach(storiesForCollection.sorted(by: { $0.key < $1.key }), id: \.key) { yearAndMonth, collection in
-                MonthlyStoryCollection(storiesForCollection: [yearAndMonth: collection])
+                MonthlyStoryCollection(storiesForCollection: [yearAndMonth: collection], storyInfo: $storyInfo)
                     .padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 20))
                 Divider()
                     .frame(height: 1)
@@ -31,6 +32,7 @@ struct StoryAlbumView: View {
         }
         .onAppear {
             storiesForCollection = storyViewModel.getStoriesForCollection()
+            print("storiesForcollection Test log : \(storiesForCollection)")
         }
     }
 }
