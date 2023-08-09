@@ -82,36 +82,6 @@ struct AddFamilyPhoto: View {
                         .stroke(Color.oworiGray300)
                 }
                 
-//                ZStack {
-//                    RoundedRectangle(cornerRadius: 12)
-//                        .foregroundColor(.white)
-//                        .frame(width: UIScreen.main.bounds.width * 0.76, height: UIScreen.main.bounds.height * 0.21)
-//                        .overlay(
-//                            RoundedRectangle(cornerRadius: 12)
-//                                .inset(by: 0.5)
-//                                .stroke(Color.oworiGray300)
-//                        )
-//
-//                    //MARK: 글자 제한 - JoinNickName 코드 참고
-//                    TextField("어떤 사진인가요?짧게 기록을 남겨봐요",text:  $photoDescription)
-//                        .onChange(of: photoDescription) { newText in
-//                            if newText.count > 50 {
-//                                photoDescription = String(newText.prefix(50))
-//                            }
-//                        }
-//                        .padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 0))
-//                        .offset(y:-20)
-//                        .offset(x:40)
-//
-//                    Text("\(photoDescription.count)/50")
-//                        .foregroundColor(Color.oworiGray300)
-//                        .font(Font.custom("Pretendard", size: 12))
-//                        .kerning(0.18)
-//                        .padding(EdgeInsets(top: 0, leading: 30, bottom: 20, trailing: 0))
-//                        .offset(y:60)
-//                        .offset(x:100)
-//
-//                }
             }
             
             
@@ -133,14 +103,19 @@ struct AddFamilyPhoto: View {
                 }.disabled(photoisOn.description.isEmpty || photoDescription.isEmpty)
             }
         }
-        .navigationBarTitleDisplayMode(.inline)
         .navigationBarBackButtonHidden(true)
-        .navigationBarItems(leading: BackButton())
+        .navigationBarTitleDisplayMode(.inline)
         .toolbar {
+            ToolbarItem(placement: .navigationBarLeading) {
+                BackButton()
+            }
             ToolbarItem(placement: .principal) {
                 Text("사진 올리기")
-                    .font(.title3)
-                    .bold()
+                    .font(
+                        Font.custom("Pretendard", size: 20)
+                            .weight(.bold)
+                    )
+                    .foregroundColor(Color(red: 0.13, green: 0.13, blue: 0.13))
             }
         }
     }

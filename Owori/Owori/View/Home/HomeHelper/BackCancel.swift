@@ -14,7 +14,7 @@ struct BackCancel: View {
         Button {
             self.presentationMode.wrappedValue.dismiss()
         } label: {
-            Image(systemName: "xmark")
+            Image("Close")
                 .aspectRatio(contentMode: .fit)
                 .foregroundColor(.white)
         }

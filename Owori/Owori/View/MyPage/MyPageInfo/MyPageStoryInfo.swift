@@ -42,7 +42,6 @@ struct MyPageStoryInfo: View {
                 
                 
             }
-            .padding(0)
             .frame(width: 82, alignment: .top)
             .background(.white)
             
@@ -64,7 +63,6 @@ struct MyPageStoryInfo: View {
                 
                 
             }
-            .padding(0)
             .frame(width: 82, alignment: .top)
             .background(.white)
             
@@ -85,7 +83,6 @@ struct MyPageStoryInfo: View {
                 
                 
             }
-            .padding(0)
             .frame(width: 82, alignment: .top)
             .background(.white)
             
