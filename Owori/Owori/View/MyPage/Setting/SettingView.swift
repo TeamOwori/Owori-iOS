@@ -21,16 +21,16 @@ struct SettingView: View {
     
     @State private var InviteViewIsActive:Bool = false
     
-    init() {
-        // 커스텀된 네비게이션바 배경색 설정
-        let coloredNavigationBar = UINavigationBarAppearance()
-        coloredNavigationBar.backgroundColor = UIColor(Color.oworiMain)
-        
-        // 스크롤 할 떄, 스크롤하지 않을 때의 색상 적용
-        UINavigationBar.appearance().scrollEdgeAppearance = coloredNavigationBar
-        // 일반(스크롤하지 않을 떄)
-        UINavigationBar.appearance().standardAppearance = coloredNavigationBar
-    }
+//    init() {
+//        // 커스텀된 네비게이션바 배경색 설정
+//        let coloredNavigationBar = UINavigationBarAppearance()
+//        coloredNavigationBar.backgroundColor = UIColor(Color.oworiMain)
+//
+//        // 스크롤 할 떄, 스크롤하지 않을 때의 색상 적용
+//        UINavigationBar.appearance().scrollEdgeAppearance = coloredNavigationBar
+//        // 일반(스크롤하지 않을 떄)
+//        UINavigationBar.appearance().standardAppearance = coloredNavigationBar
+//    }
     
     var body: some View {
         
@@ -335,12 +335,12 @@ struct SettingView: View {
             .listRowBackground(Color.oworiMain.opacity(0.3))
             .cornerRadius(12)
         }
-        .navigationBarBackButtonHidden(true)
+//        .navigationBarBackButtonHidden(true)
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
-            ToolbarItem(placement: .navigationBarLeading) {
-                BackButton()
-            }
+//            ToolbarItem(placement: .navigationBarLeading) {
+//                BackButton()
+//            }
             ToolbarItem(placement: .principal) {
                 Text("설정")
                     .font(.title3)

@@ -11,9 +11,12 @@ struct SelectEmotionBadge: View {
     @State private var isEmotion: Bool = false
     
     // 임시 emotionalbadges 데이터 변수
-    @State private var emotionalbadges = ["JOY", "HAPPY", "SO_HAPPY", "LOVE", "SURPRISED", "INSIDIOUS", "NORMAL", "SLEEPY", "FAINT", "SULKY", "SAD", "CRY", "GOOSE_BUMPS", "ANGRY", "VERY_ANGRY"]
+    @State private var emotionalbadges = ["JOY", "HAPPY", "SO_HAPPY", "LOVE", "SURRISED", "INSIDIOUS", "NORMAL", "SLEEPY", "FAINT", "SULKY", "SAD", "CRY", "GOOSE_BUMPS", "ANGRY", "VERY_ANGRY"]
     
     @Binding var emotionalBadgeViewIsActive: Bool
+    
+    @EnvironmentObject var userViewModel: UserViewModel
+    @EnvironmentObject var familyViewModel: FamilyViewModel
     
     private let columns: [GridItem] = [
         GridItem(.flexible()),
@@ -27,8 +30,7 @@ struct SelectEmotionBadge: View {
         
         ZStack {
             Color.oworiMain
-                .ignoresSafeArea()
-            
+                .edgesIgnoringSafeArea(.all)
             
             VStack{
                 
@@ -90,6 +92,9 @@ struct SelectEmotionBadge: View {
                 
                 Button {
                     //확인 누르면 업데이트 된 화면으로 넘어가야됨.
+                    userViewModel.updateEmotionalBadge(body: ["emotional_badge": emotionalBadge]) {
+                        emotionalBadgeViewIsActive = false
+                    }
                     
                 } label: {
                     
@@ -125,5 +130,7 @@ struct SelectEmotionBadge: View {
 struct SelectEmotionBadge_Previews: PreviewProvider {
     static var previews: some View {
         SelectEmotionBadge(emotionalBadgeViewIsActive: .constant(true))
+            .environmentObject(UserViewModel())
+            .environmentObject(FamilyViewModel())
     }
 }

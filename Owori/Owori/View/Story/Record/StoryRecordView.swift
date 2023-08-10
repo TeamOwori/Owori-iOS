@@ -27,9 +27,9 @@ struct StoryRecordView: View {
     @State private var selectedImages = [UIImage]()
     
     
-    // 자료형 임시 설정
-    @State private var storyInfo: [String: Any] = [:]
-    @State private var storyInfoDictionary: [String: Any] = [:]
+//    // 자료형 임시 설정
+//    @State private var storyInfo: [String: Any] = [:]
+//    @State private var storyInfoDictionary: [String: Any] = [:]
     
     @EnvironmentObject var storyViewModel: StoryViewModel
     @EnvironmentObject var userViewModel: UserViewModel
@@ -37,7 +37,7 @@ struct StoryRecordView: View {
     var contentPlaceholder: String = "추억을 기록해봐요:) 500자까지 입력할 수 있어요"
     
     var body: some View {
-        VStack {
+        ScrollView {
             //DatePicker
             HStack {
                 DatePicker(
@@ -148,37 +148,7 @@ struct StoryRecordView: View {
             }
             
             
-            Button {
-                
-                
-                if !selectedImages.isEmpty {
-                    storyViewModel.uploadImages(user: userViewModel.user, images: selectedImages) { uploadedStoryImagesUrl in
-                        storyImages = uploadedStoryImagesUrl
-                        print(storyImages)
-                        storyInfoDictionary = storyViewModel.createStoryInfoToDictionary(startDate: startDate, endDate: endDate, title: title, content: content, storyImages: storyImages)
-                        print("storyInfo 작성 테스트 : \(storyInfoDictionary)")
-                        storyViewModel.createStory(user: userViewModel.user, storyInfo: storyInfoDictionary)
-                    }
-                } else {
-                    storyInfoDictionary = storyViewModel.createStoryInfoToDictionary(startDate: startDate, endDate: endDate, title: title, content: content, storyImages: storyImages)
-                    print("storyInfo 작성 테스트 : \(storyInfoDictionary)")
-                    storyViewModel.createStory(user: userViewModel.user, storyInfo: storyInfoDictionary)
-                }
-                
-                
-                
-                
-                
-                
-            } label: {
-                Text("작성 완료")
-                    .frame(width: 300, height: 50)
-                    .foregroundColor(.white)
-                    .background(Color.oworiOrange)
-                    .cornerRadius(12)
-            }
-            // 나중에 설정하기
-            .disabled(false)
+            RecordSuccessButton(startDate: $startDate, endDate: $endDate, title: $title, content: $content, storyImages: $storyImages, selectedImages: $selectedImages)
             
         }
         .padding(EdgeInsets(top: 0, leading: 15, bottom: 0, trailing: 15))
@@ -192,6 +162,7 @@ struct StoryRecordView: View {
                     .bold()
             }
         }
+        
     }
 }
 

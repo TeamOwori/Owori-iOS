@@ -9,14 +9,14 @@ import SwiftUI
 
 struct MyPageProfile: View {
     
-    @State private var editMyPageIsActive: Bool = false
-    @State private var settingViewIsActive: Bool = false
+//    @State private var editMyPageIsActive: Bool = false
+//    @State private var settingViewIsActive: Bool = false
     
     var body: some View {
         
-        VStack{
+        ScrollView {
             
-            VStack{
+            VStack {
                 Image("background")
                     .resizable()
                     .aspectRatio(contentMode: .fill)
@@ -44,7 +44,8 @@ struct MyPageProfile: View {
             Spacer()
             
         }
-        .navigationBarBackButtonHidden(true)
+        .edgesIgnoringSafeArea(.top)
+//        .navigationBarBackButtonHidden(true)
         .navigationBarTitleDisplayMode(.inline)
         //이렇게 말고
         //        .navigationDestination(isPresented: $editMyPageIsActive) {
@@ -54,16 +55,17 @@ struct MyPageProfile: View {
 //                    SettingView()
 //                }
         .toolbar {
-            ToolbarItem(placement: .navigationBarLeading) {
-                BackButton()
-            }
+//            ToolbarItem(placement: .navigationBarLeading) {
+//                BackButton()
+//            }
             ToolbarItem(placement: .navigationBarTrailing) {
                 
                 HStack{
                     
-                    Button {
+                    NavigationLink {
                         //edit 버튼 누르면 작동
-                        editMyPageIsActive = true
+//                        editMyPageIsActive = true
+                        EditMyPage()
                     } label: {
                         Image("Edit")
                             .frame(width: 25, height: 25)
@@ -71,15 +73,16 @@ struct MyPageProfile: View {
                     }
                     
                     //설정
-                    Button {
+                    NavigationLink {
                         //설정으로 넘어가게
-                        settingViewIsActive = true
+//                        settingViewIsActive = true
+                        SettingView()
                     } label: {
                         Image("Setting")
                             .frame(width: 25, height: 25)
-                        
+
                     }
-                    
+//
                 }
                 
             }
