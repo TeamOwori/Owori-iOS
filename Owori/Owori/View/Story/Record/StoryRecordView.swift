@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import PhotosUI
 
 struct StoryRecordView: View {
     
@@ -18,6 +19,10 @@ struct StoryRecordView: View {
     @State private var title: String = ""
     
     @State private var content: String = ""
+    
+    
+    @State private var selectedItems = [PhotosPickerItem]()
+    @State private var selectedImages = [UIImage]()
     
     
     // 자료형 임시 설정
@@ -112,34 +117,47 @@ struct StoryRecordView: View {
                         .font(.title3)
                         .bold()
                     
-                    Button{
-                        //MARK: 사진 올리는 버튼 - API 연동
-                        
-                    } label: {
-                        Image(systemName: "plus")
-                            .foregroundColor(Color.oworiGray300)
-                            .padding(EdgeInsets(top: 40, leading: 40, bottom: 40, trailing: 40))
-                            .overlay(
-                                RoundedRectangle(cornerRadius: 12)
-                                    .inset(by: 0.5)
-                                    .stroke(Color.oworiGray300, style: StrokeStyle(lineWidth: 1, dash: [5, 5]))
-                            )
+                    
+                    if selectedImages.isEmpty {
+                            PhotosPickerButton(selectedItems: $selectedItems, selectedImages: $selectedImages)
+                    } else {
+                        ScrollView(.horizontal) {
+                            HStack {
+                                PhotosPickerButton(selectedItems: $selectedItems, selectedImages: $selectedImages)
+                                
+                                if selectedImages.count > 0 {
+                                    ForEach(selectedImages, id: \.self) { image in
+                                        Image(uiImage: image)
+                                            .resizable()
+                                            .frame(width: 100, height: 100)
+                                    }
+                                }
+                            }
+                        }
                     }
                 }
             }
             
+            Button {
+                storyViewModel.uploadImages(user: userViewModel.user, images: selectedImages)
+            } label: {
+                Text("이미지 업로드 테스트")
+            }
             
             
             Button {
+
+                
                 // story_images 임시
                 // date 포멘 변경 임시
                 storyInfo = [
-                    "start_date": /*"\(startDate)"*/"2021-12-12",
-                    "end_date": /*"\(endDate)"*/"2021-12-12",
+                    "start_date": "\(startDate.formatDateToString(format: "yyyy-MM-dd"))",
+                    "end_date": "\(endDate.formatDateToString(format: "yyyy-MM-dd"))",
                     "title": "\(title)",
                     "content": "\(content)",
+                    // image 임시 데이터 추가 해야함.
                     "story_images": []
-                    ]
+                ]
                 print("storyInfo 작성 테스트 : \(storyInfo)")
                 storyViewModel.createStory(user: userViewModel.user, storyInfo: storyInfo)
             } label: {
@@ -164,7 +182,6 @@ struct StoryRecordView: View {
                     .bold()
             }
         }
-        
     }
 }
 

@@ -16,6 +16,7 @@ fileprivate enum OworiAPI {
         case stories = "/api/v1/stories"
         case storiesUpdate = "/api/v1/stories/update"
         case storiesSortLastViewed = "/api/v1/stories?sort=created_at&last_viewed="
+        case images = "/api/v1/images"
     }
 }
 
@@ -241,6 +242,119 @@ class StoryViewModel: ObservableObject {
                         return
                     }
                     print("[updateStory] jsonDictionary story_id : \(jsonDictionary)")
+                    //                    self?.storyModel.stories[index].is_liked = jsonDictionary["is_liked"] as! Bool
+                    
+                    // User 구조체에 할당된 데이터 사용 (테스트 log)
+                    //                    print("[Story Model Log]: \(self?.storyModel)")
+                    
+                } catch {
+                    print("[updateStory] Error: Failed to parse JSON data - \(error)")
+                }
+            }
+        }.resume()
+    }
+    
+//    func isJPEG(data: Data) -> Bool {
+//        return data.count >= 2 && data[0] == 0xFF && data[1] == 0xD8
+//    }
+//
+//    func isPNG(data: Data) -> Bool {
+//        return data.count >= 8 && data[0] == 0x89 && data[1] == 0x50 && data[2] == 0x4E && data[3] == 0x47 && data[4] == 0x0D && data[5] == 0x0A && data[6] == 0x1A && data[7] == 0x0A
+//    }
+    
+    func uploadImages(user: User, images: [UIImage]) {
+        
+        // 이미지 로그 테스트
+        print("이미지 로그 테스트 : \(images)")
+        
+        
+        // 요청을 보낼 API의 url 설정
+        // 배포 후 url 설정
+        var urlComponents = URLComponents()
+        urlComponents.scheme = OworiAPI.scheme
+        urlComponents.host = OworiAPI.host
+        urlComponents.path = OworiAPI.Path.images.rawValue
+        guard let url = urlComponents.url else {
+            print("Error: cannot create URL")
+            return
+        }
+        
+        // 배포 이전 고정 url 설정 (추후 삭제 예정)
+        //        let url = URL(string: "http://localhost:8080/api/v1/stories/update\(storyId)")!
+        
+        // url 테스트 log
+        print("[uploadImages url Log] : \(url)")
+        
+        let boundary = "\(UUID().uuidString)"
+        
+        // urlRequeset에 함께 담을 header, body 설정
+        var urlRequest = URLRequest(url: url)
+        urlRequest.httpMethod = "POST"
+        urlRequest.setValue("multipart/form-data; boundary=\(boundary)", forHTTPHeaderField: "Content-Type")
+        urlRequest.setValue("Bearer " + (user.jwt_token?.access_token)!, forHTTPHeaderField: "Authorization")
+        urlRequest.setValue(user.member_id, forHTTPHeaderField: "member_id")
+        urlRequest.setValue("applecation/json", forHTTPHeaderField: "Accpet")
+        
+        // body 설정
+        var body = Data()
+        
+        for (index, image) in images.enumerated() {
+            let imageName = "image\(index + 1).png"
+            
+            
+            if let boundaryPrefix = "--\(boundary)\r\n".data(using: .utf8),
+               let dispositionData = "Content-Disposition: form-data; name=\"story_images\"; filename=\"\(imageName)\"\r\n".data(using: .utf8),
+               let contentTypeData = "Content-Type: image/jpg\r\n\r\n".data(using: .utf8),
+               let imageData = image.pngData(),
+               let lineBreakData = "\r\n".data(using: .utf8) {
+                
+                body.append(boundaryPrefix)
+                body.append(dispositionData)
+                body.append(contentTypeData)
+                body.append(imageData)
+                body.append(lineBreakData)
+            }
+        }
+        
+        if let boundaryEndData = "--\(boundary)--\r\n".data(using: .utf8) {
+                body.append(boundaryEndData)
+            }
+        
+        urlRequest.httpBody = body
+        
+        // 요청
+        URLSession.shared.dataTask(with: urlRequest) { (data, response, error) in
+            print(data)
+            print(response)
+            guard error == nil else {
+                print("Error: error calling GET")
+                print(error!)
+                return
+            }
+            guard let data = data else {
+                print("Error: Did not receive data")
+                return
+            }
+            guard let jsonDictionary = try? JSONSerialization.jsonObject(with: Data(data), options: []) as? [String: Any] else {
+                print("Error: convert failed json to dictionary")
+                return
+            }
+            print(jsonDictionary)
+            guard let response = response as? HTTPURLResponse, (200 ..< 300) ~= response.statusCode else {
+                print("Error: HTTP request failed")
+                return
+            }
+            
+            
+            DispatchQueue.main.async { [weak self] in
+                // JSON 데이터를 파싱하여 User 구조체에 할당
+                do {
+//                    let decoder = JSONDecoder()
+//                    self?.storyModel.stories.append(try decoder.decode(Story.StoryInfo.self, from: data))
+
+
+                    print(jsonDictionary)
+                    print("성공")
                     //                    self?.storyModel.stories[index].is_liked = jsonDictionary["is_liked"] as! Bool
                     
                     // User 구조체에 할당된 데이터 사용 (테스트 log)
