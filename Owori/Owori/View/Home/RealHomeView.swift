@@ -12,32 +12,33 @@ struct RealHomeView: View {
     @EnvironmentObject var familyViewModel: FamilyViewModel
     
     @Binding var emotionalBadgeViewIsActive: Bool
-    @State private var notificationViewIsActive: Bool = false
-    
-    @State private var myPageViewIsActive: Bool = false
+    //    @State private var notificationViewIsActive: Bool = false
+    //
+    //    @State private var myPageViewIsActive: Bool = false
     
     var body: some View {
         ZStack {
-            Color.oworiMain.ignoresSafeArea()
+            Color.oworiMain.edgesIgnoringSafeArea(.all)
             
-            VStack{
+            VStack {
                 //MARK: Header 설정
-                HStack{
-                    HStack{
+                HStack {
+                    HStack {
                         Text(familyViewModel.family.family_group_name ?? "Error")
                             .font(.title)
                             .bold()
                             .foregroundColor(.black)
                             .background(Color.oworiMain)
-                    }
-                    
-                    Spacer()
-                    
-                    HStack{
+                        
+                        
+                        Spacer()
+                        
+                        
                         //종 버튼
-                        Button {
+                        NavigationLink {
                             // 종 버튼이 눌리면 종 버튼이 떠야됨
-                            notificationViewIsActive = true
+                            //                            notificationViewIsActive = true
+                            HomeNotificationView()
                         } label: {
                             Image("Bell")
                                 .frame(width: 25, height: 25)
@@ -45,9 +46,10 @@ struct RealHomeView: View {
                         }
                         
                         //스마일 버튼
-                        Button {
+                        NavigationLink {
                             // 스마일버튼이 눌리면 종 버튼이 떠야됨
-                            myPageViewIsActive = true
+                            //                            myPageViewIsActive = true
+                            MyPageProfile()
                         } label: {
                             Image("smile")
                                 .frame(width: 25, height: 25)
@@ -61,15 +63,15 @@ struct RealHomeView: View {
                 
                 //MARK: 프로필 뷰 띄우기
                 ProfileView(emotionalBadgeViewIsActive: $emotionalBadgeViewIsActive)
-                    .padding(.bottom, 50)
                 
-                
-                DDayInitialCard()
-                
-                
-                //MARK: FamilyAlbumView
-                FamilyInitialPhoto()
-                    .padding(EdgeInsets(top: 50, leading: 30, bottom: 50, trailing: 30))
+                ScrollView {
+                    DDayInitialCard()
+                    
+                    //MARK: FamilyAlbumView
+                    FamilyInitialPhoto()
+                        .padding(EdgeInsets(top: 50, leading: 30, bottom: 50, trailing: 30))
+                }
+                .padding(.top, 50)
                 
             }
         }
@@ -77,12 +79,6 @@ struct RealHomeView: View {
             familyViewModel.lookUpHomeView(user: userViewModel.user) {
                 familyViewModel.getFamily()
             }
-        }
-        .navigationDestination(isPresented: $notificationViewIsActive) {
-            HomeNotificationView()
-        }
-        .navigationDestination(isPresented: $myPageViewIsActive) {
-            MyPageProfile()
         }
     }
 }

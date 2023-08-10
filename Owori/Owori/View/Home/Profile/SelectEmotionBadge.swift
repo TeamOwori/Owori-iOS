@@ -11,7 +11,7 @@ struct SelectEmotionBadge: View {
     @State private var isEmotion: Bool = false
     
     // 임시 emotionalbadges 데이터 변수
-    @State private var emotionalbadges = ["JOY", "HAPPY", "SO_HAPPY", "LOVE", "SURPRISED", "INSIDIOUS", "NORMAL", "SLEEPY", "FAINT", "SULKY", "SAD", "CRY", "GOOSE_BUMPS", "ANGRY", "VERY_ANGRY"]
+    @State private var emotionalbadges = ["JOY", "HAPPY", "SO_HAPPY", "LOVE", "SURRISED", "INSIDIOUS", "NORMAL", "SLEEPY", "FAINT", "SULKY", "SAD", "CRY", "GOOSE_BUMPS", "ANGRY", "VERY_ANGRY"]
     
     @Binding var emotionalBadgeViewIsActive: Bool
     
@@ -30,7 +30,7 @@ struct SelectEmotionBadge: View {
         
         ZStack {
             Color.oworiMain
-                .ignoresSafeArea()
+                .edgesIgnoringSafeArea(.all)
             
             VStack{
                 
