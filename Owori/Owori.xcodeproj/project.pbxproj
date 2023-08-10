@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		356A54472A84D66D006E22C8 /* SimpleToast in Frameworks */ = {isa = PBXBuildFile; productRef = 356A54462A84D66D006E22C8 /* SimpleToast */; };
 		3580AFA32A6844DB00DC28F7 /* AppleLoginTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3580AFA22A6844DB00DC28F7 /* AppleLoginTestView.swift */; };
 		35A2D0FB2A781D3400FF8A5B /* RealHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A2D0FA2A781D3400FF8A5B /* RealHomeView.swift */; };
 		35B3CD5A2A7D5CCF00127259 /* WriteDDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B3CD592A7D5CCF00127259 /* WriteDDay.swift */; };
@@ -220,6 +221,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				356A54472A84D66D006E22C8 /* SimpleToast in Frameworks */,
 				F3430F3A2A67024A00DC1B1C /* KakaoSDK in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -616,6 +618,7 @@
 			name = Owori;
 			packageProductDependencies = (
 				F3430F392A67024A00DC1B1C /* KakaoSDK */,
+				356A54462A84D66D006E22C8 /* SimpleToast */,
 			);
 			productName = Owori;
 			productReference = F3430F0B2A6701AD00DC1B1C /* Owori.app */;
@@ -691,6 +694,7 @@
 			mainGroup = F3430F022A6701AD00DC1B1C;
 			packageReferences = (
 				F3430F382A67024A00DC1B1C /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */,
+				356A54452A84D66D006E22C8 /* XCRemoteSwiftPackageReference "SimpleToast" */,
 			);
 			productRefGroup = F3430F0C2A6701AD00DC1B1C /* Products */;
 			projectDirPath = "";
@@ -1145,6 +1149,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		356A54452A84D66D006E22C8 /* XCRemoteSwiftPackageReference "SimpleToast" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/sanzaru/SimpleToast.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.7.2;
+			};
+		};
 		F3430F382A67024A00DC1B1C /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/kakao/kakao-ios-sdk";
@@ -1156,6 +1168,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		356A54462A84D66D006E22C8 /* SimpleToast */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 356A54452A84D66D006E22C8 /* XCRemoteSwiftPackageReference "SimpleToast" */;
+			productName = SimpleToast;
+		};
 		F3430F392A67024A00DC1B1C /* KakaoSDK */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = F3430F382A67024A00DC1B1C /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */;

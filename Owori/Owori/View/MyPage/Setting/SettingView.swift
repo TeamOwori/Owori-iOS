@@ -19,6 +19,8 @@ struct SettingView: View {
     
     @State private var FamilyNameChangeViewIsActive:Bool = false
     
+    @State private var InviteViewIsActive:Bool = false
+    
     init() {
         // 커스텀된 네비게이션바 배경색 설정
         let coloredNavigationBar = UINavigationBarAppearance()
@@ -84,6 +86,7 @@ struct SettingView: View {
                             Spacer()
                             
                             Button{
+                                InviteViewIsActive = true
                                 
                             }label:{
                                 Image("Right")
@@ -347,6 +350,9 @@ struct SettingView: View {
         }.background(Color.oworiMain)
             .navigationDestination(isPresented: $FamilyNameChangeViewIsActive) {
                         FamilyNameChangeView()
+                    }
+            .navigationDestination(isPresented: $InviteViewIsActive) {
+                        InviteView()
                     }
     }
 }
