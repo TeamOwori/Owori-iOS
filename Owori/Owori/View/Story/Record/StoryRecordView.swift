@@ -29,6 +29,7 @@ struct StoryRecordView: View {
     
     // 자료형 임시 설정
     @State private var storyInfo: [String: Any] = [:]
+    @State private var storyInfoDictionary: [String: Any] = [:]
     
     @EnvironmentObject var storyViewModel: StoryViewModel
     @EnvironmentObject var userViewModel: UserViewModel
@@ -149,22 +150,24 @@ struct StoryRecordView: View {
             
             Button {
                 
-                storyViewModel.uploadImages(user: userViewModel.user, images: selectedImages) { uploadedStoryImagesUrl in
-                    storyImages = uploadedStoryImagesUrl
-                    print(storyImages)
-                    
-                    // story_images 임시
-                    storyInfo = [
-                        "start_date": "\(startDate.formatDateToString(format: "yyyy-MM-dd"))",
-                        "end_date": "\(endDate.formatDateToString(format: "yyyy-MM-dd"))",
-                        "title": "\(title)",
-                        "content": "\(content)",
-                        // image 임시 데이터 추가 해야함.
-                        "story_images": storyImages
-                    ]
-                    print("storyInfo 작성 테스트 : \(storyInfo)")
-                    storyViewModel.createStory(user: userViewModel.user, storyInfo: storyInfo)
+                
+                if !selectedImages.isEmpty {
+                    storyViewModel.uploadImages(user: userViewModel.user, images: selectedImages) { uploadedStoryImagesUrl in
+                        storyImages = uploadedStoryImagesUrl
+                        print(storyImages)
+                        storyInfoDictionary = storyViewModel.createStoryInfoToDictionary(startDate: startDate, endDate: endDate, title: title, content: content, storyImages: storyImages)
+                        print("storyInfo 작성 테스트 : \(storyInfoDictionary)")
+                        storyViewModel.createStory(user: userViewModel.user, storyInfo: storyInfoDictionary)
+                    }
+                } else {
+                    storyInfoDictionary = storyViewModel.createStoryInfoToDictionary(startDate: startDate, endDate: endDate, title: title, content: content, storyImages: storyImages)
+                    print("storyInfo 작성 테스트 : \(storyInfoDictionary)")
+                    storyViewModel.createStory(user: userViewModel.user, storyInfo: storyInfoDictionary)
                 }
+                
+                
+                
+                
                 
                 
             } label: {

@@ -22,7 +22,7 @@ struct StoryAlbumView: View {
     var body: some View {
         VStack {
             // 임시 테스트 storiViewModle -> stories로 사용해야됨
-            ForEach(storiesForCollection.sorted(by: { $0.key < $1.key }), id: \.key) { yearAndMonth, collection in
+            ForEach(storiesForCollection.sorted(by: { $0.key > $1.key }), id: \.key) { yearAndMonth, collection in
                 MonthlyStoryCollection(storiesForCollection: [yearAndMonth: collection], storyInfo: $storyInfo)
                     .padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 20))
                 Divider()

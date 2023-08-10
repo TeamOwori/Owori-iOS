@@ -44,7 +44,7 @@ extension Story {
             self.end_date = ""
         }
         
-        init(story_id: String, start_date: String, end_date: String, title: String, content: String, story_images: [String]) {
+        init(start_date: String, end_date: String, title: String, content: String, story_images: [String]) {
             self.start_date = start_date
             self.end_date = end_date
             self.title = title

@@ -37,7 +37,7 @@ struct StoryView: View {
                 }
             }
             .onAppear {
-                storyViewModel.lookUpStory(user: userViewModel.user) {
+                storyViewModel.lookUpStorySortByStartDate(user: userViewModel.user) {
                     stories = storyViewModel.getStories()
                     print("[getStoryTest]\(stories)")
                     print("[getStoriesForcollection] : \(storyViewModel.getStoriesForCollection())")
