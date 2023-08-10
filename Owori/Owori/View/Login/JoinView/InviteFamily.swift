@@ -57,7 +57,7 @@ struct InviteFamily: View {
                 Text("초대코드 공유")
                     .bold()
                     .foregroundColor(Color.white)
-                    .frame(width: UIScreen.main.bounds.width * 0.5 , height: UIScreen.main.bounds.height * 0.15)
+                    .frame(width: UIScreen.main.bounds.width * 0.5 , height: UIScreen.main.bounds.height * 0.09)
                     .background(Color.blue)
                     .cornerRadius(8)
             }

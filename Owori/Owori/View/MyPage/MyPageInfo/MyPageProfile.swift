@@ -16,28 +16,30 @@ struct MyPageProfile: View {
         
         VStack{
             
-            Image("background")
-                .resizable()
-                .aspectRatio(contentMode: .fill)
-                .edgesIgnoringSafeArea(.all)
-                .frame(height: UIScreen.main.bounds.height * 0.4)
-            
-            MyPageProfilePhoto()
-                .offset(y: -60)
-            
-            VStack(alignment: .leading, spacing: 40) {
+            VStack{
+                Image("background")
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+                    .edgesIgnoringSafeArea(.all)
+                    .frame(height: UIScreen.main.bounds.height * 0.4)
                 
-                VStack(alignment: .leading, spacing: 16)  {
-                    
-                    MyPageProfileInfo()
-                    
-                    HStack{
-                        MyPageStoryInfo()
-                    }
-                    
-                }
+                MyPageProfilePhoto()
+                    .offset(y: -60)
+                
             }
-//            .frame(width: 298, alignment: .leading)
+            
+            VStack(alignment: .leading)  {
+                
+                MyPageProfileInfo()
+                    .padding(.top,-30)
+                
+                HStack{
+                    MyPageStoryInfo()
+                        .padding(.top,30)
+                        .padding(.bottom, 50)
+                }
+                
+            }
             
             Spacer()
             
@@ -45,12 +47,12 @@ struct MyPageProfile: View {
         .navigationBarBackButtonHidden(true)
         .navigationBarTitleDisplayMode(.inline)
         //이렇게 말고
-//        .navigationDestination(isPresented: $editMyPageIsActive) {
-//            EditMyPage()
-//        }
-//        .navigationDestination(isPresented: $settingViewIsActive) {
-//            SettingView()
-//        }
+        //        .navigationDestination(isPresented: $editMyPageIsActive) {
+        //            EditMyPage()
+        //        }
+//                .navigationDestination(isPresented: $settingViewIsActive) {
+//                    SettingView()
+//                }
         .toolbar {
             ToolbarItem(placement: .navigationBarLeading) {
                 BackButton()
