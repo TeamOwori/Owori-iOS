@@ -12,13 +12,15 @@ struct ProfileView: View {
     @EnvironmentObject var familyViewModel: FamilyViewModel
     @EnvironmentObject var userViewModel: UserViewModel
     
+    @Binding var emotionalBadgeViewIsActive: Bool
+    
     var body: some View {
         ScrollView(.horizontal, showsIndicators: false) {
             LazyHStack(spacing: UIScreen.main.bounds.width * 0.04) {
                 // 옵셔널 바인딩 수정해야 함
                 ForEach(familyViewModel.family.member_profiles ?? [], id: \.self) { item in
                     Button {
-                        
+                        emotionalBadgeViewIsActive = true
                     } label: {
                         ProfileImageWithBadge(memberProfile: item)
                     }
@@ -32,7 +34,7 @@ struct ProfileView: View {
 
 struct ProfileView_Previews: PreviewProvider {
     static var previews: some View {
-        ProfileView()
+        ProfileView(emotionalBadgeViewIsActive: .constant(false))
             .environmentObject(UserViewModel())
             .environmentObject(FamilyViewModel())
     }

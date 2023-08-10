@@ -21,7 +21,6 @@ struct RealHomeView: View {
             Color.oworiMain.ignoresSafeArea()
             
             VStack{
-                
                 //MARK: Header 설정
                 HStack{
                     HStack{
@@ -61,7 +60,7 @@ struct RealHomeView: View {
                 .frame(maxWidth: UIScreen.main.bounds.width, alignment: .leading)
                 
                 //MARK: 프로필 뷰 띄우기
-                ProfileView()
+                ProfileView(emotionalBadgeViewIsActive: $emotionalBadgeViewIsActive)
                     .padding(.bottom, 50)
                 
                 
@@ -83,8 +82,8 @@ struct RealHomeView: View {
             HomeNotificationView()
         }
         .navigationDestination(isPresented: $myPageViewIsActive) {
-                    MyPageProfile()
-                }
+            MyPageProfile()
+        }
     }
 }
 
