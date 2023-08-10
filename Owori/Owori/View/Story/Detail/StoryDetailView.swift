@@ -34,7 +34,7 @@ struct StoryDetailView: View {
         }
         .edgesIgnoringSafeArea(.top)
         .onAppear {
-            
+            print("StoryDetailView log : \(storyInfo)")
         }
         
     }

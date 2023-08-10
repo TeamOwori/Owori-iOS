@@ -54,6 +54,10 @@ struct MonthlyStoryCollection: View {
                             // 임시
                             //                            Text("\(story.title!)")
                             // 바인딩 된 값은... .constant()로 묶어서 보내면 바인딩처리 해줄 수 있습니다...
+                            // 이렇게 하니까 제대로 동작 안합니다... storyInfo에 바인딩된 값을 넘겨줄 수 있도록 처리하는 방법을
+                            // 찾아봅시다
+                            // 일단 백앤드에서 thumbnail 넘겨줘서 임시로 처리하긴 했지만
+                            // ForEach에서 반복자를 바인딩해서 넘기는 방법을 알아봐야될 것 같습니다.
                             DailyStoryImageCell(storyInfo: .constant(story))
                                 .frame(width: UIScreen.main.bounds.width * 0.3, height: UIScreen.main.bounds.width * 0.3)
                         }

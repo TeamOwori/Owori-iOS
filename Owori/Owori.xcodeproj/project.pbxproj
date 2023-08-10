@@ -81,6 +81,8 @@
 		F35A44F62A8140260092F342 /* RecordButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35A44F52A8140260092F342 /* RecordButton.swift */; };
 		F36508532A81278400A14217 /* StoryRecordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F36508522A81278400A14217 /* StoryRecordView.swift */; };
 		F36A82952A71921A00C6A90C /* BackToFamilyLinkViewButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F36A82942A71921A00C6A90C /* BackToFamilyLinkViewButton.swift */; };
+		F38C12932A83920500DDAAA8 /* ZoomDetailImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38C12922A83920500DDAAA8 /* ZoomDetailImageCell.swift */; };
+		F38C12952A83EF7A00DDAAA8 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38C12942A83EF7A00DDAAA8 /* Date+Extension.swift */; };
 		F39EF2822A6B93E5005FD6DB /* JoinNickname.swift in Sources */ = {isa = PBXBuildFile; fileRef = F39EF2812A6B93E5005FD6DB /* JoinNickname.swift */; };
 		F39EF2842A6B95D3005FD6DB /* JoinBirthday.swift in Sources */ = {isa = PBXBuildFile; fileRef = F39EF2832A6B95D3005FD6DB /* JoinBirthday.swift */; };
 		F39EF2862A6B96A1005FD6DB /* JoinFamilyName.swift in Sources */ = {isa = PBXBuildFile; fileRef = F39EF2852A6B96A1005FD6DB /* JoinFamilyName.swift */; };
@@ -90,6 +92,8 @@
 		F39EF28E2A6BA80F005FD6DB /* TermsOfUse.swift in Sources */ = {isa = PBXBuildFile; fileRef = F39EF28D2A6BA80F005FD6DB /* TermsOfUse.swift */; };
 		F39EF2922A6DBA2C005FD6DB /* BackToLoginButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F39EF2912A6DBA2C005FD6DB /* BackToLoginButton.swift */; };
 		F3A13F132A7821D40003D589 /* ZoomImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A13F122A7821D40003D589 /* ZoomImages.swift */; };
+		F3A8ABC02A84A661000F34F4 /* PhotosPickerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A8ABBF2A84A661000F34F4 /* PhotosPickerButton.swift */; };
+		F3A8ABC22A84D9B3000F34F4 /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A8ABC12A84D9B3000F34F4 /* UIImage+Extension.swift */; };
 		F3C1BE652A70F1C5002ADB3B /* UserViewModelTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C1BE642A70F1C5002ADB3B /* UserViewModelTestView.swift */; };
 		F3C1BE672A70F26E002ADB3B /* FamilyViewModelTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C1BE662A70F26E002ADB3B /* FamilyViewModelTestView.swift */; };
 		F3C1BE692A70F2C6002ADB3B /* StoryViewModelTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C1BE682A70F2C6002ADB3B /* StoryViewModelTestView.swift */; };
@@ -98,7 +102,7 @@
 		F3C1BE712A711024002ADB3B /* StorySearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C1BE702A711024002ADB3B /* StorySearchView.swift */; };
 		F3C1BE732A71147C002ADB3B /* RecentSearchList.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C1BE722A71147C002ADB3B /* RecentSearchList.swift */; };
 		F3C1BE752A711D74002ADB3B /* CustomNavigationBackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C1BE742A711D74002ADB3B /* CustomNavigationBackButton.swift */; };
-		F3E8CDCA2A810719007A0C3A /* TextTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E8CDC92A810719007A0C3A /* TextTestView.swift */; };
+		F3E8CDCA2A810719007A0C3A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E8CDC92A810719007A0C3A /* ContentView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -196,6 +200,8 @@
 		F35A44F52A8140260092F342 /* RecordButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordButton.swift; sourceTree = "<group>"; };
 		F36508522A81278400A14217 /* StoryRecordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryRecordView.swift; sourceTree = "<group>"; };
 		F36A82942A71921A00C6A90C /* BackToFamilyLinkViewButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackToFamilyLinkViewButton.swift; sourceTree = "<group>"; };
+		F38C12922A83920500DDAAA8 /* ZoomDetailImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoomDetailImageCell.swift; sourceTree = "<group>"; };
+		F38C12942A83EF7A00DDAAA8 /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
 		F39EF2812A6B93E5005FD6DB /* JoinNickname.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinNickname.swift; sourceTree = "<group>"; };
 		F39EF2832A6B95D3005FD6DB /* JoinBirthday.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinBirthday.swift; sourceTree = "<group>"; };
 		F39EF2852A6B96A1005FD6DB /* JoinFamilyName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinFamilyName.swift; sourceTree = "<group>"; };
@@ -205,6 +211,8 @@
 		F39EF28D2A6BA80F005FD6DB /* TermsOfUse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsOfUse.swift; sourceTree = "<group>"; };
 		F39EF2912A6DBA2C005FD6DB /* BackToLoginButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackToLoginButton.swift; sourceTree = "<group>"; };
 		F3A13F122A7821D40003D589 /* ZoomImages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoomImages.swift; sourceTree = "<group>"; };
+		F3A8ABBF2A84A661000F34F4 /* PhotosPickerButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosPickerButton.swift; sourceTree = "<group>"; };
+		F3A8ABC12A84D9B3000F34F4 /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
 		F3C1BE642A70F1C5002ADB3B /* UserViewModelTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModelTestView.swift; sourceTree = "<group>"; };
 		F3C1BE662A70F26E002ADB3B /* FamilyViewModelTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FamilyViewModelTestView.swift; sourceTree = "<group>"; };
 		F3C1BE682A70F2C6002ADB3B /* StoryViewModelTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryViewModelTestView.swift; sourceTree = "<group>"; };
@@ -213,7 +221,7 @@
 		F3C1BE702A711024002ADB3B /* StorySearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorySearchView.swift; sourceTree = "<group>"; };
 		F3C1BE722A71147C002ADB3B /* RecentSearchList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentSearchList.swift; sourceTree = "<group>"; };
 		F3C1BE742A711D74002ADB3B /* CustomNavigationBackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationBackButton.swift; sourceTree = "<group>"; };
-		F3E8CDC92A810719007A0C3A /* TextTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextTestView.swift; sourceTree = "<group>"; };
+		F3E8CDC92A810719007A0C3A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -514,6 +522,7 @@
 				F3430F662A67043200DC1B1C /* DetailContent.swift */,
 				F3430F672A67043200DC1B1C /* FavoriteButton.swift */,
 				F3A13F122A7821D40003D589 /* ZoomImages.swift */,
+				F38C12922A83920500DDAAA8 /* ZoomDetailImageCell.swift */,
 			);
 			path = Detail;
 			sourceTree = "<group>";
@@ -566,6 +575,8 @@
 				F3430F802A67043200DC1B1C /* Color+Extension.swift */,
 				F3430F812A67043200DC1B1C /* Image+Extension.swift */,
 				F3430F822A67043200DC1B1C /* View+Extension.swift */,
+				F38C12942A83EF7A00DDAAA8 /* Date+Extension.swift */,
+				F3A8ABC12A84D9B3000F34F4 /* UIImage+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -574,6 +585,7 @@
 			isa = PBXGroup;
 			children = (
 				F36508522A81278400A14217 /* StoryRecordView.swift */,
+				F3A8ABBF2A84A661000F34F4 /* PhotosPickerButton.swift */,
 			);
 			path = Record;
 			sourceTree = "<group>";
@@ -586,7 +598,7 @@
 				F3C1BE642A70F1C5002ADB3B /* UserViewModelTestView.swift */,
 				F3C1BE662A70F26E002ADB3B /* FamilyViewModelTestView.swift */,
 				F3C1BE682A70F2C6002ADB3B /* StoryViewModelTestView.swift */,
-				F3E8CDC92A810719007A0C3A /* TextTestView.swift */,
+				F3E8CDC92A810719007A0C3A /* ContentView.swift */,
 			);
 			path = TestView;
 			sourceTree = "<group>";
@@ -748,6 +760,7 @@
 				F39EF28C2A6BA429005FD6DB /* BeInviteFamily.swift in Sources */,
 				F3430F942A67043200DC1B1C /* LoginButton.swift in Sources */,
 				F3430FB72A67043200DC1B1C /* View+Extension.swift in Sources */,
+				F38C12932A83920500DDAAA8 /* ZoomDetailImageCell.swift in Sources */,
 				F3430F982A67043200DC1B1C /* SortMenu.swift in Sources */,
 				F3430F992A67043200DC1B1C /* AlbumListButton.swift in Sources */,
 				F3A13F132A7821D40003D589 /* ZoomImages.swift in Sources */,
@@ -755,6 +768,7 @@
 				886F8DFC2A6C57E600D60BCC /* ProfileImage.swift in Sources */,
 				F3430FA12A67043200DC1B1C /* FavoriteButton.swift in Sources */,
 				F3430FA52A67043200DC1B1C /* StoryAlbumView.swift in Sources */,
+				F3A8ABC02A84A661000F34F4 /* PhotosPickerButton.swift in Sources */,
 				883B47D22A686D17004C2D20 /* FamilyNameChangeView.swift in Sources */,
 				886F8DFA2A6C578B00D60BCC /* DDayInitialCard.swift in Sources */,
 				F3430F9D2A67043200DC1B1C /* ImageTabView.swift in Sources */,
@@ -763,7 +777,8 @@
 				F3430F8A2A67043200DC1B1C /* ProfileText.swift in Sources */,
 				F39EF28A2A6B9860005FD6DB /* InviteFamily.swift in Sources */,
 				F3430F952A67043200DC1B1C /* OnBoardingView.swift in Sources */,
-				F3E8CDCA2A810719007A0C3A /* TextTestView.swift in Sources */,
+				F3A8ABC22A84D9B3000F34F4 /* UIImage+Extension.swift in Sources */,
+				F3E8CDCA2A810719007A0C3A /* ContentView.swift in Sources */,
 				35B3CD672A8008B300127259 /* MyPageProfilePhoto.swift in Sources */,
 				35B3CD722A81760700127259 /* EditMyPage.swift in Sources */,
 				886F8DFE2A6C582400D60BCC /* ProfileImageWithBadge.swift in Sources */,
@@ -811,6 +826,7 @@
 				F3430F9A2A67043200DC1B1C /* ContentText.swift in Sources */,
 				35A2D0FB2A781D3400FF8A5B /* RealHomeView.swift in Sources */,
 				F3430FA02A67043200DC1B1C /* DetailContent.swift in Sources */,
+				F38C12952A83EF7A00DDAAA8 /* Date+Extension.swift in Sources */,
 				F3430FA42A67043200DC1B1C /* DailyStoryText.swift in Sources */,
 				F3430F962A67043200DC1B1C /* DailyStoryImageCell.swift in Sources */,
 				F3430F902A67043200DC1B1C /* LoginView.swift in Sources */,
