@@ -80,6 +80,7 @@
 		F352856F2A7058E500466C61 /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F352856E2A7058E500466C61 /* SplashView.swift */; };
 		F35A44F62A8140260092F342 /* RecordButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35A44F52A8140260092F342 /* RecordButton.swift */; };
 		F36508532A81278400A14217 /* StoryRecordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F36508522A81278400A14217 /* StoryRecordView.swift */; };
+		F36629242A8571F300503E76 /* RecordSuccessButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F36629232A8571F300503E76 /* RecordSuccessButton.swift */; };
 		F36A82952A71921A00C6A90C /* BackToFamilyLinkViewButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F36A82942A71921A00C6A90C /* BackToFamilyLinkViewButton.swift */; };
 		F38C12932A83920500DDAAA8 /* ZoomDetailImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38C12922A83920500DDAAA8 /* ZoomDetailImageCell.swift */; };
 		F38C12952A83EF7A00DDAAA8 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38C12942A83EF7A00DDAAA8 /* Date+Extension.swift */; };
@@ -199,6 +200,7 @@
 		F352856E2A7058E500466C61 /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
 		F35A44F52A8140260092F342 /* RecordButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordButton.swift; sourceTree = "<group>"; };
 		F36508522A81278400A14217 /* StoryRecordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryRecordView.swift; sourceTree = "<group>"; };
+		F36629232A8571F300503E76 /* RecordSuccessButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordSuccessButton.swift; sourceTree = "<group>"; };
 		F36A82942A71921A00C6A90C /* BackToFamilyLinkViewButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackToFamilyLinkViewButton.swift; sourceTree = "<group>"; };
 		F38C12922A83920500DDAAA8 /* ZoomDetailImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoomDetailImageCell.swift; sourceTree = "<group>"; };
 		F38C12942A83EF7A00DDAAA8 /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
@@ -586,6 +588,7 @@
 			children = (
 				F36508522A81278400A14217 /* StoryRecordView.swift */,
 				F3A8ABBF2A84A661000F34F4 /* PhotosPickerButton.swift */,
+				F36629232A8571F300503E76 /* RecordSuccessButton.swift */,
 			);
 			path = Record;
 			sourceTree = "<group>";
@@ -794,6 +797,7 @@
 				F3430FB02A67043200DC1B1C /* LoginViewModel.swift in Sources */,
 				F3C1BE672A70F26E002ADB3B /* FamilyViewModelTestView.swift in Sources */,
 				F3430FAE2A67043200DC1B1C /* Token.swift in Sources */,
+				F36629242A8571F300503E76 /* RecordSuccessButton.swift in Sources */,
 				F3430F9E2A67043200DC1B1C /* HorizontalImageScrollView.swift in Sources */,
 				35B3CD632A80088500127259 /* MyPageProfileInfo.swift in Sources */,
 				F3430F9F2A67043200DC1B1C /* StoryDetailView.swift in Sources */,
