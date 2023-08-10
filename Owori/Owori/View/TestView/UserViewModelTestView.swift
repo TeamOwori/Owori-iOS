@@ -38,7 +38,9 @@ struct UserViewModelTestView: View {
             }
             
             Button {
-                userViewModel.updateEmotionalBadge(body: ["emotional_badge" : "HAPPY"])
+                userViewModel.updateEmotionalBadge(body: ["emotional_badge" : "HAPPY"]) {
+                    
+                }
             } label: {
                 Text("update Emotional Badge(완)")
             }

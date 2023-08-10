@@ -20,13 +20,18 @@ struct ProfileView: View {
                 // 옵셔널 바인딩 수정해야 함
                 ForEach(familyViewModel.family.member_profiles ?? [], id: \.self) { item in
                     Button {
-                        emotionalBadgeViewIsActive = true
+                        if item == familyViewModel.family.member_profiles?.first {
+                            emotionalBadgeViewIsActive = true
+                        }
                     } label: {
                         ProfileImageWithBadge(memberProfile: item)
                     }
                 }
             }
         }
+//        .navigationDestination(isPresented: $emotionalBadgeViewIsActive) {
+//                SelectEmotionBadge(emotionalBadgeViewIsActive: $emotionalBadgeViewIsActive)
+//        }
         .padding(EdgeInsets(top: 0, leading: UIScreen.main.bounds.width * 0.05, bottom: 0, trailing: UIScreen.main.bounds.width * 0.05))
         .frame(height: 80) //.frame(height: UIScreen.main.bounds.height * 0.125)
     }

@@ -15,6 +15,9 @@ struct SelectEmotionBadge: View {
     
     @Binding var emotionalBadgeViewIsActive: Bool
     
+    @EnvironmentObject var userViewModel: UserViewModel
+    @EnvironmentObject var familyViewModel: FamilyViewModel
+    
     private let columns: [GridItem] = [
         GridItem(.flexible()),
         GridItem(.flexible()),
@@ -28,7 +31,6 @@ struct SelectEmotionBadge: View {
         ZStack {
             Color.oworiMain
                 .ignoresSafeArea()
-            
             
             VStack{
                 
@@ -90,6 +92,9 @@ struct SelectEmotionBadge: View {
                 
                 Button {
                     //확인 누르면 업데이트 된 화면으로 넘어가야됨.
+                    userViewModel.updateEmotionalBadge(body: ["emotional_badge": emotionalBadge]) {
+                        emotionalBadgeViewIsActive = false
+                    }
                     
                 } label: {
                     
@@ -125,5 +130,7 @@ struct SelectEmotionBadge: View {
 struct SelectEmotionBadge_Previews: PreviewProvider {
     static var previews: some View {
         SelectEmotionBadge(emotionalBadgeViewIsActive: .constant(true))
+            .environmentObject(UserViewModel())
+            .environmentObject(FamilyViewModel())
     }
 }

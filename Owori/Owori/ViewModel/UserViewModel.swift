@@ -163,7 +163,7 @@ class UserViewModel: ObservableObject {
         }.resume()
     }
     
-    func updateEmotionalBadge(body: [String: Any]) {
+    func updateEmotionalBadge(body: [String: Any], completion: @escaping () -> Void) {
         guard let sendData = try? JSONSerialization.data(withJSONObject: body, options: []) else { return }
         
         //         요청을 보낼 API의 url 설정
@@ -207,6 +207,7 @@ class UserViewModel: ObservableObject {
                 return
             }
             print(response)
+            completion()
         }.resume()
     }
     
