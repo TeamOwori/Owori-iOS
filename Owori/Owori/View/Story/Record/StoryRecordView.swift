@@ -37,7 +37,7 @@ struct StoryRecordView: View {
     var contentPlaceholder: String = "추억을 기록해봐요:) 500자까지 입력할 수 있어요"
     
     var body: some View {
-        VStack {
+        ScrollView {
             //DatePicker
             HStack {
                 DatePicker(
