@@ -28,6 +28,7 @@ class StoryViewModel: ObservableObject {
     
     // MARK: Story API FUNCTIONS (POST)
     func createStory(user: User, storyInfo: [String: Any]) {
+        print("스토리 인포 로그 : \(storyInfo)")
         guard let sendData = try? JSONSerialization.data(withJSONObject: storyInfo, options: []) else { return }
         
         // 요청을 보낼 API의 url 설정
@@ -262,11 +263,14 @@ class StoryViewModel: ObservableObject {
 //        return data.count >= 8 && data[0] == 0x89 && data[1] == 0x50 && data[2] == 0x4E && data[3] == 0x47 && data[4] == 0x0D && data[5] == 0x0A && data[6] == 0x1A && data[7] == 0x0A
 //    }
     
-    func uploadImages(user: User, images: [UIImage]) {
+    
+    
+    
+    func uploadImages(user: User, images: [UIImage], completion: @escaping ([String]) -> Void) {
+        var uploadedStoryImagesUrl: [String] = []
         
         // 이미지 로그 테스트
         print("이미지 로그 테스트 : \(images)")
-        
         
         // 요청을 보낼 API의 url 설정
         // 배포 후 url 설정
@@ -355,16 +359,20 @@ class StoryViewModel: ObservableObject {
 
                     print(jsonDictionary)
                     print("성공")
+                    uploadedStoryImagesUrl = jsonDictionary["story_images"] as! [String]
+                    completion(uploadedStoryImagesUrl)
                     //                    self?.storyModel.stories[index].is_liked = jsonDictionary["is_liked"] as! Bool
                     
                     // User 구조체에 할당된 데이터 사용 (테스트 log)
                     //                    print("[Story Model Log]: \(self?.storyModel)")
                     
                 } catch {
-                    print("[updateStory] Error: Failed to parse JSON data - \(error)")
+                    print("[uploadImages] Error: Failed to parse JSON data - \(error)")
                 }
             }
+            
         }.resume()
+        
     }
     
     // MARK: Story API FUNCTIONS (GET)

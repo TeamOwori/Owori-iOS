@@ -20,6 +20,8 @@ struct StoryRecordView: View {
     
     @State private var content: String = ""
     
+    @State private var storyImages: [String] = []
+    
     
     @State private var selectedItems = [PhotosPickerItem]()
     @State private var selectedImages = [UIImage]()
@@ -119,7 +121,7 @@ struct StoryRecordView: View {
                     
                     
                     if selectedImages.isEmpty {
-                            PhotosPickerButton(selectedItems: $selectedItems, selectedImages: $selectedImages)
+                        PhotosPickerButton(selectedItems: $selectedItems, selectedImages: $selectedImages)
                     } else {
                         ScrollView(.horizontal) {
                             HStack {
@@ -139,27 +141,32 @@ struct StoryRecordView: View {
             }
             
             Button {
-                storyViewModel.uploadImages(user: userViewModel.user, images: selectedImages)
+                
             } label: {
                 Text("이미지 업로드 테스트")
             }
             
             
             Button {
-
                 
-                // story_images 임시
-                // date 포멘 변경 임시
-                storyInfo = [
-                    "start_date": "\(startDate.formatDateToString(format: "yyyy-MM-dd"))",
-                    "end_date": "\(endDate.formatDateToString(format: "yyyy-MM-dd"))",
-                    "title": "\(title)",
-                    "content": "\(content)",
-                    // image 임시 데이터 추가 해야함.
-                    "story_images": []
-                ]
-                print("storyInfo 작성 테스트 : \(storyInfo)")
-                storyViewModel.createStory(user: userViewModel.user, storyInfo: storyInfo)
+                storyViewModel.uploadImages(user: userViewModel.user, images: selectedImages) { uploadedStoryImagesUrl in
+                    storyImages = uploadedStoryImagesUrl
+                    print(storyImages)
+                    
+                    // story_images 임시
+                    storyInfo = [
+                        "start_date": "\(startDate.formatDateToString(format: "yyyy-MM-dd"))",
+                        "end_date": "\(endDate.formatDateToString(format: "yyyy-MM-dd"))",
+                        "title": "\(title)",
+                        "content": "\(content)",
+                        // image 임시 데이터 추가 해야함.
+                        "story_images": storyImages
+                    ]
+                    print("storyInfo 작성 테스트 : \(storyInfo)")
+                    storyViewModel.createStory(user: userViewModel.user, storyInfo: storyInfo)
+                }
+                
+                
             } label: {
                 Text("작성 완료")
                     .frame(width: 300, height: 50)
