@@ -147,6 +147,8 @@ class UserViewModel: ObservableObject {
                 return
             }
             print("Init Profile test : \(jsonDictionary)")
+            print(error)
+            print(response)
             guard let response = response as? HTTPURLResponse, (200 ..< 300) ~= response.statusCode else {
                 print("Error: HTTP request failed")
                 return

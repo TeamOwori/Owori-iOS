@@ -17,4 +17,17 @@ extension String {
         dateFormatter.locale = Locale(identifier: "ko_KR")
         return dateFormatter.string(from: now)
     }
+    
+    func convertToISODateFormat() -> String? {
+            let dateFormatterInput = DateFormatter()
+            dateFormatterInput.dateFormat = "yyyyMMdd"
+
+            if let date = dateFormatterInput.date(from: self) {
+                let dateFormatterOutput = DateFormatter()
+                dateFormatterOutput.dateFormat = "yyyy-MM-dd"
+                return dateFormatterOutput.string(from: date)
+            } else {
+                return nil // 변환 실패 시 nil 반환
+            }
+        }
 }

@@ -14,6 +14,8 @@ struct LoginTestView: View {
     let buttonFontStyle: String = "Apple SD Gothic Neo"
     let fontColor: Color = .black
     let buttonColor: Color = .yellow
+    @State private var isLoggedIn: Bool = false
+    @State private var alreadyMember: Bool = false
     
     @EnvironmentObject  var loginViewModel: LoginViewModel
     @EnvironmentObject  var userViewModel: UserViewModel
@@ -24,29 +26,9 @@ struct LoginTestView: View {
         NavigationStack {
             VStack {
                 // 로그인
-                HStack(alignment: .center, spacing: 15) {
-                    Button {
-                        loginViewModel.kakaoLogin(oworiUser: userViewModel.user) {
-                            print(loginViewModel.socialToken)
-                        }
-                    } label: {
-                        Text("\(buttonName)")
-                            .font(
-                                Font.custom("\(buttonFontStyle)", size: 15)
-                                    .weight(.medium)
-                            )
-                            .multilineTextAlignment(.center)
-                            .frame(maxWidth: .infinity, minHeight: 18, maxHeight: 18, alignment: .top)
-                            .foregroundColor(fontColor)
-                    }
-                    
-                }
-                .padding(20)
-                .frame(width: 300, height: 44, alignment: .leading)
-                .background(buttonColor)
-                .cornerRadius(12)
                 
-                loginViewModel.appleLoginButton()
+                KakaoLoginButton(isLoggedIn: $isLoggedIn, alreadyMember: $alreadyMember)
+                AppleLoginButton(isLoggedIn: $isLoggedIn, alreadyMember: $alreadyMember)
                 
                 Text("\(userViewModel.user.member_id ?? "nil")")
                 

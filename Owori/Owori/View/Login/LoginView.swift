@@ -50,12 +50,11 @@ struct LoginView: View {
                 .frame(maxWidth: .infinity, alignment: .center)
                 .padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
             
-            //소셜 로그인 버튼
-            VStack(alignment: .leading, spacing: 16) {
-                ForEach(test1) { item in
-                    LoginButton(buttonImage: item.buttonImage, isLoggedIn: $isLoggedIn, alreadyMember: $alreadyMember)
-                }
-            }.padding(.top, 30)
+            VStack {
+                KakaoLoginButton(isLoggedIn: $isLoggedIn, alreadyMember: $alreadyMember)
+                AppleLoginButton(isLoggedIn: $isLoggedIn, alreadyMember: $alreadyMember)
+            }
+            .padding(EdgeInsets(top: 50, leading: 0, bottom: 0, trailing: 0))
             
             Text("소셜로그인으로 가입시 이용약관 및 개인정보처리방침에 동의합니다.")
                 .font(
