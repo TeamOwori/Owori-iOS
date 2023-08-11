@@ -13,10 +13,14 @@ struct SplashView: View {
     
     var body: some View {
         ZStack {
+            
+            Color.oworiOrange.edgesIgnoringSafeArea(.all)
+            
             // 첫 번째 뷰
             VStack {
                 if !isOnBoardingViewVisible {
-                    Text("Main View")
+                    Image("오월이타이틀")
+                    
                 } else {
                     OnBoardingView()
                         .opacity(isOnBoardingViewVisible ? 1 : 0) // 천천히 나타나도록 투명도 조정
