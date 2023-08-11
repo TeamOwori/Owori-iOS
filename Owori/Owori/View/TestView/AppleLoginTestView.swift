@@ -16,7 +16,9 @@ struct AppleLoginTestView: View {
     
     var body: some View {
         VStack {
-            loginViewModel.appleLoginButton()
+            loginViewModel.appleLoginButton() {
+                
+            }
             Button {
                 userViewModel.joinMember(socialToken: loginViewModel.socialToken) {
                     print(userViewModel.user.is_service_member!)

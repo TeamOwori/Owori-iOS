@@ -50,7 +50,7 @@ class LoginViewModel: ObservableObject {
             // 설치가 되어있으면 카카오 앱을 통해 로그인 - loginWithKakaoTalk()
             handleLoginWithKakaoTalkApp {
                 self.setUserInfo(oworiUser: oworiUser) {
-                    self.getSocialToken()
+                    self.getSocialTokenForKakao()
                     //비동기 작업 그룹에서 제거
                     dispatchGroup.leave()
                 }
@@ -60,7 +60,7 @@ class LoginViewModel: ObservableObject {
             dispatchGroup.enter()
             handleLoginWithKakaoAccount() {
                 self.setUserInfo(oworiUser: oworiUser) {
-                    self.getSocialToken()
+                    self.getSocialTokenForKakao()
                     // 비동기 작업 그룹에서 제거
                     dispatchGroup.leave()
                 }
@@ -180,7 +180,7 @@ class LoginViewModel: ObservableObject {
         }
     }
     
-    func getSocialToken() {
+    func getSocialTokenForKakao() {
         DispatchQueue.main.async { [weak self] in
             // Test Log
             // 추후 삭제 예정 코드 (user)
@@ -199,7 +199,7 @@ class LoginViewModel: ObservableObject {
     
     // MARK: 애플 로그인 관련 FUNCTIONS
     
-    func appleLoginButton() -> some View {
+    func appleLoginButton(completion: @escaping () -> Void) -> some View {
         SignInWithAppleButton(
             onRequest: { request in
                 request.requestedScopes = [.fullName, .email]
@@ -223,9 +223,15 @@ class LoginViewModel: ObservableObject {
                             
                             self?.socialToken = Token(authProvider: "APPLE", accessToken: IdentityToken!, refreshToken: IdentityToken!)
                             
-                            print("UserIdentifier: \(UserIdentifier)")
-                            print("IdentityToken: \(IdentityToken)")
-                            print("AuthorizationCode: \(AuthorizationCode)")
+                            // 테스트 로그
+                            print("애플 로그인 테스트 : \(self?.socialToken)")
+                            
+//                            print("UserIdentifier: \(UserIdentifier)")
+//                            print("IdentityToken: \(IdentityToken)")
+//                            print("AuthorizationCode: \(AuthorizationCode)")
+                            self?.isLoggedIn = true
+                            
+                            completion()
                         }
                         
                     default:
@@ -237,8 +243,10 @@ class LoginViewModel: ObservableObject {
                 }
             }
         )
-        .frame(width : UIScreen.main.bounds.width * 0.9, height:50)
-        .cornerRadius(5)
+        .frame(width: 300, height: 44, alignment: .leading)
+        .cornerRadius(12)
+//        .frame(width : UIScreen.main.bounds.width * 0.9, height:50)
+//        .cornerRadius(5)
     }
     
     

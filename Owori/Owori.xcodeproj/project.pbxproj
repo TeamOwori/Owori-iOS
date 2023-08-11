@@ -88,11 +88,13 @@
 		F3430FB52A67043200DC1B1C /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3430F802A67043200DC1B1C /* Color+Extension.swift */; };
 		F3430FB62A67043200DC1B1C /* Image+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3430F812A67043200DC1B1C /* Image+Extension.swift */; };
 		F3430FB72A67043200DC1B1C /* View+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3430F822A67043200DC1B1C /* View+Extension.swift */; };
+		F3463A532A8651DD0064B3E4 /* KakaoLoginButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3463A522A8651DD0064B3E4 /* KakaoLoginButton.swift */; };
 		F352856F2A7058E500466C61 /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F352856E2A7058E500466C61 /* SplashView.swift */; };
 		F35A44F62A8140260092F342 /* RecordButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35A44F52A8140260092F342 /* RecordButton.swift */; };
 		F36508532A81278400A14217 /* StoryRecordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F36508522A81278400A14217 /* StoryRecordView.swift */; };
 		F36629242A8571F300503E76 /* RecordSuccessButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F36629232A8571F300503E76 /* RecordSuccessButton.swift */; };
 		F36A82952A71921A00C6A90C /* BackToFamilyLinkViewButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F36A82942A71921A00C6A90C /* BackToFamilyLinkViewButton.swift */; };
+		F37CDD0F2A86578D0002FFFE /* AppleLoginButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37CDD0E2A86578D0002FFFE /* AppleLoginButton.swift */; };
 		F38C12932A83920500DDAAA8 /* ZoomDetailImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38C12922A83920500DDAAA8 /* ZoomDetailImageCell.swift */; };
 		F39EF2822A6B93E5005FD6DB /* JoinNickname.swift in Sources */ = {isa = PBXBuildFile; fileRef = F39EF2812A6B93E5005FD6DB /* JoinNickname.swift */; };
 		F39EF2842A6B95D3005FD6DB /* JoinBirthday.swift in Sources */ = {isa = PBXBuildFile; fileRef = F39EF2832A6B95D3005FD6DB /* JoinBirthday.swift */; };
@@ -218,11 +220,13 @@
 		F3430F802A67043200DC1B1C /* Color+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
 		F3430F812A67043200DC1B1C /* Image+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Image+Extension.swift"; sourceTree = "<group>"; };
 		F3430F822A67043200DC1B1C /* View+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "View+Extension.swift"; sourceTree = "<group>"; };
+		F3463A522A8651DD0064B3E4 /* KakaoLoginButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoLoginButton.swift; sourceTree = "<group>"; };
 		F352856E2A7058E500466C61 /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
 		F35A44F52A8140260092F342 /* RecordButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordButton.swift; sourceTree = "<group>"; };
 		F36508522A81278400A14217 /* StoryRecordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryRecordView.swift; sourceTree = "<group>"; };
 		F36629232A8571F300503E76 /* RecordSuccessButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordSuccessButton.swift; sourceTree = "<group>"; };
 		F36A82942A71921A00C6A90C /* BackToFamilyLinkViewButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackToFamilyLinkViewButton.swift; sourceTree = "<group>"; };
+		F37CDD0E2A86578D0002FFFE /* AppleLoginButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleLoginButton.swift; sourceTree = "<group>"; };
 		F38C12922A83920500DDAAA8 /* ZoomDetailImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoomDetailImageCell.swift; sourceTree = "<group>"; };
 		F39EF2812A6B93E5005FD6DB /* JoinNickname.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinNickname.swift; sourceTree = "<group>"; };
 		F39EF2832A6B95D3005FD6DB /* JoinBirthday.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinBirthday.swift; sourceTree = "<group>"; };
@@ -514,9 +518,11 @@
 		F3430F552A67043200DC1B1C /* Helper */ = {
 			isa = PBXGroup;
 			children = (
+				F3463A522A8651DD0064B3E4 /* KakaoLoginButton.swift */,
 				F39EF2912A6DBA2C005FD6DB /* BackToLoginButton.swift */,
 				F3430F562A67043200DC1B1C /* LoginButton.swift */,
 				F36A82942A71921A00C6A90C /* BackToFamilyLinkViewButton.swift */,
+				F37CDD0E2A86578D0002FFFE /* AppleLoginButton.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -818,6 +824,7 @@
 				F3430FA72A67043200DC1B1C /* StoryView.swift in Sources */,
 				356A54642A8565C3006E22C8 /* EventsListView.swift in Sources */,
 				886F8DFC2A6C57E600D60BCC /* ProfileImage.swift in Sources */,
+				F3463A532A8651DD0064B3E4 /* KakaoLoginButton.swift in Sources */,
 				F3430FA12A67043200DC1B1C /* FavoriteButton.swift in Sources */,
 				F3430FA52A67043200DC1B1C /* StoryAlbumView.swift in Sources */,
 				F3A8ABC02A84A661000F34F4 /* PhotosPickerButton.swift in Sources */,
@@ -870,6 +877,7 @@
 				F36508532A81278400A14217 /* StoryRecordView.swift in Sources */,
 				F3430FB52A67043200DC1B1C /* Color+Extension.swift in Sources */,
 				356A54622A8565A0006E22C8 /* DaysEvents.swift in Sources */,
+				F37CDD0F2A86578D0002FFFE /* AppleLoginButton.swift in Sources */,
 				F3C1BE6D2A710820002ADB3B /* StoryViewHeader.swift in Sources */,
 				F36A82952A71921A00C6A90C /* BackToFamilyLinkViewButton.swift in Sources */,
 				883B47D42A686D25004C2D20 /* InviteView.swift in Sources */,

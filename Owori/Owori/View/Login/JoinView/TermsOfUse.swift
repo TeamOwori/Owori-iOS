@@ -134,14 +134,18 @@ struct TermsOfUse: View {
                     Button {
                         if checkForService && checkForUseOfInformation {
                             if loginViewModel.isLoggedIn {
+                                // 로그 확인
+                                print(nickname)
+                                print(birthDateText.convertToISODateFormat())
+                                
                                 userViewModel.initUser(userInfo: [
                                     "nickname" : "\(nickname)",
-                                    "birthday" : "\(birthDateText)"])
+                                    "birthday" : "\(birthDateText.convertToISODateFormat())"])
                                 familyViewModel.createMember(user: userViewModel.user, family_group_name: familyName)
                                 
-                                
-                                
-                                isSuccessSignUp = true
+                                if userViewModel.user.is_service_member ?? false {
+                                    isSuccessSignUp = true
+                                }
                             }
                         } else {
                             isSuccessSignUp = false
