@@ -49,7 +49,6 @@ struct OnBoardingView: View {
                                     .font(.title)
                                     .bold()
                                     .foregroundColor(Color.black)
-                                    .frame(maxWidth: .infinity, alignment: .topLeading)
                                     .padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 0))
                                     .tag(0)
                                 
@@ -57,15 +56,14 @@ struct OnBoardingView: View {
                                 Text(bodies[index])
                                     .font(.title3)
                                     .foregroundColor(Color.gray)
-                                    .frame(maxWidth: .infinity, alignment: .topLeading)
                                     .padding(EdgeInsets(top: 3, leading: 20, bottom: 0, trailing: 0))
                                     .tag(1)
                                 
                                 //Image
                                 Image(images[index])
                                     .resizable()
-                                    .frame(maxWidth: .infinity, maxHeight: UIScreen.main.bounds.height*0.5, alignment: .center)
-                                    .aspectRatio(contentMode: .fill)
+                                    .frame(width:UIScreen.main.bounds.width, height: UIScreen.main.bounds.height*0.5)
+                                    .aspectRatio(contentMode: .fit)
                                     .padding(EdgeInsets(top: 10, leading: 0, bottom: 0, trailing: 0))
                                     .tag(2)
                                 Spacer()

@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SimpleToast
 
 struct InviteFamily: View {
     @Binding var isLoggedIn: Bool
@@ -19,12 +20,19 @@ struct InviteFamily: View {
     @Binding var isFifthViewVisible: Bool
     // 임시로 true로 변경. 기본값 = false
     
+    @State var showToast: Bool = false
+    
+    private let toastOptions = SimpleToastOptions(
+        hideAfter: 2
+    )
+    
     var body: some View {
         VStack {
             Text("가족그룹을 만들었어요.")
                 .font(.title)
                 .bold()
                 .padding(EdgeInsets(top: 50, leading: 30, bottom: 0, trailing: 30))
+            
             Text("가족을 초대해볼까요?")
                 .font(.title)
                 .bold()
@@ -46,26 +54,41 @@ struct InviteFamily: View {
             //Image 넣어야함
             Image("가족초대코드")
                 .frame(maxWidth: UIScreen.main.bounds.width, alignment: .center)
-                .padding(EdgeInsets(top: 0, leading: 30, bottom: 0, trailing: 30))
+                .padding(EdgeInsets(top: -30, leading: 30, bottom: 0, trailing: 30))
                 .aspectRatio(contentMode: .fit)
 
             Spacer()
 
             Button {
-
+                withAnimation{
+                    showToast.toggle()
+                }
             } label: {
                 Text("초대코드 공유")
                     .bold()
                     .foregroundColor(Color.white)
-                    .frame(width: UIScreen.main.bounds.width * 0.5 , height: UIScreen.main.bounds.height * 0.09)
+                    .padding(EdgeInsets(top: 10, leading: 10, bottom: 10, trailing: 10))
+                    .frame(width: UIScreen.main.bounds.width * 0.4 , height: UIScreen.main.bounds.height * 0.07)
                     .background(Color.blue)
                     .cornerRadius(8)
+            }.simpleToast(isPresented: $showToast, options: toastOptions) {
+                Text("초대코드가 복사되었어요")
+                    .font(
+                    Font.custom("Pretendard", size: 12)
+                    .weight(.medium)
+                    )
+                    .kerning(0.12)
+                    .multilineTextAlignment(.center)
+                    .padding(EdgeInsets(top: 6, leading: 11, bottom: 6, trailing: 11))
+                .background(.black.opacity(0.78))
+                .foregroundColor(Color.white)
+                .cornerRadius(8)
+                .offset(y:220)
             }
-            .padding(EdgeInsets(top: 0, leading: 140, bottom: 0, trailing: 140))
 
             Spacer()
 
-            Text("초대 코드는 발급 후 30분 이내로 입력가능해요\n입력 시간을 놓치셨더라도 걱정마세요!\n[설정] - [맞춤설정] - [초대하기]를 통해\n초대코드 발급 가능해요")
+            Text("초대 코드는 발급 후 30분 이내로 입력가능해요\n입력 시간을 놓치셨더라도 걱정마세요!\n[설정] - [맞춤설정] - [초대하기]를 통해")
                 .font(
                     Font.custom("Pretendard", size: 15)
                         .weight(.medium)
@@ -73,8 +96,19 @@ struct InviteFamily: View {
                 .kerning(0.12)
                 .multilineTextAlignment(.center)
                 .foregroundColor(Color.oworiGray300)
-                .frame(maxWidth: .infinity, alignment: .top)
-                .padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
+                .frame(width: UIScreen.main.bounds.width*0.8)
+                .padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 20))
+            
+            Text("초대코드 발급 가능해요")
+                .font(
+                    Font.custom("Pretendard", size: 15)
+                        .weight(.medium)
+                )
+                .kerning(0.12)
+                .multilineTextAlignment(.center)
+                .foregroundColor(Color.oworiGray300)
+                .frame(width: UIScreen.main.bounds.width*0.8)
+                .padding(EdgeInsets(top: 0, leading: 20, bottom: 50, trailing: 20))
 
             Spacer()
 
@@ -94,16 +128,6 @@ struct InviteFamily: View {
                 }
                 .background(Color.oworiOrange)
             }
-            //                .padding(.trailing, 0 )
-
-
-            //                Button {
-            //                    isFifthViewVisible = true
-            //                    isCreateCodeViewVisible = false
-            //                    isReceiveCodeViewVisible = false
-            //                } label: {
-            ////                    Text("임시 확인")
-            //                }
         }
         .navigationBarTitleDisplayMode(.inline)
         .navigationBarBackButtonHidden(true)
