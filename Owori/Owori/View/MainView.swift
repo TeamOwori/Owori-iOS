@@ -14,6 +14,9 @@ struct MainView: View {
     @EnvironmentObject var familyViewModel: FamilyViewModel
     @State private var emotionalBadgeViewIsActive: Bool = false
     
+    //Calendar 관련 코드 추가
+//    @EnvironmentObject var myEvents: EventStore
+    
     var body: some View {
         if emotionalBadgeViewIsActive {
             SelectEmotionBadge(emotionalBadgeViewIsActive: $emotionalBadgeViewIsActive)
@@ -29,15 +32,25 @@ struct MainView: View {
                     }
                     .tag(0)
                 
+//                EventsCalendarView()
+//                    .tabItem {
+//                        if selectedTab == 1 {
+//                            Image("CalendarTabSelected")
+//                        } else {
+//                            Image("CalendarTabUnSelected")
+//                        }
+//                    }
+//                    .tag(1)
+                
                 StoryView()
                     .tabItem {
-                        if selectedTab == 1 {
+                        if selectedTab == 2 {
                             Image("StoryTabSelected")
                         } else {
                             Image("StoryTabUnselected")
                         }
                     }
-                    .tag(1)
+                    .tag(2)
             }
             .navigationBarBackButtonHidden(true)
         }
