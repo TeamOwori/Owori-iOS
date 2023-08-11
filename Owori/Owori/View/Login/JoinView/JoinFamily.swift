@@ -55,12 +55,10 @@ struct JoinFamily: View {
                                 Text("초대 코드 만들게요")
                                     .bold()
                                     .foregroundColor(Color.white)
+                                    .frame(maxWidth: UIScreen.main.bounds.width, maxHeight: UIScreen.main.bounds.height*0.07, alignment: .center)
                                 
                             }
                             .background(Color.oworiOrange)
-                            .frame(maxWidth: UIScreen.main.bounds.width, maxHeight: UIScreen.main.bounds.height*0.07, alignment: .center)
-                            
-                            
                         }
                         .background(Color.oworiOrange)
                         .cornerRadius(12)
