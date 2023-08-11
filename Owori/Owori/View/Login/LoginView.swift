@@ -13,7 +13,7 @@ struct SocialLoginStyle: Identifiable {
 }
 
 struct LoginView: View {
-    let test1: [SocialLoginStyle] = [SocialLoginStyle(id: UUID(), buttonImage: "카카오로그인버튼"), SocialLoginStyle(id: UUID(), buttonImage: "애플로그인버튼")]
+    let test1: [SocialLoginStyle] = [SocialLoginStyle(id: UUID(), buttonImage: "카카오로그인버튼"), SocialLoginStyle(id: UUID(), buttonImage: "애플로그인")]
     
     @EnvironmentObject var loginViewModel: LoginViewModel
     @EnvironmentObject var userViewModel: UserViewModel
@@ -25,7 +25,6 @@ struct LoginView: View {
         
         // 배포 전 테스트시 !isLogined로 설정 (서버가 휴대폰에서는 안잡힘)
         VStack {
-            
             //test
             NavigationLink {
                 LoginTestView()
@@ -35,8 +34,8 @@ struct LoginView: View {
             
             //오월이 로고 이미지 - SE에서 가장 예쁘게 나옴
             Image("Login")
-                .frame(maxWidth: .infinity, alignment: .topLeading)
-                .padding(EdgeInsets(top: 0, leading: -10, bottom: 0, trailing: 0))
+                .frame(width: UIScreen.main.bounds.width, alignment: .topLeading)
+                .padding(EdgeInsets(top: 0, leading: -30, bottom: -30, trailing: 0))
             
             //모여봐요 우리 가족 text
             Text("모여봐요 우리 가족")
@@ -62,7 +61,7 @@ struct LoginView: View {
                     Font.custom("Pretendard", size: 11)
                         .weight(.medium)
                 )
-                .padding(.top, 30)
+                .padding(.top, 20)
                 .kerning(0.11)
                 .multilineTextAlignment(.center)
                 .foregroundColor(Color.oworiGray600)
