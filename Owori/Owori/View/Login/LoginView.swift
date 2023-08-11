@@ -17,6 +17,7 @@ struct LoginView: View {
     
     @EnvironmentObject var loginViewModel: LoginViewModel
     @EnvironmentObject var userViewModel: UserViewModel
+    @EnvironmentObject var familyViewModel: FamilyViewModel
     @State private var isLoggedIn: Bool = false
     // 서버에 등록되어있는 멤버인지 아닌지 체크
     @State private var alreadyMember: Bool = false
@@ -68,6 +69,11 @@ struct LoginView: View {
         .navigationDestination(isPresented: $isLoggedIn) {
             if alreadyMember {
                 MainView()
+                .onAppear {
+                    familyViewModel.lookUpHomeView(user: userViewModel.user) {
+                        print(familyViewModel.getFamily())
+                    }
+                }
             } else {
                 JoinNickname(isLoggedIn: $isLoggedIn)
             }
@@ -81,6 +87,7 @@ struct LoginView_Previews: PreviewProvider {
         LoginView()
             .environmentObject(LoginViewModel())
             .environmentObject(UserViewModel())
+            .environmentObject(FamilyViewModel())
     }
 }
 

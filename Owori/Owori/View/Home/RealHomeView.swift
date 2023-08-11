@@ -11,6 +11,8 @@ struct RealHomeView: View {
     @EnvironmentObject var userViewModel: UserViewModel
     @EnvironmentObject var familyViewModel: FamilyViewModel
     
+//    @State private var familyInfo = Family()
+    
     @Binding var emotionalBadgeViewIsActive: Bool
     //    @State private var notificationViewIsActive: Bool = false
     //
@@ -73,11 +75,6 @@ struct RealHomeView: View {
                 }
                 .padding(.top, 50)
                 
-            }
-        }
-        .onAppear {
-            familyViewModel.lookUpHomeView(user: userViewModel.user) {
-                familyViewModel.getFamily()
             }
         }
     }

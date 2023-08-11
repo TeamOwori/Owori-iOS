@@ -138,14 +138,12 @@ struct TermsOfUse: View {
                                 print(nickname)
                                 print(birthDateText.convertToISODateFormat())
                                 
-                                userViewModel.initUser(userInfo: [
-                                    "nickname" : "\(nickname)",
-                                    "birthday" : "\(birthDateText)"]) {
-                                        familyViewModel.createMember(user: userViewModel.user, family_group_name: familyName)
+                                userViewModel.initUser(userInfo: ["nickname" : "\(nickname)", "birthday" : "\(birthDateText)"]) {
+                                    familyViewModel.createMember(user: userViewModel.user, family_group_name: familyName) {
+                                        if userViewModel.user.is_service_member ?? false {
+                                            isSuccessSignUp = true
+                                        }
                                     }
-                                
-                                if userViewModel.user.is_service_member ?? false {
-                                    isSuccessSignUp = true
                                 }
                             }
                         } else {
@@ -167,6 +165,11 @@ struct TermsOfUse: View {
             .navigationBarTitleDisplayMode(.inline)
             .navigationDestination(isPresented: $isSuccessSignUp) {
                 MainView()
+                    .onAppear {
+                        familyViewModel.lookUpHomeView(user: userViewModel.user) {
+                            print(familyViewModel.getFamily())
+                        }
+                    }
             }
             .onAppear {
                 currentIndex = 5

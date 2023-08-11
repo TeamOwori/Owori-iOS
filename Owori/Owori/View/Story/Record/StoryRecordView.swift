@@ -26,10 +26,12 @@ struct StoryRecordView: View {
     @State private var selectedItems = [PhotosPickerItem]()
     @State private var selectedImages = [UIImage]()
     
+    @Binding var stories: [Story.StoryInfo]
     
-//    // 자료형 임시 설정
-//    @State private var storyInfo: [String: Any] = [:]
-//    @State private var storyInfoDictionary: [String: Any] = [:]
+    
+    //    // 자료형 임시 설정
+    //    @State private var storyInfo: [String: Any] = [:]
+    //    @State private var storyInfoDictionary: [String: Any] = [:]
     
     @EnvironmentObject var storyViewModel: StoryViewModel
     @EnvironmentObject var userViewModel: UserViewModel
@@ -148,7 +150,7 @@ struct StoryRecordView: View {
             }
             
             
-            RecordSuccessButton(startDate: $startDate, endDate: $endDate, title: $title, content: $content, storyImages: $storyImages, selectedImages: $selectedImages)
+            RecordSuccessButton(startDate: $startDate, endDate: $endDate, title: $title, content: $content, storyImages: $storyImages, selectedImages: $selectedImages, stories: $stories)
             
         }
         .padding(EdgeInsets(top: 0, leading: 15, bottom: 0, trailing: 15))
@@ -169,6 +171,6 @@ struct StoryRecordView: View {
 
 struct StoryRecordView_Previews: PreviewProvider {
     static var previews: some View {
-        StoryRecordView()
+        StoryRecordView(stories: .constant([]))
     }
 }
