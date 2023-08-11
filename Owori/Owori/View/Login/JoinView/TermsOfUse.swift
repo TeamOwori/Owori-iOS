@@ -140,9 +140,12 @@ struct TermsOfUse: View {
                                 
                                 userViewModel.initUser(userInfo: ["nickname" : "\(nickname)", "birthday" : "\(birthDateText)"]) {
                                     familyViewModel.createMember(user: userViewModel.user, family_group_name: familyName) {
-                                        if userViewModel.user.is_service_member ?? false {
-                                            isSuccessSignUp = true
-                                        }
+                                            familyViewModel.lookUpHomeView(user: userViewModel.user) {
+                                                print(familyViewModel.getFamily())
+                                                if userViewModel.user.is_service_member ?? false {
+                                                    isSuccessSignUp = true
+                                                }
+                                            }
                                     }
                                 }
                             }

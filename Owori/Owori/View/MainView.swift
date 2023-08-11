@@ -52,6 +52,11 @@ struct MainView: View {
                     }
                     .tag(2)
             }
+            .onAppear {
+                familyViewModel.lookUpHomeView(user: userViewModel.user) {
+                    print(familyViewModel.getFamily())
+                }
+            }
             .navigationBarBackButtonHidden(true)
         }
         
