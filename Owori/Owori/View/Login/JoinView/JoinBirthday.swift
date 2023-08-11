@@ -35,13 +35,13 @@ struct JoinBirthday: View {
                 
                 HStack {
                     Text("생년월일  ")
-                    TextField("yyyy-mm-dd", text: $birthDateText)
+                    TextField("YYYYMMDD", text: $birthDateText)
                         .keyboardType(.numberPad)
                         .onChange(of: birthDateText) { newValue in
                             // 사용자가 입력한 값을 변환하는 로직을 구현
                             
-                            if newValue.count > 10 {
-                                birthDateText = String(newValue.prefix(10))
+                            if newValue.count > 8 {
+                                birthDateText = String(newValue.prefix(8))
                             }
                         }
                 }

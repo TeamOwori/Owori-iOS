@@ -140,8 +140,9 @@ struct TermsOfUse: View {
                                 
                                 userViewModel.initUser(userInfo: [
                                     "nickname" : "\(nickname)",
-                                    "birthday" : "\(birthDateText.convertToISODateFormat())"])
-                                familyViewModel.createMember(user: userViewModel.user, family_group_name: familyName)
+                                    "birthday" : "\(birthDateText)"]) {
+                                        familyViewModel.createMember(user: userViewModel.user, family_group_name: familyName)
+                                    }
                                 
                                 if userViewModel.user.is_service_member ?? false {
                                     isSuccessSignUp = true

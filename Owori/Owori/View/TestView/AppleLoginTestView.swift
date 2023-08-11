@@ -57,14 +57,16 @@ struct AppleLoginTestView: View {
             
             Button {
                 userViewModel.initUser(userInfo: ["nickname" : "owori",
-                                                  "birthday" : "2023-07-17"])
+                                                  "birthday" : "20230717"]) {
+                    
+                }
             } label: {
                 Text("Init User")
             }
             
             Button {
                 userViewModel.updateProfile(userInfo: ["nickname" : "오월이",
-                                                       "birthday" : "2023-07-17",
+                                                       "birthday" : "20230717",
                                                        "color" : "GREEN"])
             } label: {
                 Text("Update Profile")

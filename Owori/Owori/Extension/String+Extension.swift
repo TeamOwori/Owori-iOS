@@ -29,6 +29,6 @@ extension String {
             }/* else {
                 return nil // 변환 실패 시 nil 반환
             }*/
-        return "1970-01-01"
+        return "0000-00-00"
         }
 }

@@ -102,7 +102,7 @@ class UserViewModel: ObservableObject {
         }.resume()
     }
     
-    func initUser(userInfo: [String: Any]) {
+    func initUser(userInfo: [String: Any], completion: @escaping () -> Void) {
         guard let sendData = try? JSONSerialization.data(withJSONObject: userInfo, options: []) else { return }
         
         //         요청을 보낼 API의 url 설정
@@ -159,6 +159,7 @@ class UserViewModel: ObservableObject {
                 self?.user.is_service_member = jsonDictionary["is_service_member"] as! Bool
                 self?.user.member_profile = User.Profile(nickname: userInfo["nickname"] as! String, birthday: userInfo["birthday"] as! String)
                 print(self?.user)
+                completion()
             }
             
             
