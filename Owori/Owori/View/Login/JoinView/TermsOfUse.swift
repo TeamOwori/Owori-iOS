@@ -40,94 +40,82 @@ struct TermsOfUse: View {
                     .padding(EdgeInsets(top: 100, leading: 20, bottom: 20, trailing: 20))
                     .frame(maxWidth: UIScreen.main.bounds.width, alignment: .leading)
                 
-                VStack(alignment: .leading) {
-                    HStack(alignment: .center) {
-                        
-                        Button {
-                            checkForService.toggle()
-                        } label: {
-                            if checkForService == false {
-                                Image("Checked")
-                                    .resizable()
-                                    .frame(width: 30, height: 30)
-                            } else {
-                                Image("Checked1")
-                                    .resizable()
-                                    .frame(width: 30, height: 30)
-                            }
+                //MARK: 서비스 운영약관
+                HStack{
+                    
+                    Button {
+                        checkForService.toggle()
+                    } label: {
+                        if checkForService == false {
+                            Image("Checked")
+                                .resizable()
+                                .frame(width: 20, height: 20)
+                        } else {
+                            Image("Checked1")
+                                .resizable()
+                                .frame(width: 20, height: 20)
                         }
-                        
+                    }.padding(.leading,15)
+                    
+                    VStack(alignment: .leading) {
                         Text("서비스 운영약관 동의 (필수)")
-                            .font(.title3)
-                            .bold()
-                            .foregroundColor(Color.black)
-                            .padding(EdgeInsets(top: 0, leading: 10, bottom: 0, trailing: 10))
-                        
-                        Button {
-                            //서비스 운영약관 동의 링크가 뜨게 해야함.
-                            if let url = URL(string: "https://zeroexn.notion.site/86e355e9c415493695784ca02a3b329e") {
-                                UIApplication.shared.open(url)
-                            }
-                            
-                        } label: {
-                            Image("약관버튼")
-                                .frame(width: 30, height: 30)
-                        }
-                        .padding(EdgeInsets(top: 0, leading: 30, bottom: 0, trailing: 0))
+                            .font(.system(size: 16, weight: .semibold))
+                            .foregroundColor(.black)
                         
                     }
-                    .frame(maxWidth: UIScreen.main.bounds.width, alignment: .leading)
+                    .padding(EdgeInsets(top: 0, leading: 1.5, bottom: 0, trailing: 10))
                     
-                }
-                .frame(width: UIScreen.main.bounds.width, alignment: .topLeading)
-                .padding(.leading, 50)
-                
-                VStack(alignment: .leading) {
-                    HStack(alignment: .center) {
-                        
-                        Button {
-                            checkForUseOfInformation.toggle()
-                        } label: {
-                            if checkForUseOfInformation == false {
-                                Image("Checked")
-                                    .resizable()
-                                    .frame(width: 30, height: 30)
-                            } else {
-                                Image("Checked1")
-                                    .resizable()
-                                    .frame(width: 30, height: 30)
-                            }
+                    Spacer()
+                    
+                    Button{
+                        //서비스 운영약관 동의 링크가 뜨게 해야함.
+                        if let url = URL(string: "https://zeroexn.notion.site/86e355e9c415493695784ca02a3b329e") {
+                            UIApplication.shared.open(url)
                         }
-                        
+                    }label:{
+                        Image("Right")
+                            .frame(width: 20, height: 20)
+                    }.padding(.trailing,10)
+                }
+                
+                //MARK: 개인정보
+                HStack{
+                    
+                    Button {
+                        checkForUseOfInformation.toggle()
+                    } label: {
+                        if checkForUseOfInformation == false {
+                            Image("Checked")
+                                .resizable()
+                                .frame(width: 20, height: 20)
+                        } else {
+                            Image("Checked1")
+                                .resizable()
+                                .frame(width: 20, height: 20)
+                        }
+                    }.padding(.leading,15)
+                    
+                    VStack(alignment: .leading) {
                         Text("개인정보 수집 및 이용동의 (필수)")
-                            .font(.title3)
-                            .bold()
-                            .foregroundColor(Color.black)
-                            .padding(EdgeInsets(top: 0, leading: 10, bottom: 0, trailing: 10))
-                        
-                        Button {
-                            //개인정보 수집 및 이용동의 뜨게 해야함
-                            if let url = URL(string: "https://zeroexn.notion.site/2abdc0d3fa724b32bc4db75b34eade45") {
-                                UIApplication.shared.open(url)
-                            }
-                            
-                        } label: {
-                            Image("약관버튼")
-                                .frame(width: 30, height: 30)
-                            
-                            
-                        }
-                        .padding(EdgeInsets(top: 0, leading: -10, bottom: 0, trailing: 0))
+                            .font(.system(size: 16, weight: .semibold))
+                            .foregroundColor(.black)
                         
                     }
-                    .frame(maxWidth: UIScreen.main.bounds.width, alignment: .leading)
+                    .padding(EdgeInsets(top: 0, leading: 1.5, bottom: 0, trailing: 10))
                     
+                    Spacer()
+                    
+                    Button{
+                        //개인정보 수집 및 이용동의 뜨게 해야함
+                        if let url = URL(string: "https://zeroexn.notion.site/2abdc0d3fa724b32bc4db75b34eade45") {
+                            UIApplication.shared.open(url)
+                        }
+                    }label:{
+                        Image("Right")
+                            .frame(width: 20, height: 20)
+                    }.padding(.trailing,10)
                 }
-                .frame(width: UIScreen.main.bounds.width, alignment: .topLeading)
-                .padding(.leading, 50)
-                
-                
-                
+
                 Spacer()
                 
                 HStack(alignment: .center) {
