@@ -116,7 +116,7 @@ struct SettingView: View {
                             Spacer()
                             
                             Button{
-                                if let url = URL(string: "https://zeroexn.notion.site/813fd6f55a294c16ad7b07ee44635816?pvs=4") {
+                                if let url = URL(string: "https://zeroexn.notion.site/813fd6f55a294c16ad7b07ee44635816") {
                                     UIApplication.shared.open(url)
                                 }
                                 
@@ -207,7 +207,7 @@ struct SettingView: View {
                             Spacer()
                             
                             Button{
-                                if let url = URL(string: "https://zeroexn.notion.site/e5db73c8565b47dfbaa7010880f32caf?pvs=4") {
+                                if let url = URL(string: "https://zeroexn.notion.site/e5db73c8565b47dfbaa7010880f32caf") {
                                     UIApplication.shared.open(url)
                                 }
                             }label:{

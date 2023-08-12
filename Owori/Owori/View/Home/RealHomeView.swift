@@ -35,6 +35,15 @@ struct RealHomeView: View {
                         
                         Spacer()
                         
+                        //신고하기 버튼
+                        NavigationLink {
+                           //신고하기 버튼 누르면 나와야 되는 뷰
+                        } label: {
+                            Image(systemName: "exclamationmark.circle")
+                                .foregroundColor(Color.black)
+                                .frame(width: 25, height: 25)
+                            
+                        }
                         
                         //종 버튼
                         NavigationLink {
@@ -46,6 +55,8 @@ struct RealHomeView: View {
                                 .frame(width: 25, height: 25)
                             
                         }
+                        
+                        
                         
                         //스마일 버튼
                         NavigationLink {

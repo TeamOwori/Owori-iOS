@@ -36,27 +36,73 @@ struct StoryRecordView: View {
     @EnvironmentObject var storyViewModel: StoryViewModel
     @EnvironmentObject var userViewModel: UserViewModel
     
+    //DatePicker - 멘트 뜨게 하는 거
+    @State private var isDatePickerActive = false
+    @State private var isDateOutOfRange = false
+
+    
     var contentPlaceholder: String = "추억을 기록해봐요:) 500자까지 입력할 수 있어요"
     
     var body: some View {
+        
         ScrollView {
-            //DatePicker
-            HStack {
-                DatePicker(
-                    "시작일",
-                    selection: $startDate,
-                    displayedComponents: [.date]
-                )
-                .frame(width: UIScreen.main.bounds.width*0.4)
-                Spacer()
-                DatePicker(
-                    "종료일",
-                    selection: $endDate,
-                    displayedComponents: [.date]
-                )
-                .frame(width: UIScreen.main.bounds.width*0.4)
+            
+            VStack{
+                //DatePicker
+                ScrollView(.horizontal) {
+                    HStack {
+                        HStack {
+                            DatePicker(
+                                "시작일",
+                                selection: $startDate,
+                                displayedComponents: [.date]
+                            )
+                        }
+                        .padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: -30))
+                        .frame(width: UIScreen.main.bounds.width * 0.4)
+                        
+                        Spacer()
+                        
+                        HStack {
+                            DatePicker(
+                                "종료일",
+                                selection: $endDate,
+                                displayedComponents: [.date]
+                            )
+                        }
+                        .padding(EdgeInsets(top: 0, leading: -30, bottom: 0, trailing: 0))
+                        .frame(width: UIScreen.main.bounds.width * 0.4)
+                    }
+                    .frame(width: UIScreen.main.bounds.width)
+                    .padding(.bottom, 30)
+                }
+                .kerning(0)
+                
+                if isDatePickerActive && isDateOutOfRange {
+                    Text("시작일은 이전 날짜만 선택 가능해요")
+                        .font(.system(size: 14, weight: .semibold))
+                        .foregroundColor(.red)
+                        .padding(.top, -20)
+                }
+                
+            }.onChange(of: startDate) { newStartDate in
+                let today = Calendar.current.startOfDay(for: Date())
+                if newStartDate < today {
+                    isDateOutOfRange = false
+                } else {
+                    isDateOutOfRange = true
+                }
             }
-            .padding()
+            .onChange(of: isDatePickerActive) { newIsActive in
+                if !newIsActive {
+                    isDateOutOfRange = false
+                }
+            }
+            .onTapGesture {
+                isDatePickerActive = true
+            }
+           
+            
             
             VStack(alignment: .leading) {
                 VStack(alignment: .leading) {
