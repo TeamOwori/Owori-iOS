@@ -38,8 +38,10 @@ struct RealHomeView: View {
                         //신고하기 버튼
                         NavigationLink {
                            //신고하기 버튼 누르면 나와야 되는 뷰
+                            ReportView()
+                            
                         } label: {
-                            Image(systemName: "exclamationmark.circle")
+                            Image("Report")
                                 .foregroundColor(Color.black)
                                 .frame(width: 25, height: 25)
                             
