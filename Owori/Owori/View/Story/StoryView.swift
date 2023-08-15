@@ -31,19 +31,26 @@ struct StoryView: View {
                 ScrollView {
                     if buttonSet {
                         StoryListView(stories: $stories)
+                            .onAppear {
+                                storyViewModel.lookUpStorySortByStartDate(user: userViewModel.user) {
+                                    stories = storyViewModel.getStories()
+                                    print("[getStoryTest]\(stories)")
+                                    print("[getStoriesForcollection] : \(storyViewModel.getStoriesForCollection())")
+                                }
+                            }
                     } else {
                         StoryAlbumView(stories: $stories)
+                            .onAppear {
+                                storyViewModel.lookUpStorySortByStartDate(user: userViewModel.user) {
+                                    stories = storyViewModel.getStories()
+                                    print("[getStoryTest]\(stories)")
+                                    print("[getStoriesForcollection] : \(storyViewModel.getStoriesForCollection())")
+                                }
+                            }
                     }
                 }
             }
-            .onAppear {
-                storyViewModel.lookUpStorySortByStartDate(user: userViewModel.user) {
-                    stories = storyViewModel.getStories()
-                    print("[getStoryTest]\(stories)")
-                    print("[getStoriesForcollection] : \(storyViewModel.getStoriesForCollection())")
-                }
-            }
-            RecordButton()
+            RecordButton(stories: $stories)
                 // 임시로 설정
                 .padding(.bottom, 30)
         }

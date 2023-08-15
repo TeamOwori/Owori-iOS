@@ -15,7 +15,9 @@ struct FamilyViewModelTestView: View {
     var body: some View {
         VStack {
             Button {
-                familyViewModel.createMember(user: userViewModel.user, family_group_name: "owori")
+                familyViewModel.createMember(user: userViewModel.user, family_group_name: "owori") {
+                    
+                }
             } label: {
                 Text("Add FamilyMember(완)")
             }

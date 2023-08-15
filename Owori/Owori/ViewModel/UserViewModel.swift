@@ -13,6 +13,8 @@ fileprivate enum OworiAPI {
     
     enum Path: String {
         case members = "/api/v1/members"
+        case membersKakao = "/api/v1/members/kakao"
+        case membersApple = "/api/v1/members/apple"
         case refresh = "/api/v1/auth/refresh"
         case membersDetails = "/api/v1/members/details"
         case membersEmtionalBadge = "/api/v1/members/emotional-badge"
@@ -31,14 +33,18 @@ class UserViewModel: ObservableObject {
     
     // 멤버 홈화면 조회
     func joinMember(socialToken: Token, completion: @escaping () -> Void) {
-        guard let sendData = try? JSONSerialization.data(withJSONObject: ["token": socialToken.accessToken, "auth_provider": socialToken.authProvider], options: []) else { return }
+       
         
         // 요청을 보낼 API의 url 설정
         // 배포 후 url 설정
         var urlComponents = URLComponents()
         urlComponents.scheme = OworiAPI.scheme
         urlComponents.host = OworiAPI.host
-        urlComponents.path = OworiAPI.Path.members.rawValue
+        if socialToken.authProvider == "KAKAO" {
+            urlComponents.path = OworiAPI.Path.membersKakao.rawValue
+        } else {
+            urlComponents.path = OworiAPI.Path.membersApple.rawValue
+        }
         guard let url = urlComponents.url else {
             print("Error: cannot create URL")
             return
@@ -54,7 +60,16 @@ class UserViewModel: ObservableObject {
         var urlRequest = URLRequest(url: url)
         urlRequest.httpMethod = "POST"
         urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        urlRequest.httpBody = sendData
+        
+        if socialToken.authProvider == "KAKAO" {
+            guard let sendData = try? JSONSerialization.data(withJSONObject: ["token": socialToken.accessToken, "auth_provider": socialToken.authProvider], options: []) else { return }
+            urlRequest.httpBody = sendData
+        } else if socialToken.authProvider == "APPLE" {
+            guard let sendData = try? JSONSerialization.data(withJSONObject: ["token": socialToken.accessToken, "auth_provider": socialToken.authProvider, "authorization_code" : socialToken.authorizationCode], options: []) else { return }
+            urlRequest.httpBody = sendData
+        }
+        
+ 
         
         // 요청
         URLSession.shared.dataTask(with: urlRequest) { (data, response, error) in
@@ -157,8 +172,11 @@ class UserViewModel: ObservableObject {
             DispatchQueue.main.async { [weak self] in
                 // Test Log
                 self?.user.is_service_member = jsonDictionary["is_service_member"] as! Bool
-                self?.user.member_profile = User.Profile(nickname: userInfo["nickname"] as! String, birthday: userInfo["birthday"] as! String)
-                print(self?.user)
+//                self?.user.member_profile = User.Profile(nickname: userInfo["nickname"] as! String, birthday: userInfo["birthday"] as! String)
+                print(jsonDictionary["is_service_member"] as! Bool)
+                print(userInfo["nickname"] as! String)
+                print(userInfo["birthday"] as! String)
+//                print(self?.user)
                 completion()
             }
             

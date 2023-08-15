@@ -17,7 +17,8 @@ fileprivate enum OworiAPI {
     static let host = "owori.store"
     
     enum Path: String {
-        case joinMember = "/api/v1/members"
+        case joinMember = "/api/v1/members/kakao"
+        
     }
 }
 
@@ -191,7 +192,7 @@ class LoginViewModel: ObservableObject {
                 print("카카오 소셜 로그인 토큰이 정상적으로 발급되지 않았습니다.")
                 return
             }
-            self?.socialToken = Token(authProvider: "KAKAO", accessToken: socialToken.accessToken, refreshToken: socialToken.refreshToken)
+            self?.socialToken = Token(authProvider: "KAKAO", accessToken: socialToken.accessToken)
             print("[Kakao token test log]\(self?.socialToken)")
         }
     }
@@ -221,14 +222,14 @@ class LoginViewModel: ObservableObject {
                         
                         DispatchQueue.main.async { [weak self] in
                             
-                            self?.socialToken = Token(authProvider: "APPLE", accessToken: IdentityToken!, refreshToken: IdentityToken!)
+                            self?.socialToken = Token(authProvider: "APPLE", accessToken: IdentityToken!, authorizationCode: AuthorizationCode!)
                             
                             // 테스트 로그
                             print("애플 로그인 테스트 : \(self?.socialToken)")
                             
-//                            print("UserIdentifier: \(UserIdentifier)")
-//                            print("IdentityToken: \(IdentityToken)")
-//                            print("AuthorizationCode: \(AuthorizationCode)")
+                            print("UserIdentifier: \(UserIdentifier)")
+                            print("IdentityToken: \(IdentityToken)")
+                            print("AuthorizationCode: \(AuthorizationCode)")
                             self?.isLoggedIn = true
                             
                             completion()

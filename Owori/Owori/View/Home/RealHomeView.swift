@@ -11,6 +11,8 @@ struct RealHomeView: View {
     @EnvironmentObject var userViewModel: UserViewModel
     @EnvironmentObject var familyViewModel: FamilyViewModel
     
+//    @State private var familyInfo = Family()
+    
     @Binding var emotionalBadgeViewIsActive: Bool
     //    @State private var notificationViewIsActive: Bool = false
     //
@@ -33,6 +35,17 @@ struct RealHomeView: View {
                         
                         Spacer()
                         
+                        //신고하기 버튼
+                        NavigationLink {
+                           //신고하기 버튼 누르면 나와야 되는 뷰
+                            ReportView()
+                            
+                        } label: {
+                            Image("Report")
+                                .foregroundColor(Color.black)
+                                .frame(width: 25, height: 25)
+                            
+                        }
                         
                         //종 버튼
                         NavigationLink {
@@ -44,6 +57,8 @@ struct RealHomeView: View {
                                 .frame(width: 25, height: 25)
                             
                         }
+                        
+                        
                         
                         //스마일 버튼
                         NavigationLink {
@@ -73,11 +88,6 @@ struct RealHomeView: View {
                 }
                 .padding(.top, 50)
                 
-            }
-        }
-        .onAppear {
-            familyViewModel.lookUpHomeView(user: userViewModel.user) {
-                familyViewModel.getFamily()
             }
         }
     }

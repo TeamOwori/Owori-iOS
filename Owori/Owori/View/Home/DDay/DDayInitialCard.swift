@@ -2,7 +2,7 @@
 //  DDayInitialCard.swift
 //  Owori
 //
-//  Created by 드즈 on 2023/07/23.
+//  Created by 희 on 2023/07/23.
 //
 
 import SwiftUI

@@ -28,7 +28,7 @@ class StoryViewModel: ObservableObject {
     @Published var testStoryId: String = ""
     
     // MARK: Story API FUNCTIONS (POST)
-    func createStory(user: User, storyInfo: [String: Any]) {
+    func createStory(user: User, storyInfo: [String: Any], completion: @escaping () -> Void) {
         print("스토리 인포 로그 : \(storyInfo)")
         guard let sendData = try? JSONSerialization.data(withJSONObject: storyInfo, options: []) else { return }
         
@@ -95,6 +95,7 @@ class StoryViewModel: ObservableObject {
                     print("[create Story Log]: \(self?.storyModel)")
                     // 임시
                     print(self?.testStoryId)
+                    completion()
                 } catch {
                     print("[createStory] Error: Failed to parse JSON data - \(error)")
                 }

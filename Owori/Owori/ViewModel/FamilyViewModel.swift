@@ -23,14 +23,14 @@ fileprivate enum OworiAPI {
 class FamilyViewModel: ObservableObject {
     @Published var family: Family = Family()
     
-    func getFamily() -> Void {
-        print(self.family)
+    func getFamily() -> Family {
+        return self.family
     }
     
     // MARK: 오월이 API FUNCTIONS (Post)
     
     // 가족 생성
-    func createMember(user: User, family_group_name: String) {
+    func createMember(user: User, family_group_name: String, completion: @escaping () -> Void) {
         guard let sendData = try? JSONSerialization.data(withJSONObject: ["family_group_name": family_group_name], options: []) else { return }
         
         // 요청을 보낼 API의 url 설정
@@ -90,6 +90,7 @@ class FamilyViewModel: ObservableObject {
                     
                     // User 구조체에 할당된 데이터 사용 (테스트 log)
                     print("Family: \(String(describing: self?.family))")
+                    completion()
                 } catch {
                     print("Error: Failed to parse JSON data - \(error)")
                 }

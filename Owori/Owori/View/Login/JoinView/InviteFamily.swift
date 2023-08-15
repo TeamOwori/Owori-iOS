@@ -83,7 +83,7 @@ struct InviteFamily: View {
                 .background(.black.opacity(0.78))
                 .foregroundColor(Color.white)
                 .cornerRadius(8)
-                .offset(y:220)
+                .offset(y: UIScreen.main.bounds.height * 0.15)
             }
 
             Spacer()

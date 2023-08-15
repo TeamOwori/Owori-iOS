@@ -10,17 +10,23 @@ import Foundation
 struct Token: Codable {
     var authProvider: String?
     var accessToken: String?
-    var refreshToken: String?
+    var authorizationCode: String?
     
     init() {
         self.authProvider = ""
         self.accessToken = ""
-        self.refreshToken = ""
+        self.authorizationCode = ""
     }
     
-    init(authProvider: String, accessToken: String, refreshToken: String) {
+    init(authProvider: String, accessToken: String) {
         self.authProvider = authProvider
         self.accessToken = accessToken
-        self.refreshToken = refreshToken
+        self.authorizationCode = ""
+    }
+    
+    init(authProvider: String, accessToken: String, authorizationCode: String) {
+        self.authProvider = authProvider
+        self.accessToken = accessToken
+        self.authorizationCode = authorizationCode
     }
 }
