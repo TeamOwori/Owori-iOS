@@ -342,12 +342,13 @@ struct SettingView: View {
 //                BackButton()
 //            }
             ToolbarItem(placement: .principal) {
-                Text("설정")
-                    .font(.title3)
-                    .bold()
-                    .foregroundColor(Color.black)
+                    Text("설정")
+                        .font(.title3)
+                        .bold()
+                        .foregroundColor(Color.black)
             }
-        }.background(Color.oworiMain)
+        }
+        .background(Color.oworiMain)
             .navigationDestination(isPresented: $FamilyNameChangeViewIsActive) {
                         FamilyNameChangeView()
                     }

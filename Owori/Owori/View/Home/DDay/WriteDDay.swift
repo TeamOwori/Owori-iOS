@@ -159,40 +159,33 @@ struct WriteDDay: View {
         .onTapGesture {
             self.endTextEditing()
         }
-//        .navigationBarBackButtonHidden(true)
+        //        .navigationBarBackButtonHidden(true)
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
-//            ToolbarItem(placement: .navigationBarLeading) {
-//                BackCancel()
-//            }
+            //            ToolbarItem(placement: .navigationBarLeading) {
+            //                BackCancel()
+            //            }
             ToolbarItem(placement: .principal) {
                 
                 //MARK: HEADER 작성하기
-                HStack(alignment: .center) {
-                    
-                    Spacer()
-                    
-                    Text("작성하기")
-                        .font(
-                            Font.custom("Pretendard", size: 20)
-                                .weight(.bold)
-                        )
-                        .foregroundColor(Color(red: 0.13, green: 0.13, blue: 0.13))
-                    
-                    Spacer()
-                    
-                    Button {
-                        //View가 업데이트 된 상황에서 홈으로 복귀
-                        isAddDdayViewActive = false
-                    } label: {
-                        Image("Check")
-                            .frame(width: 30, height: 30)
-                    }
-                }
                 
+                Text("작성하기")
+                    .font(
+                        Font.custom("Pretendard", size: 20)
+                            .weight(.bold)
+                    )
+                    .foregroundColor(Color(red: 0.13, green: 0.13, blue: 0.13))
+            }
+            ToolbarItem(placement: .navigationBarTrailing) {
+                Button {
+                    //View가 업데이트 된 상황에서 홈으로 복귀
+                    isAddDdayViewActive = false
+                } label: {
+                    Image("Check")
+                        .frame(width: 30, height: 30)
+                }
             }
         }
-        
     }
 }
 

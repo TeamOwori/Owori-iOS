@@ -46,7 +46,7 @@ struct RecordSuccessButton: View {
                         storyViewModel.lookUpStorySortByStartDate(user: userViewModel.user) {
                             
                             stories = storyViewModel.getStories()
-                            print("[getStoryTest]\(stories)")
+                            print("[getStoryTest Record]\(stories)")
                             print("[getStoriesForcollection] : \(storyViewModel.getStoriesForCollection())")
                         }
                         

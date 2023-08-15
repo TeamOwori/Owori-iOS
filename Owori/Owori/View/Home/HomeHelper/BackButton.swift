@@ -9,6 +9,7 @@ import SwiftUI
 
 struct BackButton: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+    @GestureState private var dragOffset = CGSize.zero
     
     var body: some View {
         Button {
@@ -18,6 +19,13 @@ struct BackButton: View {
                 .aspectRatio(contentMode: .fit)
                 .foregroundColor(.black)
         }
+        .gesture(DragGesture().updating($dragOffset, body: { (value, state, transaction) in
+                
+                    if(value.startLocation.x < 20 && value.translation.width > 100) {
+                        self.presentationMode.wrappedValue.dismiss()
+                    }
+                    
+                }))
     }
 }
 
