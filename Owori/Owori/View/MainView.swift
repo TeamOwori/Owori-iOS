@@ -52,6 +52,8 @@ struct MainView: View {
                     }
                     .tag(2)
             }
+            .navigationTitle("")
+            .navigationBarTitleDisplayMode(.inline)
             .onAppear {
                 familyViewModel.lookUpHomeView(user: userViewModel.user) {
                     print(familyViewModel.getFamily())

@@ -97,6 +97,7 @@
 		F36A82952A71921A00C6A90C /* BackToFamilyLinkViewButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F36A82942A71921A00C6A90C /* BackToFamilyLinkViewButton.swift */; };
 		F37CDD0F2A86578D0002FFFE /* AppleLoginButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37CDD0E2A86578D0002FFFE /* AppleLoginButton.swift */; };
 		F38C12932A83920500DDAAA8 /* ZoomDetailImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38C12922A83920500DDAAA8 /* ZoomDetailImageCell.swift */; };
+		F39B28492A8C02E3000D26C7 /* TestBackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F39B28482A8C02E3000D26C7 /* TestBackButton.swift */; };
 		F39EF2822A6B93E5005FD6DB /* JoinNickname.swift in Sources */ = {isa = PBXBuildFile; fileRef = F39EF2812A6B93E5005FD6DB /* JoinNickname.swift */; };
 		F39EF2842A6B95D3005FD6DB /* JoinBirthday.swift in Sources */ = {isa = PBXBuildFile; fileRef = F39EF2832A6B95D3005FD6DB /* JoinBirthday.swift */; };
 		F39EF2862A6B96A1005FD6DB /* JoinFamilyName.swift in Sources */ = {isa = PBXBuildFile; fileRef = F39EF2852A6B96A1005FD6DB /* JoinFamilyName.swift */; };
@@ -230,6 +231,7 @@
 		F36A82942A71921A00C6A90C /* BackToFamilyLinkViewButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackToFamilyLinkViewButton.swift; sourceTree = "<group>"; };
 		F37CDD0E2A86578D0002FFFE /* AppleLoginButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleLoginButton.swift; sourceTree = "<group>"; };
 		F38C12922A83920500DDAAA8 /* ZoomDetailImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoomDetailImageCell.swift; sourceTree = "<group>"; };
+		F39B28482A8C02E3000D26C7 /* TestBackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestBackButton.swift; sourceTree = "<group>"; };
 		F39EF2812A6B93E5005FD6DB /* JoinNickname.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinNickname.swift; sourceTree = "<group>"; };
 		F39EF2832A6B95D3005FD6DB /* JoinBirthday.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinBirthday.swift; sourceTree = "<group>"; };
 		F39EF2852A6B96A1005FD6DB /* JoinFamilyName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinFamilyName.swift; sourceTree = "<group>"; };
@@ -665,6 +667,7 @@
 				F3C1BE662A70F26E002ADB3B /* FamilyViewModelTestView.swift */,
 				F3C1BE682A70F2C6002ADB3B /* StoryViewModelTestView.swift */,
 				F3E8CDC92A810719007A0C3A /* ContentView.swift */,
+				F39B28482A8C02E3000D26C7 /* TestBackButton.swift */,
 			);
 			path = TestView;
 			sourceTree = "<group>";
@@ -900,6 +903,7 @@
 				35B3CD5A2A7D5CCF00127259 /* WriteDDay.swift in Sources */,
 				F3430FAC2A67043200DC1B1C /* User.swift in Sources */,
 				F3430FA32A67043200DC1B1C /* DailyStoryListCell.swift in Sources */,
+				F39B28492A8C02E3000D26C7 /* TestBackButton.swift in Sources */,
 				F3430F912A67043200DC1B1C /* LoginTestView.swift in Sources */,
 				356A54562A856001006E22C8 /* CalendarView.swift in Sources */,
 				F3430F9A2A67043200DC1B1C /* ContentText.swift in Sources */,

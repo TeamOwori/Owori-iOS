@@ -83,6 +83,9 @@ struct JoinBirthday: View {
                 currentIndex = 2
             }
         }
+        .onTapGesture {
+            self.endTextEditing()
+        }
         .navigationBarTitleDisplayMode(.inline)
         .navigationDestination(isPresented: $isThirdViewActive) {
             JoinFamilyName(isLoggedIn: $isLoggedIn, currentIndex: $currentIndex, nickname: $nickname, birthDateText: $birthDateText, familyName: $familyName, inviteCode: $inviteCode)

@@ -36,7 +36,7 @@ struct ReportView: View {
     
     var body: some View {
         
-        VStack{
+        ScrollView{
             
             VStack(alignment: .leading){
                 
@@ -214,18 +214,21 @@ struct ReportView: View {
             .offset(y: UIScreen.main.bounds.height * 0.1)
             .disabled(!isButtonEnabled)
         }
-        .navigationBarBackButtonHidden(true)
+//        .navigationBarBackButtonHidden(true)
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
-            ToolbarItem(placement: .navigationBarLeading) {
-                BackButton()
-            }
+//            ToolbarItem(placement: .navigationBarLeading) {
+//                BackButton()
+//            }
             ToolbarItem(placement: .principal) {
                 Text("신고하기")
                     .font(.title3)
                     .bold()
                     .foregroundColor(Color.black)
             }
+        }
+        .onTapGesture {
+            self.endTextEditing()
         }
         
     }

@@ -55,13 +55,9 @@ struct MyPageProfile: View {
 //                    SettingView()
 //                }
         .toolbar {
-//            ToolbarItem(placement: .navigationBarLeading) {
-//                BackButton()
-//            }
             ToolbarItem(placement: .navigationBarTrailing) {
                 
                 HStack{
-                    
                     NavigationLink {
                         //edit 버튼 누르면 작동
 //                        editMyPageIsActive = true

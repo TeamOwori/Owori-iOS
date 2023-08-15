@@ -46,9 +46,8 @@ struct RecordSuccessButton: View {
                         storyViewModel.lookUpStorySortByStartDate(user: userViewModel.user) {
                             
                             stories = storyViewModel.getStories()
-                            print("[getStoryTest]\(stories)")
+                            print("[getStoryTest Record]\(stories)")
                             print("[getStoriesForcollection] : \(storyViewModel.getStoriesForCollection())")
-                            self.presentationMode.wrappedValue.dismiss()
                         }
                         
                     }
@@ -60,11 +59,7 @@ struct RecordSuccessButton: View {
                     
                 }
             }
-            
-            
-            
-            
-            
+            self.presentationMode.wrappedValue.dismiss()
             
         } label: {
             Text("작성 완료")

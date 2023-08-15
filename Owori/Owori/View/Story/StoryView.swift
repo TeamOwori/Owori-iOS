@@ -16,6 +16,7 @@ struct StoryView: View {
     @EnvironmentObject var storyViewModel: StoryViewModel
     
     @State private var stories: [Story.StoryInfo] = []
+    @State private var albumListTab = 0
     
     // MARK: BODY
     var body: some View {
@@ -29,32 +30,30 @@ struct StoryView: View {
                 }
                 .padding(EdgeInsets(top: 20, leading: 20, bottom: 20, trailing: 20))
                 ScrollView {
-                    if buttonSet {
+//                    if buttonSet {
                         StoryListView(stories: $stories)
                             .onAppear {
                                 storyViewModel.lookUpStorySortByStartDate(user: userViewModel.user) {
                                     stories = storyViewModel.getStories()
-                                    print("[getStoryTest]\(stories)")
-                                    print("[getStoriesForcollection] : \(storyViewModel.getStoriesForCollection())")
+                                    print("[getStoryTest List]\(stories)")
                                 }
                             }
-                    } else {
+//                    } else {
                         StoryAlbumView(stories: $stories)
                             .onAppear {
                                 storyViewModel.lookUpStorySortByStartDate(user: userViewModel.user) {
                                     stories = storyViewModel.getStories()
-                                    print("[getStoryTest]\(stories)")
-                                    print("[getStoriesForcollection] : \(storyViewModel.getStoriesForCollection())")
+                                    print("[getStoryTest Album]\(stories)")
+                                    print("[getStoryTest Album] : \(storyViewModel.getStoriesForCollection())")
                                 }
                             }
-                    }
+//                    }
                 }
             }
             RecordButton(stories: $stories)
                 // 임시로 설정
                 .padding(.bottom, 30)
         }
-        
     }
 }
 

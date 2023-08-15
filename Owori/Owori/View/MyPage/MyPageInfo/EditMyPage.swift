@@ -144,6 +144,9 @@ struct EditMyPage: View {
             Spacer()
             
         }
+        .onTapGesture {
+            self.endTextEditing()
+        }
         //        .navigationBarBackButtonHidden(true)
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {

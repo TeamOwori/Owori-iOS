@@ -56,12 +56,12 @@ struct HomeNotificationView: View {
             
         }
         .padding(EdgeInsets(top: 30, leading: 20, bottom: 0, trailing: 20))
-        .navigationBarBackButtonHidden(true)
+//        .navigationBarBackButtonHidden(true)
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
-            ToolbarItem(placement: .navigationBarLeading) {
-                BackButton()
-            }
+//            ToolbarItem(placement: .navigationBarLeading) {
+//                BackButton()
+//            }
             ToolbarItem(placement: .principal) {
                 Text("알림")
                     .font(

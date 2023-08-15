@@ -37,16 +37,16 @@ struct ZoomImages: View {
             
         }
         .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
-        .navigationBarBackButtonHidden(true)
+//        .navigationBarBackButtonHidden(true)
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
-            ToolbarItem(placement: .navigationBarLeading) {
-                Button {
-                    
-                } label: {
-                    BackButton()
-                }
-            }
+//            ToolbarItem(placement: .navigationBarLeading) {
+//                Button {
+//
+//                } label: {
+//                    BackButton()
+//                }
+//            }
             
             ToolbarItem(placement: .navigationBarTrailing) {
                 Button {

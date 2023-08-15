@@ -103,12 +103,15 @@ struct AddFamilyPhoto: View {
                 }.disabled(photoisOn.description.isEmpty || photoDescription.isEmpty)
             }
         }
-        .navigationBarBackButtonHidden(true)
+        .onTapGesture {
+            self.endTextEditing()
+        }
+//        .navigationBarBackButtonHidden(true)
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
-            ToolbarItem(placement: .navigationBarLeading) {
-                BackButton()
-            }
+//            ToolbarItem(placement: .navigationBarLeading) {
+//                BackButton()
+//            }
             ToolbarItem(placement: .principal) {
                 Text("사진 올리기")
                     .font(
