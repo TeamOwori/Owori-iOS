@@ -78,6 +78,9 @@ struct BeInviteFamily: View {
                 
             }
         }
+        .onTapGesture {
+            self.endTextEditing()
+        }
         .navigationBarTitleDisplayMode(.inline)
         .navigationBarBackButtonHidden(true)
         .toolbar {

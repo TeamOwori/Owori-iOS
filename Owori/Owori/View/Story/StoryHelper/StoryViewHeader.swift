@@ -29,7 +29,6 @@ struct StoryViewHeader: View {
         .background(Color.oworiMain)
         .navigationDestination(isPresented: $isSearchViewVisible) {
             StorySearchView()
-                .navigationBarBackButtonHidden(true)
         }
         
     }

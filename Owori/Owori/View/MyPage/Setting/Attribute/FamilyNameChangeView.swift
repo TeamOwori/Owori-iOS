@@ -68,14 +68,17 @@ struct FamilyNameChangeView: View {
             }
             
         }
-        .navigationBarBackButtonHidden(true)
+        .onTapGesture {
+            self.endTextEditing()
+        }
+//        .navigationBarBackButtonHidden(true)
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
             ToolbarItem(placement: .principal) {
                 
                 HStack(alignment: .center) {
                     
-                    BackButton()
+//                    BackButton()
                     
                     Spacer()
                     

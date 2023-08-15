@@ -87,13 +87,13 @@ struct InviteView: View {
 
             Spacer()
         }
-        .navigationBarBackButtonHidden(true)
+//        .navigationBarBackButtonHidden(true)
         .navigationBarTitleDisplayMode(.inline)
-        .toolbar {
-            ToolbarItem(placement: .navigationBarLeading) {
-                    BackButton()
-            }
-        }
+//        .toolbar {
+//            ToolbarItem(placement: .navigationBarLeading) {
+//                    BackButton()
+//            }
+//        }
     }
 }
 

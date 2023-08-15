@@ -156,12 +156,15 @@ struct WriteDDay: View {
             )
             Spacer()
         }
-        .navigationBarBackButtonHidden(true)
+        .onTapGesture {
+            self.endTextEditing()
+        }
+//        .navigationBarBackButtonHidden(true)
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
-            ToolbarItem(placement: .navigationBarLeading) {
-                BackCancel()
-            }
+//            ToolbarItem(placement: .navigationBarLeading) {
+//                BackCancel()
+//            }
             ToolbarItem(placement: .principal) {
                 
                 //MARK: HEADER 작성하기

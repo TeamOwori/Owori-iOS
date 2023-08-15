@@ -199,10 +199,12 @@ struct StoryRecordView: View {
             RecordSuccessButton(startDate: $startDate, endDate: $endDate, title: $title, content: $content, storyImages: $storyImages, selectedImages: $selectedImages, stories: $stories)
             
         }
+        .onTapGesture {
+            self.endTextEditing()
+        }
         .padding(EdgeInsets(top: 0, leading: 15, bottom: 0, trailing: 15))
         .navigationBarTitleDisplayMode(.inline)
-        .navigationBarBackButtonHidden(true)
-        .navigationBarItems(leading: BackButton())
+//        .navigationBarBackButtonHidden(true)
         .toolbar {
             ToolbarItem(placement: .principal) {
                 Text("기록하기")
