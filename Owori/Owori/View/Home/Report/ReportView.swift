@@ -196,8 +196,7 @@ struct ReportView: View {
                         .stroke(Color.oworiGray300)
                 }
             
-            
-            
+        
             Button{
                 
             } label: {
