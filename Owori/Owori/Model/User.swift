@@ -7,7 +7,6 @@
 
 import Foundation
 
-
 struct User: Codable {
     var member_id: String?
     var jwt_token: JwtToken?
