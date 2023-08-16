@@ -20,7 +20,7 @@ struct EditMyPage: View {
     //임시 Color data
 //    @State private var color = ["oworiOrange","oworiPink","oworiYellow","oworiGreen","oworiSkyBlue","oworiBlue","oworiPurple"]selectedColor
     
-    @State private var isColor: Bool = false
+//    @State private var isColor: Bool = false
     
     @State private var selectedColor: String = ""
     
@@ -137,11 +137,13 @@ struct EditMyPage: View {
                         ForEach(Array(usedColorTupleList), id: \.0) { colorName, used in
                             Button {
                                 if selectedColor == colorName.uppercased() {
-                                    isColor = false
-                                    selectedColor = ""
+//                                    isColor = false
+//                                    selectedColor = ""
+                                    
+                                } else if (used as! Int) == 1 {
                                     
                                 } else {
-                                    isColor = true
+//                                    isColor = true
                                     selectedColor = colorName.uppercased()
                                 }
                             } label: {
@@ -157,9 +159,11 @@ struct EditMyPage: View {
                                             .background(
                                                 Circle()
                                                     .foregroundColor(.black.opacity(0.4))
-                                                
-                                                
                                             )
+                                    } else if (used as! Int) == 1 {
+                                        Image("Disabled")
+                                            .foregroundColor(Color.oworiOrange)
+                                            .frame(width: 22, height: 22)
                                     }
                                 }
                             }
@@ -179,6 +183,8 @@ struct EditMyPage: View {
         }
         .onAppear {
             selectedColor = userViewModel.user.member_profile?.color ?? "None"
+            // test
+            usedColorTupleList = [("red", 0), ("pink", 1), ("yellow", 1), ("green", 1), ("skyblue", 0), ("blue", 0), ("purple", 0)]
             print(selectedColor)
         }
         .onTapGesture {
