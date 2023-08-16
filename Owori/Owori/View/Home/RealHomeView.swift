@@ -11,12 +11,12 @@ struct RealHomeView: View {
     @EnvironmentObject var userViewModel: UserViewModel
     @EnvironmentObject var familyViewModel: FamilyViewModel
     
-//    @State private var familyInfo = Family()
+    //    @State private var familyInfo = Family()
     
     @Binding var emotionalBadgeViewIsActive: Bool
     //    @State private var notificationViewIsActive: Bool = false
     //
-    //    @State private var myPageViewIsActive: Bool = false
+    @State private var myPageViewIsActive: Bool = false
     
     var body: some View {
         ZStack {
@@ -37,7 +37,7 @@ struct RealHomeView: View {
                         
                         //신고하기 버튼
                         NavigationLink {
-                           //신고하기 버튼 누르면 나와야 되는 뷰
+                            //신고하기 버튼 누르면 나와야 되는 뷰
                             ReportView()
                             
                         } label: {
@@ -61,10 +61,12 @@ struct RealHomeView: View {
                         
                         
                         //스마일 버튼
-                        NavigationLink {
+                        Button {
                             // 스마일버튼이 눌리면 종 버튼이 떠야됨
-                            //                            myPageViewIsActive = true
-                            MyPageProfile()
+                            userViewModel.lookupProfile() {
+                                myPageViewIsActive = true
+                            }
+                                
                         } label: {
                             Image("smile")
                                 .frame(width: 25, height: 25)
@@ -89,6 +91,9 @@ struct RealHomeView: View {
                 .padding(.top, 50)
                 
             }
+        }
+        .navigationDestination(isPresented: $myPageViewIsActive) {
+            MyPageProfile()
         }
     }
 }

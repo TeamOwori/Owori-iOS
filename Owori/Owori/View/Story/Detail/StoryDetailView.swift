@@ -32,6 +32,7 @@ struct StoryDetailView: View {
                 .padding(EdgeInsets(top: 20, leading: 0, bottom: 0, trailing: 0))
             }
         }
+        .navigationTitle(Text(""))
         .edgesIgnoringSafeArea(.top)
         .onAppear {
             print("StoryDetailView log : \(storyInfo)")

@@ -24,6 +24,8 @@ struct MyPageProfileInfo: View {
     
     let test1: [MyPageProfileStyle] = [MyPageProfileStyle(id: UUID(),profileImage: "ProfileImage", nickname: "쥐렁이", birth: "2000-04-22",myColor: "Ellipse 92")]
     
+    @EnvironmentObject var userViewModel: UserViewModel
+    
     var body: some View {
  
         VStack(alignment: .leading, spacing: 40) {
@@ -35,7 +37,7 @@ struct MyPageProfileInfo: View {
                         .weight(.medium))
                     .foregroundColor(Color.oworiGray500)
                 
-                Text("쥐렁이")
+                Text("\(userViewModel.user.member_profile?.nickname ?? "닉네임이 설정되지 않았습니다")")
                     .font(Font.custom("Pretendard", size: 16)
                         .bold())
                     .foregroundColor(Color.oworiGray700)
@@ -49,7 +51,7 @@ struct MyPageProfileInfo: View {
                     )
                     .foregroundColor(Color.oworiGray500)
                 
-                Text("2000 - 04 - 22")
+                Text("\(userViewModel.user.member_profile?.birthday ?? "생일이 설정되지 않았습니다")")
                     .font(Font.custom("Pretendard", size: 16)
                         .bold())
                     .foregroundColor(Color.oworiGray700)
@@ -65,7 +67,8 @@ struct MyPageProfileInfo: View {
                     )
                     .foregroundColor(Color.oworiGray500)
                 
-                Image("Ellipse 92")
+                Circle()
+                    .foregroundColor(Color.colorFromString(userViewModel.user.member_profile?.color ?? "None"))
                     .frame(width: 24, height: 24)
                 
             }
@@ -77,5 +80,6 @@ struct MyPageProfileInfo: View {
 struct MyPageProfileInfo_Previews: PreviewProvider {
     static var previews: some View {
         MyPageProfileInfo()
+            .environmentObject(UserViewModel())
     }
 }

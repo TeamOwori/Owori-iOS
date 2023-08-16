@@ -34,7 +34,9 @@ struct UserViewModelTestView: View {
             Button {
                 userViewModel.updateProfile(userInfo: ["nickname" : "오월이",
                                                        "birthday" : "20230714",
-                                                       "color" : "GREEN"])
+                                                       "color" : "GREEN"]) {
+                    
+                }
             } label: {
                 Text("update Profile(완)")
             }
@@ -56,7 +58,9 @@ struct UserViewModelTestView: View {
             }
             
             Button {
-                userViewModel.lookupProfile()
+                userViewModel.lookupProfile() {
+                    
+                }
             } label: {
                 Text("lookup Profile(완)")
             }
@@ -64,7 +68,9 @@ struct UserViewModelTestView: View {
             
             
             Button {
-                userViewModel.lookupUnmodifiableColor()
+                userViewModel.lookupUnmodifiableColor() { usedColorList in
+                    
+                }
             } label: {
                 Text("lookup Unmodifiable Color(완)")
             }
