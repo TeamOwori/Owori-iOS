@@ -166,15 +166,10 @@ struct WriteDDay: View {
             //                BackCancel()
             //            }
             ToolbarItem(placement: .principal) {
-                
-                //MARK: HEADER 작성하기
-                
                 Text("작성하기")
-                    .font(
-                        Font.custom("Pretendard", size: 20)
-                            .weight(.bold)
-                    )
-                    .foregroundColor(Color(red: 0.13, green: 0.13, blue: 0.13))
+                    .font(.title3)
+                    .bold()
+                    .foregroundColor(Color.black)
             }
             ToolbarItem(placement: .navigationBarTrailing) {
                 Button {

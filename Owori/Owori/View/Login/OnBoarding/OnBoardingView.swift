@@ -23,7 +23,7 @@ struct OnBoardingView: View {
     
     //Image index
     private var indexOfImage: Int = 1
-    private var images: [String] = ["온보딩1","온보딩2","온보딩3"]
+    private var images: [String] = ["작업영역","작업영역 (1)","작업영역 (2)"]
     @State private var imageIndex: Int = 0
     
     @State private var animationValue: CGFloat = 0
@@ -62,10 +62,22 @@ struct OnBoardingView: View {
                                 //Image
                                 Image(images[index])
                                     .resizable()
-                                    .frame(width:UIScreen.main.bounds.width, height: UIScreen.main.bounds.height*0.5)
                                     .aspectRatio(contentMode: .fit)
-                                    .padding(EdgeInsets(top: 10, leading: 0, bottom: 0, trailing: 0))
+                                    .frame(maxWidth: UIScreen.main.bounds.width,maxHeight:UIScreen.main.bounds.height*0.5)
+                                    .padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
+                                    .background(.white)
                                     .tag(2)
+//                                    .overlay(
+//                                    Rectangle()
+//                                    .inset(by: 0.5)
+//                                    .stroke(Color(red: 0.91, green: 0.91, blue: 0.91), lineWidth: 0.5)
+//                                    )
+//
+                                
+//                                Divider()
+//                                    .background(Color(red: 0.91, green: 0.91, blue: 0.91))
+//                                    .frame(height: 1)
+                                
                                 Spacer()
                                 
                             }

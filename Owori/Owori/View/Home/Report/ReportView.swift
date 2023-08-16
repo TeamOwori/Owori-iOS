@@ -214,6 +214,7 @@ struct ReportView: View {
             .offset(y: UIScreen.main.bounds.height * 0.1)
             .disabled(!isButtonEnabled)
         }
+        .padding(.top,50)
 //        .navigationBarBackButtonHidden(true)
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
