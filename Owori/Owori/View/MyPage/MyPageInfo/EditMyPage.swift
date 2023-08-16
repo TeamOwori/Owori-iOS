@@ -21,6 +21,10 @@ struct EditMyPage: View {
     
     @State private var colors: String = ""
     
+    @State private var isShowAlert: Bool = false
+    
+    @Binding var editMyPageIsActive: Bool
+    
     var body: some View {
         
         VStack{
@@ -147,9 +151,28 @@ struct EditMyPage: View {
         .onTapGesture {
             self.endTextEditing()
         }
-        //        .navigationBarBackButtonHidden(true)
+        .navigationBarBackButtonHidden(true)
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
+            ToolbarItem(placement: .navigationBarLeading) {
+                Button {
+                    isShowAlert.toggle()
+                } label: {
+                    Text("X")
+                }
+                .alert(isPresented: $isShowAlert) {
+                    Alert(
+                      title: Text("나가기"),
+                      message: Text("편집한 내용이 모두 사라집니다.\n그래도 나가시겠습니까?"),
+                      primaryButton: .destructive(Text("나가기"), action: {
+                          editMyPageIsActive = false
+                      }),
+                      secondaryButton: .cancel(Text("취소"), action: {
+                          
+                      })
+                    )
+                }
+            }
             ToolbarItem(placement: .principal) {
                 Text("프로필 편집")
                     .font(
@@ -173,6 +196,6 @@ struct EditMyPage: View {
 
 struct EditMyPage_Previews: PreviewProvider {
     static var previews: some View {
-        EditMyPage()
+        EditMyPage(editMyPageIsActive: .constant(true))
     }
 }
