@@ -17,28 +17,15 @@ struct MyPageProfilePhoto: View {
             AsyncImage(url: URL(string: userViewModel.user.member_profile?.profile_image ?? "")) { image in
                 image
                     .resizable()
-                    .scaledToFit()
+//                    .scaledToFit()
+                    .aspectRatio(contentMode: .fill)
                     .cornerRadius(12)
+                    .frame(width: 150, height: 150)
+                    .clipShape(Circle())
             } placeholder: {
                 Image("DefaultImage")
             }
             
-            
-//            Button{
-//                //프로필 사진 변경하게 앨범으로 들어가게끔 해야함??!
-//            } label: {
-//                Rectangle()
-//                  .foregroundColor(.clear)
-//                  .frame(width: 100, height: 100)
-//                  .background(
-//                    ZStack {
-//                        Image("ProfileImage")
-//                            .resizable()
-//                    }
-//                  )
-//                  .cornerRadius(60)
-//
-//            }
         
         }
     }

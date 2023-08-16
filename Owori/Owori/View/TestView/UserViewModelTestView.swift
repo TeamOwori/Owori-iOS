@@ -34,7 +34,9 @@ struct UserViewModelTestView: View {
             Button {
                 userViewModel.updateProfile(userInfo: ["nickname" : "오월이",
                                                        "birthday" : "20230714",
-                                                       "color" : "GREEN"])
+                                                       "color" : "GREEN"]) {
+                    
+                }
             } label: {
                 Text("update Profile(완)")
             }

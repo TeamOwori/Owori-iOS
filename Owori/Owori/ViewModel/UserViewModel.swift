@@ -235,7 +235,7 @@ class UserViewModel: ObservableObject {
     
     
     // 멤버 프로필 업데이트
-    func updateProfile(userInfo: [String: Any]) {
+    func updateProfile(userInfo: [String: Any], completion: @escaping () -> Void) {
         guard let sendData = try? JSONSerialization.data(withJSONObject: userInfo, options: []) else { return }
         
         // 요청을 보낼 API의 url 설정
@@ -282,6 +282,11 @@ class UserViewModel: ObservableObject {
                 return
             }
             
+            DispatchQueue.main.async { [weak self] in
+                
+               completion()
+            }
+            
         }.resume()
     }
     
@@ -326,7 +331,7 @@ class UserViewModel: ObservableObject {
         
         
         if let boundaryPrefix = "--\(boundary)\r\n".data(using: .utf8),
-           let dispositionData = "Content-Disposition: form-data; name=\"story_images\"; filename=\"\(imageName)\"\r\n".data(using: .utf8),
+           let dispositionData = "Content-Disposition: form-data; name=\"profile_image\"; filename=\"\(imageName)\"\r\n".data(using: .utf8),
            let contentTypeData = "Content-Type: image/jpg\r\n\r\n".data(using: .utf8),
            let imageData = image.pngData(),
            let lineBreakData = "\r\n".data(using: .utf8) {
@@ -349,6 +354,7 @@ class UserViewModel: ObservableObject {
         URLSession.shared.dataTask(with: urlRequest) { (data, response, error) in
             print(data)
             print(response)
+            print(error)
             guard error == nil else {
                 print("Error: error calling GET")
                 print(error!)

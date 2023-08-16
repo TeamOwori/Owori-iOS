@@ -15,12 +15,12 @@ struct EditMyPage: View {
     
     @State private var nickname: String = ""
     
-    @State private var birth: String = ""
+    @State private var birthday: String = ""
     
     //임시 Color data
-//    @State private var color = ["oworiOrange","oworiPink","oworiYellow","oworiGreen","oworiSkyBlue","oworiBlue","oworiPurple"]selectedColor
+    //    @State private var color = ["oworiOrange","oworiPink","oworiYellow","oworiGreen","oworiSkyBlue","oworiBlue","oworiPurple"]selectedColor
     
-//    @State private var isColor: Bool = false
+    //    @State private var isColor: Bool = false
     
     @State private var selectedColor: String = ""
     
@@ -49,7 +49,9 @@ struct EditMyPage: View {
                     AsyncImage(url: URL(string: (userViewModel.user.member_profile?.profile_image) ?? "NONE")) { image in
                         image
                             .resizable()
-                            .aspectRatio(contentMode: .fit)
+                            .aspectRatio(contentMode: .fill)
+                            .frame(width: 150, height: 150)
+                            .clipShape(Circle())
                     } placeholder: {
                         Image("DefaultImage")
                     }
@@ -62,7 +64,7 @@ struct EditMyPage: View {
                         .frame(width: 150, height: 150)
                         .clipShape(Circle())
                 }
-                            
+                
             }
             .onChange(of: selectedItems) { newValues in
                 Task {
@@ -109,7 +111,7 @@ struct EditMyPage: View {
                         HStack {
                             Text("생년월일")
                             
-                            TextField("\(userViewModel.user.member_profile?.birthday ?? "")", text: $birth)
+                            TextField("\(userViewModel.user.member_profile?.birthday ?? "")", text: $birthday)
                             
                         }
                         .overlay(Rectangle().frame(height: 1).padding(.top, 30))
@@ -137,13 +139,13 @@ struct EditMyPage: View {
                         ForEach(Array(usedColorTupleList), id: \.0) { colorName, used in
                             Button {
                                 if selectedColor == colorName.uppercased() {
-//                                    isColor = false
-//                                    selectedColor = ""
+                                    //                                    isColor = false
+                                    //                                    selectedColor = ""
                                     
                                 } else if (used as! Int) == 1 {
                                     
                                 } else {
-//                                    isColor = true
+                                    //                                    isColor = true
                                     selectedColor = colorName.uppercased()
                                 }
                             } label: {
@@ -201,14 +203,14 @@ struct EditMyPage: View {
                 }
                 .alert(isPresented: $isShowAlert) {
                     Alert(
-                      title: Text("나가기"),
-                      message: Text("편집한 내용이 모두 사라집니다.\n그래도 나가시겠습니까?"),
-                      primaryButton: .destructive(Text("나가기"), action: {
-                          editMyPageIsActive = false
-                      }),
-                      secondaryButton: .cancel(Text("취소"), action: {
-                          
-                      })
+                        title: Text("나가기"),
+                        message: Text("편집한 내용이 모두 사라집니다.\n그래도 나가시겠습니까?"),
+                        primaryButton: .destructive(Text("나가기"), action: {
+                            editMyPageIsActive = false
+                        }),
+                        secondaryButton: .cancel(Text("취소"), action: {
+                            
+                        })
                     )
                 }
             }
@@ -223,7 +225,24 @@ struct EditMyPage: View {
             
             ToolbarItem(placement: .navigationBarTrailing) {
                 Button {
-                    
+                    // 추후에 selectedImages[0]이 아니라 이미지 단일 값을 넘기도록 변경해야됨.
+                    if selectedImages.isEmpty {
+                        userViewModel.updateProfile(userInfo: [
+                            "nickname": "\(nickname)",
+                            "birthday": "\(birthday)",
+                            "color": "\(selectedColor)"]) {
+                                editMyPageIsActive = false
+                            }
+                    } else {
+                        userViewModel.updateProfile(userInfo: [
+                            "nickname": "\(nickname)",
+                            "birthday": "\(birthday)",
+                            "color": "\(selectedColor)"]) {
+                                userViewModel.uploadProfileImages(image: selectedImages[0]) { uploadedProfileImageUrl in
+                                    editMyPageIsActive = false
+                                }
+                            }
+                    }
                 } label: {
                     Image("Check")
                         .frame(width: 30, height: 30)

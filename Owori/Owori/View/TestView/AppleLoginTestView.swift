@@ -74,7 +74,9 @@ struct AppleLoginTestView: View {
             Button {
                 userViewModel.updateProfile(userInfo: ["nickname" : "오월이",
                                                        "birthday" : "20230717",
-                                                       "color" : "GREEN"])
+                                                       "color" : "GREEN"]) {
+                    
+                }
             } label: {
                 Text("Update Profile")
             }
