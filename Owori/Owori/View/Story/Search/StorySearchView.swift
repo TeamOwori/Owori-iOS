@@ -7,17 +7,13 @@
 
 import SwiftUI
 
-// Spacer() 빼고 위치 디자이너랑 다시 조율
-
 struct StorySearchView: View {
     @State private var searchText: String = ""
     @State private var isExistRecentSearchList: Bool = false
     @State private var isExistSearchResult: Bool = false
+    
     var body: some View {
         VStack {
-//            HStack {
-//                CustomNavigationBackButton()
-//            }
             HStack {
                 Text("최근 검색어")
                     .font(.title3)
@@ -28,41 +24,44 @@ struct StorySearchView: View {
                     .foregroundColor(Color.oworiGray400)
             }
             .padding(EdgeInsets(top: 20, leading: 0, bottom: 10, trailing: 0))
+            
             Spacer()
             
             if searchText.isEmpty {
                 if isExistRecentSearchList {
                     RecentSearchList()
                 } else {
-                    Image("Smile")
-                        .padding(EdgeInsets(top: 0, leading: 0, bottom: 15, trailing: 0))
-                    Text("최근 검색어가 없습니다.")
-                        .foregroundColor(Color.oworiGray300)
+                    VStack {
+                        Image("Smile")
+                            .padding(EdgeInsets(top: 0, leading: 0, bottom: 15, trailing: 0))
+                        Text("최근 검색어가 없습니다.")
+                            .foregroundColor(Color.oworiGray300)
+                    }
                 }
             } else {
-                
                 if isExistSearchResult {
                     RecentSearchList()
                 } else {
-                    
-                    Spacer()
-                    Image("Sad")
-                        .padding(EdgeInsets(top: 0, leading: 0, bottom: 15, trailing: 0))
-                    Text("검색 결과가 없어요")
-                        .foregroundColor(Color.oworiGray300)
-                    
-                    Spacer()
-                    VStack(alignment: .leading, spacing: 15) {
-                        Text("검색이 안될 때 꿀팁!")
-                            .foregroundColor(Color.oworiGray700)
-                        Text("･ 검색어를 바르게 입력했는지 확인해 보세요")
-                        Text("･ 짧은 단어로 검색해 보세요 (예: 동해바다 > 동해)")
+                    VStack {
+                        Spacer()
+                        Image("Sad")
+                            .padding(EdgeInsets(top: 0, leading: 0, bottom: 15, trailing: 0))
+                        Text("검색 결과가 없어요")
+                            .foregroundColor(Color.oworiGray300)
+                        
+                        Spacer()
+                        
+                        VStack(alignment: .leading, spacing: 15) {
+                            Text("검색이 안될 때 꿀팁!")
+                                .foregroundColor(Color.oworiGray700)
+                            Text("･ 검색어를 바르게 입력했는지 확인해 보세요")
+                            Text("･ 짧은 단어로 검색해 보세요 (예: 동해바다 > 동해)")
+                        }
+                        .padding(EdgeInsets(top: 10, leading: 12, bottom: 10, trailing: 12))
+                        .foregroundColor(Color.oworiGray600)
+                        .background(Color.oworiGray100)
+                        .cornerRadius(10)
                     }
-                    .padding(EdgeInsets(top: 10, leading: 12, bottom: 10, trailing: 12))
-                    .foregroundColor(Color.oworiGray600)
-                    .background(Color.oworiGray100)
-                    .cornerRadius(10)
-                    
                 }
             }
             
@@ -99,3 +98,4 @@ struct StorySearchView_Previews: PreviewProvider {
         StorySearchView()
     }
 }
+

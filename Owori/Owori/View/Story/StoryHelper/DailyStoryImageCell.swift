@@ -23,8 +23,10 @@ struct DailyStoryImageCell: View {
             AsyncImage(url: URL(string: storyInfo.thumbnail ?? "")) { image in
                 image
                     .resizable()
-                    .scaledToFit()
+//                    .scaledToFit()
                     .cornerRadius(12)
+                    .aspectRatio(1/1, contentMode: .fill)
+                
             } placeholder: {
                 Image("DefaultImage")
             }

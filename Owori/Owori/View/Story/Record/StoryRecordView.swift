@@ -122,9 +122,6 @@ struct StoryRecordView: View {
                         .lineLimit(nil)
                 }
                 
-                
-                
-                
                 VStack(alignment: .leading) {
                     Text("추억 이야기")
                         .font(.title3)

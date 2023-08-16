@@ -64,11 +64,9 @@ struct HomeNotificationView: View {
 //            }
             ToolbarItem(placement: .principal) {
                 Text("알림")
-                    .font(
-                        Font.custom("Pretendard", size: 20)
-                            .weight(.bold)
-                    )
-                    .foregroundColor(Color(red: 0.13, green: 0.13, blue: 0.13))
+                    .font(.title3)
+                    .bold()
+                    .foregroundColor(Color.black)
             }
         }
     }
