@@ -8,9 +8,12 @@
 import SwiftUI
 
 struct MyPageProfile: View {
+    @EnvironmentObject var userViewModel: UserViewModel
     
     @State private var editMyPageIsActive: Bool = false
 //    @State private var settingViewIsActive: Bool = false
+
+    
     
     var body: some View {
         
@@ -73,7 +76,6 @@ struct MyPageProfile: View {
                                 .frame(width: 25, height: 25)
 
                         }
-    //
                     }
                 }
             }

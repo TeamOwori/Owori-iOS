@@ -56,7 +56,9 @@ struct UserViewModelTestView: View {
             }
             
             Button {
-                userViewModel.lookupProfile()
+                userViewModel.lookupProfile() {
+                    
+                }
             } label: {
                 Text("lookup Profile(완)")
             }

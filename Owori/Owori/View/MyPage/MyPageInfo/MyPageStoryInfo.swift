@@ -18,16 +18,18 @@ struct MyPageStoryStyle: Identifiable {
 }
 
 struct MyPageStoryInfo: View {
+    let temp2: [String] = ["작성한 이야기", "좋아하는 이야기", "편지함"]
+    
+    let test2: [MyPageStoryStyle] = [MyPageStoryStyle(id: UUID(), writtenStory: 1, favoriteStory: 5, LetterBox: 0)]
+    
+    @EnvironmentObject var userViewModel: UserViewModel
+    
     var body: some View {
-        let temp2: [String] = ["작성한 이야기", "좋아하는 이야기", "편지함"]
-        
-        let test2: [MyPageStoryStyle] = [MyPageStoryStyle(id: UUID(), writtenStory: 1, favoriteStory: 5, LetterBox: 0)]
-        
         HStack(alignment: .top, spacing: 16) {
             
             VStack(alignment: .center, spacing: 10) {
                 
-                Text("1")
+                Text("\(userViewModel.user.member_profile?.story_count ?? 0)")
                   .font(
                     Font.custom("Pretendard", size: 18)
                       .weight(.semibold)
@@ -43,12 +45,12 @@ struct MyPageStoryInfo: View {
                 
             }
             .frame(width: 82, alignment: .top)
-            .background(.white)
+            .background(Color.oworiGray100)
             
             
             VStack(alignment: .center, spacing: 10) {
                 
-                Text("5")
+                Text("\(userViewModel.user.member_profile?.heart_count ?? 0)")
                   .font(
                     Font.custom("Pretendard", size: 18)
                       .weight(.semibold)
@@ -64,32 +66,32 @@ struct MyPageStoryInfo: View {
                 
             }
             .frame(width: 82, alignment: .top)
-            .background(.white)
+            .background(Color.oworiGray100)
             
-            VStack(alignment: .center, spacing: 10) {
-                
-                Text("0")
-                  .font(
-                    Font.custom("Pretendard", size: 18)
-                      .weight(.semibold)
-                  )
-                  .foregroundColor(Color.oworiOrange)
-                
-                Text("편지함")
-                  .font(Font.custom("Pretendard", size: 12))
-                  .kerning(0.18)
-                  .multilineTextAlignment(.center)
-                  .foregroundColor(Color.oworiGray700)
-                
-                
-            }
-            .frame(width: 82, alignment: .top)
-            .background(.white)
+//            VStack(alignment: .center, spacing: 10) {
+//
+//                Text("0")
+//                  .font(
+//                    Font.custom("Pretendard", size: 18)
+//                      .weight(.semibold)
+//                  )
+//                  .foregroundColor(Color.oworiOrange)
+//
+//                Text("편지함")
+//                  .font(Font.custom("Pretendard", size: 12))
+//                  .kerning(0.18)
+//                  .multilineTextAlignment(.center)
+//                  .foregroundColor(Color.oworiGray700)
+//
+//
+//            }
+//            .frame(width: 82, alignment: .top)
+//            .background(.white)
             
         }
         .padding(.horizontal, 10)
         .padding(.vertical, 16)
-        .background(Color(red: 0.96, green: 0.96, blue: 0.96))
+        .background(Color.oworiGray100)
         .cornerRadius(12)
     
     }

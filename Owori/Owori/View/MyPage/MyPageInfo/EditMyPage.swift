@@ -6,8 +6,11 @@
 //
 
 import SwiftUI
+import PhotosUI
 
 struct EditMyPage: View {
+    
+    @EnvironmentObject var userViewModel: UserViewModel
     
     
     @State private var nickname: String = ""
@@ -23,21 +26,46 @@ struct EditMyPage: View {
     
     @State private var isShowAlert: Bool = false
     
+    @State private var selectedItems = [PhotosPickerItem]()
+    @State private var selectedImages = [UIImage]()
+    
     @Binding var editMyPageIsActive: Bool
     
     var body: some View {
         
         VStack{
             
-            Image("background(1)")
+            Image("background")
                 .resizable()
                 .aspectRatio(contentMode: .fill)
                 .edgesIgnoringSafeArea(.top)
                 .frame(height: UIScreen.main.bounds.height * 0.4)
                 .padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
             
-            MyPageProfilePhoto()
-                .offset(y: -60)
+//            MyPageProfilePhoto()
+//            AsyncImage(url: URL(string: (userViewModel.user.member_profile?.profile_image)!)) { image in
+//                image
+//                    .resizable()
+//                    .aspectRatio(contentMode: .fit)
+//            } placeholder: {
+//                Image("DefaultImage")
+//            }
+//            .offset(y: -60)
+            
+            PhotosPicker(selection: $selectedItems, maxSelectionCount: 1 ,matching: .any(of: [.images, .not(.videos)])) {
+                MyPageProfilePhoto()
+            }
+            .onChange(of: selectedItems) { newValues in
+                Task {
+                    selectedImages = []
+                    for value in newValues {
+                        if let imageData = try? await value.loadTransferable(type: Data.self), let image = UIImage(data: imageData) {
+                            selectedImages.append(image)
+                        }
+                    }
+                }
+            }
+            .offset(y: -60)
             
             VStack(alignment: .leading, spacing: 40) {
                 
@@ -48,10 +76,6 @@ struct EditMyPage: View {
                         
                         HStack {
                             Text("닉네임")
-                            
-                            Image("초대코드입력")
-                                .frame(width: 1, height: 21)
-                            
                             TextField("", text: $nickname)
                             // 텍스트가 변경될 때마다 글자 수 확인
                                 .onChange(of: nickname) { newText in

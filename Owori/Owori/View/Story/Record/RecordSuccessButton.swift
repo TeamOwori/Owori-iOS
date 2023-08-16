@@ -37,7 +37,7 @@ struct RecordSuccessButton: View {
     var body: some View {
         Button {
             if !selectedImages.isEmpty {
-                storyViewModel.uploadImages(user: userViewModel.user, images: selectedImages) { uploadedStoryImagesUrl in
+                storyViewModel.uploadStoryImages(user: userViewModel.user, images: selectedImages) { uploadedStoryImagesUrl in
                     storyImages = uploadedStoryImagesUrl
                     print(storyImages)
                     storyInfoDictionary = storyViewModel.createStoryInfoToDictionary(startDate: startDate, endDate: endDate, title: title, content: content, storyImages: storyImages)

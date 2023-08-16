@@ -50,12 +50,16 @@ struct User: Codable {
         var birthday: String?
         var color: String?
         var emotional_badge: String?
+        var profile_image: String?
+        var story_count: Int?
+        var heart_count: Int?
         
         init() {
             self.nickname = ""
             self.birthday = ""
             self.color = ""
             self.emotional_badge = ""
+            self.profile_image = ""
         }
         
         init(nickname: String, birthday: String) {
@@ -69,11 +73,14 @@ struct User: Codable {
             self.color = color
         }
         
-        init(nickname: String, birthday: String, color: String, emotional_badge: String) {
+        init(nickname: String, birthday: String, color: String, emotional_badge: String, profile_image: String, story_count: Int, heart_count: Int) {
             self.nickname = nickname
             self.birthday = birthday
             self.color = color
             self.emotional_badge = emotional_badge
+            self.profile_image = profile_image
+            self.story_count = story_count
+            self.heart_count = heart_count
         }
     }
 }

@@ -279,7 +279,7 @@ class StoryViewModel: ObservableObject {
     
     
     
-    func uploadImages(user: User, images: [UIImage], completion: @escaping ([String]) -> Void) {
+    func uploadStoryImages(user: User, images: [UIImage], completion: @escaping ([String]) -> Void) {
         var uploadedStoryImagesUrl: [String] = []
         
         // 이미지 로그 테스트
