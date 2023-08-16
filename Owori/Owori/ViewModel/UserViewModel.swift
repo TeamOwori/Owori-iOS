@@ -534,7 +534,8 @@ class UserViewModel: ObservableObject {
         }.resume()
     }
     
-    func lookupUnmodifiableColor() {
+    func lookupUnmodifiableColor(completion: @escaping ([String: Any]) -> Void) {
+        var usedColorList: [String: Any] = [:]
         
         // 요청을 보낼 API의 url 설정
         // 배포 후 url 설정
@@ -589,11 +590,12 @@ class UserViewModel: ObservableObject {
             DispatchQueue.main.async { [weak self] in
                 // JSON 데이터를 파싱하여 User 구조체에 할당
                 do {
-                    let decoder = JSONDecoder()
-                    //                    self?.user.member_profile = try decoder.decode(User.Profile.self, from: data)
+                    //                    let decoder = JSONDecoder()
+                    usedColorList = jsonDictionary
                     
                     // User 구조체에 할당된 데이터 사용 (테스트 log)
                     //                    print("Member Profile: \(String(describing: self?.user.member_profile))")
+                    completion(usedColorList)
                 } catch {
                     print("Error: Failed to parse JSON data - \(error)")
                 }

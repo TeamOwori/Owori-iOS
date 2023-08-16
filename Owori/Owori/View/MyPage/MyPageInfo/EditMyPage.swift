@@ -18,11 +18,11 @@ struct EditMyPage: View {
     @State private var birth: String = ""
     
     //임시 Color data
-    @State private var color = ["Orange","Pink","Yellow","Green","LightBlue","Blue","Purple"]
+//    @State private var color = ["oworiOrange","oworiPink","oworiYellow","oworiGreen","oworiSkyBlue","oworiBlue","oworiPurple"]selectedColor
     
     @State private var isColor: Bool = false
     
-    @State private var colors: String = ""
+    @State private var selectedColor: String = ""
     
     @State private var isShowAlert: Bool = false
     
@@ -30,6 +30,7 @@ struct EditMyPage: View {
     @State private var selectedImages = [UIImage]()
     
     @Binding var editMyPageIsActive: Bool
+    @Binding var usedColorTupleList: [(String, Any)]
     
     var body: some View {
         
@@ -84,7 +85,7 @@ struct EditMyPage: View {
                         
                         HStack {
                             Text("닉네임")
-                            TextField("", text: $nickname)
+                            TextField("\(userViewModel.user.member_profile?.nickname ?? "")", text: $nickname)
                             // 텍스트가 변경될 때마다 글자 수 확인
                                 .onChange(of: nickname) { newText in
                                     if newText.count > 7 {
@@ -108,7 +109,7 @@ struct EditMyPage: View {
                         HStack {
                             Text("생년월일")
                             
-                            TextField("", text: $birth)
+                            TextField("\(userViewModel.user.member_profile?.birthday ?? "")", text: $birth)
                             
                         }
                         .overlay(Rectangle().frame(height: 1).padding(.top, 30))
@@ -133,27 +134,23 @@ struct EditMyPage: View {
                     
                     HStack(alignment: .center, spacing: 10) {
                         
-                        ForEach(color[0 ..< color.count], id: \.self) { colorName in
+                        ForEach(Array(usedColorTupleList), id: \.0) { colorName, used in
                             Button {
-                                if colors == colorName {
+                                if selectedColor == colorName.uppercased() {
                                     isColor = false
-                                    colors = ""
+                                    selectedColor = ""
                                     
                                 } else {
                                     isColor = true
-                                    colors = colorName
+                                    selectedColor = colorName.uppercased()
                                 }
                             } label: {
                                 ZStack {
-                                    Image(colorName)
-                                        .padding(EdgeInsets(top: 10, leading: 10, bottom: 10, trailing: 10))
-                                        .background(
-                                            Circle()
-                                                .foregroundColor(.white)
-                                            
-                                        )
+                                    Circle()
+                                        .foregroundColor(Color.colorFromString(colorName.uppercased()))
+                                        .frame(width: 24, height: 24)
                                     
-                                    if colors == colorName {
+                                    if selectedColor == colorName.uppercased() {
                                         Image(systemName: "checkmark")
                                             .foregroundColor(Color.oworiOrange)
                                             .padding(EdgeInsets(top: 10, leading: 10, bottom: 10, trailing: 10))
@@ -179,6 +176,10 @@ struct EditMyPage: View {
             
             Spacer()
             
+        }
+        .onAppear {
+            selectedColor = userViewModel.user.member_profile?.color ?? "None"
+            print(selectedColor)
         }
         .onTapGesture {
             self.endTextEditing()
@@ -228,6 +229,6 @@ struct EditMyPage: View {
 
 struct EditMyPage_Previews: PreviewProvider {
     static var previews: some View {
-        EditMyPage(editMyPageIsActive: .constant(true))
+        EditMyPage(editMyPageIsActive: .constant(true), usedColorTupleList: .constant([("red", 1), ("pink", 0), ("yellow", 0), ("green", 0), ("skyblue", 0), ("blue", 0), ("purple", 0)]))
     }
 }

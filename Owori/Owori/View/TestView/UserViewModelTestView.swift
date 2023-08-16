@@ -66,7 +66,9 @@ struct UserViewModelTestView: View {
             
             
             Button {
-                userViewModel.lookupUnmodifiableColor()
+                userViewModel.lookupUnmodifiableColor() { usedColorList in
+                    
+                }
             } label: {
                 Text("lookup Unmodifiable Color(완)")
             }

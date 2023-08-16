@@ -25,12 +25,12 @@ extension Color {
         switch string.uppercased() {
         case "RED":
             return Color.oworiRed
-        case "ORANGE":
+        case "PINK":
             return Color.oworiPink
         case "YELLOW":
             return Color.oworiYellow
         case "GREEN":
-            return Color.oworiSkyBlue
+            return Color.oworiGreen
         case "SKYBLUE":
             return Color.oworiSkyBlue
         case "BLUE":
@@ -59,6 +59,6 @@ extension Color {
     static let oworiYellow = Color(hex: "#FFDA56")
     static let oworiGreen = Color(hex: "#BBDC77")
     static let oworiSkyBlue = Color(hex: "#85C4FF")
-    static let oworiBlue = Color(hex: "##526EFF")
+    static let oworiBlue = Color(hex: "#526EFF")
     static let oworiPurple = Color(hex: "#BD76FF")
 }

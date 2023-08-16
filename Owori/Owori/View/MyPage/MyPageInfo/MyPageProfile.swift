@@ -12,13 +12,15 @@ struct MyPageProfile: View {
     
     @State private var editMyPageIsActive: Bool = false
 //    @State private var settingViewIsActive: Bool = false
+    @State private var usedColorTupleList: [(String, Any)] = []
+    var colorOrder: [String] = ["red", "pink", "yellow", "green", "skyblue", "blue", "purple"]
 
     
     
     var body: some View {
         
         if editMyPageIsActive {
-            EditMyPage(editMyPageIsActive: $editMyPageIsActive)
+            EditMyPage(editMyPageIsActive: $editMyPageIsActive, usedColorTupleList: $usedColorTupleList)
         } else {
             ScrollView {
                 
@@ -59,7 +61,15 @@ struct MyPageProfile: View {
                     HStack{
                         Button {
                             //edit 버튼 누르면 작동
-                            editMyPageIsActive = true
+                            userViewModel.lookupUnmodifiableColor() { usedColorList in
+                                self.usedColorTupleList = colorOrder.compactMap { key in
+                                    guard let value = usedColorList[key] else { return nil }
+                                    return (key, value)
+                                }
+                                print(self.usedColorTupleList)
+                                
+                                editMyPageIsActive = true
+                            }
                         } label: {
                             Image("Edit")
                                 .frame(width: 25, height: 25)
