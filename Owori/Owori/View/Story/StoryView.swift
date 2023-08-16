@@ -15,6 +15,7 @@ struct StoryView: View {
     @EnvironmentObject var userViewModel: UserViewModel
     @EnvironmentObject var storyViewModel: StoryViewModel
     
+    @State private var isSearchViewVisible: Bool = false
     @State private var stories: [Story.StoryInfo] = []
     @State private var albumListTab = 0
     
@@ -22,7 +23,7 @@ struct StoryView: View {
     var body: some View {
         ZStack(alignment: .bottom) {
             VStack {
-                StoryViewHeader()
+                StoryViewHeader(isSearchViewVisible: $isSearchViewVisible)
                 HStack {
                     AlbumListButton(buttonSet: $buttonSet)
                     Spacer()
@@ -30,7 +31,7 @@ struct StoryView: View {
                 }
                 .padding(EdgeInsets(top: 20, leading: 20, bottom: 20, trailing: 20))
                 ScrollView {
-//                    if buttonSet {
+                    if buttonSet {
                         StoryListView(stories: $stories)
                             .onAppear {
                                 storyViewModel.lookUpStorySortByStartDate(user: userViewModel.user) {
@@ -38,7 +39,7 @@ struct StoryView: View {
                                     print("[getStoryTest List]\(stories)")
                                 }
                             }
-//                    } else {
+                    } else {
                         StoryAlbumView(stories: $stories)
                             .onAppear {
                                 storyViewModel.lookUpStorySortByStartDate(user: userViewModel.user) {
@@ -47,12 +48,15 @@ struct StoryView: View {
                                     print("[getStoryTest Album] : \(storyViewModel.getStoriesForCollection())")
                                 }
                             }
-//                    }
+                    }
                 }
             }
             RecordButton(stories: $stories)
                 // 임시로 설정
                 .padding(.bottom, 30)
+        }
+        .navigationDestination(isPresented: $isSearchViewVisible) {
+            StorySearchView()
         }
     }
 }

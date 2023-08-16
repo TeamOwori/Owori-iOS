@@ -9,7 +9,7 @@ import SwiftUI
 
 struct StoryViewHeader: View {
     @State private var familyName: String = "우리가족 추억저장소"
-    @State private var isSearchViewVisible: Bool = false
+    @Binding var isSearchViewVisible: Bool
     var body: some View {
         HStack(alignment: .bottom) {
             Text(familyName)
@@ -27,15 +27,12 @@ struct StoryViewHeader: View {
         }
         .padding(EdgeInsets(top: 20, leading: 20, bottom: 20, trailing: 20))
         .background(Color.oworiMain)
-        .navigationDestination(isPresented: $isSearchViewVisible) {
-            StorySearchView()
-        }
         
     }
 }
 
 struct StoryViewHeader_Previews: PreviewProvider {
     static var previews: some View {
-        StoryViewHeader()
+        StoryViewHeader(isSearchViewVisible: .constant(false))
     }
 }
