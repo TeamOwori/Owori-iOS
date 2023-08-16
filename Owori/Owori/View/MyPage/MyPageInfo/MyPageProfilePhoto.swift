@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import PhotosUI
 
 struct MyPageProfilePhoto: View {
     @EnvironmentObject var userViewModel: UserViewModel

@@ -42,18 +42,26 @@ struct EditMyPage: View {
                 .frame(height: UIScreen.main.bounds.height * 0.4)
                 .padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
             
-//            MyPageProfilePhoto()
-//            AsyncImage(url: URL(string: (userViewModel.user.member_profile?.profile_image)!)) { image in
-//                image
-//                    .resizable()
-//                    .aspectRatio(contentMode: .fit)
-//            } placeholder: {
-//                Image("DefaultImage")
-//            }
-//            .offset(y: -60)
             
             PhotosPicker(selection: $selectedItems, maxSelectionCount: 1 ,matching: .any(of: [.images, .not(.videos)])) {
-                MyPageProfilePhoto()
+                if selectedImages.isEmpty {
+                    AsyncImage(url: URL(string: (userViewModel.user.member_profile?.profile_image) ?? "NONE")) { image in
+                        image
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                    } placeholder: {
+                        Image("DefaultImage")
+                    }
+                } else {
+                    // Image+Extension에서 동그랗게 짜르는 함수 구현해도 괜찮을 듯
+                    // 사이즈 조절은 다시 해야됨
+                    Image(uiImage: selectedImages[0])
+                        .resizable()
+                        .aspectRatio(contentMode: .fill)
+                        .frame(width: 150, height: 150)
+                        .clipShape(Circle())
+                }
+                            
             }
             .onChange(of: selectedItems) { newValues in
                 Task {
