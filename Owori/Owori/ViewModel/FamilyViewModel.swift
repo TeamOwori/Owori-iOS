@@ -151,7 +151,7 @@ class FamilyViewModel: ObservableObject {
     }
     
     // 가족 그룹 이름 수정
-    func changeFamilyName(user: User, family_group_name: String) {
+    func changeFamilyName(user: User, family_group_name: String, completion: @escaping () -> Void) {
         guard let sendData = try? JSONSerialization.data(withJSONObject: ["family_group_name": family_group_name], options: []) else { return }
         
         // 요청을 보낼 API의 url 설정
@@ -197,6 +197,14 @@ class FamilyViewModel: ObservableObject {
             }
             
             print(response)
+            
+            DispatchQueue.main.async { [weak self] in
+                self?.family.family_group_name = family_group_name
+                
+                completion()
+                
+            }
+            
         }.resume()
     }
     

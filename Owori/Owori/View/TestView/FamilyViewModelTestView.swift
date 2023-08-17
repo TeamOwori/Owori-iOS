@@ -29,7 +29,9 @@ struct FamilyViewModelTestView: View {
             }
             
             Button {
-                familyViewModel.changeFamilyName(user: userViewModel.user, family_group_name: "owori7")
+                familyViewModel.changeFamilyName(user: userViewModel.user, family_group_name: "owori7") {
+                    
+                }
                 
             } label: {
                 Text("change Family Name(완)")

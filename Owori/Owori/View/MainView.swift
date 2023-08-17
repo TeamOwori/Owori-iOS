@@ -32,6 +32,11 @@ struct MainView: View {
                         }
                     }
                     .tag(0)
+                    .onAppear {
+                        familyViewModel.lookUpHomeView(user: userViewModel.user) {
+                            print(familyViewModel.getFamily())
+                        }
+                    }
                 
 //                EventsCalendarView()
 //                    .tabItem {
@@ -55,11 +60,11 @@ struct MainView: View {
             }
             .navigationTitle("")
             .navigationBarTitleDisplayMode(.inline)
-            .onAppear {
-                familyViewModel.lookUpHomeView(user: userViewModel.user) {
-                    print(familyViewModel.getFamily())
-                }
-            }
+//            .onAppear {
+//                familyViewModel.lookUpHomeView(user: userViewModel.user) {
+//                    print(familyViewModel.getFamily())
+//                }
+//            }
             .navigationBarBackButtonHidden(true)
         }
         

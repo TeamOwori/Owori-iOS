@@ -98,6 +98,8 @@
 		F36508532A81278400A14217 /* StoryRecordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F36508522A81278400A14217 /* StoryRecordView.swift */; };
 		F36629242A8571F300503E76 /* RecordSuccessButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F36629232A8571F300503E76 /* RecordSuccessButton.swift */; };
 		F36A82952A71921A00C6A90C /* BackToFamilyLinkViewButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F36A82942A71921A00C6A90C /* BackToFamilyLinkViewButton.swift */; };
+		F3799FBF2A8E3449000F8C46 /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3799FBE2A8E3449000F8C46 /* ImageLoader.swift */; };
+		F3799FC12A8E348C000F8C46 /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3799FC02A8E348C000F8C46 /* ImageCache.swift */; };
 		F37CDD0F2A86578D0002FFFE /* AppleLoginButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37CDD0E2A86578D0002FFFE /* AppleLoginButton.swift */; };
 		F38C12932A83920500DDAAA8 /* ZoomDetailImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38C12922A83920500DDAAA8 /* ZoomDetailImageCell.swift */; };
 		F39B28492A8C02E3000D26C7 /* TestBackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F39B28482A8C02E3000D26C7 /* TestBackButton.swift */; };
@@ -236,6 +238,8 @@
 		F36508522A81278400A14217 /* StoryRecordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryRecordView.swift; sourceTree = "<group>"; };
 		F36629232A8571F300503E76 /* RecordSuccessButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordSuccessButton.swift; sourceTree = "<group>"; };
 		F36A82942A71921A00C6A90C /* BackToFamilyLinkViewButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackToFamilyLinkViewButton.swift; sourceTree = "<group>"; };
+		F3799FBE2A8E3449000F8C46 /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
+		F3799FC02A8E348C000F8C46 /* ImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
 		F37CDD0E2A86578D0002FFFE /* AppleLoginButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleLoginButton.swift; sourceTree = "<group>"; };
 		F38C12922A83920500DDAAA8 /* ZoomDetailImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoomDetailImageCell.swift; sourceTree = "<group>"; };
 		F39B28482A8C02E3000D26C7 /* TestBackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestBackButton.swift; sourceTree = "<group>"; };
@@ -643,6 +647,8 @@
 				F3430F7A2A67043200DC1B1C /* LoginViewModel.swift */,
 				F3430F7B2A67043200DC1B1C /* StoryViewModel.swift */,
 				F3430F7C2A67043200DC1B1C /* FamilyViewModel.swift */,
+				F3799FBE2A8E3449000F8C46 /* ImageLoader.swift */,
+				F3799FC02A8E348C000F8C46 /* ImageCache.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -873,6 +879,7 @@
 				35B3CD672A8008B300127259 /* MyPageProfilePhoto.swift in Sources */,
 				35B3CD722A81760700127259 /* EditMyPage.swift in Sources */,
 				886F8DFE2A6C582400D60BCC /* ProfileImageWithBadge.swift in Sources */,
+				F3799FC12A8E348C000F8C46 /* ImageCache.swift in Sources */,
 				883B47CD2A686C1D004C2D20 /* SettingView.swift in Sources */,
 				F3430FA22A67043200DC1B1C /* StoryListView.swift in Sources */,
 				886F8DF42A6C56C100D60BCC /* FamilyInitialPhoto.swift in Sources */,
@@ -922,6 +929,7 @@
 				F3430F912A67043200DC1B1C /* LoginTestView.swift in Sources */,
 				357F6FE02A8DF7C60022E224 /* Recomment.swift in Sources */,
 				356A54562A856001006E22C8 /* CalendarView.swift in Sources */,
+				F3799FBF2A8E3449000F8C46 /* ImageLoader.swift in Sources */,
 				F3430F9A2A67043200DC1B1C /* ContentText.swift in Sources */,
 				35A2D0FB2A781D3400FF8A5B /* RealHomeView.swift in Sources */,
 				F3430FA02A67043200DC1B1C /* DetailContent.swift in Sources */,

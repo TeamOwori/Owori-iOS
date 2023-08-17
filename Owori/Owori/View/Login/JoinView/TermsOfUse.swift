@@ -137,9 +137,15 @@ struct TermsOfUse: View {
                                 
                                 userViewModel.initUser(userInfo: ["nickname" : "\(nickname)", "birthday" : "\(birthDateText)"]) {
                                     familyViewModel.createMember(user: userViewModel.user, family_group_name: familyName) {
-                                        familyViewModel.lookUpHomeView(user: userViewModel.user) {
-                                            print(familyViewModel.getFamily())
-                                            if userViewModel.user.is_service_member ?? false {
+//<<<<<<< Updated upstream
+//                                        familyViewModel.lookUpHomeView(user: userViewModel.user) {
+//                                            print(familyViewModel.getFamily())
+//                                            if userViewModel.user.is_service_member ?? false {
+//=======
+                                        if userViewModel.user.is_service_member ?? false {
+                                            familyViewModel.lookUpHomeView(user: userViewModel.user) {
+                                                print(familyViewModel.getFamily())
+//>>>>>>> Stashed changes
                                                 isSuccessSignUp = true
                                             }
                                         }
@@ -165,11 +171,7 @@ struct TermsOfUse: View {
             .navigationBarTitleDisplayMode(.inline)
             .navigationDestination(isPresented: $isSuccessSignUp) {
                 MainView(isLoggedIn: $isLoggedIn)
-                    .onAppear {
-                        familyViewModel.lookUpHomeView(user: userViewModel.user) {
-                            print(familyViewModel.getFamily())
-                        }
-                    }
+                
             }
             .onAppear {
                 currentIndex = 5

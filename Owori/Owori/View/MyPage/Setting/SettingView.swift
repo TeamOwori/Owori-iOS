@@ -21,7 +21,7 @@ struct SettingView: View {
     
     @State private var showAlert1 = false
     
-    @State private var FamilyNameChangeViewIsActive: Bool = false
+    @State private var familyNameChangeViewIsActive: Bool = false
     
     @State private var InviteViewIsActive: Bool = false
     
@@ -55,7 +55,7 @@ struct SettingView: View {
                     }
                     
                     Button(action: {
-                        FamilyNameChangeViewIsActive = true
+                        familyNameChangeViewIsActive = true
                     }) {
                         HStack {
                             VStack(alignment: .leading) {
@@ -70,8 +70,18 @@ struct SettingView: View {
                             .padding(EdgeInsets(top: 0, leading: 1.5, bottom: 0, trailing: 10))
                             Spacer()
                             
-                            Image("Right")
-                                .frame(width: 24, height: 24)
+//<<<<<<< Updated upstream
+//                            Image("Right")
+//                                .frame(width: 24, height: 24)
+//=======
+                            Button{
+                                familyNameChangeViewIsActive = true
+                                
+                            }label:{
+                                Image("Right")
+                                    .frame(width: 24, height: 24)
+                            }
+//>>>>>>> Stashed changes
                         }
                     }
 
@@ -280,17 +290,17 @@ struct SettingView: View {
                         )
                     }
                     
-<<<<<<< Updated upstream
-                    Button{
-                        
-                    }label:{
-                        HStack{
-=======
+//<<<<<<< Updated upstream
+//                    Button{
+//
+//                    }label:{
+//                        HStack{
+//=======
                     Button(action: {
                         showAlert1 = true
                     }) {
                         HStack {
->>>>>>> Stashed changes
+//>>>>>>> Stashed changes
                             Text("탈퇴하기")
                                 .font(.system(size: 15, weight: .medium))
                                 .foregroundColor(.oworiGray600)
@@ -352,12 +362,13 @@ struct SettingView: View {
             }
         }
         .background(Color.oworiMain)
-        .navigationDestination(isPresented: $FamilyNameChangeViewIsActive) {
-            FamilyNameChangeView()
+        .navigationDestination(isPresented: $familyNameChangeViewIsActive) {
+            FamilyNameChangeView(familyNameChangeViewIsActive: $familyNameChangeViewIsActive)
         }
         .navigationDestination(isPresented: $InviteViewIsActive) {
             InviteView()
         }
+        .navigationTitle("")
     }
 }
 

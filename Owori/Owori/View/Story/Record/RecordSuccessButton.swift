@@ -38,28 +38,38 @@ struct RecordSuccessButton: View {
         Button {
             if !selectedImages.isEmpty {
                 storyViewModel.uploadStoryImages(user: userViewModel.user, images: selectedImages) { uploadedStoryImagesUrl in
+                    
                     storyImages = uploadedStoryImagesUrl
-                    print(storyImages)
+                    print("storyImages : \(storyImages)")
+                    
                     storyInfoDictionary = storyViewModel.createStoryInfoToDictionary(startDate: startDate, endDate: endDate, title: title, content: content, storyImages: storyImages)
+                    
                     print("storyInfo 작성 테스트 : \(storyInfoDictionary)")
                     storyViewModel.createStory(user: userViewModel.user, storyInfo: storyInfoDictionary) {
+                        
                         storyViewModel.lookUpStorySortByStartDate(user: userViewModel.user) {
                             
                             stories = storyViewModel.getStories()
                             print("[getStoryTest Record]\(stories)")
                             print("[getStoriesForcollection] : \(storyViewModel.getStoriesForCollection())")
+                            self.presentationMode.wrappedValue.dismiss()
                         }
-                        
                     }
+                    
                 }
             } else {
                 storyInfoDictionary = storyViewModel.createStoryInfoToDictionary(startDate: startDate, endDate: endDate, title: title, content: content, storyImages: storyImages)
                 print("storyInfo 작성 테스트 : \(storyInfoDictionary)")
                 storyViewModel.createStory(user: userViewModel.user, storyInfo: storyInfoDictionary) {
                     
+                    stories = storyViewModel.getStories()
+                    print("[getStoryTest Record]\(stories)")
+                    print("[getStoriesForcollection] : \(storyViewModel.getStoriesForCollection())")
+                    self.presentationMode.wrappedValue.dismiss()
                 }
+                
+                
             }
-            self.presentationMode.wrappedValue.dismiss()
             
         } label: {
             Text("작성 완료")
