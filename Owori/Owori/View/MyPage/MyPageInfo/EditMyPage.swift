@@ -112,6 +112,11 @@ struct EditMyPage: View {
                             Text("생년월일")
                             
                             TextField("\(userViewModel.user.member_profile?.birthday ?? "")", text: $birthday)
+                                .onChange(of: birthday) { newText in
+                                    if newText.count > 8 {
+                                        birthday = String(newText.prefix(8))
+                                    }
+                                }
                             
                         }
                         .overlay(Rectangle().frame(height: 1).padding(.top, 30))
@@ -186,6 +191,8 @@ struct EditMyPage: View {
         .onAppear {
             selectedColor = userViewModel.user.member_profile?.color ?? "None"
             print(selectedColor)
+            nickname = userViewModel.user.member_profile?.nickname ?? "Nickname"
+            birthday = userViewModel.user.member_profile?.birthday ?? "00000000"
         }
         .onTapGesture {
             self.endTextEditing()

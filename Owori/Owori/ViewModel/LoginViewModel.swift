@@ -14,7 +14,7 @@ import AuthenticationServices
 
 fileprivate enum OworiAPI {
     static let scheme = "http"
-    static let host = "owori.store"
+    static let host = "13.124.20.243"
     
     enum Path: String {
         case joinMember = "/api/v1/members/kakao"
@@ -34,6 +34,14 @@ class LoginViewModel: ObservableObject {
     @Published var isLoggedIn: Bool = false
     //    @Published var user: User = UserViewModel().user
     @Published var socialToken: Token = Token()
+    
+    
+    func logout() {
+        self.isLoggedIn = false
+        self.socialToken = Token()
+        print(self.socialToken)
+        print("로그아웃 성공(토큰 초기화)")
+    }
     
     
     // MARK: 카카오 로그인 관련 FUNCTIONS

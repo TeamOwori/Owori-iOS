@@ -9,7 +9,7 @@ import SwiftUI
 
 fileprivate enum OworiAPI {
     static let scheme = "http"
-    static let host = "owori.store"
+    static let host = "13.124.20.243"
     
     enum Path: String {
         case members = "/api/v1/members"
@@ -29,6 +29,14 @@ class UserViewModel: ObservableObject {
     @Published var isLogined = false
     
     @Published var tempInviteCode: String = ""
+    
+    
+    func userLogout() {
+        self.user = User()
+        isLogined = false
+        print(user)
+        print("로그아웃 성공(유저 초기화)")
+    }
     
     // MARK: 오월이 API FUNCTIONS (Post)
     

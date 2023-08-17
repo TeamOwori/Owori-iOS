@@ -14,6 +14,8 @@ struct MyPageProfile: View {
 //    @State private var settingViewIsActive: Bool = false
     @State private var usedColorTupleList: [(String, Any)] = []
     var colorOrder: [String] = ["red", "pink", "yellow", "green", "skyblue", "blue", "purple"]
+    
+    @Binding var isLoggedIn: Bool
 
     
     
@@ -80,7 +82,7 @@ struct MyPageProfile: View {
                         NavigationLink {
                             //설정으로 넘어가게
     //                        settingViewIsActive = true
-                            SettingView()
+                            SettingView(isLoggedin: $isLoggedIn)
                         } label: {
                             Image("Setting")
                                 .frame(width: 25, height: 25)
@@ -97,6 +99,6 @@ struct MyPageProfile: View {
 
 struct MyPageProfile_Previews: PreviewProvider {
     static var previews: some View {
-        MyPageProfile()
+        MyPageProfile(isLoggedIn: .constant(true))
     }
 }

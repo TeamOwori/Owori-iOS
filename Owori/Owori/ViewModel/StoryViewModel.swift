@@ -10,7 +10,7 @@ import Foundation
 
 fileprivate enum OworiAPI {
     static let scheme = "http"
-    static let host = "owori.store"
+    static let host = "13.124.20.243"
     
     enum Path: String {
         case stories = "/api/v1/stories"
@@ -105,8 +105,8 @@ class StoryViewModel: ObservableObject {
     }
     
     func createStoryInfoToDictionary(startDate: Date, endDate: Date, title: String, content: String, storyImages: [String]) -> [String: Any] {
-        var storyInfoDictionary: [String: Any] = ["start_date": "\(startDate.formatDateToString(format: "yyyy-MM-dd"))",
-                                            "end_date": "\(endDate.formatDateToString(format: "yyyy-MM-dd"))",
+        var storyInfoDictionary: [String: Any] = ["start_date": "\(startDate.formatDateToString(format: "yyyyMMdd"))",
+                                            "end_date": "\(endDate.formatDateToString(format: "yyyyMMdd"))",
                                             "title": "\(title)",
                                             "content": "\(content)",
                                             // image 임시 데이터 추가 해야함.

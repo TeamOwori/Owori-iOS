@@ -10,6 +10,7 @@ import SwiftUI
 struct SettingView: View {
     @EnvironmentObject var userViewModel: UserViewModel
     @EnvironmentObject var loginViewModel: LoginViewModel
+    @EnvironmentObject var familyViewModel: FamilyViewModel
     
     // + 자동 로그인 여부
     @State private var autoLogin: Bool = false
@@ -20,20 +21,22 @@ struct SettingView: View {
     
     @State private var showAlert1 = false
     
-    @State private var FamilyNameChangeViewIsActive:Bool = false
+    @State private var FamilyNameChangeViewIsActive: Bool = false
     
-    @State private var InviteViewIsActive:Bool = false
+    @State private var InviteViewIsActive: Bool = false
     
-//    init() {
-//        // 커스텀된 네비게이션바 배경색 설정
-//        let coloredNavigationBar = UINavigationBarAppearance()
-//        coloredNavigationBar.backgroundColor = UIColor(Color.oworiMain)
-//
-//        // 스크롤 할 떄, 스크롤하지 않을 때의 색상 적용
-//        UINavigationBar.appearance().scrollEdgeAppearance = coloredNavigationBar
-//        // 일반(스크롤하지 않을 떄)
-//        UINavigationBar.appearance().standardAppearance = coloredNavigationBar
-//    }
+    @Binding var isLoggedin: Bool
+    
+    //    init() {
+    //        // 커스텀된 네비게이션바 배경색 설정
+    //        let coloredNavigationBar = UINavigationBarAppearance()
+    //        coloredNavigationBar.backgroundColor = UIColor(Color.oworiMain)
+    //
+    //        // 스크롤 할 떄, 스크롤하지 않을 때의 색상 적용
+    //        UINavigationBar.appearance().scrollEdgeAppearance = coloredNavigationBar
+    //        // 일반(스크롤하지 않을 떄)
+    //        UINavigationBar.appearance().standardAppearance = coloredNavigationBar
+    //    }
     
     var body: some View {
         
@@ -60,7 +63,7 @@ struct SettingView: View {
                                     .font(.system(size: 15, weight: .medium))
                                     .foregroundColor(.oworiGray600)
                                 
-                                Text("행복한 우리가족")
+                                Text("\(familyViewModel.family.family_group_name ?? "none")")
                                     .font(.system(size: 12, weight: .medium))
                                     .foregroundColor(.oworiGray400)
                             }
@@ -292,14 +295,18 @@ struct SettingView: View {
                                         Text("취소")
                                     ),
                                     secondaryButton: .destructive(
-                                        Text("로그아웃")
+                                        Text("로그아웃"), action: {
+                                            isLoggedin = false
+                                            userViewModel.userLogout()
+                                            loginViewModel.logout()
+                                        }
                                     ))
                             }
                         }
                     }
                     
                     Button{
-
+                        
                     }label:{
                         HStack{
                             Text("탈퇴하기")
@@ -307,7 +314,7 @@ struct SettingView: View {
                                 .foregroundColor(.oworiGray600)
                                 .padding(EdgeInsets(top: 0, leading: 1.5, bottom: 0, trailing: 10))
                             Spacer()
-
+                            
                             Button{
                                 showAlert1 = true
                             }label:{
@@ -318,8 +325,11 @@ struct SettingView: View {
                                     title: Text("탈퇴하기"), message: Text("서비스를 탈퇴하더라도 작성하신 글은\n자동으로 삭제되지 않습니다.\n탈퇴하시겠습니까?"),
                                     primaryButton: .cancel(Text("취소")),
                                     secondaryButton: .destructive(Text("탈퇴하기"), action: {
-                                            
-                                        }))
+                                        userViewModel.deleteMember()
+                                        isLoggedin = false
+                                        userViewModel.userLogout()
+                                        loginViewModel.logout()
+                                    }))
                             }
                         }
                     }
@@ -334,31 +344,31 @@ struct SettingView: View {
             .listRowBackground(Color.oworiMain.opacity(0.3))
             .cornerRadius(12)
         }
-//        .navigationBarBackButtonHidden(true)
+        //        .navigationBarBackButtonHidden(true)
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
-//            ToolbarItem(placement: .navigationBarLeading) {
-//                BackButton()
-//            }
+            //            ToolbarItem(placement: .navigationBarLeading) {
+            //                BackButton()
+            //            }
             ToolbarItem(placement: .principal) {
-                    Text("설정")
-                        .font(.title3)
-                        .bold()
-                        .foregroundColor(Color.black)
+                Text("설정")
+                    .font(.title3)
+                    .bold()
+                    .foregroundColor(Color.black)
             }
         }
         .background(Color.oworiMain)
-            .navigationDestination(isPresented: $FamilyNameChangeViewIsActive) {
-                        FamilyNameChangeView()
-                    }
-            .navigationDestination(isPresented: $InviteViewIsActive) {
-                        InviteView()
-                    }
+        .navigationDestination(isPresented: $FamilyNameChangeViewIsActive) {
+            FamilyNameChangeView()
+        }
+        .navigationDestination(isPresented: $InviteViewIsActive) {
+            InviteView()
+        }
     }
 }
 
 struct SettingView_Previews: PreviewProvider {
     static var previews: some View {
-        SettingView()
+        SettingView(isLoggedin: .constant(false))
     }
 }

@@ -12,11 +12,13 @@ struct RealHomeView: View {
     @EnvironmentObject var familyViewModel: FamilyViewModel
     
     //    @State private var familyInfo = Family()
+    @State private var myPageViewIsActive: Bool = false
     
-    @Binding var emotionalBadgeViewIsActive: Bool
     //    @State private var notificationViewIsActive: Bool = false
     //
-    @State private var myPageViewIsActive: Bool = false
+    
+    @Binding var emotionalBadgeViewIsActive: Bool
+    @Binding var isLoggedIn: Bool
     
     var body: some View {
         ZStack {
@@ -93,14 +95,14 @@ struct RealHomeView: View {
             }
         }
         .navigationDestination(isPresented: $myPageViewIsActive) {
-            MyPageProfile()
+            MyPageProfile(isLoggedIn: $isLoggedIn)
         }
     }
 }
 
 struct RealHomeView_Previews: PreviewProvider {
     static var previews: some View {
-        RealHomeView(emotionalBadgeViewIsActive: .constant(false))
+        RealHomeView(emotionalBadgeViewIsActive: .constant(false), isLoggedIn: .constant(true))
             .environmentObject(UserViewModel())
             .environmentObject(FamilyViewModel())
     }

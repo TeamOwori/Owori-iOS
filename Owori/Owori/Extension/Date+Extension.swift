@@ -10,7 +10,7 @@ import SwiftUI
 extension Date {
     func formatDateToString(format: String) -> String {
         let dataFormatter = DateFormatter()
-        dataFormatter.dateFormat = "yyyy-MM-dd"
+        dataFormatter.dateFormat = format
         return dataFormatter.string(from: self)
     }
     
