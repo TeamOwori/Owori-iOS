@@ -8,11 +8,12 @@
 import SwiftUI
 
 struct MainView: View {
-    @State private var selectedTab = 0
     
     @EnvironmentObject var userViewModel: UserViewModel
     @EnvironmentObject var familyViewModel: FamilyViewModel
+    @State private var selectedTab = 0
     @State private var emotionalBadgeViewIsActive: Bool = false
+    @Binding var isLoggedIn: Bool
     
     //Calendar 관련 코드 추가
 //    @EnvironmentObject var myEvents: EventStore
@@ -67,7 +68,7 @@ struct MainView: View {
 
 struct MainView_Previews: PreviewProvider {
     static var previews: some View {
-        MainView()
+        MainView(isLoggedIn: .constant(true))
             .environmentObject(UserViewModel())
             .environmentObject(FamilyViewModel())
     }
