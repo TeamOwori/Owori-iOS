@@ -54,10 +54,10 @@ struct SettingView: View {
                             .toggleStyle(CustomToggle())
                     }
                     
-                    Button{
-                        
-                    }label:{
-                        HStack{
+                    Button(action: {
+                        FamilyNameChangeViewIsActive = true
+                    }) {
+                        HStack {
                             VStack(alignment: .leading) {
                                 Text("가족 그룹명 변경")
                                     .font(.system(size: 15, weight: .medium))
@@ -68,39 +68,30 @@ struct SettingView: View {
                                     .foregroundColor(.oworiGray400)
                             }
                             .padding(EdgeInsets(top: 0, leading: 1.5, bottom: 0, trailing: 10))
-                            
                             Spacer()
                             
-                            Button{
-                                FamilyNameChangeViewIsActive = true
-                                
-                            }label:{
-                                Image("Right")
-                                    .frame(width: 24, height: 24)
-                            }
+                            Image("Right")
+                                .frame(width: 24, height: 24)
                         }
                     }
-                    
-                    Button{
-                        
-                    }label:{
-                        HStack{
+
+                    Button(action: {
+                        // 버튼이 클릭되었을 때 수행할 동작 추가
+                        InviteViewIsActive = true
+                    }) {
+                        HStack {
                             Text("초대하기")
                                 .font(.system(size: 15, weight: .medium))
                                 .foregroundColor(.oworiGray600)
                                 .padding(EdgeInsets(top: 0, leading: 1.5, bottom: 0, trailing: 10))
+                            
                             Spacer()
                             
-                            Button{
-                                InviteViewIsActive = true
-                                
-                            }label:{
-                                Image("Right")
-                            }.frame(width: 24, height: 24)
-                            
+                            Image("Right")
+                                .frame(width: 24, height: 24)
                         }
-                        
                     }
+                    
                 } header: {
                     Text("맞춤설정")
                         .font(.title3)
@@ -111,48 +102,36 @@ struct SettingView: View {
                 
                 //MARK: 고객센터
                 Section {
-                    Button{
-                        
-                    }label:{
+                    
+                    Button(action: {
+                        if let url = URL(string: "https://zeroexn.notion.site/813fd6f55a294c16ad7b07ee44635816") {
+                            UIApplication.shared.open(url)
+                        }
+                    }) {
                         HStack{
                             Text("자주 묻는 질문")
                                 .font(.system(size: 15, weight: .medium))
                                 .foregroundColor(.oworiGray600)
                                 .padding(EdgeInsets(top: 0, leading: 1.5, bottom: 0, trailing: 10))
                             Spacer()
-                            
-                            Button{
-                                if let url = URL(string: "https://zeroexn.notion.site/813fd6f55a294c16ad7b07ee44635816") {
-                                    UIApplication.shared.open(url)
-                                }
-                                
-                            }label:{
-                                Image("Right")
-                            }
+                            Image("Right")
                         }
                     }
                     
-                    Button{
-                        
-                    }label:{
+                    Button(action: {
+                        if let url = URL(string: "https://docs.google.com/forms/d/e/1FAIpQLSesA798lWnFIvWzekmc6WsMRIbKuyL3oS0x5mIaVFE1ot_vtQ/viewform?usp=sf_link") {
+                            UIApplication.shared.open(url)
+                        }
+                    }) {
                         HStack{
                             Text("개발자에게 피드백 보내기")
                                 .font(.system(size: 15, weight: .medium))
                                 .foregroundColor(.oworiGray600)
                                 .padding(EdgeInsets(top: 0, leading: 1.5, bottom: 0, trailing: 10))
                             Spacer()
-                            
-                            Button{
-                                if let url = URL(string: "https://docs.google.com/forms/d/e/1FAIpQLSesA798lWnFIvWzekmc6WsMRIbKuyL3oS0x5mIaVFE1ot_vtQ/viewform?usp=sf_link") {
-                                    UIApplication.shared.open(url)
-                                }
-                                
-                            }label:{
-                                Image("Right")
-                            }
+                            Image("Right")
                         }
                     }
-                    
                 } header: {
                     Text("고객센터")
                         .font(.title3)
@@ -163,64 +142,52 @@ struct SettingView: View {
                 
                 //MARK: 앱 정보
                 Section {
-                    Button{
-                    }label:{
+                    
+                    Button(action: {
+                        if let url = URL(string: "https://zeroexn.notion.site/86e355e9c415493695784ca02a3b329e") {
+                            UIApplication.shared.open(url)
+                        }
+                    }) {
                         HStack{
                             Text("이용약관")
                                 .font(.system(size: 15, weight: .medium))
                                 .foregroundColor(.oworiGray600)
                                 .padding(EdgeInsets(top: 0, leading: 1.5, bottom: 0, trailing: 10))
                             Spacer()
-                            
-                            Button{
-                                if let url = URL(string: "https://zeroexn.notion.site/86e355e9c415493695784ca02a3b329e") {
-                                    UIApplication.shared.open(url)
-                                }
-                                
-                            }label:{
-                                Image("Right")
-                            }
+                            Image("Right")
                         }
                     }
                     
-                    Button{
-                    }label:{
+                    Button(action: {
+                        if let url = URL(string: "https://zeroexn.notion.site/2abdc0d3fa724b32bc4db75b34eade45") {
+                            UIApplication.shared.open(url)
+                        }
+                    }) {
                         HStack{
                             Text("개인정보 처리 방침")
                                 .font(.system(size: 15, weight: .medium))
                                 .foregroundColor(.oworiGray600)
                                 .padding(EdgeInsets(top: 0, leading: 1.5, bottom: 0, trailing: 10))
                             Spacer()
-                            
-                            Button{
-                                if let url = URL(string: "https://zeroexn.notion.site/2abdc0d3fa724b32bc4db75b34eade45") {
-                                    UIApplication.shared.open(url)
-                                }
-                                
-                            }label:{
-                                Image("Right")
-                            }
+                            Image("Right")
                         }
                     }
                     
-                    Button{
-                    }label:{
+                    Button(action: {
+                        if let url = URL(string: "https://zeroexn.notion.site/e5db73c8565b47dfbaa7010880f32caf") {
+                            UIApplication.shared.open(url)
+                        }
+                    }) {
                         HStack{
                             Text("오픈소스 라이센스")
                                 .font(.system(size: 15, weight: .medium))
                                 .foregroundColor(.oworiGray600)
                                 .padding(EdgeInsets(top: 0, leading: 1.5, bottom: 0, trailing: 10))
                             Spacer()
-                            
-                            Button{
-                                if let url = URL(string: "https://zeroexn.notion.site/e5db73c8565b47dfbaa7010880f32caf") {
-                                    UIApplication.shared.open(url)
-                                }
-                            }label:{
-                                Image("Right")
-                            }
+                            Image("Right")
                         }
                     }
+                    
                     HStack{
                         Text("버전정보")
                             .font(.system(size: 15, weight: .medium))
@@ -245,23 +212,18 @@ struct SettingView: View {
                 
                 //MARK: About 오월이
                 Section {
-                    Button{
-                    }label:{
+                    Button(action: {
+                        if let url = URL(string: "https://www.instagram.com/owori_official/?igshid=MzRlODBiNWFlZA%3D%3D") {
+                            UIApplication.shared.open(url)
+                        }
+                    }) {
                         HStack{
                             Text("오월이 인스타그램")
                                 .font(.system(size: 15, weight: .medium))
                                 .foregroundColor(.oworiGray600)
                                 .padding(EdgeInsets(top: 0, leading: 1.5, bottom: 0, trailing: 10))
                             Spacer()
-                            
-                            Button{
-                                if let url = URL(string: "https://www.instagram.com/owori_official/?igshid=MzRlODBiNWFlZA%3D%3D") {
-                                    UIApplication.shared.open(url)
-                                }
-                                
-                            }label:{
-                                Image("Right")
-                            }
+                            Image("Right")
                         }
                     }
                 } header: {
@@ -275,13 +237,15 @@ struct SettingView: View {
                 
                 //MARK: 기타
                 Section {
-                    Button{
-                    }label:{
-                        HStack{
+                    Button(action: {
+                        showAlert = true
+                    }) {
+                        HStack {
                             Text("로그아웃")
                                 .font(.system(size: 15, weight: .medium))
                                 .foregroundColor(.oworiGray600)
                                 .padding(EdgeInsets(top: 0, leading: 1.5, bottom: 0, trailing: 10))
+                            
                             Spacer()
                             
                             Button{
@@ -304,15 +268,34 @@ struct SettingView: View {
                             }
                         }
                     }
+                    .alert(isPresented: $showAlert) {
+                        Alert(
+                            title: Text("로그아웃"), message: Text("로그아웃 하시겠습니까?"),
+                            primaryButton: .default(
+                                Text("취소")
+                            ),
+                            secondaryButton: .destructive(
+                                Text("로그아웃")
+                            )
+                        )
+                    }
                     
+<<<<<<< Updated upstream
                     Button{
                         
                     }label:{
                         HStack{
+=======
+                    Button(action: {
+                        showAlert1 = true
+                    }) {
+                        HStack {
+>>>>>>> Stashed changes
                             Text("탈퇴하기")
                                 .font(.system(size: 15, weight: .medium))
                                 .foregroundColor(.oworiGray600)
                                 .padding(EdgeInsets(top: 0, leading: 1.5, bottom: 0, trailing: 10))
+                            
                             Spacer()
                             
                             Button{
@@ -332,6 +315,17 @@ struct SettingView: View {
                                     }))
                             }
                         }
+                    }
+                    .alert(isPresented: $showAlert1) {
+                        Alert(
+                            title: Text("탈퇴하기"), message: Text("탈퇴하시겠습니까?"),
+                            primaryButton: .default(
+                                Text("취소")
+                            ),
+                            secondaryButton: .destructive(
+                                Text("탈퇴하기")
+                            )
+                        )
                     }
                 } header: {
                     Text("기타")

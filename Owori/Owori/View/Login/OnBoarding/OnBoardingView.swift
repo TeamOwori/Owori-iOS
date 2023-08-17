@@ -23,15 +23,13 @@ struct OnBoardingView: View {
     
     //Image index
     private var indexOfImage: Int = 1
-    private var images: [String] = ["작업영역","작업영역 (1)","작업영역 (2)"]
+    private var images: [String] = ["작업영역","작업영역 (1)","작업영역 (11)"]
     @State private var imageIndex: Int = 0
     
     @State private var animationValue: CGFloat = 0
     @State var offset: CGFloat = 0
     
     @State private var isLoginViewVisible: Bool = false
-    
-    
     
     var body: some View{
         NavigationStack {
@@ -63,7 +61,7 @@ struct OnBoardingView: View {
                                 Image(images[index])
                                     .resizable()
                                     .aspectRatio(contentMode: .fit)
-                                    .frame(maxWidth: UIScreen.main.bounds.width,maxHeight:UIScreen.main.bounds.height*0.5)
+                                    .frame(width: UIScreen.main.bounds.width,height:UIScreen.main.bounds.height*0.5)
                                     .padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
                                     .background(.white)
                                     .tag(2)
