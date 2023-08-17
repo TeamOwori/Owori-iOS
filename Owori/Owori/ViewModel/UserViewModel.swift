@@ -30,6 +30,13 @@ class UserViewModel: ObservableObject {
     
     @Published var tempInviteCode: String = ""
     
+    
+    func userLogout() {
+        self.user = User()
+        isLogined = false
+        print("로그아웃 성공")
+    }
+    
     // MARK: 오월이 API FUNCTIONS (Post)
     
     // 멤버 홈화면 조회

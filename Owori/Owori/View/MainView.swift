@@ -23,7 +23,7 @@ struct MainView: View {
             SelectEmotionBadge(emotionalBadgeViewIsActive: $emotionalBadgeViewIsActive)
         } else {
             TabView(selection: $selectedTab) {
-                RealHomeView(emotionalBadgeViewIsActive: $emotionalBadgeViewIsActive)
+                RealHomeView(emotionalBadgeViewIsActive: $emotionalBadgeViewIsActive, isLoggedIn: $isLoggedIn)
                     .tabItem {
                         if selectedTab == 0 {
                             Image("HomeTabSelected")

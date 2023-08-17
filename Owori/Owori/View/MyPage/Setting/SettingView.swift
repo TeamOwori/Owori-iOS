@@ -20,9 +20,11 @@ struct SettingView: View {
     
     @State private var showAlert1 = false
     
-    @State private var FamilyNameChangeViewIsActive:Bool = false
+    @State private var FamilyNameChangeViewIsActive: Bool = false
     
-    @State private var InviteViewIsActive:Bool = false
+    @State private var InviteViewIsActive: Bool = false
+    
+    @Binding var isLoggedin: Bool
     
 //    init() {
 //        // 커스텀된 네비게이션바 배경색 설정
@@ -292,7 +294,11 @@ struct SettingView: View {
                                         Text("취소")
                                     ),
                                     secondaryButton: .destructive(
-                                        Text("로그아웃")
+                                        Text("로그아웃"), action: {
+                                            isLoggedin = false
+                                            userViewModel.userLogout()
+                                            loginViewModel.handleKakaoLogout()
+                                        }
                                     ))
                             }
                         }
@@ -359,6 +365,6 @@ struct SettingView: View {
 
 struct SettingView_Previews: PreviewProvider {
     static var previews: some View {
-        SettingView()
+        SettingView(isLoggedin: .constant(false))
     }
 }
