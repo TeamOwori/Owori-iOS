@@ -13,6 +13,7 @@ struct CommentsView: View {
     @State private var title: String = ""
     @State private var content: String = ""
     
+    //로직 수정 필요
     var body: some View {
         
 //        Divider()
