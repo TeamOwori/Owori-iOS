@@ -185,8 +185,6 @@ struct EditMyPage: View {
         }
         .onAppear {
             selectedColor = userViewModel.user.member_profile?.color ?? "None"
-            // test
-            usedColorTupleList = [("red", 0), ("pink", 1), ("yellow", 1), ("green", 1), ("skyblue", 0), ("blue", 0), ("purple", 0)]
             print(selectedColor)
         }
         .onTapGesture {
@@ -225,13 +223,17 @@ struct EditMyPage: View {
             
             ToolbarItem(placement: .navigationBarTrailing) {
                 Button {
-                    // 추후에 selectedImages[0]이 아니라 이미지 단일 값을 넘기도록 변경해야됨.
+                    //                    // 추후에 selectedImages[0]이 아니라 이미지 단일 값을 넘기도록 변경해야됨.
                     if selectedImages.isEmpty {
                         userViewModel.updateProfile(userInfo: [
                             "nickname": "\(nickname)",
                             "birthday": "\(birthday)",
                             "color": "\(selectedColor)"]) {
-                                editMyPageIsActive = false
+                                userViewModel.lookupProfile {
+                                    editMyPageIsActive = false
+                                    print(selectedColor)
+                                    print(userViewModel.user)
+                                }
                             }
                     } else {
                         userViewModel.updateProfile(userInfo: [
@@ -239,10 +241,22 @@ struct EditMyPage: View {
                             "birthday": "\(birthday)",
                             "color": "\(selectedColor)"]) {
                                 userViewModel.uploadProfileImages(image: selectedImages[0]) { uploadedProfileImageUrl in
-                                    editMyPageIsActive = false
+                                    userViewModel.lookupProfile {
+                                        editMyPageIsActive = false
+                                        print(selectedColor)
+                                        print(userViewModel.user)
+                                    }
                                 }
                             }
                     }
+                    
+                    //                    // 테스트
+                    //                    userViewModel.uploadProfileImages(image: selectedImages[0]) { uploadedProfileImagUrl in
+                    //                        userViewModel.lookupProfile {
+                    //                            editMyPageIsActive = false
+                    //                        }
+                    //                    }
+                    
                 } label: {
                     Image("Check")
                         .frame(width: 30, height: 30)

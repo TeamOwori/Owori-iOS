@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct SettingView: View {
+    @EnvironmentObject var userViewModel: UserViewModel
+    @EnvironmentObject var loginViewModel: LoginViewModel
+    
     // + 자동 로그인 여부
     @State private var autoLogin: Bool = false
     // + 알림 ON/OFF 여부
@@ -285,13 +288,12 @@ struct SettingView: View {
                             }.alert(isPresented: $showAlert) {
                                 Alert(
                                     title: Text("로그아웃"), message: Text("로그아웃 하시겠습니까?"),
-                                    primaryButton: .default(
+                                    primaryButton: .cancel(
                                         Text("취소")
                                     ),
                                     secondaryButton: .destructive(
                                         Text("로그아웃")
-                                    )
-                                )
+                                    ))
                             }
                         }
                     }
@@ -313,14 +315,11 @@ struct SettingView: View {
                             }
                             .alert(isPresented: $showAlert1) {
                                 Alert(
-                                    title: Text("탈퇴하기"), message: Text("탈퇴하시겠습니까?"),
-                                    primaryButton: .default(
-                                        Text("취소")
-                                    ),
-                                    secondaryButton: .destructive(
-                                        Text("탈퇴하기")
-                                    )
-                                )
+                                    title: Text("탈퇴하기"), message: Text("서비스를 탈퇴하더라도 작성하신 글은\n자동으로 삭제되지 않습니다.\n탈퇴하시겠습니까?"),
+                                    primaryButton: .cancel(Text("취소")),
+                                    secondaryButton: .destructive(Text("탈퇴하기"), action: {
+                                            
+                                        }))
                             }
                         }
                     }

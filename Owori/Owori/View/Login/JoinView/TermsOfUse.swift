@@ -155,7 +155,7 @@ struct TermsOfUse: View {
             
             .navigationBarTitleDisplayMode(.inline)
             .navigationDestination(isPresented: $isSuccessSignUp) {
-                MainView()
+                MainView(isLoggedIn: $isLoggedIn)
                     .onAppear {
                         familyViewModel.lookUpHomeView(user: userViewModel.user) {
                             print(familyViewModel.getFamily())

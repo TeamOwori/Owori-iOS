@@ -68,7 +68,7 @@ struct LoginView: View {
         }
         .navigationDestination(isPresented: $isLoggedIn) {
             if alreadyMember {
-                MainView()
+                MainView(isLoggedIn: $isLoggedIn)
                 .onAppear {
                     familyViewModel.lookUpHomeView(user: userViewModel.user) {
                         print(familyViewModel.getFamily())
