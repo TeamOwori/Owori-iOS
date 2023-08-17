@@ -36,6 +36,14 @@ class LoginViewModel: ObservableObject {
     @Published var socialToken: Token = Token()
     
     
+    func logout() {
+        self.isLoggedIn = false
+        self.socialToken = Token()
+        print(self.socialToken)
+        print("로그아웃 성공(토큰 초기화)")
+    }
+    
+    
     // MARK: 카카오 로그인 관련 FUNCTIONS
     
     

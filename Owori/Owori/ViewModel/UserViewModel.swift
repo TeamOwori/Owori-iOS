@@ -34,7 +34,8 @@ class UserViewModel: ObservableObject {
     func userLogout() {
         self.user = User()
         isLogined = false
-        print("로그아웃 성공")
+        print(user)
+        print("로그아웃 성공(유저 초기화)")
     }
     
     // MARK: 오월이 API FUNCTIONS (Post)

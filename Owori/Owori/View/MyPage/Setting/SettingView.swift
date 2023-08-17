@@ -297,7 +297,7 @@ struct SettingView: View {
                                         Text("로그아웃"), action: {
                                             isLoggedin = false
                                             userViewModel.userLogout()
-                                            loginViewModel.handleKakaoLogout()
+                                            loginViewModel.logout()
                                         }
                                     ))
                             }
