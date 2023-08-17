@@ -34,6 +34,7 @@ struct TermsOfUse: View {
                 .offset(y: 0)
             
             VStack{
+                
                 Text("오월이가 처음이시죠?\n필수약관에 동의해주세요")
                     .font(.title)
                     .bold()
@@ -43,9 +44,10 @@ struct TermsOfUse: View {
                 //MARK: 서비스 운영약관
                 HStack{
                     
-                    Button {
+                    //CheckForService
+                    Button{
                         checkForService.toggle()
-                    } label: {
+                    }label:{
                         if checkForService == false {
                             Image("Checked")
                                 .resizable()
@@ -55,15 +57,8 @@ struct TermsOfUse: View {
                                 .resizable()
                                 .frame(width: 20, height: 20)
                         }
-                    }.padding(.leading,15)
-                    
-                    VStack(alignment: .leading) {
-                        Text("서비스 운영약관 동의 (필수)")
-                            .font(.system(size: 16, weight: .semibold))
-                            .foregroundColor(.black)
-                        
                     }
-                    .padding(EdgeInsets(top: 0, leading: 1.5, bottom: 0, trailing: 10))
+                    .padding(.leading,15)
                     
                     Spacer()
                     
@@ -72,10 +67,22 @@ struct TermsOfUse: View {
                         if let url = URL(string: "https://zeroexn.notion.site/86e355e9c415493695784ca02a3b329e") {
                             UIApplication.shared.open(url)
                         }
+                        
                     }label:{
+                        Text("서비스 운영약관 동의 (필수)")
+                            .font(.system(size: 16, weight: .semibold))
+                            .foregroundColor(.black)
+                            .padding(.leading,10)
+                        
+                        Spacer()
+                        
                         Image("Right")
                             .frame(width: 20, height: 20)
-                    }.padding(.trailing,10)
+                            .padding(.trailing,10)
+                        
+                       
+                    }
+                    .frame(maxWidth: UIScreen.main.bounds.width)
                 }
                 
                 //MARK: 개인정보
@@ -95,14 +102,6 @@ struct TermsOfUse: View {
                         }
                     }.padding(.leading,15)
                     
-                    VStack(alignment: .leading) {
-                        Text("개인정보 수집 및 이용동의 (필수)")
-                            .font(.system(size: 16, weight: .semibold))
-                            .foregroundColor(.black)
-                        
-                    }
-                    .padding(EdgeInsets(top: 0, leading: 1.5, bottom: 0, trailing: 10))
-                    
                     Spacer()
                     
                     Button{
@@ -111,11 +110,21 @@ struct TermsOfUse: View {
                             UIApplication.shared.open(url)
                         }
                     }label:{
+                        
+                        Text("개인정보 수집 및 이용동의 (필수)")
+                            .font(.system(size: 16, weight: .semibold))
+                            .foregroundColor(.black)
+                            .padding(.leading,10)
+                        
+                        Spacer()
+                        
                         Image("Right")
                             .frame(width: 20, height: 20)
-                    }.padding(.trailing,10)
+                            .padding(.trailing,10)
+                    }
+                    .frame(maxWidth: UIScreen.main.bounds.width)
                 }
-
+                
                 Spacer()
                 
                 HStack(alignment: .center) {
@@ -128,12 +137,12 @@ struct TermsOfUse: View {
                                 
                                 userViewModel.initUser(userInfo: ["nickname" : "\(nickname)", "birthday" : "\(birthDateText)"]) {
                                     familyViewModel.createMember(user: userViewModel.user, family_group_name: familyName) {
-                                            familyViewModel.lookUpHomeView(user: userViewModel.user) {
-                                                print(familyViewModel.getFamily())
-                                                if userViewModel.user.is_service_member ?? false {
-                                                    isSuccessSignUp = true
-                                                }
+                                        familyViewModel.lookUpHomeView(user: userViewModel.user) {
+                                            print(familyViewModel.getFamily())
+                                            if userViewModel.user.is_service_member ?? false {
+                                                isSuccessSignUp = true
                                             }
+                                        }
                                     }
                                 }
                             }

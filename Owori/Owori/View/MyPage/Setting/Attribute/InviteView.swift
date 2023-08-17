@@ -13,7 +13,7 @@ struct InviteView: View {
     @State var showToast: Bool = false
     
     private let toastOptions = SimpleToastOptions(
-        hideAfter: 2
+        hideAfter: 0.8
     )
     
     var body: some View {
@@ -33,13 +33,13 @@ struct InviteView: View {
                     .foregroundColor(Color.oworiGray400)
                    
             }
-            .padding(EdgeInsets(top: 80, leading: 0, bottom: 0, trailing: 0))
+            .padding(EdgeInsets(top: 50, leading: 0, bottom: 0, trailing: 0))
 
     
             //Image 넣어야함
             Image("가족초대코드")
                 .frame(width: UIScreen.main.bounds.width, alignment: .center)
-                .padding(EdgeInsets(top: 30, leading: 30, bottom: 0, trailing: 30))
+                .padding(EdgeInsets(top: 10, leading: 30, bottom: 0, trailing: 30))
                 .aspectRatio(contentMode: .fit)
 
             Button {
@@ -55,7 +55,7 @@ struct InviteView: View {
                     .padding(EdgeInsets(top: 10, leading: 10, bottom: 10, trailing: 10))
                     .background(Color.blue)
                     .cornerRadius(10)
-            }
+            }.padding(.top,-50)
             .simpleToast(isPresented: $showToast, options: toastOptions) {
                 Text("초대코드가 복사되었어요")
                     .font(
@@ -68,7 +68,7 @@ struct InviteView: View {
                 .background(.black.opacity(0.78))
                 .foregroundColor(Color.white)
                 .cornerRadius(8)
-                .offset(y:250)
+                .offset(y: UIScreen.main.bounds.height * 0.245)
                 
             }
            

@@ -28,6 +28,12 @@ struct StoryDetailView: View {
                     HorizontalImageScrollView(images: storyInfo.story_images ?? [], currentIndex: $currentIndex)
                         .padding(EdgeInsets(top: 0, leading: 0, bottom: 20, trailing: 0))
                     DetailContent(isFavorite: $isFavorite, storyInfo: storyInfo)
+                    Comment()
+                        .padding(EdgeInsets(top: 10, leading: 30, bottom: 20, trailing: 0))
+                    Recomment()
+                        .padding(EdgeInsets(top: 0, leading: 50, bottom: 20, trailing: 0))
+                    CommentsView()
+                    
                 }
                 .padding(EdgeInsets(top: 20, leading: 0, bottom: 0, trailing: 0))
             }

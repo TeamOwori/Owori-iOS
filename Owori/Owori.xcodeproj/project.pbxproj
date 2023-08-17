@@ -19,6 +19,9 @@
 		356A54642A8565C3006E22C8 /* EventsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 356A54632A8565C3006E22C8 /* EventsListView.swift */; };
 		356A54662A8565E6006E22C8 /* ListViewRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 356A54652A8565E6006E22C8 /* ListViewRow.swift */; };
 		356A546A2A860D70006E22C8 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 356A54692A860D70006E22C8 /* Date+Extension.swift */; };
+		357F6FDE2A8DF7A20022E224 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 357F6FDD2A8DF7A20022E224 /* Comment.swift */; };
+		357F6FE02A8DF7C60022E224 /* Recomment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 357F6FDF2A8DF7C60022E224 /* Recomment.swift */; };
+		357F6FE22A8E25760022E224 /* CommentsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 357F6FE12A8E25760022E224 /* CommentsView.swift */; };
 		3580AFA32A6844DB00DC28F7 /* AppleLoginTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3580AFA22A6844DB00DC28F7 /* AppleLoginTestView.swift */; };
 		35A2D0FB2A781D3400FF8A5B /* RealHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A2D0FA2A781D3400FF8A5B /* RealHomeView.swift */; };
 		35B3CD5A2A7D5CCF00127259 /* WriteDDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B3CD592A7D5CCF00127259 /* WriteDDay.swift */; };
@@ -150,6 +153,9 @@
 		356A54632A8565C3006E22C8 /* EventsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsListView.swift; sourceTree = "<group>"; };
 		356A54652A8565E6006E22C8 /* ListViewRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewRow.swift; sourceTree = "<group>"; };
 		356A54692A860D70006E22C8 /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
+		357F6FDD2A8DF7A20022E224 /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
+		357F6FDF2A8DF7C60022E224 /* Recomment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recomment.swift; sourceTree = "<group>"; };
+		357F6FE12A8E25760022E224 /* CommentsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsView.swift; sourceTree = "<group>"; };
 		3580AFA12A6841DE00DC28F7 /* Owori.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Owori.entitlements; sourceTree = "<group>"; };
 		3580AFA22A6844DB00DC28F7 /* AppleLoginTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleLoginTestView.swift; sourceTree = "<group>"; };
 		35A2D0FA2A781D3400FF8A5B /* RealHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealHomeView.swift; sourceTree = "<group>"; };
@@ -593,6 +599,9 @@
 				F3430F672A67043200DC1B1C /* FavoriteButton.swift */,
 				F3A13F122A7821D40003D589 /* ZoomImages.swift */,
 				F38C12922A83920500DDAAA8 /* ZoomDetailImageCell.swift */,
+				357F6FDD2A8DF7A20022E224 /* Comment.swift */,
+				357F6FE12A8E25760022E224 /* CommentsView.swift */,
+				357F6FDF2A8DF7C60022E224 /* Recomment.swift */,
 			);
 			path = Detail;
 			sourceTree = "<group>";
@@ -824,6 +833,7 @@
 			files = (
 				F3430F882A67043200DC1B1C /* ProfileView.swift in Sources */,
 				F352856F2A7058E500466C61 /* SplashView.swift in Sources */,
+				357F6FE22A8E25760022E224 /* CommentsView.swift in Sources */,
 				F3430F852A67043200DC1B1C /* FamilyView.swift in Sources */,
 				886F8E002A6C584900D60BCC /* SelectEmotionBadge.swift in Sources */,
 				F3C1BE732A71147C002ADB3B /* RecentSearchList.swift in Sources */,
@@ -831,6 +841,7 @@
 				F3430F8C2A67043200DC1B1C /* DDayView.swift in Sources */,
 				F39EF28C2A6BA429005FD6DB /* BeInviteFamily.swift in Sources */,
 				356A54522A855F73006E22C8 /* Event.swift in Sources */,
+				357F6FDE2A8DF7A20022E224 /* Comment.swift in Sources */,
 				F3430F942A67043200DC1B1C /* LoginButton.swift in Sources */,
 				F3430FB72A67043200DC1B1C /* View+Extension.swift in Sources */,
 				F38C12932A83920500DDAAA8 /* ZoomDetailImageCell.swift in Sources */,
@@ -909,6 +920,7 @@
 				F3430FA32A67043200DC1B1C /* DailyStoryListCell.swift in Sources */,
 				F39B28492A8C02E3000D26C7 /* TestBackButton.swift in Sources */,
 				F3430F912A67043200DC1B1C /* LoginTestView.swift in Sources */,
+				357F6FE02A8DF7C60022E224 /* Recomment.swift in Sources */,
 				356A54562A856001006E22C8 /* CalendarView.swift in Sources */,
 				F3430F9A2A67043200DC1B1C /* ContentText.swift in Sources */,
 				35A2D0FB2A781D3400FF8A5B /* RealHomeView.swift in Sources */,
