@@ -111,6 +111,7 @@ class StoryViewModel: ObservableObject {
                                             "content": "\(content)",
                                             // image 임시 데이터 추가 해야함.
                                             "story_images": storyImages]
+        print("createStoryInfoToDictionary : \(storyInfoDictionary)")
         return storyInfoDictionary
 
     }
@@ -546,10 +547,19 @@ class StoryViewModel: ObservableObject {
         // stories 배열을 돌면서 월 별로 묶고 딕셔너리 형태로 월을 표시해서 저장
         for story in self.storyModel.stories {
             if let startDate = story.start_date {
-                let components = startDate.components(separatedBy: "-")
+//                let components = startDate.components(separatedBy: "-")
                 
-                let year = components[0]
-                let month = components[1]
+                let yearStartIndex = startDate.index(startDate.startIndex, offsetBy: 0)
+                let yearEndIndex = startDate.index(startDate.startIndex, offsetBy: 3)
+                let year = startDate[yearStartIndex...yearEndIndex]
+                
+                let monthStartIndex = startDate.index(startDate.startIndex, offsetBy: 4)
+                let monthEndIndex = startDate.index(startDate.startIndex, offsetBy: 5)
+                let month = startDate[monthStartIndex...monthEndIndex]
+                
+                print(year)
+                print(month)
+                
                 let yearAndMonth = "\(year)-\(month)"
                 
                 if storiesByYearAndMonth[yearAndMonth] == nil {
