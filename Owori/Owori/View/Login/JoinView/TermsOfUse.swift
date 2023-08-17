@@ -138,9 +138,15 @@ struct TermsOfUse: View {
                                 userViewModel.initUser(userInfo: ["nickname" : "\(nickname)", "birthday" : "\(birthDateText)"]) {
                                     familyViewModel.createMember(user: userViewModel.user, family_group_name: familyName) {
 //<<<<<<< Updated upstream
+//<<<<<<< Updated upstream
 //                                        familyViewModel.lookUpHomeView(user: userViewModel.user) {
 //                                            print(familyViewModel.getFamily())
 //                                            if userViewModel.user.is_service_member ?? false {
+//=======
+//                                        if userViewModel.user.is_service_member ?? false {
+//                                            familyViewModel.lookUpHomeView(user: userViewModel.user) {
+//                                                print(familyViewModel.getFamily())
+//>>>>>>> Stashed changes
 //=======
                                         if userViewModel.user.is_service_member ?? false {
                                             familyViewModel.lookUpHomeView(user: userViewModel.user) {
