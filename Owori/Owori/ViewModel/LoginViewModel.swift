@@ -14,7 +14,7 @@ import AuthenticationServices
 
 fileprivate enum OworiAPI {
     static let scheme = "http"
-    static let host = "owori.store"
+    static let host = "13.124.20.243"
     
     enum Path: String {
         case joinMember = "/api/v1/members/kakao"
