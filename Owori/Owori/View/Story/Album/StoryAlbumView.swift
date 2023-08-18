@@ -14,9 +14,9 @@ struct StoryAlbumView: View {
 //    private var collections = ["1", "2", "3", "4"]
     @EnvironmentObject var userViewModel: UserViewModel
     @EnvironmentObject var storyViewModel: StoryViewModel
-    @Binding var stories: [Story.StoryInfo]
+//    @Binding var stories: [Story.StoryInfo]
     @State private var storyInfo: Story.StoryInfo = Story.StoryInfo()
-    @State private var storiesForCollection: [String: [Story.StoryInfo]] = [:]
+    @Binding var storiesForCollection: [String: [Story.StoryInfo]]
     
     // MARK: BODY
     var body: some View {
@@ -40,6 +40,6 @@ struct StoryAlbumView: View {
 // MARK: PREVIEWS
 struct StoryAlbumView_Previews: PreviewProvider {
     static var previews: some View {
-        StoryAlbumView(stories: .constant([]))
+        StoryAlbumView(storiesForCollection: .constant([:]))
     }
 }

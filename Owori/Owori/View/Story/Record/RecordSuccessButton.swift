@@ -24,6 +24,7 @@ struct RecordSuccessButton: View {
     @Binding var selectedImages: [UIImage]
     
     @Binding var stories: [Story.StoryInfo]
+    @Binding var storiesForCollection: [String: [Story.StoryInfo]]
     
     
     // 자료형 임시 설정
@@ -36,6 +37,7 @@ struct RecordSuccessButton: View {
     
     var body: some View {
         Button {
+            self.presentationMode.wrappedValue.dismiss()
             if !selectedImages.isEmpty {
                 storyViewModel.uploadStoryImages(user: userViewModel.user, images: selectedImages) { uploadedStoryImagesUrl in
                     
@@ -45,15 +47,20 @@ struct RecordSuccessButton: View {
                     storyInfoDictionary = storyViewModel.createStoryInfoToDictionary(startDate: startDate, endDate: endDate, title: title, content: content, storyImages: storyImages)
                     
                     print("storyInfo 작성 테스트 : \(storyInfoDictionary)")
+                    print("실행 됨1")
                     storyViewModel.createStory(user: userViewModel.user, storyInfo: storyInfoDictionary) {
                         
+                        print("실행 됨2")
+                        
                         storyViewModel.lookUpStorySortByStartDate(user: userViewModel.user) {
+                            print("실행 됨3")
                             
                             stories = storyViewModel.getStories()
+                            storiesForCollection = storyViewModel.getStoriesForCollection()
                             print("[getStoryTest Record]\(stories)")
-                            print("[getStoriesForcollection] : \(storyViewModel.getStoriesForCollection())")
-                            self.presentationMode.wrappedValue.dismiss()
+                            print("[getStoriesForcollection] : \(storiesForCollection)")
                         }
+                        
                     }
                     
                 }
@@ -62,13 +69,14 @@ struct RecordSuccessButton: View {
                 print("storyInfo 작성 테스트 : \(storyInfoDictionary)")
                 storyViewModel.createStory(user: userViewModel.user, storyInfo: storyInfoDictionary) {
                     
-                    stories = storyViewModel.getStories()
-                    print("[getStoryTest Record]\(stories)")
-                    print("[getStoriesForcollection] : \(storyViewModel.getStoriesForCollection())")
-                    self.presentationMode.wrappedValue.dismiss()
+                    storyViewModel.lookUpStorySortByStartDate(user: userViewModel.user) {
+                        stories = storyViewModel.getStories()
+                        storiesForCollection = storyViewModel.getStoriesForCollection()
+                        print("[getStoryTest Record]\(stories)")
+                        print("[getStoriesForcollection] : \(storiesForCollection)")
+                    }
+                    
                 }
-                
-                
             }
             
         } label: {
@@ -85,6 +93,6 @@ struct RecordSuccessButton: View {
 
 struct RecordSuccessButton_Previews: PreviewProvider {
     static var previews: some View {
-        RecordSuccessButton(startDate: .constant(Date()), endDate: .constant(Date()), title: .constant("TEST"), content: .constant("TEST"), storyImages: .constant([]), selectedImages: .constant([]), stories: .constant([]))
+        RecordSuccessButton(startDate: .constant(Date()), endDate: .constant(Date()), title: .constant("TEST"), content: .constant("TEST"), storyImages: .constant([]), selectedImages: .constant([]), stories: .constant([]), storiesForCollection: .constant([:]))
     }
 }

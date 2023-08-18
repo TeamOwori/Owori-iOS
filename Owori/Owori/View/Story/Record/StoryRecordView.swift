@@ -27,6 +27,7 @@ struct StoryRecordView: View {
     @State private var selectedImages = [UIImage]()
     
     @Binding var stories: [Story.StoryInfo]
+    @Binding var storiesForCollection: [String: [Story.StoryInfo]]
     
     
     //    // 자료형 임시 설정
@@ -193,7 +194,7 @@ struct StoryRecordView: View {
             }
             
             
-            RecordSuccessButton(startDate: $startDate, endDate: $endDate, title: $title, content: $content, storyImages: $storyImages, selectedImages: $selectedImages, stories: $stories)
+            RecordSuccessButton(startDate: $startDate, endDate: $endDate, title: $title, content: $content, storyImages: $storyImages, selectedImages: $selectedImages, stories: $stories, storiesForCollection: $storiesForCollection)
             
         }
         .onTapGesture {
@@ -216,6 +217,6 @@ struct StoryRecordView: View {
 
 struct StoryRecordView_Previews: PreviewProvider {
     static var previews: some View {
-        StoryRecordView(stories: .constant([]))
+        StoryRecordView(stories: .constant([]), storiesForCollection: .constant([:]))
     }
 }

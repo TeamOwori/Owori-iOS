@@ -17,7 +17,8 @@ struct StoryView: View {
     
     @State private var isSearchViewVisible: Bool = false
     @State private var stories: [Story.StoryInfo] = []
-    @State private var albumListTab = 0
+//    @State private var albumListTab = 0
+    @State private var storiesForCollection: [String: [Story.StoryInfo]] = [:]
     
     // MARK: BODY
     var body: some View {
@@ -40,18 +41,21 @@ struct StoryView: View {
                                 }
                             }
                     } else {
-                        StoryAlbumView(stories: $stories)
+                        StoryAlbumView(storiesForCollection: $storiesForCollection)
                             .onAppear {
                                 storyViewModel.lookUpStorySortByStartDate(user: userViewModel.user) {
-                                    stories = storyViewModel.getStories()
-                                    print("[getStoryTest Album]\(stories)")
-                                    print("[getStoryTest Album] : \(storyViewModel.getStoriesForCollection())")
+//                                    stories = storyViewModel.getStories()
+//                                    print("[getStoryTest Album]\(stories)")
+//                                    print("[getStoryTest Album] : \(storyViewModel.getStoriesForCollection())")
+                                    
+                                    storiesForCollection = storyViewModel.getStoriesForCollection()
+                                    print("storiesForcollection Test log : \(storiesForCollection)")
                                 }
                             }
                     }
                 }
             }
-            RecordButton(stories: $stories)
+            RecordButton(stories: $stories, storiesForCollection: $storiesForCollection)
                 // 임시로 설정
                 .padding(.bottom, 30)
         }

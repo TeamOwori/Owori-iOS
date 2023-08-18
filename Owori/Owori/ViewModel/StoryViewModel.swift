@@ -403,7 +403,6 @@ class StoryViewModel: ObservableObject {
         urlComponents.queryItems = [
             //            URLQueryItem(name: "sort", value: "created_at"),
             //            URLQueryItem(name: "last_viewed", value: "yyyy-MM-dd".stringFromDate())
-            
         ]
         guard let url = urlComponents.url else {
             print("Error: cannot create URL")
