@@ -105,6 +105,7 @@ struct WriteDDay: View {
                         selection: $date,
                         displayedComponents: [.date]
                     ).frame(width: UIScreen.main.bounds.width*0.4)
+                        .padding(EdgeInsets(top: 0, leading: 10, bottom: 0, trailing: 0))
                     
                     
                     DatePicker(
@@ -112,6 +113,7 @@ struct WriteDDay: View {
                         selection: $date1,
                         displayedComponents: [.date]
                     ).frame(width: UIScreen.main.bounds.width*0.4)
+                        .padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 10))
                     
                 }
                 

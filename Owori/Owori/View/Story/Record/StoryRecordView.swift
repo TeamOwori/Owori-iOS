@@ -46,10 +46,7 @@ struct StoryRecordView: View {
     var body: some View {
         
         ScrollView {
-            
             VStack{
-                //DatePicker
-                ScrollView(.horizontal) {
                     HStack {
                         HStack {
                             DatePicker(
@@ -58,10 +55,10 @@ struct StoryRecordView: View {
                                 displayedComponents: [.date]
                             )
                         }
-                        .padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: -30))
+                        .padding(.trailing,5)
                         .frame(width: UIScreen.main.bounds.width * 0.4)
                         
-                        Spacer()
+//                        Spacer()
                         
                         HStack {
                             DatePicker(
@@ -70,13 +67,12 @@ struct StoryRecordView: View {
                                 displayedComponents: [.date]
                             )
                         }
-                        .padding(EdgeInsets(top: 0, leading: -30, bottom: 0, trailing: 0))
+                        .padding(.leading,5)
                         .frame(width: UIScreen.main.bounds.width * 0.4)
                     }
-                    .frame(width: UIScreen.main.bounds.width)
+                    .frame(width: UIScreen.main.bounds.width*0.95)
+                    .padding(.top, 15)
                     .padding(.bottom, 30)
-                }
-                .kerning(0)
                 
                 if isDatePickerActive && isDateOutOfRange {
                     Text("시작일은 이전 날짜만 선택 가능해요")
