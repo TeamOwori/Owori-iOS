@@ -104,18 +104,19 @@ struct WriteDDay: View {
                         "시작일",
                         selection: $date,
                         displayedComponents: [.date]
-                    ).frame(width: UIScreen.main.bounds.width*0.4)
-                        .padding(EdgeInsets(top: 0, leading: 10, bottom: 0, trailing: 0))
-                    
+                    )
+                    .kerning(-2)
+                    .frame(width: UIScreen.main.bounds.width*0.4)
                     
                     DatePicker(
                         "종료일",
                         selection: $date1,
                         displayedComponents: [.date]
-                    ).frame(width: UIScreen.main.bounds.width*0.4)
-                        .padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 10))
+                    )
+                    .kerning(-2)
+                    .frame(width: UIScreen.main.bounds.width*0.4)
                     
-                }
+                }.frame(width: UIScreen.main.bounds.width*0.9)
                 
                 //DDay - Switch Button
                 HStack(alignment: .top,spacing: 16) {

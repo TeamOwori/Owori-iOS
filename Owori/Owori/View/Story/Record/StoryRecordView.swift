@@ -54,23 +54,28 @@ struct StoryRecordView: View {
                                 selection: $startDate,
                                 displayedComponents: [.date]
                             )
+                            .kerning(0)
+                            .padding(.leading,15)
+                            
                         }
-                        .padding(.trailing,5)
-                        .frame(width: UIScreen.main.bounds.width * 0.4)
+                        .frame(width: UIScreen.main.bounds.width * 0.5)
+                        .padding(.leading,10)
                         
 //                        Spacer()
-                        
+//
                         HStack {
                             DatePicker(
                                 "종료일",
                                 selection: $endDate,
                                 displayedComponents: [.date]
                             )
+                            .kerning(0)
+                            .padding(.trailing,15)
                         }
-                        .padding(.leading,5)
-                        .frame(width: UIScreen.main.bounds.width * 0.4)
+                        .frame(width: UIScreen.main.bounds.width * 0.5)
+                        .padding(.trailing,10)
                     }
-                    .frame(width: UIScreen.main.bounds.width*0.95)
+                    .frame(width: UIScreen.main.bounds.width)
                     .padding(.top, 15)
                     .padding(.bottom, 30)
                 
@@ -181,6 +186,7 @@ struct StoryRecordView: View {
                     }
                 }
             }
+            .padding(EdgeInsets(top: 0, leading: 15, bottom: 0, trailing: 15))
             
             Button {
                 
