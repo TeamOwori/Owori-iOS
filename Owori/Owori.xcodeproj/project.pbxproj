@@ -124,6 +124,8 @@
 		F3C1BE732A71147C002ADB3B /* RecentSearchList.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C1BE722A71147C002ADB3B /* RecentSearchList.swift */; };
 		F3C1BE752A711D74002ADB3B /* CustomNavigationBackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C1BE742A711D74002ADB3B /* CustomNavigationBackButton.swift */; };
 		F3E8CDCA2A810719007A0C3A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E8CDC92A810719007A0C3A /* ContentView.swift */; };
+		F3ECF9972A925C0D00B553D1 /* StoryModifyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3ECF9962A925C0D00B553D1 /* StoryModifyView.swift */; };
+		F3ECF9992A925CC500B553D1 /* ModifySuccessButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3ECF9982A925CC500B553D1 /* ModifySuccessButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -264,6 +266,8 @@
 		F3C1BE722A71147C002ADB3B /* RecentSearchList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentSearchList.swift; sourceTree = "<group>"; };
 		F3C1BE742A711D74002ADB3B /* CustomNavigationBackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationBackButton.swift; sourceTree = "<group>"; };
 		F3E8CDC92A810719007A0C3A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		F3ECF9962A925C0D00B553D1 /* StoryModifyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryModifyView.swift; sourceTree = "<group>"; };
+		F3ECF9982A925CC500B553D1 /* ModifySuccessButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModifySuccessButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -579,6 +583,7 @@
 		F3430F5A2A67043200DC1B1C /* StoryHelper */ = {
 			isa = PBXGroup;
 			children = (
+				F3A8ABBF2A84A661000F34F4 /* PhotosPickerButton.swift */,
 				F3430F5B2A67043200DC1B1C /* DailyStoryImageCell.swift */,
 				F3430F5C2A67043200DC1B1C /* CurrentImageOrder.swift */,
 				F3430F5D2A67043200DC1B1C /* SortMenu.swift */,
@@ -606,6 +611,8 @@
 				357F6FDD2A8DF7A20022E224 /* Comment.swift */,
 				357F6FE12A8E25760022E224 /* CommentsView.swift */,
 				357F6FDF2A8DF7C60022E224 /* Recomment.swift */,
+				F3ECF9962A925C0D00B553D1 /* StoryModifyView.swift */,
+				F3ECF9982A925CC500B553D1 /* ModifySuccessButton.swift */,
 			);
 			path = Detail;
 			sourceTree = "<group>";
@@ -670,7 +677,6 @@
 			isa = PBXGroup;
 			children = (
 				F36508522A81278400A14217 /* StoryRecordView.swift */,
-				F3A8ABBF2A84A661000F34F4 /* PhotosPickerButton.swift */,
 				F36629232A8571F300503E76 /* RecordSuccessButton.swift */,
 			);
 			path = Record;
@@ -838,6 +844,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F3430F882A67043200DC1B1C /* ProfileView.swift in Sources */,
+				F3ECF9992A925CC500B553D1 /* ModifySuccessButton.swift in Sources */,
 				F352856F2A7058E500466C61 /* SplashView.swift in Sources */,
 				357F6FE22A8E25760022E224 /* CommentsView.swift in Sources */,
 				F3430F852A67043200DC1B1C /* FamilyView.swift in Sources */,
@@ -877,6 +884,7 @@
 				F3A8ABC22A84D9B3000F34F4 /* UIImage+Extension.swift in Sources */,
 				F3E8CDCA2A810719007A0C3A /* ContentView.swift in Sources */,
 				35B3CD672A8008B300127259 /* MyPageProfilePhoto.swift in Sources */,
+				F3ECF9972A925C0D00B553D1 /* StoryModifyView.swift in Sources */,
 				35B3CD722A81760700127259 /* EditMyPage.swift in Sources */,
 				886F8DFE2A6C582400D60BCC /* ProfileImageWithBadge.swift in Sources */,
 				F3799FC12A8E348C000F8C46 /* ImageCache.swift in Sources */,

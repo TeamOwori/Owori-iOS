@@ -29,7 +29,7 @@ struct MonthlyStoryCollection: View {
     @Binding var storyInfo: Story.StoryInfo
     @Binding var stories: [Story.StoryInfo]
     @Binding var storiesForCollection: [String: [Story.StoryInfo]]
-    @State private var storyDetailViewIsActiveFromStoryAlbum: Bool = false
+    @State private var storyDetailViewIsActive: Bool = false
     
     
     // MARK: BODY
@@ -50,7 +50,7 @@ struct MonthlyStoryCollection: View {
                             storyViewModel.lookUpStoryDetail(user: userViewModel.user, storyId: story.story_id!) {
                                 storyInfo = storyViewModel.searchStoryByStoryId(story_id: story.story_id!)!
                                 print("테스트테스트테스트\(story)")
-                                storyDetailViewIsActiveFromStoryAlbum = true
+                                storyDetailViewIsActive = true
                             }
                         } label: {
                             // 임시
@@ -68,8 +68,8 @@ struct MonthlyStoryCollection: View {
             }
             .padding(EdgeInsets(top: 16, leading: 0, bottom: 20, trailing: 0))
         }
-        .navigationDestination(isPresented: $storyDetailViewIsActiveFromStoryAlbum) {
-            StoryDetailView(storyInfo: $storyInfo, stories: $stories, storiesForCollection: $storiesForCollection)
+        .navigationDestination(isPresented: $storyDetailViewIsActive) {
+            StoryDetailView(storyInfo: $storyInfo, stories: $stories, storiesForCollection: $storiesForCollection, storyDetailViewIsActive: $storyDetailViewIsActive)
         }
         .onAppear {
             storiesForCollection = storyViewModel.getStoriesForCollection()

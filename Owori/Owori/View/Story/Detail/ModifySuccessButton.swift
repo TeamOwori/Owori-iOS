@@ -1,13 +1,14 @@
 //
-//  RecordSuccessButton.swift
+//  ModifySuccessButton.swift
 //  Owori
 //
-//  Created by Kyungsoo Lee on 2023/08/11.
+//  Created by Kyungsoo Lee on 2023/08/20.
 //
 
 import SwiftUI
 
-struct RecordSuccessButton: View {
+struct ModifySuccessButton: View {
+    @Binding var storyInfo: Story.StoryInfo
     //DatePicker
     @Binding var startDate: Date
     
@@ -25,10 +26,12 @@ struct RecordSuccessButton: View {
     
     @Binding var stories: [Story.StoryInfo]
     @Binding var storiesForCollection: [String: [Story.StoryInfo]]
+    @Binding var storyDetailViewIsActive: Bool
+    @Binding var isActiveStoryModifyView: Bool
     
     
     // 자료형 임시 설정
-    @State private var storyInfo: [String: Any] = [:]
+//    @State private var storyInfo: [String: Any] = [:]
     @State private var storyInfoDictionary: [String: Any] = [:]
     
     @EnvironmentObject var storyViewModel: StoryViewModel
@@ -37,19 +40,17 @@ struct RecordSuccessButton: View {
     
     var body: some View {
         Button {
-            self.presentationMode.wrappedValue.dismiss()
-            
             if !selectedImages.isEmpty {
                 storyViewModel.uploadStoryImages(user: userViewModel.user, images: selectedImages) { uploadedStoryImagesUrl in
                     
                     storyImages = uploadedStoryImagesUrl
                     print("storyImages : \(storyImages)")
                     
-                    storyInfoDictionary = storyViewModel.createStoryInfoToDictionary(startDate: startDate, endDate: endDate, title: title, content: content, storyImages: storyImages)
+                    storyInfoDictionary = storyViewModel.createStoryInfoToUpdateDictionary(storyId: storyInfo.story_id!,startDate: startDate, endDate: endDate, title: title, content: content, storyImages: storyImages)
                     
                     print("storyInfo 작성 테스트 : \(storyInfoDictionary)")
                     print("실행 됨1")
-                    storyViewModel.createStory(user: userViewModel.user, storyInfo: storyInfoDictionary) {
+                    storyViewModel.updateStory(user: userViewModel.user, storyInfo: storyInfoDictionary) {
                         
                         print("실행 됨2")
                         
@@ -60,21 +61,30 @@ struct RecordSuccessButton: View {
                             storiesForCollection = storyViewModel.getStoriesForCollection()
                             print("[getStoryTest Record]\(stories)")
                             print("[getStoriesForcollection] : \(storiesForCollection)")
+                            
+                            // 로직 통일 및 수정 요망
+                            storyDetailViewIsActive = false
+                            isActiveStoryModifyView = false
+
                         }
                         
                     }
                     
                 }
             } else {
-                storyInfoDictionary = storyViewModel.createStoryInfoToDictionary(startDate: startDate, endDate: endDate, title: title, content: content, storyImages: storyImages)
+                storyInfoDictionary = storyViewModel.createStoryInfoToUpdateDictionary(storyId: storyInfo.story_id!, startDate: startDate, endDate: endDate, title: title, content: content, storyImages: storyImages)
                 print("storyInfo 작성 테스트 : \(storyInfoDictionary)")
-                storyViewModel.createStory(user: userViewModel.user, storyInfo: storyInfoDictionary) {
+                storyViewModel.updateStory(user: userViewModel.user, storyInfo: storyInfoDictionary) {
                     
                     storyViewModel.lookUpStorySortByStartDate(user: userViewModel.user) {
                         stories = storyViewModel.getStories()
                         storiesForCollection = storyViewModel.getStoriesForCollection()
                         print("[getStoryTest Record]\(stories)")
                         print("[getStoriesForcollection] : \(storiesForCollection)")
+                        
+                        storyDetailViewIsActive = false
+                        isActiveStoryModifyView = false
+
                     }
                     
                 }
@@ -88,15 +98,11 @@ struct RecordSuccessButton: View {
         }
         // 나중에 설정하기
 //        .disabled(false)
-        .onAppear {
-            // 테스트
-            print(startDate)
-        }
     }
 }
 
-struct RecordSuccessButton_Previews: PreviewProvider {
+struct ModifySuccessButton_Previews: PreviewProvider {
     static var previews: some View {
-        RecordSuccessButton(startDate: .constant(Date()), endDate: .constant(Date()), title: .constant("TEST"), content: .constant("TEST"), storyImages: .constant([]), selectedImages: .constant([]), stories: .constant([]), storiesForCollection: .constant([:]))
+        ModifySuccessButton(storyInfo: .constant(Story.StoryInfo()), startDate: .constant(Date()), endDate: .constant(Date()), title: .constant("TEST"), content: .constant("TEST"), storyImages: .constant([]), selectedImages: .constant([]), stories: .constant([]), storiesForCollection: .constant([:]), storyDetailViewIsActive: .constant(false), isActiveStoryModifyView: .constant(false))
     }
 }

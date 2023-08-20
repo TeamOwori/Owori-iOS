@@ -106,14 +106,27 @@ class StoryViewModel: ObservableObject {
     
     func createStoryInfoToDictionary(startDate: Date, endDate: Date, title: String, content: String, storyImages: [String]) -> [String: Any] {
         var storyInfoDictionary: [String: Any] = ["start_date": "\(startDate.formatDateToString(format: "yyyyMMdd"))",
-                                            "end_date": "\(endDate.formatDateToString(format: "yyyyMMdd"))",
-                                            "title": "\(title)",
-                                            "content": "\(content)",
-                                            // image 임시 데이터 추가 해야함.
-                                            "story_images": storyImages]
+                                                  "end_date": "\(endDate.formatDateToString(format: "yyyyMMdd"))",
+                                                  "title": "\(title)",
+                                                  "content": "\(content)",
+                                                  // image 임시 데이터 추가 해야함.
+                                                  "story_images": storyImages]
         print("createStoryInfoToDictionary : \(storyInfoDictionary)")
         return storyInfoDictionary
-
+        
+    }
+    
+    func createStoryInfoToUpdateDictionary(storyId: String, startDate: Date, endDate: Date, title: String, content: String, storyImages: [String]) -> [String: Any] {
+        var storyInfoDictionary: [String: Any] = ["story_id": "\(storyId)",
+                                                  "start_date": "\(startDate.formatDateToString(format: "yyyyMMdd"))",
+                                                  "end_date": "\(endDate.formatDateToString(format: "yyyyMMdd"))",
+                                                  "title": "\(title)",
+                                                  "content": "\(content)",
+                                                  // image 임시 데이터 추가 해야함.
+                                                  "story_images": storyImages]
+        print("createStoryInfoToDictionary : \(storyInfoDictionary)")
+        return storyInfoDictionary
+        
     }
     
     func toggleHeart(user: User, storyId: String) {
@@ -191,7 +204,7 @@ class StoryViewModel: ObservableObject {
         }.resume()
     }
     
-    func updateStory(user: User, storyInfo: [String: Any]) {
+    func updateStory(user: User, storyInfo: [String: Any], completion: @escaping () -> Void) {
         guard let sendData = try? JSONSerialization.data(withJSONObject: storyInfo, options: []) else { return }
         
         // 요청을 보낼 API의 url 설정
@@ -261,6 +274,7 @@ class StoryViewModel: ObservableObject {
                     
                     // User 구조체에 할당된 데이터 사용 (테스트 log)
                     //                    print("[Story Model Log]: \(self?.storyModel)")
+                    completion()
                     
                 } catch {
                     print("[updateStory] Error: Failed to parse JSON data - \(error)")
@@ -269,13 +283,13 @@ class StoryViewModel: ObservableObject {
         }.resume()
     }
     
-//    func isJPEG(data: Data) -> Bool {
-//        return data.count >= 2 && data[0] == 0xFF && data[1] == 0xD8
-//    }
-//
-//    func isPNG(data: Data) -> Bool {
-//        return data.count >= 8 && data[0] == 0x89 && data[1] == 0x50 && data[2] == 0x4E && data[3] == 0x47 && data[4] == 0x0D && data[5] == 0x0A && data[6] == 0x1A && data[7] == 0x0A
-//    }
+    //    func isJPEG(data: Data) -> Bool {
+    //        return data.count >= 2 && data[0] == 0xFF && data[1] == 0xD8
+    //    }
+    //
+    //    func isPNG(data: Data) -> Bool {
+    //        return data.count >= 8 && data[0] == 0x89 && data[1] == 0x50 && data[2] == 0x4E && data[3] == 0x47 && data[4] == 0x0D && data[5] == 0x0A && data[6] == 0x1A && data[7] == 0x0A
+    //    }
     
     
     
@@ -335,8 +349,8 @@ class StoryViewModel: ObservableObject {
         }
         
         if let boundaryEndData = "--\(boundary)--\r\n".data(using: .utf8) {
-                body.append(boundaryEndData)
-            }
+            body.append(boundaryEndData)
+        }
         
         urlRequest.httpBody = body
         
@@ -367,10 +381,10 @@ class StoryViewModel: ObservableObject {
             DispatchQueue.main.async { [weak self] in
                 // JSON 데이터를 파싱하여 User 구조체에 할당
                 do {
-//                    let decoder = JSONDecoder()
-//                    self?.storyModel.stories.append(try decoder.decode(Story.StoryInfo.self, from: data))
-
-
+                    //                    let decoder = JSONDecoder()
+                    //                    self?.storyModel.stories.append(try decoder.decode(Story.StoryInfo.self, from: data))
+                    
+                    
                     print(jsonDictionary)
                     print("성공")
                     uploadedStoryImagesUrl = jsonDictionary["story_images"] as! [String]
@@ -472,7 +486,7 @@ class StoryViewModel: ObservableObject {
         urlComponents.host = OworiAPI.host
         urlComponents.path = OworiAPI.Path.storiesFindSortStartDate.rawValue
         urlComponents.queryItems = [
-                        URLQueryItem(name: "sort", value: "start_date"),
+            URLQueryItem(name: "sort", value: "start_date"),
             //            URLQueryItem(name: "last_viewed", value: "yyyy-MM-dd".stringFromDate())
             
         ]
@@ -547,7 +561,7 @@ class StoryViewModel: ObservableObject {
         // stories 배열을 돌면서 월 별로 묶고 딕셔너리 형태로 월을 표시해서 저장
         for story in self.storyModel.stories {
             if let startDate = story.start_date {
-//                let components = startDate.components(separatedBy: "-")
+                //                let components = startDate.components(separatedBy: "-")
                 
                 let yearStartIndex = startDate.index(startDate.startIndex, offsetBy: 0)
                 let yearEndIndex = startDate.index(startDate.startIndex, offsetBy: 3)
@@ -673,7 +687,7 @@ class StoryViewModel: ObservableObject {
         urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
         urlRequest.setValue("Bearer " + (user.jwt_token?.access_token)!, forHTTPHeaderField: "Authorization")
         urlRequest.setValue(user.member_id, forHTTPHeaderField: "member_id")
-//        urlRequest.httpBody = sendData
+        //        urlRequest.httpBody = sendData
         
         // 요청
         URLSession.shared.dataTask(with: urlRequest) { (data, response, error) in
@@ -686,12 +700,12 @@ class StoryViewModel: ObservableObject {
                 print("Error: Did not receive data")
                 return
             }
-//            guard let jsonDictionary = try? JSONSerialization.jsonObject(with: Data(data), options: []) as? [String: Any] else {
-//                print("Error: convert failed json to dictionary")
-//                return
-//            }
+            //            guard let jsonDictionary = try? JSONSerialization.jsonObject(with: Data(data), options: []) as? [String: Any] else {
+            //                print("Error: convert failed json to dictionary")
+            //                return
+            //            }
             
-//            print(jsonDictionary)
+            //            print(jsonDictionary)
             print(data)
             print(response)
             guard let response = response as? HTTPURLResponse, (200 ..< 300) ~= response.statusCode else {
@@ -699,21 +713,21 @@ class StoryViewModel: ObservableObject {
                 return
             }
             
-//            // Story를 @Published로 선언했기 때문에 background thread에서 main thread로 업데이트를 전달해야 한다.
-//            // 그래서 DispatchQueue.main.async 사용.
+            //            // Story를 @Published로 선언했기 때문에 background thread에서 main thread로 업데이트를 전달해야 한다.
+            //            // 그래서 DispatchQueue.main.async 사용.
             DispatchQueue.main.async { [weak self] in
-//                // JSON 데이터를 파싱하여 User 구조체에 할당
+                //                // JSON 데이터를 파싱하여 User 구조체에 할당
                 do {
-//                    let decoder = JSONDecoder()
-//                    self?.storyModel.stories.append(try decoder.decode(Story.StoryInfo.self, from: data))
-//                    // 임시
-//                    self?.testStoryId = jsonDictionary["story_id"] as! String
-//                    
-//                    // User 구조체에 할당된 데이터 사용 (테스트 log)
-//                    print("[create Story Log]: \(self?.storyModel)")
-//                    // 임시
-//                    print(self?.testStoryId)
-//                    self?.storyModel.stories.first(where: { $0.story_id == storyId })
+                    //                    let decoder = JSONDecoder()
+                    //                    self?.storyModel.stories.append(try decoder.decode(Story.StoryInfo.self, from: data))
+                    //                    // 임시
+                    //                    self?.testStoryId = jsonDictionary["story_id"] as! String
+                    //
+                    //                    // User 구조체에 할당된 데이터 사용 (테스트 log)
+                    //                    print("[create Story Log]: \(self?.storyModel)")
+                    //                    // 임시
+                    //                    print(self?.testStoryId)
+                    //                    self?.storyModel.stories.first(where: { $0.story_id == storyId })
                     if let index = self?.storyModel.stories.firstIndex(where: { $0.story_id == storyId }) {
                         self?.storyModel.stories.remove(at: index)
                         print("Story removed successfully")
@@ -725,18 +739,18 @@ class StoryViewModel: ObservableObject {
                     print("[createStory] Error: Failed to parse JSON data - \(error)")
                 }
             }
-//            //            print("[Create Story Log]: \(jsonDictionary)")
+            //            //            print("[Create Story Log]: \(jsonDictionary)")
         }.resume()
     }
     
-//    func deleteStoryOnClient(storyId: String) {
-//        if let index = self.storyModel.stories.firstIndex(where: { $0.story_id == storyId }) {
-//            self.storyModel.stories.remove(at: index)
-//            print("Story removed successfully")
-//        } else {
-//            print("Story not found")
-//        }
-//    }
+    //    func deleteStoryOnClient(storyId: String) {
+    //        if let index = self.storyModel.stories.firstIndex(where: { $0.story_id == storyId }) {
+    //            self.storyModel.stories.remove(at: index)
+    //            print("Story removed successfully")
+    //        } else {
+    //            print("Story not found")
+    //        }
+    //    }
     
     func searchStoryByStoryId(story_id: String) -> Story.StoryInfo? {
         

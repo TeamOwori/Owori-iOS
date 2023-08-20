@@ -18,6 +18,13 @@ extension String {
         return dateFormatter.string(from: now)
     }
     
+    func toDate(dateFormat: String) -> Date? {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = dateFormat
+        dateFormatter.locale = Locale(identifier: "ko_KR")
+        return dateFormatter.date(from: self)
+    }
+    
     func convertToISODateFormat() -> String/*?*/ {
             let dateFormatterInput = DateFormatter()
             dateFormatterInput.dateFormat = "yyyyMMdd"
