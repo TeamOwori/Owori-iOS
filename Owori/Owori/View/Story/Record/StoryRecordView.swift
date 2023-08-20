@@ -47,10 +47,7 @@ struct StoryRecordView: View {
     var body: some View {
         
         ScrollView {
-            
             VStack{
-                //DatePicker
-                ScrollView(.horizontal) {
                     HStack {
                         HStack {
                             DatePicker(
@@ -58,26 +55,30 @@ struct StoryRecordView: View {
                                 selection: $startDate,
                                 displayedComponents: [.date]
                             )
+                            .kerning(0)
+                            .padding(.leading,15)
+                            
                         }
-                        .padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: -30))
-                        .frame(width: UIScreen.main.bounds.width * 0.4)
+                        .frame(width: UIScreen.main.bounds.width * 0.5)
+                        .padding(.leading,10)
                         
-                        Spacer()
-                        
+//                        Spacer()
+//
                         HStack {
                             DatePicker(
                                 "종료일",
                                 selection: $endDate,
                                 displayedComponents: [.date]
                             )
+                            .kerning(0)
+                            .padding(.trailing,15)
                         }
-                        .padding(EdgeInsets(top: 0, leading: -30, bottom: 0, trailing: 0))
-                        .frame(width: UIScreen.main.bounds.width * 0.4)
+                        .frame(width: UIScreen.main.bounds.width * 0.5)
+                        .padding(.trailing,10)
                     }
                     .frame(width: UIScreen.main.bounds.width)
+                    .padding(.top, 15)
                     .padding(.bottom, 30)
-                }
-                .kerning(0)
                 
                 if isDatePickerActive && isDateOutOfRange {
                     Text("시작일은 이전 날짜만 선택 가능해요")
@@ -186,6 +187,7 @@ struct StoryRecordView: View {
                     }
                 }
             }
+            .padding(EdgeInsets(top: 0, leading: 15, bottom: 0, trailing: 15))
             
             Button {
                 
