@@ -16,6 +16,7 @@ struct DetailContent: View {
     
     @Binding var stories: [Story.StoryInfo]
     @Binding var storiesForCollection: [String: [Story.StoryInfo]]
+    @Binding var storyDetailViewIsActive: Bool
     
     var body: some View {
         VStack(alignment: .leading) {
@@ -27,7 +28,7 @@ struct DetailContent: View {
                 .frame(height: 1)
                 .overlay(Color.oworiGray200)
             
-            ContentText(storyInfo: $storyInfo, stories: $stories, storiesForCollection: $storiesForCollection)
+            ContentText(storyInfo: $storyInfo, stories: $stories, storiesForCollection: $storiesForCollection, storyDetailViewIsActive: $storyDetailViewIsActive)
                 .padding(EdgeInsets(top: 20, leading: 20, bottom: 20, trailing: 20))
     
             
@@ -43,7 +44,7 @@ struct DetailContent: View {
 
 struct DetailContent_Previews: PreviewProvider {
     static var previews: some View {
-        DetailContent(isFavorite: .constant(true), storyInfo: .constant(Story.StoryInfo(id: 0, story_id: "0", is_liked: true, story_images: [], thumbnail: "DefaultImage", title: "Test", writer: "Test", content: "Test", comments: [], heart_count: 0, comment_count: 0, start_date: "2023-07-07", end_date: "2023-07-08")), stories: .constant([]), storiesForCollection: .constant([:]))
+        DetailContent(isFavorite: .constant(true), storyInfo: .constant(Story.StoryInfo(id: 0, story_id: "0", is_liked: true, story_images: [], thumbnail: "DefaultImage", title: "Test", writer: "Test", content: "Test", comments: [], heart_count: 0, comment_count: 0, start_date: "2023-07-07", end_date: "2023-07-08")), stories: .constant([]), storiesForCollection: .constant([:]), storyDetailViewIsActive: .constant(false))
             .environmentObject(UserViewModel())
             .environmentObject(StoryViewModel())
     }

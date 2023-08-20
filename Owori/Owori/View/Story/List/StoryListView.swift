@@ -47,7 +47,7 @@ struct StoryListView: View {
             print(stories)
         }
         .navigationDestination(isPresented: $storyDetailViewIsActive) {
-            StoryDetailView(storyInfo: $storyInfo, stories: $stories, storiesForCollection: $storiesForCollection)
+            StoryDetailView(storyInfo: $storyInfo, stories: $stories, storiesForCollection: $storiesForCollection, storyDetailViewIsActive: $storyDetailViewIsActive)
         }
     }
     
