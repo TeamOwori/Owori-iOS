@@ -49,16 +49,17 @@ struct RealHomeView: View {
                             
                         }
                         
-                        //종 버튼
-                        NavigationLink {
-                            // 종 버튼이 눌리면 종 버튼이 떠야됨
-                            //                            notificationViewIsActive = true
-                            HomeNotificationView()
-                        } label: {
-                            Image("Bell")
-                                .frame(width: 25, height: 25)
-                            
-                        }
+                        // 나중에 구현
+//                        //종 버튼
+//                        NavigationLink {
+//                            // 종 버튼이 눌리면 종 버튼이 떠야됨
+//                            //                            notificationViewIsActive = true
+//                            HomeNotificationView()
+//                        } label: {
+//                            Image("Bell")
+//                                .frame(width: 25, height: 25)
+//                            
+//                        }
                         
                         
                         

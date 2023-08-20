@@ -31,7 +31,8 @@ struct StoryView: View {
                 HStack {
                     AlbumListButton(buttonSet: $buttonSet)
                     Spacer()
-                    SortMenu()
+                    // 나중에 구현
+//                    SortMenu()
                 }
                 .padding(EdgeInsets(top: 20, leading: 20, bottom: 20, trailing: 20))
                 ScrollView {
