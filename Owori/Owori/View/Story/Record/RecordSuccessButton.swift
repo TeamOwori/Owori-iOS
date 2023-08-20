@@ -38,6 +38,7 @@ struct RecordSuccessButton: View {
     var body: some View {
         Button {
             self.presentationMode.wrappedValue.dismiss()
+            
             if !selectedImages.isEmpty {
                 storyViewModel.uploadStoryImages(user: userViewModel.user, images: selectedImages) { uploadedStoryImagesUrl in
                     
@@ -78,7 +79,6 @@ struct RecordSuccessButton: View {
                     
                 }
             }
-            
         } label: {
             Text("작성 완료")
                 .frame(width: 300, height: 50)
@@ -87,7 +87,7 @@ struct RecordSuccessButton: View {
                 .cornerRadius(12)
         }
         // 나중에 설정하기
-        .disabled(false)
+//        .disabled(false)
     }
 }
 

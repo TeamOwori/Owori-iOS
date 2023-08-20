@@ -25,8 +25,10 @@ struct MonthlyStoryCollection: View {
     @EnvironmentObject var storyViewModel: StoryViewModel
     
     //    @Binding var storyInfo: Story.StoryInfo
-    var storiesForCollection: [String: [Story.StoryInfo]]
+//    var storiesForCollection: [String: [Story.StoryInfo]]
     @Binding var storyInfo: Story.StoryInfo
+    @Binding var stories: [Story.StoryInfo]
+    @Binding var storiesForCollection: [String: [Story.StoryInfo]]
     @State private var storyDetailViewIsActiveFromStoryAlbum: Bool = false
     
     
@@ -67,9 +69,10 @@ struct MonthlyStoryCollection: View {
             .padding(EdgeInsets(top: 16, leading: 0, bottom: 20, trailing: 0))
         }
         .navigationDestination(isPresented: $storyDetailViewIsActiveFromStoryAlbum) {
-            StoryDetailView(storyInfo: $storyInfo)
+            StoryDetailView(storyInfo: $storyInfo, stories: $stories, storiesForCollection: $storiesForCollection)
         }
         .onAppear {
+            storiesForCollection = storyViewModel.getStoriesForCollection()
             print("TEST StoriesForCollection : \(storiesForCollection)")
         }
     }
@@ -79,6 +82,7 @@ struct MonthlyStoryCollection: View {
 // MARK: PREVIEWS
 struct MonthlyStoryCollection_Previews: PreviewProvider {
     static var previews: some View {
-        MonthlyStoryCollection(storiesForCollection: ["2023-08": [ Story.StoryInfo(id: 0, story_id: "0", is_liked: true, story_images: [], thumbnail: "DefaultImage", title: "Test", writer: "Test", content: "Test", comments: [], heart_count: 0, comment_count: 0, start_date: "2023-07-07", end_date: "2023-07-08"), Story.StoryInfo(id: 0, story_id: "0", is_liked: true, story_images: [], thumbnail: "DefaultImage", title: "Test", writer: "Test", content: "Test", comments: [], heart_count: 0, comment_count: 0, start_date: "2023-07-07", end_date: "2023-07-08"), Story.StoryInfo(id: 0, story_id: "0", is_liked: true, story_images: [], thumbnail: "DefaultImage", title: "Test", writer: "Test", content: "Test", comments: [], heart_count: 0, comment_count: 0, start_date: "2023-07-07", end_date: "2023-07-08")]], storyInfo: .constant(Story.StoryInfo(id: 0, story_id: "0", is_liked: true, story_images: [], thumbnail: "DefaultImage", title: "Test", writer: "Test", content: "Test", comments: [], heart_count: 0, comment_count: 0, start_date: "2023-07-07", end_date: "2023-07-08")))
+//        MonthlyStoryCollection(stories: .constant([]), storiesForCollection: ["2023-08": [ Story.StoryInfo(id: 0, story_id: "0", is_liked: true, story_images: [], thumbnail: "DefaultImage", title: "Test", writer: "Test", content: "Test", comments: [], heart_count: 0, comment_count: 0, start_date: "2023-07-07", end_date: "2023-07-08"), Story.StoryInfo(id: 0, story_id: "0", is_liked: true, story_images: [], thumbnail: "DefaultImage", title: "Test", writer: "Test", content: "Test", comments: [], heart_count: 0, comment_count: 0, start_date: "2023-07-07", end_date: "2023-07-08"), Story.StoryInfo(id: 0, story_id: "0", is_liked: true, story_images: [], thumbnail: "DefaultImage", title: "Test", writer: "Test", content: "Test", comments: [], heart_count: 0, comment_count: 0, start_date: "2023-07-07", end_date: "2023-07-08")]], storyInfo: .constant(Story.StoryInfo(id: 0, story_id: "0", is_liked: true, story_images: [], thumbnail: "DefaultImage", title: "Test", writer: "Test", content: "Test", comments: [], heart_count: 0, comment_count: 0, start_date: "2023-07-07", end_date: "2023-07-08")))
+        MonthlyStoryCollection(storyInfo: .constant(Story.StoryInfo(id: 0, story_id: "0", is_liked: true, story_images: [], thumbnail: "DefaultImage", title: "Test", writer: "Test", content: "Test", comments: [], heart_count: 0, comment_count: 0, start_date: "2023-07-07", end_date: "2023-07-08")), stories: .constant([]), storiesForCollection: .constant([:]))
     }
 }

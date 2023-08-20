@@ -33,7 +33,7 @@ struct StoryView: View {
                 .padding(EdgeInsets(top: 20, leading: 20, bottom: 20, trailing: 20))
                 ScrollView {
                     if buttonSet {
-                        StoryListView(stories: $stories)
+                        StoryListView(stories: $stories, storiesForCollection: $storiesForCollection)
                             .onAppear {
                                 storyViewModel.lookUpStorySortByStartDate(user: userViewModel.user) {
                                     stories = storyViewModel.getStories()
@@ -41,7 +41,7 @@ struct StoryView: View {
                                 }
                             }
                     } else {
-                        StoryAlbumView(storiesForCollection: $storiesForCollection)
+                        StoryAlbumView(stories: $stories, storiesForCollection: $storiesForCollection)
                             .onAppear {
                                 storyViewModel.lookUpStorySortByStartDate(user: userViewModel.user) {
 //                                    stories = storyViewModel.getStories()

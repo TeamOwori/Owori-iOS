@@ -140,7 +140,9 @@ struct TermsOfUse: View {
                                         if userViewModel.user.is_service_member ?? false {
                                             familyViewModel.lookUpHomeView(user: userViewModel.user) {
                                                 print(familyViewModel.getFamily())
-                                                isSuccessSignUp = true
+                                                userViewModel.lookupProfile() {
+                                                    isSuccessSignUp = true
+                                                }
                                             }
                                         }
                                     }

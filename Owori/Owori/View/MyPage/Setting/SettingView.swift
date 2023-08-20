@@ -70,10 +70,10 @@ struct SettingView: View {
                             .padding(EdgeInsets(top: 0, leading: 1.5, bottom: 0, trailing: 10))
                             Spacer()
                             
-//<<<<<<< Updated upstream
-//                            Image("Right")
-//                                .frame(width: 24, height: 24)
-//=======
+                            //<<<<<<< Updated upstream
+                            //                            Image("Right")
+                            //                                .frame(width: 24, height: 24)
+                            //=======
                             Button{
                                 familyNameChangeViewIsActive = true
                                 
@@ -81,10 +81,10 @@ struct SettingView: View {
                                 Image("Right")
                                     .frame(width: 24, height: 24)
                             }
-//>>>>>>> Stashed changes
+                            //>>>>>>> Stashed changes
                         }
                     }
-
+                    
                     Button(action: {
                         // 버튼이 클릭되었을 때 수행할 동작 추가
                         InviteViewIsActive = true
@@ -247,96 +247,59 @@ struct SettingView: View {
                 
                 //MARK: 기타
                 Section {
-                    Button(action: {
-                        showAlert = true
-                    }) {
-                        HStack {
-                            Text("로그아웃")
-                                .font(.system(size: 15, weight: .medium))
-                                .foregroundColor(.oworiGray600)
-                                .padding(EdgeInsets(top: 0, leading: 1.5, bottom: 0, trailing: 10))
-                            
-                            Spacer()
-                            
-                            Button{
-                                showAlert = true
-                            }label:{
-                                Image("Right")
-                            }.alert(isPresented: $showAlert) {
-                                Alert(
-                                    title: Text("로그아웃"), message: Text("로그아웃 하시겠습니까?"),
-                                    primaryButton: .cancel(
-                                        Text("취소")
-                                    ),
-                                    secondaryButton: .destructive(
-                                        Text("로그아웃"), action: {
-                                            isLoggedin = false
-                                            userViewModel.userLogout()
-                                            loginViewModel.logout()
-                                        }
-                                    ))
-                            }
-                        }
-                    }
-                    .alert(isPresented: $showAlert) {
-                        Alert(
-                            title: Text("로그아웃"), message: Text("로그아웃 하시겠습니까?"),
-                            primaryButton: .default(
-                                Text("취소")
-                            ),
-                            secondaryButton: .destructive(
-                                Text("로그아웃")
-                            )
-                        )
-                    }
-                    
-//<<<<<<< Updated upstream
-//                    Button{
-//
-//                    }label:{
-//                        HStack{
-//=======
-                    Button(action: {
-                        showAlert1 = true
-                    }) {
-                        HStack {
-//>>>>>>> Stashed changes
-                            Text("탈퇴하기")
-                                .font(.system(size: 15, weight: .medium))
-                                .foregroundColor(.oworiGray600)
-                                .padding(EdgeInsets(top: 0, leading: 1.5, bottom: 0, trailing: 10))
-                            
-                            Spacer()
-                            
-                            Button{
-                                showAlert1 = true
-                            }label:{
-                                Image("Right")
-                            }
-                            .alert(isPresented: $showAlert1) {
-                                Alert(
-                                    title: Text("탈퇴하기"), message: Text("서비스를 탈퇴하더라도 작성하신 글은\n자동으로 삭제되지 않습니다.\n탈퇴하시겠습니까?"),
-                                    primaryButton: .cancel(Text("취소")),
-                                    secondaryButton: .destructive(Text("탈퇴하기"), action: {
-                                        userViewModel.deleteMember()
+                    HStack {
+                        Text("로그아웃")
+                            .font(.system(size: 15, weight: .medium))
+                            .foregroundColor(.oworiGray600)
+                            .padding(EdgeInsets(top: 0, leading: 1.5, bottom: 0, trailing: 10))
+                        Spacer()
+                        Button{
+                            showAlert = true
+                        }label:{
+                            Image("Right")
+                        }.alert(isPresented: $showAlert) {
+                            Alert(
+                                title: Text("로그아웃"), message: Text("로그아웃 하시겠습니까?"),
+                                primaryButton: .cancel(
+                                    Text("취소")
+                                ),
+                                secondaryButton: .destructive(
+                                    Text("로그아웃"), action: {
                                         isLoggedin = false
                                         userViewModel.userLogout()
                                         loginViewModel.logout()
-                                    }))
-                            }
+                                    }
+                                ))
                         }
                     }
-                    .alert(isPresented: $showAlert1) {
-                        Alert(
-                            title: Text("탈퇴하기"), message: Text("탈퇴하시겠습니까?"),
-                            primaryButton: .default(
-                                Text("취소")
-                            ),
-                            secondaryButton: .destructive(
-                                Text("탈퇴하기")
-                            )
-                        )
+                    
+                    HStack {
+                        
+                        Text("탈퇴하기")
+                            .font(.system(size: 15, weight: .medium))
+                            .foregroundColor(.oworiGray600)
+                            .padding(EdgeInsets(top: 0, leading: 1.5, bottom: 0, trailing: 10))
+                        
+                        Spacer()
+                        
+                        Button{
+                            showAlert1 = true
+                        }label:{
+                            Image("Right")
+                        }
+                        .alert(isPresented: $showAlert1) {
+                            Alert(
+                                title: Text("탈퇴하기"), message: Text("서비스를 탈퇴하더라도 작성하신 글은\n자동으로 삭제되지 않습니다.\n탈퇴하시겠습니까?"),
+                                primaryButton: .cancel(Text("취소")),
+                                secondaryButton: .destructive(Text("탈퇴하기"), action: {
+                                    userViewModel.deleteMember()
+                                    isLoggedin = false
+                                    userViewModel.userLogout()
+                                    loginViewModel.logout()
+                                }))
+                        }
                     }
+                    
                 } header: {
                     Text("기타")
                         .font(.title3)
