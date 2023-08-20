@@ -9,10 +9,11 @@ import SwiftUI
 
 struct RecordButton: View {
     @Binding var stories: [Story.StoryInfo]
+    @Binding var storiesForCollection: [String: [Story.StoryInfo]]
     
     var body: some View {
         NavigationLink {
-            StoryRecordView(stories: $stories)
+            StoryRecordView(stories: $stories, storiesForCollection: $storiesForCollection)
         } label: {
             Text("기록하기")
                 .frame(width: 100, height: 40)
@@ -25,6 +26,6 @@ struct RecordButton: View {
 
 struct RecordButton_Previews: PreviewProvider {
     static var previews: some View {
-        RecordButton(stories: .constant([]))
+        RecordButton(stories: .constant([]), storiesForCollection: .constant([:]))
     }
 }

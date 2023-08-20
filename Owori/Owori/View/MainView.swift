@@ -60,11 +60,12 @@ struct MainView: View {
             }
             .navigationTitle("")
             .navigationBarTitleDisplayMode(.inline)
-//            .onAppear {
-//                familyViewModel.lookUpHomeView(user: userViewModel.user) {
-//                    print(familyViewModel.getFamily())
-//                }
-//            }
+            .onAppear {
+                userViewModel.lookupProfile() {}
+                familyViewModel.lookUpHomeView(user: userViewModel.user) {
+                    print(familyViewModel.getFamily())
+                }
+            }
             .navigationBarBackButtonHidden(true)
         }
         

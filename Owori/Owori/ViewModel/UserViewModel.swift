@@ -631,7 +631,7 @@ class UserViewModel: ObservableObject {
         //        }
         //
         // 배포 이전 고정 url 설정 (추후 삭제 예정)
-        let url = URL(string: "http://owori.store/api/v1/tests")!
+        let url = URL(string: "http://13.124.20.243/api/v1/tests")!
         
         // url 테스트 log
         print("[get dommy data url Log] : \(url)")

@@ -17,6 +17,7 @@ struct StoryListView: View {
     @EnvironmentObject var userViewModel: UserViewModel
     @EnvironmentObject var storyViewModel: StoryViewModel
     @Binding var stories: [Story.StoryInfo]
+    @Binding var storiesForCollection: [String: [Story.StoryInfo]]
     @State private var storyInfo: Story.StoryInfo = Story.StoryInfo()
     @State private var storyDetailViewIsActive: Bool = false
     
@@ -46,7 +47,7 @@ struct StoryListView: View {
             print(stories)
         }
         .navigationDestination(isPresented: $storyDetailViewIsActive) {
-            StoryDetailView(storyInfo: $storyInfo)
+            StoryDetailView(storyInfo: $storyInfo, stories: $stories, storiesForCollection: $storiesForCollection)
         }
     }
     
@@ -55,7 +56,7 @@ struct StoryListView: View {
 // MARK: PREVIEWS
 struct StoryListView_Previews: PreviewProvider {
     static var previews: some View {
-        StoryListView(stories: .constant([]))
+        StoryListView(stories: .constant([]), storiesForCollection: .constant([:]))
             .environmentObject(UserViewModel())
             .environmentObject(StoryViewModel())
     }
