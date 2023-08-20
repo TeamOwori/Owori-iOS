@@ -27,6 +27,9 @@ struct StorySearchView: View {
             
             Spacer()
             
+            //View 테스트 용도로 넣어둔 코드입니다.
+//            RecentSearchList()
+            
             if searchText.isEmpty {
                 if isExistRecentSearchList {
                     RecentSearchList()
@@ -48,9 +51,9 @@ struct StorySearchView: View {
                             .padding(EdgeInsets(top: 0, leading: 0, bottom: 15, trailing: 0))
                         Text("검색 결과가 없어요")
                             .foregroundColor(Color.oworiGray300)
-                        
+
                         Spacer()
-                        
+
                         VStack(alignment: .leading, spacing: 15) {
                             Text("검색이 안될 때 꿀팁!")
                                 .foregroundColor(Color.oworiGray700)
