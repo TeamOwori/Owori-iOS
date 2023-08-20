@@ -337,7 +337,7 @@ class StoryViewModel: ObservableObject {
             if let boundaryPrefix = "--\(boundary)\r\n".data(using: .utf8),
                let dispositionData = "Content-Disposition: form-data; name=\"story_images\"; filename=\"\(imageName)\"\r\n".data(using: .utf8),
                let contentTypeData = "Content-Type: image/jpg\r\n\r\n".data(using: .utf8),
-               let imageData = image.pngData(),
+               let imageData = image.jpegData(compressionQuality: 0.5),
                let lineBreakData = "\r\n".data(using: .utf8) {
                 
                 body.append(boundaryPrefix)

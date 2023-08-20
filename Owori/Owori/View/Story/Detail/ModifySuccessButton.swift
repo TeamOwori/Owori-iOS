@@ -40,6 +40,11 @@ struct ModifySuccessButton: View {
     
     var body: some View {
         Button {
+            
+            // 로직 통일 및 수정 요망
+            storyDetailViewIsActive = false
+            isActiveStoryModifyView = false
+            
             if !selectedImages.isEmpty {
                 storyViewModel.uploadStoryImages(user: userViewModel.user, images: selectedImages) { uploadedStoryImagesUrl in
                     
@@ -62,9 +67,6 @@ struct ModifySuccessButton: View {
                             print("[getStoryTest Record]\(stories)")
                             print("[getStoriesForcollection] : \(storiesForCollection)")
                             
-                            // 로직 통일 및 수정 요망
-                            storyDetailViewIsActive = false
-                            isActiveStoryModifyView = false
 
                         }
                         
@@ -82,8 +84,6 @@ struct ModifySuccessButton: View {
                         print("[getStoryTest Record]\(stories)")
                         print("[getStoriesForcollection] : \(storiesForCollection)")
                         
-                        storyDetailViewIsActive = false
-                        isActiveStoryModifyView = false
 
                     }
                     
