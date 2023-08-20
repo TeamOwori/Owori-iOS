@@ -48,8 +48,8 @@ struct MonthlyStoryCollection: View {
                 LazyVGrid(columns: columns, spacing: 12) {
                     ForEach(stories, id: \.self) { story in
                         Button {
-                            storyViewModel.lookUpStoryDetail(user: userViewModel.user, storyId: story.story_id!) {
-                                storyInfo = storyViewModel.searchStoryByStoryId(story_id: story.story_id!)!
+                            storyViewModel.lookUpStoryDetail(user: userViewModel.user, storyId: story.story_id!) { storyInfo in
+                                self.storyInfo = storyViewModel.searchStoryByStoryId(story_id: story.story_id!)!
                                 print("테스트테스트테스트\(story)")
                                 storyDetailViewIsActiveFromStoryAlbum = true
                             }

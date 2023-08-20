@@ -22,7 +22,7 @@ struct DetailContent: View {
     var body: some View {
         VStack(alignment: .leading) {
             
-            ContentTitle(isFavorite: $isFavorite, storyInfo: storyInfo)
+            ContentTitle(isFavorite: $isFavorite, storyInfo: $storyInfo)
                 .padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 20))
             
             Divider()

@@ -48,13 +48,13 @@ struct ZoomImages: View {
 //                }
 //            }
             
-            ToolbarItem(placement: .navigationBarTrailing) {
-                Button {
-                    
-                } label: {
-                    Text("다운로드")
-                }
-            }
+//            ToolbarItem(placement: .navigationBarTrailing) {
+//                Button {
+//
+//                } label: {
+//                    Text("다운로드")
+//                }
+//            }
         }
         
     }

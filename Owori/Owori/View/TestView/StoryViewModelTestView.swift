@@ -50,7 +50,7 @@ struct StoryViewModelTestView: View {
             }
             
             Button {
-                storyViewModel.lookUpStoryDetail(user: userViewModel.user, storyId: storyViewModel.testStoryId) {
+                storyViewModel.lookUpStoryDetail(user: userViewModel.user, storyId: storyViewModel.testStoryId) { storyInfo in
                     
                 }
             } label: {
