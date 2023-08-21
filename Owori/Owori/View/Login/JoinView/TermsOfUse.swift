@@ -38,7 +38,7 @@ struct TermsOfUse: View {
                 Text("오월이가 처음이시죠?\n필수약관에 동의해주세요")
                     .font(.title)
                     .bold()
-                    .padding(EdgeInsets(top: 100, leading: 20, bottom: 20, trailing: 20))
+                    .padding(EdgeInsets(top: 80, leading: 20, bottom: 20, trailing: 20))
                     .frame(maxWidth: UIScreen.main.bounds.width, alignment: .leading)
                 
                 //MARK: 서비스 운영약관

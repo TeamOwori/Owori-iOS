@@ -51,7 +51,18 @@ struct BeInviteFamily: View {
                 .padding(.trailing,20)
                 .foregroundColor(.gray)
                 
+                if inviteCode.count < 10 {
+                    Text("올바른 초대 코드가 아닙니다. 다시 확인해주세요")
+                        .foregroundColor(.red)
+                        .padding(.leading, 20)
+                } else {
+                    Text("올바른 초대 코드입니다. 환영합니다!")
+                        .foregroundColor(.blue)
+                        .padding(.leading, 20)
+                }
+                
                 Spacer()
+                
                 
                 HStack(alignment: .center) {
                     Button {

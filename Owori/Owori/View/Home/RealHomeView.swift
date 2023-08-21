@@ -225,7 +225,7 @@ struct RealHomeView: View {
         }
         .onAppear {
             print("schedule : \(familyViewModel.family.dday_schedules?.count ?? 0)")
-                timer = Timer.scheduledTimer(withTimeInterval: 7, repeats: true) { _ in
+                timer = Timer.scheduledTimer(withTimeInterval: 15, repeats: true) { _ in
                     withAnimation {
                         if (familyViewModel.family.family_images?.count ?? 1) > 0 {
                         familyImagesTag = (familyImagesTag + 1) % (familyViewModel.family.family_images?.count ?? 1) // 다음 탭으로 전환

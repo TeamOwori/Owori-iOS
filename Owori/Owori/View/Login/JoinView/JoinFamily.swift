@@ -23,25 +23,30 @@ struct JoinFamily: View {
             NumberIndicator(currentIndex: $currentIndex)
                 .offset(y: 0)
             
-            VStack(alignment: .leading) {
+            VStack{
                 Text("가족 연결을 해주세요.")
                     .font(.title)
                     .bold()
-                    .padding(EdgeInsets(top: 20, leading: 20, bottom: 20, trailing: 20))
+                    .padding(EdgeInsets(top: 80, leading: 20, bottom: 20, trailing: 20))
+                    .frame(maxWidth: UIScreen.main.bounds.width, alignment: .leading)
                 
                 
                 Text("초대코드 받았나요?\n없다면 가족들에게 초대코드를 보내봐요!")
                     .foregroundColor(Color.oworiGray500)
                     .padding(EdgeInsets(top: -20, leading: 20, bottom: 8, trailing: 20))
+                    .frame(maxWidth: UIScreen.main.bounds.width, alignment: .leading)
+                
+                Spacer()
                 
                 //초대코드 이미지
                 Image("초대코드")
-                    .frame(maxWidth: .infinity, alignment: .center)
-                    .padding(EdgeInsets(top: 20, leading: 0, bottom: 50, trailing: 0))
+                    .frame(maxWidth: UIScreen.main.bounds.width, alignment: .center)
+//                    .padding(EdgeInsets(top: 20, leading: 0, bottom: 50, trailing: 0))
                 
+                Spacer()
                 
-                VStack(alignment: .leading, spacing: 16) {
-                    HStack(alignment: .center, spacing: 16) {
+                VStack(alignment: .center, spacing: 16) {
+                    HStack {
                         Button(action: {
                             // 버튼이 클릭되었을 때 실행되는 코드
                             isJoinFamilyNameActive = true
@@ -57,7 +62,7 @@ struct JoinFamily: View {
                     .background(Color.oworiOrange)
                     .cornerRadius(12)
                     
-                    HStack(alignment: .center, spacing: 0) {
+                    HStack{
                         Button(action: {
                             // 버튼이 클릭되었을 때 실행되는 코드
                             isReceiveCodeViewVisible = true
@@ -80,7 +85,7 @@ struct JoinFamily: View {
                     )
                     
                 }
-                .padding(EdgeInsets(top: 10, leading: 50, bottom: 30, trailing: 50))
+                .padding(EdgeInsets(top: 0, leading: 50, bottom: 30, trailing: 50))
                 
             }
             .onAppear {
