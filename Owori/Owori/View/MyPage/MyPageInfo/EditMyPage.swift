@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-import PhotosUI
+import YPImagePicker
 
 struct EditMyPage: View {
     
@@ -26,8 +26,9 @@ struct EditMyPage: View {
     
     @State private var isShowAlert: Bool = false
     
-    @State private var selectedItems = [PhotosPickerItem]()
-    @State private var selectedImages = [UIImage]()
+    
+    @State private var selectedImage: UIImage?
+    @State private var isImagePickerPresented: Bool = false
     @State private var isUpdateProfileFail = false
     
     @Binding var editMyPageIsActive: Bool
@@ -45,8 +46,10 @@ struct EditMyPage: View {
                 .padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
             
             
-            PhotosPicker(selection: $selectedItems, maxSelectionCount: 1 ,matching: .any(of: [.images, .not(.videos)])) {
-                if selectedImages.isEmpty {
+            Button {
+                isImagePickerPresented.toggle()
+            } label: {
+                if selectedImage == nil {
                     AsyncImage(url: URL(string: (userViewModel.user.member_profile?.profile_image) ?? "NONE")) { image in
                         image
                             .resizable()
@@ -59,23 +62,24 @@ struct EditMyPage: View {
                 } else {
                     // Image+Extension에서 동그랗게 짜르는 함수 구현해도 괜찮을 듯
                     // 사이즈 조절은 다시 해야됨
-                    Image(uiImage: selectedImages[0])
+                    Image(uiImage: selectedImage!)
                         .resizable()
                         .aspectRatio(contentMode: .fill)
                         .frame(width: 150, height: 150)
                         .clipShape(Circle())
-                }
-                
-            }
-            .onChange(of: selectedItems) { newValues in
-                Task {
-                    selectedImages = []
-                    for value in newValues {
-                        if let imageData = try? await value.loadTransferable(type: Data.self), let image = UIImage(data: imageData) {
-                            selectedImages.append(image)
-                        }
-                    }
-                }
+                }            }
+            .sheet(isPresented: $isImagePickerPresented) {
+                ImagePickerView(selectedImage: $selectedImage, onComplete: { image in
+                    // 이미지 선택이 완료되었을 때 호출되는 클로저
+//                    if let selectedImage = image {
+//                        familyViewModel.uploadFamilyImage(user: userViewModel.user, image: selectedImage) { uploadedProfileImageUrl in
+//                            // 업로드가 완료되었을 때 호출되는 클로저
+//                            familyViewModel.lookUpHomeView(user: userViewModel.user) {
+//                                // 홈 뷰 업데이트 로직
+//                            }
+//                        }
+//                    }
+                })
             }
             .offset(y: -60)
             
@@ -239,7 +243,7 @@ struct EditMyPage: View {
             ToolbarItem(placement: .navigationBarTrailing) {
                 Button {
                     //                    // 추후에 selectedImages[0]이 아니라 이미지 단일 값을 넘기도록 변경해야됨.
-                    if selectedImages.isEmpty {
+                    if selectedImage == nil {
                         userViewModel.updateProfile(userInfo: [
                             "nickname": "\(nickname)",
                             "birthday": "\(birthday)",
@@ -262,7 +266,7 @@ struct EditMyPage: View {
                             "birthday": "\(birthday)",
                             "color": "\(selectedColor)"]) { success in
                                 if success {
-                                    userViewModel.uploadProfileImages(image: selectedImages[0]) { uploadedProfileImageUrl in
+                                    userViewModel.uploadProfileImages(image: selectedImage!) { uploadedProfileImageUrl in
                                         userViewModel.lookupProfile {
                                             editMyPageIsActive = false
                                             isUpdateProfileFail = false

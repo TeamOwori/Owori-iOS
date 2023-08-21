@@ -44,7 +44,7 @@ struct StoryModifyView: View {
     //DatePicker - 멘트 뜨게 하는 거
     @State private var isDatePickerActive = false
     @State private var isDateOutOfRange = false
-
+    
     
     var contentPlaceholder: String = "추억을 기록해봐요:) 500자까지 입력할 수 있어요"
     
@@ -52,37 +52,37 @@ struct StoryModifyView: View {
         
         ScrollView {
             VStack{
+                HStack {
                     HStack {
-                        HStack {
-                            DatePicker(
-                                "시작일",
-                                selection: $startDate,
-                                displayedComponents: [.date]
-                            )
-                            .kerning(0)
-                            .padding(.leading,15)
-                            
-                        }
-                        .frame(width: UIScreen.main.bounds.width * 0.5)
-                        .padding(.leading,10)
+                        DatePicker(
+                            "시작일",
+                            selection: $startDate,
+                            displayedComponents: [.date]
+                        )
+                        .kerning(0)
+                        .padding(.leading,15)
                         
-//                        Spacer()
-//
-                        HStack {
-                            DatePicker(
-                                "종료일",
-                                selection: $endDate,
-                                displayedComponents: [.date]
-                            )
-                            .kerning(0)
-                            .padding(.trailing,15)
-                        }
-                        .frame(width: UIScreen.main.bounds.width * 0.5)
-                        .padding(.trailing,10)
                     }
-                    .frame(width: UIScreen.main.bounds.width)
-                    .padding(.top, 15)
-                    .padding(.bottom, 30)
+                    .frame(width: UIScreen.main.bounds.width * 0.5)
+                    .padding(.leading,10)
+                    
+                    //                        Spacer()
+                    //
+                    HStack {
+                        DatePicker(
+                            "종료일",
+                            selection: $endDate,
+                            displayedComponents: [.date]
+                        )
+                        .kerning(0)
+                        .padding(.trailing,15)
+                    }
+                    .frame(width: UIScreen.main.bounds.width * 0.5)
+                    .padding(.trailing,10)
+                }
+                .frame(width: UIScreen.main.bounds.width)
+                .padding(.top, 15)
+                .padding(.bottom, 30)
                 
                 if isDatePickerActive && isDateOutOfRange {
                     Text("시작일은 이전 날짜만 선택 가능해요")
@@ -107,7 +107,7 @@ struct StoryModifyView: View {
             .onTapGesture {
                 isDatePickerActive = true
             }
-           
+            
             
             
             VStack(alignment: .leading) {
@@ -172,32 +172,29 @@ struct StoryModifyView: View {
                         .bold()
                     
                     
-                    if selectedImages.isEmpty {
-                        PhotosPickerButton(selectedItems: $selectedItems, selectedImages: $selectedImages)
-                    } else {
-                        ScrollView(.horizontal) {
-                            HStack {
-                                PhotosPickerButton(selectedItems: $selectedItems, selectedImages: $selectedImages)
-                                
-                                if selectedImages.count > 0 {
-                                    ForEach(selectedImages, id: \.self) { image in
-                                        Image(uiImage: image)
-                                            .resizable()
-                                            .frame(width: 100, height: 100)
-                                    }
+                    
+                    ScrollView(.horizontal) {
+                        HStack {
+                            
+                            if selectedImages.count > 0 {
+                                ForEach(selectedImages, id: \.self) { image in
+                                    Image(uiImage: image)
+                                        .resizable()
+                                        .frame(width: 100, height: 100)
                                 }
                             }
                         }
+                        PhotosPickerButton(selectedImages: $selectedImages)
                     }
                 }
             }
             .padding(EdgeInsets(top: 0, leading: 15, bottom: 0, trailing: 15))
-//
-//            Button {
-//
-//            } label: {
-//                Text("이미지 업로드 테스트")
-//            }
+            //
+            //            Button {
+            //
+            //            } label: {
+            //                Text("이미지 업로드 테스트")
+            //            }
             
             
             ModifySuccessButton(storyInfo: $storyInfo,startDate: $startDate, endDate: $endDate, title: $title, content: $content, storyImages: $storyImages, selectedImages: $selectedImages, stories: $stories, storiesForCollection: $storiesForCollection, storyDetailViewIsActive: $storyDetailViewIsActive, storyDetailViewIsActiveFromStoryAlbum: $storyDetailViewIsActiveFromStoryAlbum, isActiveStoryModifyView: $isActiveStoryModifyView)
@@ -216,7 +213,7 @@ struct StoryModifyView: View {
         }
         .padding(EdgeInsets(top: 0, leading: 15, bottom: 0, trailing: 15))
         .navigationBarTitleDisplayMode(.inline)
-//        .navigationBarBackButtonHidden(true)
+        //        .navigationBarBackButtonHidden(true)
         .toolbar {
             ToolbarItem(placement: .principal) {
                 Text("기록하기")

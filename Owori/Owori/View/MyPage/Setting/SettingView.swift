@@ -70,10 +70,6 @@ struct SettingView: View {
                             .padding(EdgeInsets(top: 0, leading: 1.5, bottom: 0, trailing: 10))
                             Spacer()
                             
-                            //<<<<<<< Updated upstream
-                            //                            Image("Right")
-                            //                                .frame(width: 24, height: 24)
-                            //=======
                             Button{
                                 familyNameChangeViewIsActive = true
                                 
@@ -81,7 +77,6 @@ struct SettingView: View {
                                 Image("Right")
                                     .frame(width: 24, height: 24)
                             }
-                            //>>>>>>> Stashed changes
                         }
                     }
                     

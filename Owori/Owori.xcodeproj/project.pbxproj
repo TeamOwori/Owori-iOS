@@ -101,6 +101,8 @@
 		F3799FBF2A8E3449000F8C46 /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3799FBE2A8E3449000F8C46 /* ImageLoader.swift */; };
 		F3799FC12A8E348C000F8C46 /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3799FC02A8E348C000F8C46 /* ImageCache.swift */; };
 		F37CDD0F2A86578D0002FFFE /* AppleLoginButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37CDD0E2A86578D0002FFFE /* AppleLoginButton.swift */; };
+		F37E88C32A93D98400D760A1 /* YPImagePicker in Frameworks */ = {isa = PBXBuildFile; productRef = F37E88C22A93D98400D760A1 /* YPImagePicker */; };
+		F37E88C52A93D9E000D760A1 /* YPImagePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37E88C42A93D9E000D760A1 /* YPImagePickerView.swift */; };
 		F38C12932A83920500DDAAA8 /* ZoomDetailImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38C12922A83920500DDAAA8 /* ZoomDetailImageCell.swift */; };
 		F39B28492A8C02E3000D26C7 /* TestBackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F39B28482A8C02E3000D26C7 /* TestBackButton.swift */; };
 		F39EF2822A6B93E5005FD6DB /* JoinNickname.swift in Sources */ = {isa = PBXBuildFile; fileRef = F39EF2812A6B93E5005FD6DB /* JoinNickname.swift */; };
@@ -244,6 +246,7 @@
 		F3799FBE2A8E3449000F8C46 /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
 		F3799FC02A8E348C000F8C46 /* ImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
 		F37CDD0E2A86578D0002FFFE /* AppleLoginButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleLoginButton.swift; sourceTree = "<group>"; };
+		F37E88C42A93D9E000D760A1 /* YPImagePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YPImagePickerView.swift; sourceTree = "<group>"; };
 		F38C12922A83920500DDAAA8 /* ZoomDetailImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoomDetailImageCell.swift; sourceTree = "<group>"; };
 		F39B28482A8C02E3000D26C7 /* TestBackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestBackButton.swift; sourceTree = "<group>"; };
 		F39EF2812A6B93E5005FD6DB /* JoinNickname.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinNickname.swift; sourceTree = "<group>"; };
@@ -278,6 +281,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				356A54472A84D66D006E22C8 /* SimpleToast in Frameworks */,
+				F37E88C32A93D98400D760A1 /* YPImagePicker in Frameworks */,
 				F3430F3A2A67024A00DC1B1C /* KakaoSDK in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -460,6 +464,7 @@
 				F3430F3D2A67043200DC1B1C /* Home */,
 				F3430F4F2A67043200DC1B1C /* Login */,
 				F3430F592A67043200DC1B1C /* Story */,
+				F37E88C42A93D9E000D760A1 /* YPImagePickerView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -735,6 +740,7 @@
 			packageProductDependencies = (
 				F3430F392A67024A00DC1B1C /* KakaoSDK */,
 				356A54462A84D66D006E22C8 /* SimpleToast */,
+				F37E88C22A93D98400D760A1 /* YPImagePicker */,
 			);
 			productName = Owori;
 			productReference = F3430F0B2A6701AD00DC1B1C /* Owori.app */;
@@ -811,6 +817,7 @@
 			packageReferences = (
 				F3430F382A67024A00DC1B1C /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */,
 				356A54452A84D66D006E22C8 /* XCRemoteSwiftPackageReference "SimpleToast" */,
+				F37E88C12A93D98400D760A1 /* XCRemoteSwiftPackageReference "YPImagePicker" */,
 			);
 			productRefGroup = F3430F0C2A6701AD00DC1B1C /* Products */;
 			projectDirPath = "";
@@ -895,6 +902,7 @@
 				F3A8ABC22A84D9B3000F34F4 /* UIImage+Extension.swift in Sources */,
 				F3E8CDCA2A810719007A0C3A /* ContentView.swift in Sources */,
 				35B3CD672A8008B300127259 /* MyPageProfilePhoto.swift in Sources */,
+				F37E88C52A93D9E000D760A1 /* YPImagePickerView.swift in Sources */,
 				F3ECF9972A925C0D00B553D1 /* StoryModifyView.swift in Sources */,
 				35B3CD722A81760700127259 /* EditMyPage.swift in Sources */,
 				886F8DFE2A6C582400D60BCC /* ProfileImageWithBadge.swift in Sources */,
@@ -1309,6 +1317,14 @@
 				minimumVersion = 2.0.0;
 			};
 		};
+		F37E88C12A93D98400D760A1 /* XCRemoteSwiftPackageReference "YPImagePicker" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Yummypets/YPImagePicker";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1321,6 +1337,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = F3430F382A67024A00DC1B1C /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */;
 			productName = KakaoSDK;
+		};
+		F37E88C22A93D98400D760A1 /* YPImagePicker */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F37E88C12A93D98400D760A1 /* XCRemoteSwiftPackageReference "YPImagePicker" */;
+			productName = YPImagePicker;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
