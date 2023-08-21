@@ -22,7 +22,7 @@ struct MyPageProfileStyle: Identifiable {
 struct MyPageProfileInfo: View {
     let temp1: [String] = ["닉네임", "생년월일", "마이컬러"]
     
-    let test1: [MyPageProfileStyle] = [MyPageProfileStyle(id: UUID(),profileImage: "ProfileImage", nickname: "쥐렁이", birth: "2000-04-22",myColor: "Ellipse 92")]
+//    let test1: [MyPageProfileStyle] = [MyPageProfileStyle(id: UUID(),profileImage: "ProfileImage", nickname: "쥐렁이", birth: "2000-04-22",myColor: "Ellipse 92")]
     
     @EnvironmentObject var userViewModel: UserViewModel
     

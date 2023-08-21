@@ -32,7 +32,10 @@ struct DailyStoryListCell: View {
                 Spacer()
                 DailyStoryImageCell(storyInfo: $storyInfo)
                 // ImageCell 크기 처리하는 부분 PM이랑 상의해보기(태블릿 대응)
+                    .aspectRatio(contentMode: .fill)
                     .frame(width: UIScreen.main.bounds.width * 0.25, height: UIScreen.main.bounds.width * 0.25)
+                    .clipped()
+                    .cornerRadius(12)
             }
             .padding(EdgeInsets(top: 0, leading: 0, bottom: 20, trailing: 0))
             

@@ -6,17 +6,21 @@
 //
 
 import SwiftUI
-import PhotosUI
+import YPImagePicker
 
 struct FamilyPhotosPickerButton: View {
     @EnvironmentObject var userViewModel: UserViewModel
     @EnvironmentObject var familyViewModel: FamilyViewModel
     
-    @State private var selectedItems = [PhotosPickerItem]()
-    @State private var selectedImages = [UIImage]()
+    @State private var selectedImage: UIImage?
+    @State private var isImagePickerPresented: Bool = false
     
     var body: some View {
-        PhotosPicker(selection: $selectedItems, maxSelectionCount: 1 ,matching: .any(of: [.images, .not(.videos)])) {
+        
+        
+        Button {
+            isImagePickerPresented.toggle()
+        } label: {
             ZStack {
                 RoundedRectangle(cornerRadius: 12)
                     .foregroundColor(.white)
@@ -29,21 +33,18 @@ struct FamilyPhotosPickerButton: View {
                 }
             }
         }
-        .onChange(of: selectedItems) { newValues in
-            Task {
-                selectedImages = []
-                for value in newValues {
-                    if let imageData = try? await value.loadTransferable(type: Data.self), let image = UIImage(data: imageData) {
-                        selectedImages.append(image)
-                        familyViewModel.uploadFamilyImage(user: userViewModel.user, image: image) { uploadedProfileImageUrl in
-                            
-                            familyViewModel.lookUpHomeView(user: userViewModel.user) {
-                                
-                            }
+        .sheet(isPresented: $isImagePickerPresented) {
+            ImagePickerView(selectedImage: $selectedImage, onComplete: { image in
+                // 이미지 선택이 완료되었을 때 호출되는 클로저
+                if let selectedImage = image {
+                    familyViewModel.uploadFamilyImage(user: userViewModel.user, image: selectedImage) { uploadedProfileImageUrl in
+                        // 업로드가 완료되었을 때 호출되는 클로저
+                        familyViewModel.lookUpHomeView(user: userViewModel.user) {
+                            // 홈 뷰 업데이트 로직
                         }
                     }
                 }
-            }
+            })
         }
     }
 }

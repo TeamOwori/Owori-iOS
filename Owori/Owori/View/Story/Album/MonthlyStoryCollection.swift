@@ -62,7 +62,10 @@ struct MonthlyStoryCollection: View {
                             // 일단 백앤드에서 thumbnail 넘겨줘서 임시로 처리하긴 했지만
                             // ForEach에서 반복자를 바인딩해서 넘기는 방법을 알아봐야될 것 같습니다.
                             DailyStoryImageCell(storyInfo: .constant(story))
+                                .aspectRatio(contentMode: .fill)
                                 .frame(width: UIScreen.main.bounds.width * 0.3, height: UIScreen.main.bounds.width * 0.3)
+                                .clipped()
+                                .cornerRadius(12)
                         }
                     }
                 }

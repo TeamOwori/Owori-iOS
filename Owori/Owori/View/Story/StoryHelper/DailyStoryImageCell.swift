@@ -24,8 +24,6 @@ struct DailyStoryImageCell: View {
                 image
                     .resizable()
 //                    .scaledToFit()
-                    .cornerRadius(12)
-                    .aspectRatio(1/1, contentMode: .fill)
                 
             } placeholder: {
                 Image("DefaultImage")
