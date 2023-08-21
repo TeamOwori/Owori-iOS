@@ -51,7 +51,7 @@ struct JoinBirthday: View {
                 .foregroundColor(.gray)
                 
                 if birthDateText.count < 8 {
-                    Text("숫자 8자리에 맞게 다시 입력해주세요")
+                    Text("생년월일을 8자리에 맞게 입력해 주세요.\n제대로 입력하지 않으면, 회원가입이 불가능할 수도 있습니다.")
                         .foregroundColor(.red)
                         .padding(.leading, 20)
                 } else {

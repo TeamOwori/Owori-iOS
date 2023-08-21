@@ -56,7 +56,7 @@ struct JoinNickname: View {
                 .foregroundColor(.gray)
                 
                 if nickname.isEmpty {
-                    Text("1자 이상 입력해주세요")
+                    Text("한 글자 이상 입력해 주세요.")
                         .foregroundColor(.red)
                         .padding(.leading, 20)
                 }

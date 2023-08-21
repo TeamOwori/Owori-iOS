@@ -28,6 +28,7 @@ struct EditMyPage: View {
     
     @State private var selectedItems = [PhotosPickerItem]()
     @State private var selectedImages = [UIImage]()
+    @State private var isUpdateProfileFail = false
     
     @Binding var editMyPageIsActive: Bool
     @Binding var usedColorTupleList: [(String, Any)]
@@ -188,6 +189,13 @@ struct EditMyPage: View {
             Spacer()
             
         }
+        .alert(isPresented: $isUpdateProfileFail) {
+            Alert(
+                title: Text("알림"), message: Text("잘못 입력된 정보가 있습니다.\n다시 입력해 주세요."),
+                dismissButton: .default(Text("확인"))
+                )
+        }
+        
         .onAppear {
             selectedColor = userViewModel.user.member_profile?.color ?? "None"
             print(selectedColor)
@@ -235,35 +243,38 @@ struct EditMyPage: View {
                         userViewModel.updateProfile(userInfo: [
                             "nickname": "\(nickname)",
                             "birthday": "\(birthday)",
-                            "color": "\(selectedColor)"]) {
-                                userViewModel.lookupProfile {
-                                    editMyPageIsActive = false
-                                    print(selectedColor)
-                                    print(userViewModel.user)
+                            "color": "\(selectedColor)"]) { success in
+                                if success {
+                                    isUpdateProfileFail = !success
+                                    userViewModel.lookupProfile {
+                                        editMyPageIsActive = false
+                                        isUpdateProfileFail = false
+                                        print(selectedColor)
+                                        print(userViewModel.user)
+                                    }
+                                } else {
+                                    isUpdateProfileFail = true
                                 }
                             }
                     } else {
                         userViewModel.updateProfile(userInfo: [
                             "nickname": "\(nickname)",
                             "birthday": "\(birthday)",
-                            "color": "\(selectedColor)"]) {
-                                userViewModel.uploadProfileImages(image: selectedImages[0]) { uploadedProfileImageUrl in
-                                    userViewModel.lookupProfile {
-                                        editMyPageIsActive = false
-                                        print(selectedColor)
-                                        print(userViewModel.user)
+                            "color": "\(selectedColor)"]) { success in
+                                if success {
+                                    userViewModel.uploadProfileImages(image: selectedImages[0]) { uploadedProfileImageUrl in
+                                        userViewModel.lookupProfile {
+                                            editMyPageIsActive = false
+                                            isUpdateProfileFail = false
+                                            print(selectedColor)
+                                            print(userViewModel.user)
+                                        }
                                     }
+                                } else {
+                                    isUpdateProfileFail = true
                                 }
                             }
                     }
-                    
-                    //                    // 테스트
-                    //                    userViewModel.uploadProfileImages(image: selectedImages[0]) { uploadedProfileImagUrl in
-                    //                        userViewModel.lookupProfile {
-                    //                            editMyPageIsActive = false
-                    //                        }
-                    //                    }
-                    
                 } label: {
                     Image("Check")
                         .frame(width: 30, height: 30)

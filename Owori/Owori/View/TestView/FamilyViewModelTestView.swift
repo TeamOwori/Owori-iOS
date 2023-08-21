@@ -23,7 +23,9 @@ struct FamilyViewModelTestView: View {
             }
             
             Button {
-                familyViewModel.addFamilyMemberInviteCode(user: userViewModel.user, invite_code: userViewModel.tempInviteCode) {}
+                familyViewModel.addFamilyMemberInviteCode(user: userViewModel.user, invite_code: userViewModel.tempInviteCode) { _ in
+                    
+                }
             } label: {
                 Text("add Family Member Invite Code(완)")
             }
