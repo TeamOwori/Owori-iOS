@@ -716,7 +716,7 @@ class FamilyViewModel: ObservableObject {
                 // JSON 데이터를 파싱하여 User 구조체에 할당
                 do {
                     let decoder = JSONDecoder()
-                    self?.family = try decoder.decode(Family.self, from: data)
+                    self?.family.invite_code = jsonDictionary["invite_code"] as? String
                     
                     // User 구조체에 할당된 데이터 사용 (테스트 log)
                     print("Family: \(String(describing: self?.family))")

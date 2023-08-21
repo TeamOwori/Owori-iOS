@@ -69,11 +69,12 @@ struct RealHomeView: View {
                         
                         
                         //스마일 버튼
-                        Button {
+                        NavigationLink {
                             // 스마일버튼이 눌리면 종 버튼이 떠야됨
-                            userViewModel.lookupProfile() {
-                                myPageViewIsActive = true
-                            }
+                            MyPageProfile(isLoggedIn: $isLoggedIn)
+                                .onAppear {
+                                    userViewModel.lookupProfile() {}
+                                }
                             
                         } label: {
                             Image("smile")
@@ -159,6 +160,7 @@ struct RealHomeView: View {
                                 
                             }
                         }
+                        
                         DDayInitialCard(isAddDdayViewActive: $isAddDdayViewActive)
                             .padding(EdgeInsets(top: UIScreen.main.bounds.height * 0.05, leading: 0, bottom: UIScreen.main.bounds.height * 0.05, trailing: 0))
                     }

@@ -60,12 +60,12 @@ struct MainView: View {
                     }
                     .tag(2)
             }
-            .navigationDestination(isPresented: $myPageViewIsActive) {
-                MyPageProfile(isLoggedIn: $isLoggedIn, myPageViewIsActive: $myPageViewIsActive)
-            }
-            .navigationDestination(isPresented: $isAddDdayViewActive) {
-                WriteDDay()
-            }
+//            .navigationDestination(isPresented: $myPageViewIsActive) {
+//                MyPageProfile(isLoggedIn: $isLoggedIn, myPageViewIsActive: $myPageViewIsActive)
+//            }
+//            .navigationDestination(isPresented: $isAddDdayViewActive) {
+//                WriteDDay()
+//            }
             .navigationTitle("")
             .navigationBarTitleDisplayMode(.inline)
             .onAppear {

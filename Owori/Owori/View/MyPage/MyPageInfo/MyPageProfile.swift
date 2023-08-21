@@ -9,6 +9,7 @@ import SwiftUI
 
 struct MyPageProfile: View {
     @EnvironmentObject var userViewModel: UserViewModel
+    @EnvironmentObject var familyViewModel: FamilyViewModel
     
     @State private var editMyPageIsActive: Bool = false
 //    @State private var settingViewIsActive: Bool = false
@@ -16,7 +17,7 @@ struct MyPageProfile: View {
     var colorOrder: [String] = ["red", "pink", "yellow", "green", "skyblue", "blue", "purple"]
     
     @Binding var isLoggedIn: Bool
-    @Binding var myPageViewIsActive: Bool
+//    @Binding var myPageViewIsActive: Bool
 
     
     
@@ -76,7 +77,6 @@ struct MyPageProfile: View {
                         } label: {
                             Image("Edit")
                                 .frame(width: 25, height: 25)
-                            
                         }
                         
                         //설정
@@ -100,6 +100,8 @@ struct MyPageProfile: View {
 
 struct MyPageProfile_Previews: PreviewProvider {
     static var previews: some View {
-        MyPageProfile(isLoggedIn: .constant(true), myPageViewIsActive: .constant(false))
+        MyPageProfile(isLoggedIn: .constant(true))
+            .environmentObject(UserViewModel())
+            .environmentObject(FamilyViewModel())
     }
 }

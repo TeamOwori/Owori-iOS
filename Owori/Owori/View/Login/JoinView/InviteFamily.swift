@@ -58,26 +58,6 @@ struct InviteFamily: View {
             
             Spacer()
             
-//            Button {
-//                //                withAnimation{
-//                //                    showToast.toggle()
-//                //                }
-//
-//                ShareLink(item: myURL,
-//                          subject: Text("Subject"),
-//                          message:Text("링크첨부"),
-//                          preview: SharePreview(Text("오월이가 공유하고 싶은 것"),
-//                            image: Image("오월이")))
-//
-//            } label: {
-//                Text("초대코드 공유")
-//                    .bold()
-//                    .foregroundColor(Color.white)
-//                    .padding(EdgeInsets(top: 10, leading: 10, bottom: 10, trailing: 10))
-//                    .frame(width: UIScreen.main.bounds.width * 0.4 , height: UIScreen.main.bounds.height * 0.07)
-//                    .background(Color.blue)
-//                    .cornerRadius(8)
-//            }
             
             Button{
 //                isShareSheetPresented.toggle()
@@ -85,7 +65,7 @@ struct InviteFamily: View {
                 ShareLink(
                     item: /*URL(string: oworiInstagramURL)!*/"",
                     subject: Text(""),
-                    message: Text("\(oworiInstagramURL)\n\n<오월이 가족 초대코드>\n초대코드 : \(familyViewModel.family.invite_code ?? "errer")"),
+                    message: Text("<오월이 가족 초대코드>\n초대코드 : \(familyViewModel.family.invite_code ?? "errer")"),
                     preview: SharePreview(
                         Text("오월이 가족 초대코드"),
                         image: Image("오월이")
@@ -100,34 +80,11 @@ struct InviteFamily: View {
                         .background(Color.blue)
                         .cornerRadius(10)
                 }
-                
-//                Text("초대코드 공유")
-//                    .bold()
-//                    .foregroundColor(Color.white)
-//                    .padding(EdgeInsets(top: 10, leading: 10, bottom: 10, trailing: 10))
-//                    .frame(width: UIScreen.main.bounds.width * 0.4 , height: UIScreen.main.bounds.height * 0.07)
-//                    .background(Color.blue)
-//                    .cornerRadius(8)
             }
-            
-            //            .simpleToast(isPresented: $showToast, options: toastOptions) {
-            //                Text("초대코드가 복사되었어요")
-            //                    .font(
-            //                    Font.custom("Pretendard", size: 12)
-            //                    .weight(.medium)
-            //                    )
-            //                    .kerning(0.12)
-            //                    .multilineTextAlignment(.center)
-            //                    .padding(EdgeInsets(top: 6, leading: 11, bottom: 6, trailing: 11))
-            //                .background(.black.opacity(0.78))
-            //                .foregroundColor(Color.white)
-            //                .cornerRadius(8)
-            //                .offset(y: UIScreen.main.bounds.height * 0.15)
-            //            }
             
             Spacer()
             
-            Text("초대 코드는 발급 후 30분 이내로 입력가능해요\n입력 시간을 놓치셨더라도 걱정마세요!\n[설정] - [맞춤설정] - [초대하기]를 통해")
+            Text("초대 코드는 발급 후 30분 이내로 입력가능해요\n입력 시간을 놓치셨더라도 걱정마세요!\n[설정] - [초대하기]를 통해")
                 .font(
                     Font.custom("Pretendard", size: 15)
                         .weight(.medium)
@@ -138,7 +95,7 @@ struct InviteFamily: View {
                 .frame(width: UIScreen.main.bounds.width*0.8)
                 .padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 20))
             
-            Text("초대코드 발급 가능해요")
+            Text("초대코드 발급이 가능해요")
                 .font(
                     Font.custom("Pretendard", size: 15)
                         .weight(.medium)
@@ -202,9 +159,6 @@ struct InviteFamily: View {
         }
         .navigationBarTitleDisplayMode(.inline)
         .navigationBarBackButtonHidden(true)
-        //        .toolbar {
-        //                    BackToFamilyLinkViewButton(isCreateCodeViewVisible: $isCreateCodeViewVisible, isReceiveCodeViewVisible: $isReceiveCodeViewVisible)
-        //                }
         .onAppear {
             currentIndex = 5
         }

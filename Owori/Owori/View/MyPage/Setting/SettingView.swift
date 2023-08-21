@@ -52,11 +52,11 @@ struct SettingView: View {
 //                        Spacer()
 //                        Toggle("", isOn: $autoLogin)
 //                            .toggleStyle(CustomToggle())
-//                    }
+                    //                    }
                     
-                    Button(action: {
+                    Button {
                         familyNameChangeViewIsActive = true
-                    }) {
+                    } label: {
                         HStack {
                             VStack(alignment: .leading) {
                                 Text("가족 그룹명 변경")
@@ -69,14 +69,10 @@ struct SettingView: View {
                             }
                             .padding(EdgeInsets(top: 0, leading: 1.5, bottom: 0, trailing: 10))
                             Spacer()
+                            Image("Right")
+                                .frame(width: 24, height: 24)
                             
-                            Button{
-                                familyNameChangeViewIsActive = true
-                                
-                            }label:{
-                                Image("Right")
-                                    .frame(width: 24, height: 24)
-                            }
+                            
                         }
                     }
                     
@@ -325,8 +321,14 @@ struct SettingView: View {
         }
         .navigationDestination(isPresented: $InviteViewIsActive) {
             InviteView()
+                .onAppear {
+                    familyViewModel.regenInvitecode(user: userViewModel.user)
+                }
         }
         .navigationTitle("")
+        .onAppear {
+            print(familyViewModel.family)
+        }
     }
 }
 

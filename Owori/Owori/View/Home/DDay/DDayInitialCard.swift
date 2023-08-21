@@ -17,8 +17,8 @@ struct DDayInitialCard: View {
             
             Color.oworiMain.ignoresSafeArea()
             
-            Button{
-                isAddDdayViewActive = true
+            NavigationLink {
+                WriteDDay()
                 
             } label: {
                 ZStack {
@@ -31,7 +31,7 @@ struct DDayInitialCard: View {
 //                                .stroke(Color.gray/*300*/, style: StrokeStyle(lineWidth: 1, dash: [5, 5]))
 //                        )
                     VStack(spacing: 25) {
-                        Text("아직 D-day가 없어요\nD-day를 추가해봐요")
+                        Text("D-day를 추가해봐요")
                             .foregroundColor(Color.oworiGray500)
                             .frame(width: 260, height: 140)
                     }
