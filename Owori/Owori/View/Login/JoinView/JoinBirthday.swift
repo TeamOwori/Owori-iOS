@@ -88,7 +88,7 @@ struct JoinBirthday: View {
         }
         .navigationBarTitleDisplayMode(.inline)
         .navigationDestination(isPresented: $isThirdViewActive) {
-            JoinFamilyName(isLoggedIn: $isLoggedIn, currentIndex: $currentIndex, nickname: $nickname, birthDateText: $birthDateText, familyName: $familyName, inviteCode: $inviteCode)
+            TermsOfUse(isLoggedIn: $isLoggedIn, currentIndex: $currentIndex, nickname: $nickname, birthDateText: $birthDateText, familyName: $familyName, inviteCode: $inviteCode)
         }
     }
 }

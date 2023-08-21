@@ -20,6 +20,9 @@ struct StoryView: View {
 //    @State private var albumListTab = 0
     @State private var storiesForCollection: [String: [Story.StoryInfo]] = [:]
     
+    @State private var storyDetailViewIsActive: Bool = false
+    @State private var storyDetailViewIsActiveFromStoryAlbum: Bool = false
+    
     // MARK: BODY
     var body: some View {
         ZStack(alignment: .bottom) {
@@ -28,12 +31,13 @@ struct StoryView: View {
                 HStack {
                     AlbumListButton(buttonSet: $buttonSet)
                     Spacer()
-                    SortMenu()
+                    // 나중에 구현
+//                    SortMenu()
                 }
                 .padding(EdgeInsets(top: 20, leading: 20, bottom: 20, trailing: 20))
                 ScrollView {
                     if buttonSet {
-                        StoryListView(stories: $stories, storiesForCollection: $storiesForCollection)
+                        StoryListView(stories: $stories, storiesForCollection: $storiesForCollection, storyDetailViewIsActive: $storyDetailViewIsActive, storyDetailViewIsActiveFromStoryAlbum: $storyDetailViewIsActiveFromStoryAlbum)
                             .onAppear {
                                 storyViewModel.lookUpStorySortByStartDate(user: userViewModel.user) {
                                     stories = storyViewModel.getStories()
@@ -41,7 +45,7 @@ struct StoryView: View {
                                 }
                             }
                     } else {
-                        StoryAlbumView(stories: $stories, storiesForCollection: $storiesForCollection)
+                        StoryAlbumView(stories: $stories, storiesForCollection: $storiesForCollection, storyDetailViewIsActive: $storyDetailViewIsActive, storyDetailViewIsActiveFromStoryAlbum: $storyDetailViewIsActiveFromStoryAlbum)
                             .onAppear {
                                 storyViewModel.lookUpStorySortByStartDate(user: userViewModel.user) {
 //                                    stories = storyViewModel.getStories()
@@ -59,6 +63,7 @@ struct StoryView: View {
                 // 임시로 설정
                 .padding(.bottom, 30)
         }
+        
         .navigationDestination(isPresented: $isSearchViewVisible) {
             StorySearchView()
         }

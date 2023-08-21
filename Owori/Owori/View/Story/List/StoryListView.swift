@@ -19,7 +19,8 @@ struct StoryListView: View {
     @Binding var stories: [Story.StoryInfo]
     @Binding var storiesForCollection: [String: [Story.StoryInfo]]
     @State private var storyInfo: Story.StoryInfo = Story.StoryInfo()
-    @State private var storyDetailViewIsActive: Bool = false
+    @Binding var storyDetailViewIsActive: Bool
+    @Binding var storyDetailViewIsActiveFromStoryAlbum: Bool
     
     
     // MARK: BODY
@@ -27,8 +28,8 @@ struct StoryListView: View {
         VStack {
             ForEach($stories, id: \.self) { $story in
                 Button {
-                    storyViewModel.lookUpStoryDetail(user: userViewModel.user, storyId: story.story_id!) {
-                        storyInfo = storyViewModel.searchStoryByStoryId(story_id: story.story_id!)!
+                    storyViewModel.lookUpStoryDetail(user: userViewModel.user, storyId: story.story_id!) { storyInfo in
+                        self.storyInfo = storyViewModel.searchStoryByStoryId(story_id: story.story_id!)!
                         print("테스트테스트테스트\(story)")
                         storyDetailViewIsActive = true
                     }
@@ -47,7 +48,7 @@ struct StoryListView: View {
             print(stories)
         }
         .navigationDestination(isPresented: $storyDetailViewIsActive) {
-            StoryDetailView(storyInfo: $storyInfo, stories: $stories, storiesForCollection: $storiesForCollection, storyDetailViewIsActive: $storyDetailViewIsActive)
+            StoryDetailView(storyInfo: $storyInfo, stories: $stories, storiesForCollection: $storiesForCollection, storyDetailViewIsActive: $storyDetailViewIsActive, storyDetailViewIsActiveFromStoryAlbum: $storyDetailViewIsActiveFromStoryAlbum)
         }
     }
     
@@ -56,7 +57,7 @@ struct StoryListView: View {
 // MARK: PREVIEWS
 struct StoryListView_Previews: PreviewProvider {
     static var previews: some View {
-        StoryListView(stories: .constant([]), storiesForCollection: .constant([:]))
+        StoryListView(stories: .constant([]), storiesForCollection: .constant([:]), storyDetailViewIsActive: .constant(false), storyDetailViewIsActiveFromStoryAlbum: .constant(false))
             .environmentObject(UserViewModel())
             .environmentObject(StoryViewModel())
     }

@@ -18,6 +18,7 @@ fileprivate enum OworiAPI {
         case storiesSortLastViewed = "/api/v1/stories?sort=created_at&last_viewed="
         case storiesFindSortStartDate = "/api/v1/stories/find"
         case images = "/api/v1/images"
+        case hearts = "/api/v1/hearts"
     }
 }
 
@@ -129,16 +130,17 @@ class StoryViewModel: ObservableObject {
         
     }
     
-    func toggleHeart(user: User, storyId: String) {
+    func toggleHeart(user: User, storyId: String, completion: @escaping () -> Void) {
         
-        guard let sendData = try? JSONSerialization.data(withJSONObject: storyId, options: []) else { return }
+        guard let sendData = try? JSONSerialization.data(withJSONObject: ["story_id": storyId], options: []) else { return }
+        
         
         // 요청을 보낼 API의 url 설정
         // 배포 후 url 설정
         var urlComponents = URLComponents()
         urlComponents.scheme = OworiAPI.scheme
         urlComponents.host = OworiAPI.host
-        urlComponents.path = OworiAPI.Path.storiesUpdate.rawValue
+        urlComponents.path = OworiAPI.Path.hearts.rawValue
         guard let url = urlComponents.url else {
             print("Error: cannot create URL")
             return
@@ -181,22 +183,23 @@ class StoryViewModel: ObservableObject {
             DispatchQueue.main.async { [weak self] in
                 // JSON 데이터를 파싱하여 User 구조체에 할당
                 do {
-                    guard let index = self?.storyModel.stories.firstIndex(where: { $0.story_id == storyId }) else {
-                        print("찿는 스토리가 없습니다.")
-                        return
-                    }
-                    
-                    let decoder = JSONDecoder()
-                    //                    self?.storyModel.stories.append(try decoder.decode(Story.StoryInfo.self, from: data))
-                    guard let jsonDictionary = try? JSONSerialization.jsonObject(with: Data(data), options: []) as? [String: Any] else {
-                        print("Error: convert failed json to dictionary")
-                        return
-                    }
-                    print(jsonDictionary)
-                    self?.storyModel.stories[index].is_liked = jsonDictionary["is_liked"] as! Bool
+//                    guard let index = self?.storyModel.stories.firstIndex(where: { $0.story_id == storyId }) else {
+//                        print("찿는 스토리가 없습니다.")
+//                        return
+//                    }
+//                    
+//                    let decoder = JSONDecoder()
+//                    //                    self?.storyModel.stories.append(try decoder.decode(Story.StoryInfo.self, from: data))
+//                    guard let jsonDictionary = try? JSONSerialization.jsonObject(with: Data(data), options: []) as? [String: Any] else {
+//                        print("Error: convert failed json to dictionary")
+//                        return
+//                    }
+//                    print(jsonDictionary)
+//                    self?.storyModel.stories[index].is_liked = jsonDictionary["is_liked"] as! Bool
                     
                     // User 구조체에 할당된 데이터 사용 (테스트 log)
                     print("[toggle Heart Log]: \(self?.storyModel)")
+                    completion()
                 } catch {
                     print("[toggleHeart] Error: Failed to parse JSON data - \(error)")
                 }
@@ -331,7 +334,7 @@ class StoryViewModel: ObservableObject {
         var body = Data()
         
         for (index, image) in images.enumerated() {
-            let imageName = "image\(index + 1).png"
+            let imageName = "image\(index + 1).jpeg"
             
             
             if let boundaryPrefix = "--\(boundary)\r\n".data(using: .utf8),
@@ -587,7 +590,8 @@ class StoryViewModel: ObservableObject {
         return storiesByYearAndMonth
     }
     
-    func lookUpStoryDetail(user: User, storyId: String, completion: @escaping () -> Void) {
+    func lookUpStoryDetail(user: User, storyId: String, completion: @escaping (Story.StoryInfo) -> Void) {
+        var storyInfo: Story.StoryInfo = Story.StoryInfo()
         
         // 요청을 보낼 API의 url 설정
         // 배포 후 url 설정
@@ -645,7 +649,8 @@ class StoryViewModel: ObservableObject {
                     if let storyIndex = self?.storyModel.stories.firstIndex(where: { $0.story_id == storyId }) {
                         self?.storyModel.stories[storyIndex] = try decoder.decode(Story.StoryInfo.self, from: data)
                         print("[lookUp Story Detail Log]: \(String(describing: self?.storyModel.stories[storyIndex]))")
-                        completion()
+                        storyInfo = (self?.storyModel.stories[storyIndex])!
+                        completion(storyInfo)
                     } else {
                         print("파싱 에러")
                     }

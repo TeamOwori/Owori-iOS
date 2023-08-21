@@ -30,6 +30,7 @@ struct StoryModifyView: View {
     @Binding var stories: [Story.StoryInfo]
     @Binding var storiesForCollection: [String: [Story.StoryInfo]]
     @Binding var storyDetailViewIsActive: Bool
+    @Binding var storyDetailViewIsActiveFromStoryAlbum: Bool
     @Binding var isActiveStoryModifyView: Bool
     
     
@@ -199,7 +200,7 @@ struct StoryModifyView: View {
             }
             
             
-            ModifySuccessButton(storyInfo: $storyInfo,startDate: $startDate, endDate: $endDate, title: $title, content: $content, storyImages: $storyImages, selectedImages: $selectedImages, stories: $stories, storiesForCollection: $storiesForCollection, storyDetailViewIsActive: $storyDetailViewIsActive, isActiveStoryModifyView: $isActiveStoryModifyView)
+            ModifySuccessButton(storyInfo: $storyInfo,startDate: $startDate, endDate: $endDate, title: $title, content: $content, storyImages: $storyImages, selectedImages: $selectedImages, stories: $stories, storiesForCollection: $storiesForCollection, storyDetailViewIsActive: $storyDetailViewIsActive, storyDetailViewIsActiveFromStoryAlbum: $storyDetailViewIsActiveFromStoryAlbum, isActiveStoryModifyView: $isActiveStoryModifyView)
             
         }
         .onAppear {
@@ -230,6 +231,6 @@ struct StoryModifyView: View {
 
 struct StoryModifyView_Previews: PreviewProvider {
     static var previews: some View {
-        StoryModifyView(storyInfo: .constant(Story.StoryInfo()) ,stories: .constant([]), storiesForCollection: .constant([:]), storyDetailViewIsActive: .constant(false), isActiveStoryModifyView: .constant(false))
+        StoryModifyView(storyInfo: .constant(Story.StoryInfo()) ,stories: .constant([]), storiesForCollection: .constant([:]), storyDetailViewIsActive: .constant(false), storyDetailViewIsActiveFromStoryAlbum: .constant(false), isActiveStoryModifyView: .constant(false))
     }
 }

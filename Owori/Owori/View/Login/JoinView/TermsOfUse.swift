@@ -15,7 +15,7 @@ struct TermsOfUse: View {
     @Binding var familyName: String
     @Binding var inviteCode: String
     
-    @State private var isSuccessSignUp = false
+    @State private var isJoinFamilyActive = false
     
     @EnvironmentObject var loginViewModel: LoginViewModel
     @EnvironmentObject var userViewModel: UserViewModel
@@ -132,24 +132,11 @@ struct TermsOfUse: View {
                         if checkForService && checkForUseOfInformation {
                             if loginViewModel.isLoggedIn {
                                 // 로그 확인
-                                print(nickname)
-                                print(birthDateText.convertToISODateFormat())
+                                isJoinFamilyActive = true
                                 
-                                userViewModel.initUser(userInfo: ["nickname" : "\(nickname)", "birthday" : "\(birthDateText)"]) {
-                                    familyViewModel.createMember(user: userViewModel.user, family_group_name: familyName) {
-                                        if userViewModel.user.is_service_member ?? false {
-                                            familyViewModel.lookUpHomeView(user: userViewModel.user) {
-                                                print(familyViewModel.getFamily())
-                                                userViewModel.lookupProfile() {
-                                                    isSuccessSignUp = true
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
                             }
                         } else {
-                            isSuccessSignUp = false
+                            isJoinFamilyActive = false
                         }
                     } label: {
                         Text("동의하기")
@@ -165,12 +152,13 @@ struct TermsOfUse: View {
             }
             
             .navigationBarTitleDisplayMode(.inline)
-            .navigationDestination(isPresented: $isSuccessSignUp) {
-                MainView(isLoggedIn: $isLoggedIn)
+            .navigationDestination(isPresented: $isJoinFamilyActive) {
+//                MainView(isLoggedIn: $isLoggedIn)
+                JoinFamily(isLoggedIn: $isLoggedIn, currentIndex: $currentIndex, nickname: $nickname, birthDateText: $birthDateText, familyName: $familyName, inviteCode: $inviteCode)
                 
             }
             .onAppear {
-                currentIndex = 5
+                currentIndex = 3
             }
         }
     }

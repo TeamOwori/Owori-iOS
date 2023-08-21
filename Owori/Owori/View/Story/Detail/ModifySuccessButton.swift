@@ -27,6 +27,7 @@ struct ModifySuccessButton: View {
     @Binding var stories: [Story.StoryInfo]
     @Binding var storiesForCollection: [String: [Story.StoryInfo]]
     @Binding var storyDetailViewIsActive: Bool
+    @Binding var storyDetailViewIsActiveFromStoryAlbum: Bool
     @Binding var isActiveStoryModifyView: Bool
     
     
@@ -44,6 +45,7 @@ struct ModifySuccessButton: View {
             // 로직 통일 및 수정 요망
             storyDetailViewIsActive = false
             isActiveStoryModifyView = false
+            storyDetailViewIsActiveFromStoryAlbum = false
             
             if !selectedImages.isEmpty {
                 storyViewModel.uploadStoryImages(user: userViewModel.user, images: selectedImages) { uploadedStoryImagesUrl in
@@ -103,6 +105,6 @@ struct ModifySuccessButton: View {
 
 struct ModifySuccessButton_Previews: PreviewProvider {
     static var previews: some View {
-        ModifySuccessButton(storyInfo: .constant(Story.StoryInfo()), startDate: .constant(Date()), endDate: .constant(Date()), title: .constant("TEST"), content: .constant("TEST"), storyImages: .constant([]), selectedImages: .constant([]), stories: .constant([]), storiesForCollection: .constant([:]), storyDetailViewIsActive: .constant(false), isActiveStoryModifyView: .constant(false))
+        ModifySuccessButton(storyInfo: .constant(Story.StoryInfo()), startDate: .constant(Date()), endDate: .constant(Date()), title: .constant("TEST"), content: .constant("TEST"), storyImages: .constant([]), selectedImages: .constant([]), stories: .constant([]), storiesForCollection: .constant([:]), storyDetailViewIsActive: .constant(false), storyDetailViewIsActiveFromStoryAlbum: .constant(false), isActiveStoryModifyView: .constant(false))
     }
 }

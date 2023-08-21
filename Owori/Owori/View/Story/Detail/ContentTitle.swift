@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ContentTitle: View {
     @Binding var isFavorite: Bool
-    var storyInfo: Story.StoryInfo
+    @Binding var storyInfo: Story.StoryInfo
 //    var titleText: String = "기다리고 기다리던 하루"
 //
 //    /// - [임시] 작성자 데이터
@@ -23,7 +23,7 @@ struct ContentTitle: View {
                     .foregroundColor(Color.oworiGray600)
                     .font(.system(size: 12, weight: .regular))
                 Spacer()
-                FavoriteButton(isFavorite: $isFavorite)
+                FavoriteButton(isFavorite: $isFavorite, storyInfo: $storyInfo)
             }
             HStack(alignment: .bottom, spacing: 16) {
                 Text(storyInfo.title ?? "nil")
@@ -34,12 +34,15 @@ struct ContentTitle: View {
                     .font(.system(size: 12, weight: .regular))
             }
         }
+        .onAppear {
+            isFavorite = storyInfo.is_liked ?? false
+        }
     }
 }
 
 struct ContentTitle_Previews: PreviewProvider {
     static var previews: some View {
-        ContentTitle(isFavorite: .constant(true), storyInfo: Story.StoryInfo(id: 0, story_id: "0", is_liked: true, story_images: [], thumbnail: "DefaultImage", title: "Test", writer: "Test", content: "Test", comments: [], heart_count: 0, comment_count: 0, start_date: "2023-07-07", end_date: "2023-07-08"))
+        ContentTitle(isFavorite: .constant(true), storyInfo: .constant(Story.StoryInfo(id: 0, story_id: "0", is_liked: true, story_images: [], thumbnail: "DefaultImage", title: "Test", writer: "Test", content: "Test", comments: [], heart_count: 0, comment_count: 0, start_date: "20230707", end_date: "20230708")))
             .environmentObject(UserViewModel())
             .environmentObject(StoryViewModel())
     }

@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct BeInviteFamily: View {
+    @EnvironmentObject var userViewModel: UserViewModel
+    @EnvironmentObject var familyViewModel: FamilyViewModel
+    
     @Binding var isLoggedIn: Bool
     @Binding var currentIndex: Int
     @Binding var nickname: String
@@ -16,11 +19,13 @@ struct BeInviteFamily: View {
     @Binding var inviteCode: String
     @Binding var isCreateCodeViewVisible: Bool
     @Binding var isReceiveCodeViewVisible: Bool
-    @Binding var isFifthViewVisible: Bool
+    @State private var isSuccessSignUp: Bool = false
     // 임시로 true로 변경. 기본값 = false
     
     var body: some View {
         VStack {
+            NumberIndicator(currentIndex: $currentIndex)
+                .offset(y: 0)
             VStack(alignment: .leading) {
                 
                 Text("초대코드를 입력해주세요")
@@ -50,9 +55,18 @@ struct BeInviteFamily: View {
                 
                 HStack(alignment: .center) {
                     Button {
-                        isFifthViewVisible = true
-                        isCreateCodeViewVisible = false
-                        isReceiveCodeViewVisible = false
+                        userViewModel.initUser(userInfo: ["nickname" : "\(nickname)", "birthday" : "\(birthDateText)"]) {
+                            familyViewModel.addFamilyMemberInviteCode(user: userViewModel.user, invite_code: inviteCode) {
+                                if userViewModel.user.is_service_member ?? false {
+                                    familyViewModel.lookUpHomeView(user: userViewModel.user) {
+                                        print(familyViewModel.getFamily())
+                                        userViewModel.lookupProfile() {
+                                            isSuccessSignUp = true
+                                        }
+                                    }
+                                }
+                            }
+                        }
                     } label: {
                         Text("다음")
                             .font(.title2)
@@ -82,18 +96,23 @@ struct BeInviteFamily: View {
             self.endTextEditing()
         }
         .navigationBarTitleDisplayMode(.inline)
-        .navigationBarBackButtonHidden(true)
-        .toolbar {
-            BackToFamilyLinkViewButton(isCreateCodeViewVisible: $isCreateCodeViewVisible, isReceiveCodeViewVisible: $isReceiveCodeViewVisible)
+        //        .navigationBarBackButtonHidden(true)
+        .navigationDestination(isPresented: $isSuccessSignUp) {
+            MainView(isLoggedIn: $isLoggedIn)
         }
+        //        .toolbar {
+        //            BackToFamilyLinkViewButton(isCreateCodeViewVisible: $isCreateCodeViewVisible, isReceiveCodeViewVisible: $isReceiveCodeViewVisible)
+        //        }
         .onAppear {
-            currentIndex = 4
+            currentIndex = 5
         }
     }
 }
 
 struct BeInviteFamily_Previews: PreviewProvider {
     static var previews: some View {
-        BeInviteFamily(isLoggedIn: .constant(false), currentIndex: .constant(4), nickname: .constant(""), birthDateText: .constant(""), familyName: .constant(""), inviteCode: .constant(""), isCreateCodeViewVisible: .constant(false), isReceiveCodeViewVisible: .constant(false), isFifthViewVisible: .constant(false))
+        BeInviteFamily(isLoggedIn: .constant(false), currentIndex: .constant(4), nickname: .constant(""), birthDateText: .constant(""), familyName: .constant(""), inviteCode: .constant(""), isCreateCodeViewVisible: .constant(false), isReceiveCodeViewVisible: .constant(false))
+            .environmentObject(UserViewModel())
+            .environmentObject(FamilyViewModel())
     }
 }

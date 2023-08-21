@@ -13,11 +13,11 @@ struct DDayView: View {
     @GestureState private var dragOffset: CGFloat = 0
     
     @State private var ddayInfos: [Family.Schedule] = [
-        Family.Schedule(id: "1", title: "장보기", start_datd: "2023-07-05", end_date: "2023/07/16", schedule_type: "", member_nickname: "고삼이", color: "FFFFFF", alarm_option: nil, dday_option: true, dday: "D-Day"),
-        Family.Schedule(id: "2", title: "장보기", start_datd: "2023-07-05", end_date: "2023/07/25", schedule_type: "", member_nickname: "고삼이", color: "FFFFFF", alarm_option: nil, dday_option: false, dday: "D-Day"),
-        Family.Schedule(id: "3", title: "장보기", start_datd: "2023-07-05", end_date: "2023/07/26", schedule_type: "", member_nickname: "고삼이", color: "FFFFFF", alarm_option: nil, dday_option: true, dday: "D-Day"),
-        Family.Schedule(id: "4", title: "전시회", start_datd: "2023-07-05", end_date: "2023/07/26", schedule_type: "", member_nickname: "고삼이", color: "FFFFFF", alarm_option: nil, dday_option: true, dday: "D-Day"),
-        Family.Schedule(id: "5", title: "장보기", start_datd: "2023-07-05", end_date: "2023/07/26", schedule_type: "", member_nickname: "고삼이", color: "FFFFFF", alarm_option: nil, dday_option: true, dday: "D-Day")
+        Family.Schedule(id: "1", title: "장보기", start_datd: "2023-07-05", end_date: "2023/07/16", schedule_type: "", nickname: "고삼이", color: "FFFFFF", alarm_option: nil, dday_option: true, dday: "D-Day"),
+        Family.Schedule(id: "2", title: "장보기", start_datd: "2023-07-05", end_date: "2023/07/25", schedule_type: "", nickname: "고삼이", color: "FFFFFF", alarm_option: nil, dday_option: false, dday: "D-Day"),
+        Family.Schedule(id: "3", title: "장보기", start_datd: "2023-07-05", end_date: "2023/07/26", schedule_type: "", nickname: "고삼이", color: "FFFFFF", alarm_option: nil, dday_option: true, dday: "D-Day"),
+        Family.Schedule(id: "4", title: "전시회", start_datd: "2023-07-05", end_date: "2023/07/26", schedule_type: "", nickname: "고삼이", color: "FFFFFF", alarm_option: nil, dday_option: true, dday: "D-Day"),
+        Family.Schedule(id: "5", title: "장보기", start_datd: "2023-07-05", end_date: "2023/07/26", schedule_type: "", nickname: "고삼이", color: "FFFFFF", alarm_option: nil, dday_option: true, dday: "D-Day")
     ]
     
     var body: some View {

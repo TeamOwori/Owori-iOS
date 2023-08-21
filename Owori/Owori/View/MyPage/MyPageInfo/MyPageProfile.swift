@@ -16,6 +16,7 @@ struct MyPageProfile: View {
     var colorOrder: [String] = ["red", "pink", "yellow", "green", "skyblue", "blue", "purple"]
     
     @Binding var isLoggedIn: Bool
+    @Binding var myPageViewIsActive: Bool
 
     
     
@@ -99,6 +100,6 @@ struct MyPageProfile: View {
 
 struct MyPageProfile_Previews: PreviewProvider {
     static var previews: some View {
-        MyPageProfile(isLoggedIn: .constant(true))
+        MyPageProfile(isLoggedIn: .constant(true), myPageViewIsActive: .constant(false))
     }
 }

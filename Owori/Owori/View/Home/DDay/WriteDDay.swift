@@ -8,23 +8,29 @@
 import SwiftUI
 
 struct WriteDDay: View {
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+    
+    @EnvironmentObject var userViewModel: UserViewModel
+    @EnvironmentObject var familyViewModel: FamilyViewModel
     
     //화면으로 돌아가기
     @State private var isAddDdayViewActive = false
     
     //가족 탭
-    @State private var checkForFirstTab = false
+    @State private var checkForFirstTab = true
     
     //고삼이 탭
     @State private var checkForSecondTab = false
     
     @State private var title: String = ""
     
-    //DatePicker
-    @State private var date = Date()
+    @State private var content: String = ""
     
     //DatePicker
-    @State private var date1 = Date()
+    @State private var startDate = Date()
+    
+    //DatePicker
+    @State private var endDate = Date()
     
     //DDayToggle
     @State private var DDayToggle = true
@@ -40,43 +46,57 @@ struct WriteDDay: View {
                 
                 //가족
                 Button{
-                    checkForFirstTab = false
+                    checkForFirstTab = true
+                    checkForSecondTab = false
                     
                 } label: {
                     Text("가족")
                         .font(.title3)
-                        .foregroundColor(.white)
+                        .foregroundColor(checkForFirstTab ? Color.white : Color.oworiGray300)
                         .frame(width: 80,height: 30)
                 }
-                .background(Color.oworiOrange)
+                .background {
+                    if checkForFirstTab {
+                        Color.oworiOrange
+                    } else {
+                        Color.oworiGray100
+                    }
+                }
                 .cornerRadius(12)
                 
                 //가족
                 Button{
-                    checkForFirstTab = true
+                    checkForFirstTab = false
+                    checkForSecondTab = true
                     
                 } label: {
-                    Text("고삼이")
+                    Text("\(userViewModel.user.member_profile?.nickname ?? "error")")
                         .font(.title3)
-                        .foregroundColor(.oworiGray300)
+                        .foregroundColor(checkForSecondTab ? Color.white : Color.oworiGray300)
                         .frame(width: 80,height: 30)
                     
                 }
-                .background(Color.oworiGray100)
-                .cornerRadius(12)
-                
-                // 버튼 기능
-                Button {
-                    checkForFirstTab.toggle()
-                } label: {
-                    if checkForFirstTab == false {
-                        //이러면 여기에 따로 처리해 줄 코드가 없는건가
-                        
+                .background {
+                    if checkForSecondTab {
+                        Color.oworiOrange
                     } else {
-                        //
-                        
+                        Color.oworiGray100
                     }
                 }
+                .cornerRadius(12)
+                
+//                // 버튼 기능
+//                Button {
+//                    checkForFirstTab.toggle()
+//                } label: {
+//                    if checkForFirstTab == false {
+//                        //이러면 여기에 따로 처리해 줄 코드가 없는건가
+//
+//                    } else {
+//                        //
+//
+//                    }
+//                }
                 
                 
                 
@@ -102,7 +122,7 @@ struct WriteDDay: View {
                     
                     DatePicker(
                         "시작일",
-                        selection: $date,
+                        selection: $startDate,
                         displayedComponents: [.date]
                     )
                     .kerning(-2)
@@ -110,7 +130,7 @@ struct WriteDDay: View {
                     
                     DatePicker(
                         "종료일",
-                        selection: $date1,
+                        selection: $endDate,
                         displayedComponents: [.date]
                     )
                     .kerning(-2)
@@ -118,31 +138,52 @@ struct WriteDDay: View {
                     
                 }.frame(width: UIScreen.main.bounds.width*0.9)
                 
-                //DDay - Switch Button
-                HStack(alignment: .top,spacing: 16) {
-                    Image("DDay")
-                        .padding(EdgeInsets(top: 8, leading: 10, bottom: 0, trailing: 10))
+                ZStack(alignment: .bottomTrailing) {
+                    TextEditor(text: $content)
+                        .onChange(of: content) { newText in
+                            if newText.count > 10 {
+                                content = String(newText.prefix(10))
+                            }
+                        }
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 12)
+                                .inset(by: 0.5)
+                                .stroke(Color.oworiGray300, style: StrokeStyle(lineWidth: 1))
+                        )
+                        .frame(width: UIScreen.main.bounds.width*0.8, height: UIScreen.main.bounds.height * 0.13)
                     
                     
-                    Toggle("D-day 기능", isOn: $DDayToggle)
-                        .toggleStyle(SwitchToggleStyle(tint: Color.oworiOrange))
-                    
-                    
-                    
+                Text("\(content.count)/10")
+//                    .overlay(Rectangle().frame(height: 1).padding(.top, 30))
+                    .foregroundColor(.gray)
+                    .padding(EdgeInsets(top: 0, leading: 0, bottom: 10, trailing: 10))
                 }
                 
-                //Alarm - Switch Button
-                HStack(alignment: .top,spacing: 16) {
-                    Image("Alarm")
-                        .padding(EdgeInsets(top: 8, leading: 10, bottom: 0, trailing: 10))
-                    
-                    
-                    Toggle("알림", isOn: $AlarmToggle)
-                        .toggleStyle(SwitchToggleStyle(tint: Color.oworiOrange))
-                    
-                    
-                    
-                }
+//                //DDay - Switch Button
+//                HStack(alignment: .top,spacing: 16) {
+//                    Image("DDay")
+//                        .padding(EdgeInsets(top: 8, leading: 10, bottom: 0, trailing: 10))
+//
+//
+//                    Toggle("D-day 기능", isOn: $DDayToggle)
+//                        .toggleStyle(SwitchToggleStyle(tint: Color.oworiOrange))
+//
+//
+//
+//                }
+                
+//                //Alarm - Switch Button
+//                HStack(alignment: .top,spacing: 16) {
+//                    Image("Alarm")
+//                        .padding(EdgeInsets(top: 8, leading: 10, bottom: 0, trailing: 10))
+//
+//
+//                    Toggle("알림", isOn: $AlarmToggle)
+//                        .toggleStyle(SwitchToggleStyle(tint: Color.oworiOrange))
+//
+//
+//
+//                }
                 
                 
                 
@@ -177,7 +218,19 @@ struct WriteDDay: View {
             ToolbarItem(placement: .navigationBarTrailing) {
                 Button {
                     //View가 업데이트 된 상황에서 홈으로 복귀
-                    isAddDdayViewActive = false
+                    familyViewModel.createSchedule(user: userViewModel.user, schduleInfo: ["start_date": "\(startDate.formatDateToString(format: "yyyyMMdd"))",
+                                                                                           "end_date": "\(endDate.formatDateToString(format: "yyyyMMdd"))",
+                                                                                           "title": "\(title)",
+                                                                                           "content": "\(content)",
+                                                                                           // image 임시 데이터 추가 해야함.
+                                                                                           "schedule_type": "\(checkForFirstTab ? "FAMILY" : "INDIVIDUAL")",
+                                                                                           "dday_option": true,
+                                                                                           "alarm_options": []]) { scheduleId in
+                        familyViewModel.lookUpHomeView(user: userViewModel.user) {
+                            self.presentationMode.wrappedValue.dismiss()
+                        }
+                        
+                    }
                 } label: {
                     Image("Check")
                         .frame(width: 30, height: 30)
