@@ -22,16 +22,101 @@ struct LoginView: View {
     // 서버에 등록되어있는 멤버인지 아닌지 체크
     @State private var alreadyMember: Bool = false
     
+    //Camera 권한 설정
+    @StateObject var permissionManager = PermissionManager()
+    
+    
     var body: some View {
         
         // 배포 전 테스트시 !isLogined로 설정 (서버가 휴대폰에서는 안잡힘)
         VStack {
-//            //test
-//            NavigationLink {
-//                LoginTestView()
-//            } label: {
-//                Text("TEST")
+            //            //test
+            //            NavigationLink {
+            //                LoginTestView()
+            //            } label: {
+            //                Text("TEST")
+            //            }
+            
+//            //MARK: Camera 권한 설정
+//            VStack {
+//                if permissionManager.permissionGranted {
+//                    //show a conditional view only if you have permission
+//                }
+//
+//
 //            }
+//            .onReceive(permissionManager.$permissionGranted, perform: { (granted) in
+//                if granted {
+//                    //show image picker controller
+//                }
+//            })
+//            .onAppear {
+//                permissionManager.requestCameraPermission()
+//                permissionManager.requestAlbumPermission()
+//
+//            }
+//
+//            VStack {
+//                if permissionManager.permissionGranted {
+//                    // Show a conditional view only if you have permission
+//                } else {
+//                    Button("권한 설정") {
+//                        permissionManager.requestAlbumPermission()
+//                    }
+//                    .padding()
+//                    .background(Color.blue)
+//                    .foregroundColor(.white)
+//                    .cornerRadius(10)
+//                    .alert(isPresented: $permissionManager.isAlbumPermissionDenied) { // Use isAlbumPermissionDenied
+//                        Alert(
+//                            title: Text("앨범 접근 권한이 거부되었습니다."),
+//                            message: Text("앱 설정으로 이동하여 앨범 접근 권한을 허용해주세요."),
+//                            primaryButton: .cancel(Text("취소")),
+//                            secondaryButton: .default(Text("설정으로 이동"), action: {
+//                                UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!)
+//                            })
+//                        )
+//                    }
+//                }
+//            }
+            
+            VStack {
+                if permissionManager.permissionGranted {
+                    // Show a conditional view only if you have permission
+                    Button("Photo Library 열기") {
+                        // Show the Photo Library only if album permission is granted
+                        if permissionManager.isAlbumPermissionGranted {
+                            // Open the Photo Library here
+                        } else {
+                            permissionManager.requestAlbumPermission()
+                        }
+                    }
+                    .padding()
+                    .background(Color.blue)
+                    .foregroundColor(.white)
+                    .cornerRadius(10)
+                } else {
+                    Button("권한 설정") {
+                        permissionManager.requestAlbumPermission()
+                    }
+                    .padding()
+                    .background(Color.blue)
+                    .foregroundColor(.white)
+                    .cornerRadius(10)
+                    .alert(isPresented: $permissionManager.isAlbumPermissionDenied) {
+                        Alert(
+                            title: Text("앨범 접근 권한이 거부되었습니다."),
+                            message: Text("앱 설정으로 이동하여 앨범 접근 권한을 허용해주세요."),
+                            primaryButton: .cancel(Text("취소")),
+                            secondaryButton: .default(Text("설정으로 이동"), action: {
+                                UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!)
+                            })
+                        )
+                    }
+                }
+            }
+
+            
             
             //오월이 로고 이미지 - SE에서 가장 예쁘게 나옴
             Image("Login")
@@ -69,11 +154,11 @@ struct LoginView: View {
         .navigationDestination(isPresented: $isLoggedIn) {
             if alreadyMember {
                 MainView(isLoggedIn: $isLoggedIn)
-//                .onAppear {
-//                    familyViewModel.lookUpHomeView(user: userViewModel.user) {
-//                        print(familyViewModel.getFamily())
-//                    }
-//                }
+                //                .onAppear {
+                //                    familyViewModel.lookUpHomeView(user: userViewModel.user) {
+                //                        print(familyViewModel.getFamily())
+                //                    }
+                //                }
             } else {
                 JoinNickname(isLoggedIn: $isLoggedIn)
             }

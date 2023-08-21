@@ -188,6 +188,11 @@ struct EditMyPage: View {
             Spacer()
             
         }
+        // 키보드 다 쓰고 빈 공간 누르면 키보드 내려가는 기능
+        // 그냥 텍스트 있는 뷰에 모두 적용시키면 돼 저거 3줄..
+        .onTapGesture {
+            self.endTextEditing()
+        }
         .onAppear {
             selectedColor = userViewModel.user.member_profile?.color ?? "None"
             print(selectedColor)

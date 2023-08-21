@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3569A7282A932E09003F3713 /* PermissionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3569A7272A932E09003F3713 /* PermissionManager.swift */; };
 		356A54472A84D66D006E22C8 /* SimpleToast in Frameworks */ = {isa = PBXBuildFile; productRef = 356A54462A84D66D006E22C8 /* SimpleToast */; };
 		356A54502A855F5D006E22C8 /* EventStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 356A544F2A855F5D006E22C8 /* EventStore.swift */; };
 		356A54522A855F73006E22C8 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 356A54512A855F73006E22C8 /* Event.swift */; };
@@ -147,6 +148,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3569A7272A932E09003F3713 /* PermissionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionManager.swift; sourceTree = "<group>"; };
 		356A544F2A855F5D006E22C8 /* EventStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventStore.swift; sourceTree = "<group>"; };
 		356A54512A855F73006E22C8 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		356A54532A855FE9006E22C8 /* EventsCalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsCalendarView.swift; sourceTree = "<group>"; };
@@ -299,6 +301,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3569A7262A932DE5003F3713 /* PhotoLibrary */ = {
+			isa = PBXGroup;
+			children = (
+				3569A7272A932E09003F3713 /* PermissionManager.swift */,
+			);
+			path = PhotoLibrary;
+			sourceTree = "<group>";
+		};
 		356A54492A84FD5B006E22C8 /* Calendar */ = {
 			isa = PBXGroup;
 			children = (
@@ -454,6 +464,7 @@
 			isa = PBXGroup;
 			children = (
 				F3C1BE6A2A710544002ADB3B /* MainView.swift */,
+				3569A7262A932DE5003F3713 /* PhotoLibrary */,
 				356A54492A84FD5B006E22C8 /* Calendar */,
 				F3C1BE632A70F1A7002ADB3B /* TestView */,
 				883B47CB2A686C05004C2D20 /* MyPage */,
@@ -928,6 +939,7 @@
 				F3430FA92A67043200DC1B1C /* Family.swift in Sources */,
 				F3430FB42A67043200DC1B1C /* String+Extension.swift in Sources */,
 				F3430F9B2A67043200DC1B1C /* DetailImageCell.swift in Sources */,
+				3569A7282A932E09003F3713 /* PermissionManager.swift in Sources */,
 				88A392DA2A7003BB00ACBD71 /* BackCancel.swift in Sources */,
 				F36508532A81278400A14217 /* StoryRecordView.swift in Sources */,
 				F3430FB52A67043200DC1B1C /* Color+Extension.swift in Sources */,
@@ -1130,6 +1142,8 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Owori/Info.plist;
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "사진 또는 동영상을 저장, 게시글에 첨부, 프로필 사진 등록하기 위해서 사진 라이브러리 접근 권한이 필요합니다.";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "사진 또는 동영상을 저장, 게시글에 첨부, 프로필 사진 등록하기 위해서 사진 라이브러리 접근 권한이 필요합니다.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -1161,6 +1175,8 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Owori/Info.plist;
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "사진 또는 동영상을 저장, 게시글에 첨부, 프로필 사진 등록하기 위해서 사진 라이브러리 접근 권한이 필요합니다.";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "사진 또는 동영상을 저장, 게시글에 첨부, 프로필 사진 등록하기 위해서 사진 라이브러리 접근 권한이 필요합니다.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
