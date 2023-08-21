@@ -46,7 +46,7 @@ struct InviteView: View {
                     .padding(EdgeInsets(top: 10, leading: 30, bottom: 10, trailing: 30))
                     .aspectRatio(contentMode: .fit)
                 
-                Text("\(familyViewModel.family.invite_code ?? "TEST")")
+                Text("\(familyViewModel.family.invite_code ?? "error")")
                     .offset(x: -30, y: 30)
             }
                 

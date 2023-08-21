@@ -44,15 +44,15 @@ struct SettingView: View {
             Group {
                 //MARK: 맞춤설정
                 Section {
-                    HStack {
-                        Text("자동 로그인")
-                            .font(.system(size: 15, weight: .medium))
-                            .foregroundColor(.oworiGray700)
-                            .padding(EdgeInsets(top: 0, leading: 1.5, bottom: 0, trailing: 10))
-                        Spacer()
-                        Toggle("", isOn: $autoLogin)
-                            .toggleStyle(CustomToggle())
-                    }
+//                    HStack {
+//                        Text("자동 로그인")
+//                            .font(.system(size: 15, weight: .medium))
+//                            .foregroundColor(.oworiGray700)
+//                            .padding(EdgeInsets(top: 0, leading: 1.5, bottom: 0, trailing: 10))
+//                        Spacer()
+//                        Toggle("", isOn: $autoLogin)
+//                            .toggleStyle(CustomToggle())
+//                    }
                     
                     Button(action: {
                         familyNameChangeViewIsActive = true
