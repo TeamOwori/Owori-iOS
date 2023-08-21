@@ -49,9 +49,9 @@ struct ContentText: View {
                 Text("좋아요 \(storyInfo.heart_count ?? 0)")
                     .foregroundColor(Color.oworiGray400)
                     .font(.system(size: 12, weight: .regular))
-                Text("댓글 \(storyInfo.comment_count ?? 0)")
-                    .foregroundColor(Color.oworiGray400)
-                    .font(.system(size: 12, weight: .regular))
+//                Text("댓글 \(storyInfo.comment_count ?? 0)")
+//                    .foregroundColor(Color.oworiGray400)
+//                    .font(.system(size: 12, weight: .regular))
                 Spacer()
                 
                 if storyInfo.writer ?? "" == userViewModel.user.member_profile?.nickname ?? "" {

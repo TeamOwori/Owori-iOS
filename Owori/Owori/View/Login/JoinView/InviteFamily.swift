@@ -55,10 +55,15 @@ struct InviteFamily: View {
             //            }
             
             //Image 넣어야함
-            Image("가족초대코드")
-                .frame(maxWidth: UIScreen.main.bounds.width, alignment: .center)
-                .padding(EdgeInsets(top: -30, leading: 30, bottom: 0, trailing: 30))
-                .aspectRatio(contentMode: .fit)
+            ZStack {
+                Image("가족초대코드")
+                    .frame(maxWidth: UIScreen.main.bounds.width, alignment: .center)
+                    .padding(EdgeInsets(top: -30, leading: 30, bottom: 0, trailing: 30))
+                    .aspectRatio(contentMode: .fit)
+                Text("\(familyViewModel.family.invite_code ?? "error")")
+                    .offset(x: -30, y: 15)
+            }
+            
             
             Spacer()
             

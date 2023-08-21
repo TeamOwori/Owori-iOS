@@ -189,11 +189,11 @@ struct StoryRecordView: View {
             }
             .padding(EdgeInsets(top: 0, leading: 15, bottom: 0, trailing: 15))
             
-            Button {
-                
-            } label: {
-                Text("이미지 업로드 테스트")
-            }
+//            Button {
+//
+//            } label: {
+//                Text("이미지 업로드 테스트")
+//            }
             
             
             RecordSuccessButton(startDate: $startDate, endDate: $endDate, title: $title, content: $content, storyImages: $storyImages, selectedImages: $selectedImages, stories: $stories, storiesForCollection: $storiesForCollection)

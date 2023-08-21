@@ -93,6 +93,7 @@ class FamilyViewModel: ObservableObject {
                     
                     // User 구조체에 할당된 데이터 사용 (테스트 log)
                     print("Family: \(String(describing: self?.family))")
+                    self?.family.invite_code = jsonDictionary["invite_code"] as? String
                     completion()
                 } catch {
                     print("Error: Failed to parse JSON data - \(error)")

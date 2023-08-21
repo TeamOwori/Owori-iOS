@@ -26,12 +26,12 @@ struct LoginView: View {
         
         // 배포 전 테스트시 !isLogined로 설정 (서버가 휴대폰에서는 안잡힘)
         VStack {
-            //test
-            NavigationLink {
-                LoginTestView()
-            } label: {
-                Text("TEST")
-            }
+//            //test
+//            NavigationLink {
+//                LoginTestView()
+//            } label: {
+//                Text("TEST")
+//            }
             
             //오월이 로고 이미지 - SE에서 가장 예쁘게 나옴
             Image("Login")

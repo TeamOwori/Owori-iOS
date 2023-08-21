@@ -38,7 +38,7 @@ struct DailyStoryListCell: View {
             
             HStack {
                 Text("좋아요 \(storyInfo.heart_count ?? 0)")
-                Text("댓글 \(storyInfo.comment_count ?? 0)")
+//                Text("댓글 \(storyInfo.comment_count ?? 0)")
                 Text("• \(storyInfo.writer ?? "Unknown")")
                 Spacer()
                 // Test용 데이터
