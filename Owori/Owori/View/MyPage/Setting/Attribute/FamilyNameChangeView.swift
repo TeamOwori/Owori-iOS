@@ -10,10 +10,11 @@ import SwiftUI
 struct FamilyNameChangeView: View {
     @EnvironmentObject var userViewModel: UserViewModel
     @EnvironmentObject var familyViewModel: FamilyViewModel
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
     @State private var familyGroupName: String = ""
     
-    @Binding var familyNameChangeViewIsActive: Bool
+//    @Binding var familyNameChangeViewIsActive: Bool
     
     var body: some View {
         ZStack{
@@ -42,7 +43,7 @@ struct FamilyNameChangeView: View {
                         
                         TextField("", text: $familyGroupName)
                             .onChange(of: familyGroupName) { newText in
-                                if newText.count > 10 {
+                                if newText.count >= 10 {
                                     familyGroupName = String(newText.prefix(10))
                                 }
                             }
@@ -73,7 +74,7 @@ struct FamilyNameChangeView: View {
             
         }
         .onAppear {
-            familyGroupName = familyViewModel.family.family_group_name ?? "familyGroupName"
+            familyGroupName = familyViewModel.family.family_group_name ?? "familyName"
         }
         .onTapGesture {
             self.endTextEditing()
@@ -84,7 +85,7 @@ struct FamilyNameChangeView: View {
             ToolbarItem(placement: .navigationBarTrailing) {
                 Button {
                     familyViewModel.changeFamilyName(user: userViewModel.user, family_group_name: familyGroupName) {
-                        familyNameChangeViewIsActive = false
+                        self.presentationMode.wrappedValue.dismiss()
                     }
                 } label: {
                     Image("Check")
@@ -97,6 +98,6 @@ struct FamilyNameChangeView: View {
 
 struct FamilyNameChangeView_Previews: PreviewProvider {
     static var previews: some View {
-        FamilyNameChangeView(familyNameChangeViewIsActive: .constant(true))
+        FamilyNameChangeView()
     }
 }

@@ -54,8 +54,8 @@ struct SettingView: View {
 //                            .toggleStyle(CustomToggle())
                     //                    }
                     
-                    Button {
-                        familyNameChangeViewIsActive = true
+                    NavigationLink {
+                        FamilyNameChangeView()
                     } label: {
                         HStack {
                             VStack(alignment: .leading) {
@@ -71,15 +71,18 @@ struct SettingView: View {
                             Spacer()
                             Image("Right")
                                 .frame(width: 24, height: 24)
+                                .offset(x: 27)
                             
                             
                         }
                     }
                     
-                    Button(action: {
-                        // 버튼이 클릭되었을 때 수행할 동작 추가
-                        InviteViewIsActive = true
-                    }) {
+                    NavigationLink {
+                        InviteView()
+                            .onAppear {
+                                familyViewModel.regenInvitecode(user: userViewModel.user)
+                            }
+                    } label: {
                         HStack {
                             Text("초대하기")
                                 .font(.system(size: 15, weight: .medium))
@@ -90,6 +93,7 @@ struct SettingView: View {
                             
                             Image("Right")
                                 .frame(width: 24, height: 24)
+                                .offset(x: 27)
                         }
                     }
                     
@@ -316,15 +320,6 @@ struct SettingView: View {
             }
         }
         .background(Color.oworiMain)
-        .navigationDestination(isPresented: $familyNameChangeViewIsActive) {
-            FamilyNameChangeView(familyNameChangeViewIsActive: $familyNameChangeViewIsActive)
-        }
-        .navigationDestination(isPresented: $InviteViewIsActive) {
-            InviteView()
-                .onAppear {
-                    familyViewModel.regenInvitecode(user: userViewModel.user)
-                }
-        }
         .navigationTitle("")
         .onAppear {
             print(familyViewModel.family)
