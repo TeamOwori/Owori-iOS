@@ -541,8 +541,8 @@
 				F39EF2832A6B95D3005FD6DB /* JoinBirthday.swift */,
 				F39EF28D2A6BA80F005FD6DB /* TermsOfUse.swift */,
 				F39EF2872A6B972E005FD6DB /* JoinFamily.swift */,
-				F39EF2852A6B96A1005FD6DB /* JoinFamilyName.swift */,
 				F39EF2892A6B9860005FD6DB /* InviteFamily.swift */,
+				F39EF2852A6B96A1005FD6DB /* JoinFamilyName.swift */,
 				F39EF28B2A6BA429005FD6DB /* BeInviteFamily.swift */,
 			);
 			path = JoinView;

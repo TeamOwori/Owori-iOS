@@ -103,7 +103,8 @@ class FamilyViewModel: ObservableObject {
     }
     
     // 가족 멤버 초대코드로 추가
-    func addFamilyMemberInviteCode(user: User, invite_code: String, completion: @escaping () -> Void) {
+    func addFamilyMemberInviteCode(user: User, invite_code: String, completion: @escaping (Bool) -> Void) {
+        var success: Bool = false
         guard let sendData = try? JSONSerialization.data(withJSONObject: ["invite_code": invite_code], options: []) else { return }
         
         print(invite_code)
@@ -117,6 +118,7 @@ class FamilyViewModel: ObservableObject {
                 urlComponents.path = OworiAPI.Path.familiesMember.rawValue
                 guard let url = urlComponents.url else {
                     print("Error: cannot create URL")
+                    completion(success)
                     return
                 }
         
@@ -138,21 +140,25 @@ class FamilyViewModel: ObservableObject {
         URLSession.shared.dataTask(with: urlRequest) { (data, response, error) in
             guard error == nil else {
                 print("Error: error calling GET")
+                completion(success)
                 print(error!)
                 return
             }
             guard let data = data else {
                 print("Error: Did not receive data")
+                completion(success)
                 return
             }
             print(response)
             guard let response = response as? HTTPURLResponse, (200 ..< 300) ~= response.statusCode else {
                 print("Error: HTTP request failed")
+                completion(success)
                 return
             }
             
             print("가족 연결 성공")
-            completion()
+            success = true
+            completion(success)
             
         }.resume()
     }

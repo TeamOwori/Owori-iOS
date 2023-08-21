@@ -126,7 +126,8 @@ class UserViewModel: ObservableObject {
         }.resume()
     }
     
-    func initUser(userInfo: [String: Any], completion: @escaping () -> Void) {
+    func initUser(userInfo: [String: Any], completion: @escaping (Bool) -> Void) {
+        var success: Bool = false
         guard let sendData = try? JSONSerialization.data(withJSONObject: userInfo, options: []) else { return }
         
         //         요청을 보낼 API의 url 설정
@@ -159,15 +160,18 @@ class UserViewModel: ObservableObject {
         URLSession.shared.dataTask(with: urlRequest) { (data, response, error) in
             guard error == nil else {
                 print("Error: error calling GET")
+                completion(success)
                 print(error!)
                 return
             }
             guard let data = data else {
                 print("Error: Did not receive data")
+                completion(success)
                 return
             }
             guard let jsonDictionary = try? JSONSerialization.jsonObject(with: Data(data), options: []) as? [String: Any] else {
                 print("Error: convert failed json to dictionary")
+                completion(success)
                 return
             }
             print("Init Profile test : \(jsonDictionary)")
@@ -175,6 +179,7 @@ class UserViewModel: ObservableObject {
             print(response)
             guard let response = response as? HTTPURLResponse, (200 ..< 300) ~= response.statusCode else {
                 print("Error: HTTP request failed")
+                completion(success)
                 return
             }
             
@@ -186,7 +191,8 @@ class UserViewModel: ObservableObject {
                 print(userInfo["nickname"] as! String)
                 print(userInfo["birthday"] as! String)
                 //                print(self?.user)
-                completion()
+                success = true
+                completion(success)
             }
             
             
@@ -243,7 +249,8 @@ class UserViewModel: ObservableObject {
     
     
     // 멤버 프로필 업데이트
-    func updateProfile(userInfo: [String: Any], completion: @escaping () -> Void) {
+    func updateProfile(userInfo: [String: Any], completion: @escaping (Bool) -> Void) {
+        var success: Bool = false
         guard let sendData = try? JSONSerialization.data(withJSONObject: userInfo, options: []) else { return }
         
         // 요청을 보낼 API의 url 설정
@@ -254,6 +261,7 @@ class UserViewModel: ObservableObject {
         urlComponents.path = OworiAPI.Path.membersProfile.rawValue
         guard let url = urlComponents.url else {
             print("Error: cannot create URL")
+            completion(success)
             return
         }
         
@@ -275,11 +283,13 @@ class UserViewModel: ObservableObject {
         URLSession.shared.dataTask(with: urlRequest) { (data, response, error) in
             guard error == nil else {
                 print("Error: error calling GET")
+                completion(success)
                 print(error!)
                 return
             }
             guard let data = data else {
                 print("Error: Did not receive data")
+                completion(success)
                 return
             }
             
@@ -287,12 +297,15 @@ class UserViewModel: ObservableObject {
             
             guard let response = response as? HTTPURLResponse, (200 ..< 300) ~= response.statusCode else {
                 print("Error: HTTP request failed")
+                completion(success)
                 return
             }
             
             DispatchQueue.main.async { [weak self] in
                 
-               completion()
+                success = true
+                completion(success)
+            
             }
             
         }.resume()

@@ -24,7 +24,7 @@ struct UserViewModelTestView: View {
             }
             Button {
                 userViewModel.initUser(userInfo: ["nickname" : "owori",
-                                                  "birthday" : "20230717"]) {
+                                                  "birthday" : "20230717"]) { success in
                     
                 }
             } label: {
@@ -34,7 +34,7 @@ struct UserViewModelTestView: View {
             Button {
                 userViewModel.updateProfile(userInfo: ["nickname" : "오월이",
                                                        "birthday" : "20230714",
-                                                       "color" : "GREEN"]) {
+                                                       "color" : "GREEN"]) { _ in
                     
                 }
             } label: {

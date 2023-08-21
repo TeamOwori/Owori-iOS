@@ -20,6 +20,8 @@ struct BeInviteFamily: View {
     @Binding var isCreateCodeViewVisible: Bool
     @Binding var isReceiveCodeViewVisible: Bool
     @State private var isSuccessSignUp: Bool = false
+    @State private var isUserInitFail: Bool = false
+    @State private var isInvalidInvitationCode: Bool = false
     // 임시로 true로 변경. 기본값 = false
     
     var body: some View {
@@ -45,6 +47,11 @@ struct BeInviteFamily: View {
                     TextField("", text: $inviteCode)
                         .overlay(Rectangle().frame(height: 1).padding(.top, 30))
                         .foregroundColor(.gray)
+                        .onChange(of: inviteCode) { newText in
+                            if newText.count > 10 {
+                                inviteCode = String(newText.prefix(10))
+                            }
+                        }
                 }
                 .overlay(Rectangle().frame(height: 1).padding(.top, 30))
                 .padding(.leading,20)
@@ -52,30 +59,43 @@ struct BeInviteFamily: View {
                 .foregroundColor(.gray)
                 
                 if inviteCode.count < 10 {
-                    Text("올바른 초대 코드가 아닙니다. 다시 확인해주세요")
+                    Text("열 글자의 초대 코드를 입력해주세요.")
                         .foregroundColor(.red)
                         .padding(.leading, 20)
-                } else {
-                    Text("올바른 초대 코드입니다. 환영합니다!")
-                        .foregroundColor(.blue)
-                        .padding(.leading, 20)
                 }
+//                else {
+//                    Text("올바른 초대 코드입니다. 환영합니다!")
+//                        .foregroundColor(.blue)
+//                        .padding(.leading, 20)
+//                }
                 
                 Spacer()
                 
                 
                 HStack(alignment: .center) {
                     Button {
-                        userViewModel.initUser(userInfo: ["nickname" : "\(nickname)", "birthday" : "\(birthDateText)"]) {
-                            familyViewModel.addFamilyMemberInviteCode(user: userViewModel.user, invite_code: inviteCode) {
-                                if userViewModel.user.is_service_member ?? false {
-                                    familyViewModel.lookUpHomeView(user: userViewModel.user) {
-                                        print(familyViewModel.getFamily())
-                                        userViewModel.lookupProfile() {
-                                            isSuccessSignUp = true
+                        userViewModel.initUser(userInfo: ["nickname" : "\(nickname)", "birthday" : "\(birthDateText)"]) { success in
+                            isUserInitFail = !success
+                            if success {
+                                familyViewModel.addFamilyMemberInviteCode(user: userViewModel.user, invite_code: inviteCode) { addFamilyMemberInviteCodeSuccess in
+                                    if addFamilyMemberInviteCodeSuccess {
+                                        if userViewModel.user.is_service_member ?? false {
+                                            familyViewModel.lookUpHomeView(user: userViewModel.user) {
+                                                print(familyViewModel.getFamily())
+                                                userViewModel.lookupProfile() {
+                                                    isUserInitFail = false
+                                                    isSuccessSignUp = true
+                                                    isInvalidInvitationCode = false
+                                                }
+                                            }
                                         }
+                                    } else {
+                                        isInvalidInvitationCode = true
                                     }
+                                    
                                 }
+                            } else {
+                                isUserInitFail = true
                             }
                         }
                     } label: {
@@ -102,6 +122,18 @@ struct BeInviteFamily: View {
                 //                }
                 
             }
+        }
+        .alert(isPresented: $isUserInitFail) {
+            Alert(
+                title: Text("알림"), message: Text("잘못 입력된 정보가 있습니다.\n다시 입력해 주세요."),
+                dismissButton: .default(Text("확인"))
+                )
+        }
+        .alert(isPresented: $isInvalidInvitationCode) {
+            Alert(
+                title: Text("알림"), message: Text("초대코드가 유효하지 않습니다.\n다시 입력해 주세요."),
+                dismissButton: .default(Text("확인"))
+                )
         }
         .onTapGesture {
             self.endTextEditing()

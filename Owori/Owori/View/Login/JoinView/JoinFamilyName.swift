@@ -19,6 +19,7 @@ struct JoinFamilyName: View {
     @Binding var inviteCode: String
     
     @State private var isInviteFamilyActive: Bool = false
+    @State private var isUserInitFail: Bool = false
     
     var body: some View {
         VStack {
@@ -51,20 +52,32 @@ struct JoinFamilyName: View {
                 .foregroundColor(.gray)
                 
                 if familyName.isEmpty {
-                    Text("1자 이상 입력해주세요")
+                    Text("한 글자 이상 입력해 주세요.")
                         .foregroundColor(.red)
                         .padding(.leading, 20)
                 }
                 
                 Spacer()
                 
-                Button{
+                Button {
                     if !familyName.isEmpty {
-                        userViewModel.initUser(userInfo: ["nickname" : "\(nickname)", "birthday" : "\(birthDateText)"]) {
-                            familyViewModel.createFamily(user: userViewModel.user, family_group_name: familyName) {
-                                isInviteFamilyActive = true
+                        userViewModel.initUser(userInfo: ["nickname" : "\(nickname)", "birthday" : "\(birthDateText)"]) { success in
+                            isUserInitFail = !success
+                            print("isUserInitFail : \(isUserInitFail)")
+                            if success {
+                                familyViewModel.createFamily(user: userViewModel.user, family_group_name: familyName) {
+                                    print("isInviteFamilyActive : \(isInviteFamilyActive)")
+                                    isUserInitFail = false
+                                    isInviteFamilyActive = true
+                                }
+                            } else {
+                                isUserInitFail = true
                             }
+                            
                         }
+                        
+//                            isUserInitFail = !(userViewModel.user.is_service_member ?? false)
+//                            print("isUserInitFail : \(isUserInitFail)")
                     } else {
                         isInviteFamilyActive = false
                     }
@@ -77,6 +90,12 @@ struct JoinFamilyName: View {
                 }
                 .background(Color.oworiOrange)
                 .disabled(birthDateText.isEmpty)
+                .alert(isPresented: $isUserInitFail) {
+                    Alert(
+                        title: Text("알림"), message: Text("잘못 입력된 정보가 있습니다.\n다시 입력해 주세요."),
+                        dismissButton: .default(Text("확인"))
+                        )
+                }
                 
                 
                 
