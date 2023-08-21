@@ -15,7 +15,7 @@ struct FamilyViewModelTestView: View {
     var body: some View {
         VStack {
             Button {
-                familyViewModel.createMember(user: userViewModel.user, family_group_name: "owori") {
+                familyViewModel.createFamily(user: userViewModel.user, family_group_name: "owori") {
                     
                 }
             } label: {
@@ -23,7 +23,7 @@ struct FamilyViewModelTestView: View {
             }
             
             Button {
-                familyViewModel.addFamilyMemberInviteCode(user: userViewModel.user, invite_code: userViewModel.tempInviteCode)
+                familyViewModel.addFamilyMemberInviteCode(user: userViewModel.user, invite_code: userViewModel.tempInviteCode) {}
             } label: {
                 Text("add Family Member Invite Code(완)")
             }

@@ -13,6 +13,8 @@ struct MainView: View {
     @EnvironmentObject var familyViewModel: FamilyViewModel
     @State private var selectedTab = 0
     @State private var emotionalBadgeViewIsActive: Bool = false
+    @State private var myPageViewIsActive: Bool = false
+    @State private var isAddDdayViewActive: Bool = false
     @Binding var isLoggedIn: Bool
     
     //Calendar 관련 코드 추가
@@ -23,7 +25,7 @@ struct MainView: View {
             SelectEmotionBadge(emotionalBadgeViewIsActive: $emotionalBadgeViewIsActive)
         } else {
             TabView(selection: $selectedTab) {
-                RealHomeView(emotionalBadgeViewIsActive: $emotionalBadgeViewIsActive, isLoggedIn: $isLoggedIn)
+                RealHomeView(emotionalBadgeViewIsActive: $emotionalBadgeViewIsActive, isLoggedIn: $isLoggedIn, myPageViewIsActive: $myPageViewIsActive, isAddDdayViewActive: $isAddDdayViewActive)
                     .tabItem {
                         if selectedTab == 0 {
                             Image("HomeTabSelected")
@@ -58,12 +60,19 @@ struct MainView: View {
                     }
                     .tag(2)
             }
+            .navigationDestination(isPresented: $myPageViewIsActive) {
+                MyPageProfile(isLoggedIn: $isLoggedIn, myPageViewIsActive: $myPageViewIsActive)
+            }
+            .navigationDestination(isPresented: $isAddDdayViewActive) {
+                WriteDDay()
+            }
             .navigationTitle("")
             .navigationBarTitleDisplayMode(.inline)
             .onAppear {
                 userViewModel.lookupProfile() {}
+//                print(familyViewModel.family)
                 familyViewModel.lookUpHomeView(user: userViewModel.user) {
-                    print(familyViewModel.getFamily())
+//                    print(familyViewModel.getFamily())
                 }
             }
             .navigationBarBackButtonHidden(true)

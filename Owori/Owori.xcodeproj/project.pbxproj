@@ -126,6 +126,7 @@
 		F3E8CDCA2A810719007A0C3A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E8CDC92A810719007A0C3A /* ContentView.swift */; };
 		F3ECF9972A925C0D00B553D1 /* StoryModifyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3ECF9962A925C0D00B553D1 /* StoryModifyView.swift */; };
 		F3ECF9992A925CC500B553D1 /* ModifySuccessButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3ECF9982A925CC500B553D1 /* ModifySuccessButton.swift */; };
+		F3ECF99C2A92A70D00B553D1 /* FamilyPhotosPickerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3ECF99B2A92A70D00B553D1 /* FamilyPhotosPickerButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -268,6 +269,7 @@
 		F3E8CDC92A810719007A0C3A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		F3ECF9962A925C0D00B553D1 /* StoryModifyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryModifyView.swift; sourceTree = "<group>"; };
 		F3ECF9982A925CC500B553D1 /* ModifySuccessButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModifySuccessButton.swift; sourceTree = "<group>"; };
+		F3ECF99B2A92A70D00B553D1 /* FamilyPhotosPickerButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FamilyPhotosPickerButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -479,6 +481,7 @@
 		F3430F3E2A67043200DC1B1C /* Family */ = {
 			isa = PBXGroup;
 			children = (
+				F3ECF99A2A92A6DD00B553D1 /* Helper */,
 				F3430F412A67043200DC1B1C /* FamilyView.swift */,
 				886F8DF32A6C56C100D60BCC /* FamilyInitialPhoto.swift */,
 				886F8DF72A6C570500D60BCC /* ExistPhoto.swift */,
@@ -536,11 +539,11 @@
 				F3430F532A67043200DC1B1C /* NumberIndicator.swift */,
 				F39EF2812A6B93E5005FD6DB /* JoinNickname.swift */,
 				F39EF2832A6B95D3005FD6DB /* JoinBirthday.swift */,
-				F39EF2852A6B96A1005FD6DB /* JoinFamilyName.swift */,
+				F39EF28D2A6BA80F005FD6DB /* TermsOfUse.swift */,
 				F39EF2872A6B972E005FD6DB /* JoinFamily.swift */,
+				F39EF2852A6B96A1005FD6DB /* JoinFamilyName.swift */,
 				F39EF2892A6B9860005FD6DB /* InviteFamily.swift */,
 				F39EF28B2A6BA429005FD6DB /* BeInviteFamily.swift */,
-				F39EF28D2A6BA80F005FD6DB /* TermsOfUse.swift */,
 			);
 			path = JoinView;
 			sourceTree = "<group>";
@@ -703,6 +706,14 @@
 				F3C1BE722A71147C002ADB3B /* RecentSearchList.swift */,
 			);
 			path = Search;
+			sourceTree = "<group>";
+		};
+		F3ECF99A2A92A6DD00B553D1 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				F3ECF99B2A92A70D00B553D1 /* FamilyPhotosPickerButton.swift */,
+			);
+			path = Helper;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -940,6 +951,7 @@
 				F3799FBF2A8E3449000F8C46 /* ImageLoader.swift in Sources */,
 				F3430F9A2A67043200DC1B1C /* ContentText.swift in Sources */,
 				35A2D0FB2A781D3400FF8A5B /* RealHomeView.swift in Sources */,
+				F3ECF99C2A92A70D00B553D1 /* FamilyPhotosPickerButton.swift in Sources */,
 				F3430FA02A67043200DC1B1C /* DetailContent.swift in Sources */,
 				F3430FA42A67043200DC1B1C /* DailyStoryText.swift in Sources */,
 				F3430F962A67043200DC1B1C /* DailyStoryImageCell.swift in Sources */,

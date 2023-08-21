@@ -8,13 +8,17 @@
 import SwiftUI
 
 struct JoinFamilyName: View {
+    @EnvironmentObject var userViewModel: UserViewModel
+    @EnvironmentObject var familyViewModel: FamilyViewModel
+    
     @Binding var isLoggedIn: Bool
     @Binding var currentIndex: Int
     @Binding var nickname: String
     @Binding var birthDateText: String
     @Binding var familyName: String
     @Binding var inviteCode: String
-    @State private var isFourthViewActive: Bool = false
+    
+    @State private var isInviteFamilyActive: Bool = false
     
     var body: some View {
         VStack {
@@ -42,55 +46,46 @@ struct JoinFamilyName: View {
                     Text("\(familyName.count)/10")
                 }
                 .overlay(Rectangle().frame(height: 1).padding(.top, 30))
-                            .padding(.leading,20)
-                            .padding(.trailing,20)
-                            .foregroundColor(.gray)
-                            
+                .padding(.leading,20)
+                .padding(.trailing,20)
+                .foregroundColor(.gray)
+                
                 Spacer()
-                            
-                            Button{
-                                if !familyName.isEmpty {
-                                    isFourthViewActive = true
-                                } else {
-                                    isFourthViewActive = false
-                                }
-                            } label: {
-                                Text("확인")
-                                    .font(.title2)
-                                    .bold()
-                                    .foregroundColor(.white)
-                                    .frame(width: UIScreen.main.bounds.width, height: 52)
+                
+                Button{
+                    if !familyName.isEmpty {
+                        userViewModel.initUser(userInfo: ["nickname" : "\(nickname)", "birthday" : "\(birthDateText)"]) {
+                            familyViewModel.createFamily(user: userViewModel.user, family_group_name: familyName) {
+                                isInviteFamilyActive = true
                             }
-                            .background(Color.oworiOrange)
-                            .disabled(birthDateText.isEmpty)
-
+                        }
+                    } else {
+                        isInviteFamilyActive = false
+                    }
+                } label: {
+                    Text("확인")
+                        .font(.title2)
+                        .bold()
+                        .foregroundColor(.white)
+                        .frame(width: UIScreen.main.bounds.width, height: 52)
+                }
+                .background(Color.oworiOrange)
+                .disabled(birthDateText.isEmpty)
                 
                 
-//                Button {
-//                    if !familyName.isEmpty {
-//                        isFourthViewActive = true
-//                    } else {
-//                        isFourthViewActive = false
-//                    }
-//                } label: {
-//                    if !birthDateText.isEmpty {
-////                        Text("확인1")
-//                    } else {
-////                        Text("확인2")
-//                    }
-//                }
-//                .disabled(birthDateText.isEmpty)
+                
             }
             .onAppear {
-                currentIndex = 3
+                currentIndex = 5
             }
         }
         .onTapGesture {
             self.endTextEditing()
         }
         .navigationBarTitleDisplayMode(.inline)
-        .navigationDestination(isPresented: $isFourthViewActive) {
-            JoinFamily(isLoggedIn: $isLoggedIn, currentIndex: $currentIndex, nickname: $nickname, birthDateText: $birthDateText, familyName: $familyName, inviteCode: $inviteCode)
+        .navigationDestination(isPresented: $isInviteFamilyActive) {
+            InviteFamily(isLoggedIn: $isLoggedIn, currentIndex: $currentIndex, nickname: $nickname, birthDateText: $birthDateText, familyName: $familyName, inviteCode: $inviteCode)
+            //            JoinFamily(isLoggedIn: $isLoggedIn, currentIndex: $currentIndex, nickname: $nickname, birthDateText: $birthDateText, familyName: $familyName, inviteCode: $inviteCode)
         }
     }
 }
@@ -98,5 +93,7 @@ struct JoinFamilyName: View {
 struct JoinFamilyName_Previews: PreviewProvider {
     static var previews: some View {
         JoinFamilyName(isLoggedIn: .constant(false), currentIndex: .constant(3), nickname: .constant(""), birthDateText: .constant(""), familyName: .constant(""), inviteCode: .constant(""))
+            .environmentObject(UserViewModel())
+            .environmentObject(FamilyViewModel())
     }
 }

@@ -335,7 +335,7 @@ class UserViewModel: ObservableObject {
         var body = Data()
         
         
-        let imageName = "profileImage.png"
+        let imageName = "profileImage.jpeg"
         
         
         if let boundaryPrefix = "--\(boundary)\r\n".data(using: .utf8),

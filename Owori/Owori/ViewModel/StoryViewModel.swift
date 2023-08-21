@@ -334,7 +334,7 @@ class StoryViewModel: ObservableObject {
         var body = Data()
         
         for (index, image) in images.enumerated() {
-            let imageName = "image\(index + 1).png"
+            let imageName = "image\(index + 1).jpeg"
             
             
             if let boundaryPrefix = "--\(boundary)\r\n".data(using: .utf8),

@@ -85,11 +85,13 @@ struct Family: Codable {
     
     struct Schedule: Codable {
         var id: String?
+        var schedule_id: String?
         var title: String?
-        var start_datd: String?
+        var content: String?
+        var start_date: String?
         var end_date: String?
         var schedule_type: String?
-        var member_nickname: String?
+        var nickname: String?
         var color: String?
         var alarm_option: [String]?
         var dday_option: Bool?
@@ -97,11 +99,13 @@ struct Family: Codable {
         
         init() {
             self.id = ""
+            self.schedule_id = ""
             self.title = ""
-            self.start_datd = ""
+            self.content = ""
+            self.start_date = ""
             self.end_date = ""
             self.schedule_type = ""
-            self.member_nickname = ""
+            self.nickname = ""
             self.color = ""
             self.alarm_option = []
             self.dday_option = true
@@ -109,13 +113,15 @@ struct Family: Codable {
         }
         
         // 기본 init을 이렇게 제공해주는데... 이게 맞는지 위에가 맞는지 모르겠음... 좀 더 확인해보고 모델 init들 통일해야 함.
-        init(id: String? = nil, title: String? = nil, start_datd: String? = nil, end_date: String? = nil, schedule_type: String? = nil, member_nickname: String? = nil, color: String? = nil, alarm_option: [String]? = nil, dday_option: Bool? = nil, dday: String? = nil) {
+        init(id: String? = nil, schedule_id: String? = nil, title: String? = nil, content: String? = nil, start_datd: String? = nil, end_date: String? = nil, schedule_type: String? = nil, nickname: String? = nil, color: String? = nil, alarm_option: [String]? = nil, dday_option: Bool? = nil, dday: String? = nil) {
             self.id = id
+            self.schedule_id = schedule_id
             self.title = title
-            self.start_datd = start_datd
+            self.content = content
+            self.start_date = start_datd
             self.end_date = end_date
             self.schedule_type = schedule_type
-            self.member_nickname = member_nickname
+            self.nickname = nickname
             self.color = color
             self.alarm_option = alarm_option
             self.dday_option = dday_option

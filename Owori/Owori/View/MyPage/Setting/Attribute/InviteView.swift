@@ -11,6 +11,8 @@ import SimpleToast
 struct InviteView: View {
     
     @State var showToast: Bool = false
+    @EnvironmentObject var userViewModel: UserViewModel
+    @EnvironmentObject var familyViewModel: FamilyViewModel
     
     private let toastOptions = SimpleToastOptions(
         hideAfter: 0.8
@@ -36,11 +38,18 @@ struct InviteView: View {
             .padding(EdgeInsets(top: 50, leading: 0, bottom: 0, trailing: 0))
 
     
-            //Image 넣어야함
-            Image("가족초대코드")
-                .frame(width: UIScreen.main.bounds.width, alignment: .center)
-                .padding(EdgeInsets(top: 10, leading: 30, bottom: 0, trailing: 30))
-                .aspectRatio(contentMode: .fit)
+            ZStack {
+                
+                //Image 넣어야함
+                Image("가족초대코드")
+                    .frame(width: UIScreen.main.bounds.width, alignment: .center)
+                    .padding(EdgeInsets(top: 10, leading: 30, bottom: 10, trailing: 30))
+                    .aspectRatio(contentMode: .fit)
+                
+                Text("\(familyViewModel.family.invite_code ?? "TEST")")
+                    .offset(x: -30, y: 30)
+            }
+                
 
             Button {
                 withAnimation {
@@ -87,6 +96,9 @@ struct InviteView: View {
 
             Spacer()
         }
+        .onAppear {
+            familyViewModel.regenInvitecode(user: userViewModel.user)
+        }
 //        .navigationBarBackButtonHidden(true)
         .navigationBarTitleDisplayMode(.inline)
 //        .toolbar {
@@ -100,6 +112,8 @@ struct InviteView: View {
 struct InviteView_Previews: PreviewProvider {
     static var previews: some View {
         InviteView()
+            .environmentObject(UserViewModel())
+            .environmentObject(FamilyViewModel())
     }
 }
 
