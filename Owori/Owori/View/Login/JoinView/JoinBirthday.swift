@@ -27,7 +27,7 @@ struct JoinBirthday: View {
                 Text("생년월일 8자리를 입력해주세요")
                     .font(.title)
                     .bold()
-                    .padding(EdgeInsets(top: 100, leading: 20, bottom: 20, trailing: 20))
+                    .padding(EdgeInsets(top: 80, leading: 20, bottom: 20, trailing: 20))
                 
                 Text("원활한 서비스를 위해 생년월일이 필요해요\n매년 오월이가 생일을 챙겨줄게요!")
                     .foregroundColor(Color.oworiGray500)
@@ -49,6 +49,17 @@ struct JoinBirthday: View {
                 .padding(.leading,20)
                 .padding(.trailing,20)
                 .foregroundColor(.gray)
+                
+                if birthDateText.count < 8 {
+                    Text("숫자 8자리에 맞게 다시 입력해주세요")
+                        .foregroundColor(.red)
+                        .padding(.leading, 20)
+                } else {
+                    Text("올바르게 입력했어요")
+                        .foregroundColor(.blue)
+                        .padding(.leading, 20)
+                }
+                
                 
                 Spacer()
                 

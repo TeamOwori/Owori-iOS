@@ -29,6 +29,9 @@ struct InviteFamily: View {
         hideAfter: 2
     )
     
+    @State private var isShareSheetPresented = false
+        let myURL = URL(string: "https://www.google.com")!
+    
     var body: some View {
         VStack {
             Text("가족그룹을 만들었어요.")
@@ -40,19 +43,6 @@ struct InviteFamily: View {
                 .font(.title)
                 .bold()
                 .padding(EdgeInsets(top: 0, leading: 30, bottom: 0, trailing: 30))
-            
-            ////            계속 오류떠서 주석처리 해버림.
-            //            Button {
-            //                ShareLink(
-            //                    item: URL(string: "https://developer.apple.com/xcode/swiftui/")!,
-            //                    preview: SharePreview(
-            //                        "SwiftUI",
-            //                        image: Image("SwiftUI")
-            //                    )
-            //                )
-            //            } label: {
-            //                Text("초대코드 공유")
-            //            }
             
             //Image 넣어야함
             ZStack {
@@ -67,27 +57,49 @@ struct InviteFamily: View {
             
             Spacer()
             
-            Button {
-                //                withAnimation{
-                //                    showToast.toggle()
-                //                }
-                
-                ShareLink(
-                    item: URL(string: "https://developer.apple.com/xcode/swiftui/")!,
-                    preview: SharePreview(
-                        "SwiftUI",
-                        image: Image("SwiftUI")
-                    )
-                )
-            } label: {
-                Text("초대코드 공유")
-                    .bold()
-                    .foregroundColor(Color.white)
-                    .padding(EdgeInsets(top: 10, leading: 10, bottom: 10, trailing: 10))
-                    .frame(width: UIScreen.main.bounds.width * 0.4 , height: UIScreen.main.bounds.height * 0.07)
-                    .background(Color.blue)
-                    .cornerRadius(8)
-            }
+//            Button {
+//                //                withAnimation{
+//                //                    showToast.toggle()
+//                //                }
+//
+//                ShareLink(item: myURL,
+//                          subject: Text("Subject"),
+//                          message:Text("링크첨부"),
+//                          preview: SharePreview(Text("오월이가 공유하고 싶은 것"),
+//                            image: Image("오월이")))
+//
+//            } label: {
+//                Text("초대코드 공유")
+//                    .bold()
+//                    .foregroundColor(Color.white)
+//                    .padding(EdgeInsets(top: 10, leading: 10, bottom: 10, trailing: 10))
+//                    .frame(width: UIScreen.main.bounds.width * 0.4 , height: UIScreen.main.bounds.height * 0.07)
+//                    .background(Color.blue)
+//                    .cornerRadius(8)
+//            }
+            
+            Button(action: {
+                            isShareSheetPresented.toggle()
+                        }) {
+                            Text("초대코드 공유")
+                                .bold()
+                                .foregroundColor(Color.white)
+                                .padding(EdgeInsets(top: 10, leading: 10, bottom: 10, trailing: 10))
+                                .frame(width: UIScreen.main.bounds.width * 0.4 , height: UIScreen.main.bounds.height * 0.07)
+                                .background(Color.blue)
+                                .cornerRadius(8)
+                        }
+                        .sheet(isPresented: $isShareSheetPresented) {
+                            ShareLink(
+                                item: myURL,
+                                subject: Text("Subject"),
+                                message: Text("링크첨부"),
+                                preview: SharePreview(
+                                    Text("오월이가 공유하고 싶은 것"),
+                                    image: Image("오월이")
+                                )
+                            )
+                        }
             //            .simpleToast(isPresented: $showToast, options: toastOptions) {
             //                Text("초대코드가 복사되었어요")
             //                    .font(

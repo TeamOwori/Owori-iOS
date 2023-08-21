@@ -34,7 +34,7 @@ struct JoinNickname: View {
                 Text("오월이에서 사용할\n닉네임을 입력해주세요.")
                     .font(.title)
                     .bold()
-                    .padding(EdgeInsets(top: 100, leading: 20, bottom: 20, trailing: 0))
+                    .padding(EdgeInsets(top: 80, leading: 20, bottom: 20, trailing: 0))
                 
                 Text("닉네임")
                     .foregroundColor(Color.oworiGray500)
@@ -54,6 +54,12 @@ struct JoinNickname: View {
                 .padding(.leading,20)
                 .padding(.trailing,20)
                 .foregroundColor(.gray)
+                
+                if nickname.isEmpty {
+                    Text("1자 이상 입력해주세요")
+                        .foregroundColor(.red)
+                        .padding(.leading, 20)
+                }
                 
                 Spacer()
                 

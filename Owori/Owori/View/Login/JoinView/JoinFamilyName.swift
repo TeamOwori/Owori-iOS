@@ -29,7 +29,7 @@ struct JoinFamilyName: View {
                 Text("우리 가족\n그룹명을 정해주세요.")
                     .font(.title)
                     .bold()
-                    .padding(EdgeInsets(top: 100, leading: 20, bottom: 20, trailing: 0))
+                    .padding(EdgeInsets(top: 80, leading: 20, bottom: 20, trailing: 0))
                 
                 Text("가족 그룹명")
                     .foregroundColor(Color.oworiGray500)
@@ -49,6 +49,12 @@ struct JoinFamilyName: View {
                 .padding(.leading,20)
                 .padding(.trailing,20)
                 .foregroundColor(.gray)
+                
+                if familyName.isEmpty {
+                    Text("1자 이상 입력해주세요")
+                        .foregroundColor(.red)
+                        .padding(.leading, 20)
+                }
                 
                 Spacer()
                 
