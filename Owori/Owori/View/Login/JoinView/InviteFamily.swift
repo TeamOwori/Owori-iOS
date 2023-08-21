@@ -24,6 +24,7 @@ struct InviteFamily: View {
     
     @State var showToast: Bool = false
     @State private var isSuccessSignUp: Bool = false
+    @State private var oworiInstagramURL: String = "https://www.instagram.com/owori_official/"
     
     private let toastOptions = SimpleToastOptions(
         hideAfter: 2
@@ -78,28 +79,37 @@ struct InviteFamily: View {
 //                    .cornerRadius(8)
 //            }
             
-            Button(action: {
-                            isShareSheetPresented.toggle()
-                        }) {
-                            Text("초대코드 공유")
-                                .bold()
-                                .foregroundColor(Color.white)
-                                .padding(EdgeInsets(top: 10, leading: 10, bottom: 10, trailing: 10))
-                                .frame(width: UIScreen.main.bounds.width * 0.4 , height: UIScreen.main.bounds.height * 0.07)
-                                .background(Color.blue)
-                                .cornerRadius(8)
-                        }
-                        .sheet(isPresented: $isShareSheetPresented) {
-                            ShareLink(
-                                item: myURL,
-                                subject: Text("Subject"),
-                                message: Text("링크첨부"),
-                                preview: SharePreview(
-                                    Text("오월이가 공유하고 싶은 것"),
-                                    image: Image("오월이")
-                                )
-                            )
-                        }
+            Button{
+//                isShareSheetPresented.toggle()
+            } label: {
+                ShareLink(
+                    item: /*URL(string: oworiInstagramURL)!*/"",
+                    subject: Text(""),
+                    message: Text("\(oworiInstagramURL)\n\n<오월이 가족 초대코드>\n초대코드 : \(familyViewModel.family.invite_code ?? "errer")"),
+                    preview: SharePreview(
+                        Text("오월이 가족 초대코드"),
+                        image: Image("오월이")
+                    )
+                ) {
+                    Label("초대코드 공유", systemImage: "")
+                        .font(.title2)
+                        .bold()
+                        .foregroundColor(Color.white)
+                        .frame(width: UIScreen.main.bounds.width * 0.4, height: UIScreen.main.bounds.height * 0.05)
+                        .padding(EdgeInsets(top: 10, leading: 10, bottom: 10, trailing: 10))
+                        .background(Color.blue)
+                        .cornerRadius(10)
+                }
+                
+//                Text("초대코드 공유")
+//                    .bold()
+//                    .foregroundColor(Color.white)
+//                    .padding(EdgeInsets(top: 10, leading: 10, bottom: 10, trailing: 10))
+//                    .frame(width: UIScreen.main.bounds.width * 0.4 , height: UIScreen.main.bounds.height * 0.07)
+//                    .background(Color.blue)
+//                    .cornerRadius(8)
+            }
+            
             //            .simpleToast(isPresented: $showToast, options: toastOptions) {
             //                Text("초대코드가 복사되었어요")
             //                    .font(
@@ -176,6 +186,17 @@ struct InviteFamily: View {
                 .background(Color.oworiOrange)
             }
         }
+//        .sheet(isPresented: $isShareSheetPresented) {
+//            ShareLink(
+//                item: myURL,
+//                subject: Text("Subject"),
+//                message: Text("링크첨부"),
+//                preview: SharePreview(
+//                    Text("오월이가 공유하고 싶은 것"),
+//                    image: Image("오월이")
+//                )
+//            )
+//        }
         .navigationDestination(isPresented: $isSuccessSignUp) {
             MainView(isLoggedIn: $isLoggedIn)
         }

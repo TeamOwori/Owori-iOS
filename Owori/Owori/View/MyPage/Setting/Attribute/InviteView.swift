@@ -11,6 +11,7 @@ import SimpleToast
 struct InviteView: View {
     
     @State var showToast: Bool = false
+    @State private var oworiInstagramURL: String = "https://www.instagram.com/owori_official/"
     @EnvironmentObject var userViewModel: UserViewModel
     @EnvironmentObject var familyViewModel: FamilyViewModel
     
@@ -52,34 +53,74 @@ struct InviteView: View {
                 
 
             Button {
-                withAnimation {
-                    showToast.toggle()
-                }
+//                isShareSheetPresented.toggle()
             } label: {
-                Text("초대코드 공유")
-                    .font(.title2)
-                    .bold()
-                    .foregroundColor(Color.white)
-                    .frame(width: UIScreen.main.bounds.width * 0.4, height: UIScreen.main.bounds.height * 0.05)
-                    .padding(EdgeInsets(top: 10, leading: 10, bottom: 10, trailing: 10))
-                    .background(Color.blue)
-                    .cornerRadius(10)
-            }.padding(.top,-50)
-            .simpleToast(isPresented: $showToast, options: toastOptions) {
-                Text("초대코드가 복사되었어요")
-                    .font(
-                    Font.custom("Pretendard", size: 12)
-                    .weight(.medium)
+                ShareLink(
+                    item: /*URL(string: oworiInstagramURL)!*/"",
+                    subject: Text(""),
+                    message: Text("\(oworiInstagramURL)\n\n<오월이 가족 초대코드>\n초대코드 : \(familyViewModel.family.invite_code ?? "errer")"),
+                    preview: SharePreview(
+                        Text("오월이 가족 초대코드"),
+                        image: Image("오월이")
                     )
-                    .kerning(0.12)
-                    .multilineTextAlignment(.center)
-                    .padding(EdgeInsets(top: 6, leading: 11, bottom: 6, trailing: 11))
-                .background(.black.opacity(0.78))
-                .foregroundColor(Color.white)
-                .cornerRadius(8)
-                .offset(y: UIScreen.main.bounds.height * 0.245)
-                
+                ) {
+                    Label("초대코드 공유", systemImage: "")
+                        .font(.title2)
+                        .bold()
+                        .foregroundColor(Color.white)
+                        .frame(width: UIScreen.main.bounds.width * 0.4, height: UIScreen.main.bounds.height * 0.05)
+                        .padding(EdgeInsets(top: 10, leading: 10, bottom: 10, trailing: 10))
+                        .background(Color.blue)
+                        .cornerRadius(10)
+                }
             }
+//            .padding(.top,-50)
+//            .simpleToast(isPresented: $showToast, options: toastOptions) {
+//                Text("초대코드가 복사되었어요")
+//                    .font(
+//                    Font.custom("Pretendard", size: 12)
+//                    .weight(.medium)
+//                    )
+//                    .kerning(0.12)
+//                    .multilineTextAlignment(.center)
+//                    .padding(EdgeInsets(top: 6, leading: 11, bottom: 6, trailing: 11))
+//                .background(.black.opacity(0.78))
+//                .foregroundColor(Color.white)
+//                .cornerRadius(8)
+//                .offset(y: UIScreen.main.bounds.height * 0.245)
+//
+//            }
+                
+//            Button {
+//                withAnimation {
+//                    showToast.toggle()
+//                }
+//            } label: {
+//                Text("초대코드 공유")
+//                    .font(.title2)
+//                    .bold()
+//                    .foregroundColor(Color.white)
+//                    .frame(width: UIScreen.main.bounds.width * 0.4, height: UIScreen.main.bounds.height * 0.05)
+//                    .padding(EdgeInsets(top: 10, leading: 10, bottom: 10, trailing: 10))
+//                    .background(Color.blue)
+//                    .cornerRadius(10)
+//            }
+//            .padding(.top,-50)
+//            .simpleToast(isPresented: $showToast, options: toastOptions) {
+//                Text("초대코드가 복사되었어요")
+//                    .font(
+//                    Font.custom("Pretendard", size: 12)
+//                    .weight(.medium)
+//                    )
+//                    .kerning(0.12)
+//                    .multilineTextAlignment(.center)
+//                    .padding(EdgeInsets(top: 6, leading: 11, bottom: 6, trailing: 11))
+//                .background(.black.opacity(0.78))
+//                .foregroundColor(Color.white)
+//                .cornerRadius(8)
+//                .offset(y: UIScreen.main.bounds.height * 0.245)
+//
+//            }
            
            
             Spacer()
