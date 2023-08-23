@@ -158,7 +158,7 @@ struct TermsOfUse: View {
                 
             }
             .onAppear {
-                currentIndex = 3
+                currentIndex = 2
             }
         }
     }

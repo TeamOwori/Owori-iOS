@@ -16,7 +16,7 @@ struct JoinNickname: View {
     @State private var nickname: String = ""
     
     // Second
-    @State private var birthDateText: String = ""
+    @State private var birthDateText: String = "11111111"
     
     // Third
     @State private var familyName: String = ""
@@ -87,8 +87,11 @@ struct JoinNickname: View {
             self.endTextEditing()
         }
         .navigationBarTitleDisplayMode(.inline)
+//        .navigationDestination(isPresented: $isSecondViewActive) {
+//            JoinBirthday(isLoggedIn: $isLoggedIn, currentIndex: $currentIndex, nickname: $nickname, birthDateText: $birthDateText, familyName: $familyName, inviteCode: $inviteCode)
+//        }
         .navigationDestination(isPresented: $isSecondViewActive) {
-            JoinBirthday(isLoggedIn: $isLoggedIn, currentIndex: $currentIndex, nickname: $nickname, birthDateText: $birthDateText, familyName: $familyName, inviteCode: $inviteCode)
+            TermsOfUse(isLoggedIn: $isLoggedIn, currentIndex: $currentIndex, nickname: $nickname, birthDateText: $birthDateText, familyName: $familyName, inviteCode: $inviteCode)
         }
     }
 }

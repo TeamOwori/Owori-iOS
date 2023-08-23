@@ -47,7 +47,7 @@ struct InviteView: View {
                     .padding(EdgeInsets(top: 10, leading: 30, bottom: 10, trailing: 30))
                     .aspectRatio(contentMode: .fit)
                 
-                Text("\(familyViewModel.family.invite_code ?? "error")")
+                Text("\(familyViewModel.family.invite_code ?? "서버 에러입니다.\n나중에 다시 시도해주세요.")")
                     .offset(x: -30, y: 30)
             }
                 

@@ -44,19 +44,19 @@ struct MyPageProfileInfo: View {
             }
             
             
-            HStack(alignment: .center, spacing: 20) {
-                Text("생년월일\t")
-                    .font(Font.custom("Pretendard", size: 14)
-                        .weight(.medium)
-                    )
-                    .foregroundColor(Color.oworiGray500)
-                
-                Text("\(userViewModel.user.member_profile?.birthday ?? "생일이 설정되지 않았습니다")")
-                    .font(Font.custom("Pretendard", size: 16)
-                        .bold())
-                    .foregroundColor(Color.oworiGray700)
-                
-            }
+//            HStack(alignment: .center, spacing: 20) {
+//                Text("생년월일\t")
+//                    .font(Font.custom("Pretendard", size: 14)
+//                        .weight(.medium)
+//                    )
+//                    .foregroundColor(Color.oworiGray500)
+//                
+//                Text("\(userViewModel.user.member_profile?.birthday ?? "생일이 설정되지 않았습니다")")
+//                    .font(Font.custom("Pretendard", size: 16)
+//                        .bold())
+//                    .foregroundColor(Color.oworiGray700)
+//                
+//            }
             
             
             HStack(alignment: .center, spacing: 16) {

@@ -160,7 +160,7 @@ struct InviteFamily: View {
         .navigationBarTitleDisplayMode(.inline)
         .navigationBarBackButtonHidden(true)
         .onAppear {
-            currentIndex = 5
+            currentIndex = 4
         }
     }
 }

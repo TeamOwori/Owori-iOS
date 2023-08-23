@@ -61,7 +61,7 @@ struct JoinFamilyName: View {
                 
                 Button {
                     if !familyName.isEmpty {
-                        userViewModel.initUser(userInfo: ["nickname" : "\(nickname)", "birthday" : "\(birthDateText)"]) { success in
+                        userViewModel.initUser(userInfo: ["nickname" : "\(nickname)", "birthday" : "11111111"]) { success in
                             isUserInitFail = !success
                             print("isUserInitFail : \(isUserInitFail)")
                             if success {
@@ -101,7 +101,7 @@ struct JoinFamilyName: View {
                 
             }
             .onAppear {
-                currentIndex = 5
+                currentIndex = 4
             }
         }
         .onTapGesture {

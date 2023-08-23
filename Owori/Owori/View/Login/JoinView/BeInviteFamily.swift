@@ -74,7 +74,7 @@ struct BeInviteFamily: View {
                 
                 HStack(alignment: .center) {
                     Button {
-                        userViewModel.initUser(userInfo: ["nickname" : "\(nickname)", "birthday" : "\(birthDateText)"]) { success in
+                        userViewModel.initUser(userInfo: ["nickname" : "\(nickname)", "birthday" : "11111111"]) { success in
                             isUserInitFail = !success
                             if success {
                                 familyViewModel.addFamilyMemberInviteCode(user: userViewModel.user, invite_code: inviteCode) { addFamilyMemberInviteCodeSuccess in
@@ -147,7 +147,7 @@ struct BeInviteFamily: View {
         //            BackToFamilyLinkViewButton(isCreateCodeViewVisible: $isCreateCodeViewVisible, isReceiveCodeViewVisible: $isReceiveCodeViewVisible)
         //        }
         .onAppear {
-            currentIndex = 5
+            currentIndex = 4
         }
     }
 }

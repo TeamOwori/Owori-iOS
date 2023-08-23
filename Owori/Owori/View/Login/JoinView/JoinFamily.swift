@@ -89,7 +89,7 @@ struct JoinFamily: View {
                 
             }
             .onAppear {
-                currentIndex = 4
+                currentIndex = 3
             }
         }
         .navigationDestination(isPresented: $isJoinFamilyNameActive) {

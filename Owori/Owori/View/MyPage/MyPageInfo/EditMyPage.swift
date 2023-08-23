@@ -110,26 +110,26 @@ struct EditMyPage: View {
                         
                     }
                     
-                    //MARK: 생년월일
-                    HStack(alignment: .center, spacing: 20) {
-                        
-                        HStack {
-                            Text("생년월일")
-                            
-                            TextField("\(userViewModel.user.member_profile?.birthday ?? "")", text: $birthday)
-                                .onChange(of: birthday) { newText in
-                                    if newText.count > 8 {
-                                        birthday = String(newText.prefix(8))
-                                    }
-                                }
-                            
-                        }
-                        .overlay(Rectangle().frame(height: 1).padding(.top, 30))
-                        .padding(.leading,20)
-                        .padding(.trailing,20)
-                        .foregroundColor(.gray)
-                        
-                    }
+//                    //MARK: 생년월일
+//                    HStack(alignment: .center, spacing: 20) {
+//
+//                        HStack {
+//                            Text("생년월일")
+//
+//                            TextField("\(userViewModel.user.member_profile?.birthday ?? "")", text: $birthday)
+//                                .onChange(of: birthday) { newText in
+//                                    if newText.count > 8 {
+//                                        birthday = String(newText.prefix(8))
+//                                    }
+//                                }
+//
+//                        }
+//                        .overlay(Rectangle().frame(height: 1).padding(.top, 30))
+//                        .padding(.leading,20)
+//                        .padding(.trailing,20)
+//                        .foregroundColor(.gray)
+//
+//                    }
                     
                     //MARK: 마이컬러
                     HStack(alignment: .center, spacing: 20) {
@@ -204,7 +204,7 @@ struct EditMyPage: View {
             selectedColor = userViewModel.user.member_profile?.color ?? "None"
             print(selectedColor)
             nickname = userViewModel.user.member_profile?.nickname ?? "Nickname"
-            birthday = userViewModel.user.member_profile?.birthday ?? "00000000"
+//            birthday = userViewModel.user.member_profile?.birthday ?? "00000000"
         }
         .onTapGesture {
             self.endTextEditing()
@@ -246,7 +246,7 @@ struct EditMyPage: View {
                     if selectedImage == nil {
                         userViewModel.updateProfile(userInfo: [
                             "nickname": "\(nickname)",
-                            "birthday": "\(birthday)",
+                            "birthday": "11111111",
                             "color": "\(selectedColor)"]) { success in
                                 if success {
                                     isUpdateProfileFail = !success
@@ -263,7 +263,7 @@ struct EditMyPage: View {
                     } else {
                         userViewModel.updateProfile(userInfo: [
                             "nickname": "\(nickname)",
-                            "birthday": "\(birthday)",
+                            "birthday": "11111111",
                             "color": "\(selectedColor)"]) { success in
                                 if success {
                                     userViewModel.uploadProfileImages(image: selectedImage!) { uploadedProfileImageUrl in
