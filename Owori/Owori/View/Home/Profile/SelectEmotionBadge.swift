@@ -24,7 +24,7 @@ struct SelectEmotionBadge: View {
         GridItem(.flexible()),
     ]
     
-    @State private var emotionalBadge: String = ""
+    @State private var emotionalBadge: String = "NONE"
     
     var body: some View {
         
@@ -54,7 +54,7 @@ struct SelectEmotionBadge: View {
                             if emotionalBadge == imageName {
                                 // 이미 이미지를 선택한 경우
                                 isEmotion = false
-                                emotionalBadge = ""
+                                emotionalBadge = "NONE"
                             } else {
                                 // 이미지를 선택 시
                                 isEmotion = true
