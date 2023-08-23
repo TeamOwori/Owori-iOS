@@ -103,6 +103,7 @@
 		F37CDD0F2A86578D0002FFFE /* AppleLoginButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37CDD0E2A86578D0002FFFE /* AppleLoginButton.swift */; };
 		F37E88C32A93D98400D760A1 /* YPImagePicker in Frameworks */ = {isa = PBXBuildFile; productRef = F37E88C22A93D98400D760A1 /* YPImagePicker */; };
 		F37E88C52A93D9E000D760A1 /* YPImagePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37E88C42A93D9E000D760A1 /* YPImagePickerView.swift */; };
+		F385C7B12A963FB000D5A75A /* DDayCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F385C7B02A963FB000D5A75A /* DDayCardView.swift */; };
 		F38C12932A83920500DDAAA8 /* ZoomDetailImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38C12922A83920500DDAAA8 /* ZoomDetailImageCell.swift */; };
 		F39B28492A8C02E3000D26C7 /* TestBackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F39B28482A8C02E3000D26C7 /* TestBackButton.swift */; };
 		F39EF2822A6B93E5005FD6DB /* JoinNickname.swift in Sources */ = {isa = PBXBuildFile; fileRef = F39EF2812A6B93E5005FD6DB /* JoinNickname.swift */; };
@@ -247,6 +248,7 @@
 		F3799FC02A8E348C000F8C46 /* ImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
 		F37CDD0E2A86578D0002FFFE /* AppleLoginButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleLoginButton.swift; sourceTree = "<group>"; };
 		F37E88C42A93D9E000D760A1 /* YPImagePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YPImagePickerView.swift; sourceTree = "<group>"; };
+		F385C7B02A963FB000D5A75A /* DDayCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DDayCardView.swift; sourceTree = "<group>"; };
 		F38C12922A83920500DDAAA8 /* ZoomDetailImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoomDetailImageCell.swift; sourceTree = "<group>"; };
 		F39B28482A8C02E3000D26C7 /* TestBackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestBackButton.swift; sourceTree = "<group>"; };
 		F39EF2812A6B93E5005FD6DB /* JoinNickname.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinNickname.swift; sourceTree = "<group>"; };
@@ -514,6 +516,7 @@
 				F3430F4A2A67043200DC1B1C /* DDayView.swift */,
 				886F8DF92A6C578B00D60BCC /* DDayInitialCard.swift */,
 				35B3CD592A7D5CCF00127259 /* WriteDDay.swift */,
+				F385C7B02A963FB000D5A75A /* DDayCardView.swift */,
 			);
 			path = DDay;
 			sourceTree = "<group>";
@@ -940,6 +943,7 @@
 				F36508532A81278400A14217 /* StoryRecordView.swift in Sources */,
 				F3430FB52A67043200DC1B1C /* Color+Extension.swift in Sources */,
 				356A54622A8565A0006E22C8 /* DaysEvents.swift in Sources */,
+				F385C7B12A963FB000D5A75A /* DDayCardView.swift in Sources */,
 				F37CDD0F2A86578D0002FFFE /* AppleLoginButton.swift in Sources */,
 				F3C1BE6D2A710820002ADB3B /* StoryViewHeader.swift in Sources */,
 				F36A82952A71921A00C6A90C /* BackToFamilyLinkViewButton.swift in Sources */,
