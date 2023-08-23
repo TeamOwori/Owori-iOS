@@ -39,6 +39,8 @@ extension Color {
             return Color.oworiPurple
         case "ORANGE":
             return Color.oworiOrange
+        case "BLACK":
+            return Color.black
         default:
             return .clear
         }

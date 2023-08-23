@@ -22,6 +22,8 @@ struct WriteDDay: View {
     //고삼이 탭
     @State private var checkForSecondTab = false
     
+    @State private var scheduleType: String = ""
+    
     @State private var title: String = ""
     
     @State private var content: String = ""
@@ -38,52 +40,102 @@ struct WriteDDay: View {
     //AlarmToggle
     @State private var AlarmToggle = true
     
+    @State private var scheduleId: String = ""
+    
+    var scheduleInfo: Family.Schedule = Family.Schedule()
+    
     var body: some View {
         VStack {
             
             //MARK: 가족 탭 선택
             HStack{
                 
-                //가족
-                Button{
-                    checkForFirstTab = true
-                    checkForSecondTab = false
+                if scheduleId == "" {
+                    //가족
+                    Button{
+                        checkForFirstTab = true
+                        checkForSecondTab = false
+                        
+                    } label: {
+                        Text("가족")
+                            .font(.title3)
+                            .foregroundColor(checkForFirstTab ? Color.white : Color.oworiGray300)
+                            .frame(width: 80,height: 30)
+                    }
+                    .background {
+                        if checkForFirstTab {
+                            Color.oworiOrange
+                        } else {
+                            Color.oworiGray100
+                        }
+                    }
+                    .cornerRadius(12)
                     
-                } label: {
-                    Text("가족")
-                        .font(.title3)
-                        .foregroundColor(checkForFirstTab ? Color.white : Color.oworiGray300)
-                        .frame(width: 80,height: 30)
-                }
-                .background {
-                    if checkForFirstTab {
-                        Color.oworiOrange
-                    } else {
-                        Color.oworiGray100
+                    //자신
+                    Button{
+                        checkForFirstTab = false
+                        checkForSecondTab = true
+                        
+                    } label: {
+                        Text("\(userViewModel.user.member_profile?.nickname ?? "error")")
+                            .font(.title3)
+                            .foregroundColor(checkForSecondTab ? Color.white : Color.oworiGray300)
+                            .frame(width: 80,height: 30)
+                        
+                    }
+                    .background {
+                        if checkForSecondTab {
+                            Color.colorFromString(userViewModel.user.member_profile?.color ?? "None")
+                        } else {
+                            Color.oworiGray100
+                        }
+                    }
+                    .cornerRadius(12)
+                } else {
+                    if scheduleType == "FAMILY" {
+                        //가족
+                        Button{
+                            checkForFirstTab = true
+                            checkForSecondTab = false
+                            
+                        } label: {
+                            Text("가족")
+                                .font(.title3)
+                                .foregroundColor(checkForFirstTab ? Color.white : Color.oworiGray300)
+                                .frame(width: 80,height: 30)
+                        }
+                        .background {
+                            if checkForFirstTab {
+                                Color.oworiOrange
+                            } else {
+                                Color.oworiGray100
+                            }
+                        }
+                        .cornerRadius(12)
+                    } else if scheduleType == "INDIVIDUAL" {
+                        //자신
+                        Button{
+                            checkForFirstTab = false
+                            checkForSecondTab = true
+                            
+                        } label: {
+                            Text("\(userViewModel.user.member_profile?.nickname ?? "error")")
+                                .font(.title3)
+                                .foregroundColor(checkForSecondTab ? Color.white : Color.oworiGray300)
+                                .frame(width: 80,height: 30)
+                            
+                        }
+                        .background {
+                            if checkForSecondTab {
+                                Color.colorFromString(userViewModel.user.member_profile?.color ?? "None")
+                            } else {
+                                Color.oworiGray100
+                            }
+                        }
+                        .cornerRadius(12)
                     }
                 }
-                .cornerRadius(12)
-                
-                //가족
-                Button{
-                    checkForFirstTab = false
-                    checkForSecondTab = true
-                    
-                } label: {
-                    Text("\(userViewModel.user.member_profile?.nickname ?? "error")")
-                        .font(.title3)
-                        .foregroundColor(checkForSecondTab ? Color.white : Color.oworiGray300)
-                        .frame(width: 80,height: 30)
-                    
-                }
-                .background {
-                    if checkForSecondTab {
-                        Color.oworiOrange
-                    } else {
-                        Color.oworiGray100
-                    }
-                }
-                .cornerRadius(12)
+               
                 
 //                // 버튼 기능
 //                Button {
@@ -200,6 +252,29 @@ struct WriteDDay: View {
             )
             Spacer()
         }
+        .onAppear {
+            print("스케쥴 인포 : \(scheduleInfo)")
+            print("스케쥴 아이디 : \(scheduleId)")
+            scheduleId = (scheduleInfo.schedule_id)!
+            scheduleType = (scheduleInfo.schedule_type)!
+            title = (scheduleInfo.title)!
+            content = (scheduleInfo.content)!
+            startDate = scheduleInfo.start_date == "" ? Date() : (scheduleInfo.start_date?.toDate(dateFormat: "yyyyMMdd"))!
+            endDate = scheduleInfo.end_date == "" ? Date() : (scheduleInfo.end_date?.toDate(dateFormat: "yyyyMMdd"))!
+            if scheduleType == "INDIVIDUAL" {
+                checkForFirstTab = false
+                checkForSecondTab = true
+            } else if scheduleType == "FANILY" {
+                checkForFirstTab = true
+                checkForSecondTab = false
+            }
+            
+            print("스케쥴 인포 : \(scheduleInfo)")
+            print("스케쥴 아이디 : \(scheduleId)")
+
+            
+            
+        }
         .onTapGesture {
             self.endTextEditing()
         }
@@ -217,20 +292,40 @@ struct WriteDDay: View {
             }
             ToolbarItem(placement: .navigationBarTrailing) {
                 Button {
-                    //View가 업데이트 된 상황에서 홈으로 복귀
-                    familyViewModel.createSchedule(user: userViewModel.user, schduleInfo: ["start_date": "\(startDate.formatDateToString(format: "yyyyMMdd"))",
-                                                                                           "end_date": "\(endDate.formatDateToString(format: "yyyyMMdd"))",
-                                                                                           "title": "\(title)",
-                                                                                           "content": "\(content)",
-                                                                                           // image 임시 데이터 추가 해야함.
-                                                                                           "schedule_type": "\(checkForFirstTab ? "FAMILY" : "INDIVIDUAL")",
-                                                                                           "dday_option": true,
-                                                                                           "alarm_options": []]) { scheduleId in
-                        familyViewModel.lookUpHomeView(user: userViewModel.user) {
-                            self.presentationMode.wrappedValue.dismiss()
+                    if scheduleInfo.schedule_id == "" {
+                        //View가 업데이트 된 상황에서 홈으로 복귀
+                        familyViewModel.createSchedule(user: userViewModel.user, schduleInfo: ["start_date": "\(startDate.formatDateToString(format: "yyyyMMdd"))",
+                                                                                               "end_date": "\(endDate.formatDateToString(format: "yyyyMMdd"))",
+                                                                                               "title": "\(title)",
+                                                                                               "content": "\(content)",
+                                                                                               // image 임시 데이터 추가 해야함.
+                                                                                               "schedule_type": "\(checkForFirstTab ? "FAMILY" : "INDIVIDUAL")",
+                                                                                               "dday_option": true,
+                                                                                               "alarm_options": []]) { scheduleId in
+                            familyViewModel.lookUpHomeView(user: userViewModel.user) {
+                                self.presentationMode.wrappedValue.dismiss()
+                            }
+                            
                         }
-                        
+                    } else {
+                        //View가 업데이트 된 상황에서 홈으로 복귀
+                        print("업데이트 시 스케쥴 아이디 : \(scheduleId)")
+                        familyViewModel.updateSchedule(user: userViewModel.user, schduleInfo: ["schedule_id": scheduleId ,
+                                                                                               "start_date": "\(startDate.formatDateToString(format: "yyyyMMdd"))",
+                                                                                               "end_date": "\(endDate.formatDateToString(format: "yyyyMMdd"))",
+                                                                                               "title": "\(title)",
+                                                                                               "content": "\(content)",
+                                                                                               // image 임시 데이터 추가 해야함.
+//                                                                                               "schedule_type": "\(checkForFirstTab ? "FAMILY" : "INDIVIDUAL")",
+                                                                                               "dday_option": true,
+                                                                                               "alarm_options": []]) { scheduleId in
+                            familyViewModel.lookUpHomeView(user: userViewModel.user) {
+                                self.presentationMode.wrappedValue.dismiss()
+                            }
+                            
+                        }
                     }
+                    
                 } label: {
                     Image("Check")
                         .frame(width: 30, height: 30)
@@ -242,6 +337,6 @@ struct WriteDDay: View {
 
 struct WriteDDay_Previews: PreviewProvider {
     static var previews: some View {
-        WriteDDay()
+        WriteDDay(scheduleInfo: Family.Schedule())
     }
 }

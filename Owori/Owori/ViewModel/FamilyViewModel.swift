@@ -19,6 +19,7 @@ fileprivate enum OworiAPI {
         case familiesCode = "/api/v1/families/code"
         case familiesImages = "/api/v1/families/images"
         case schedule = "/api/v1/schedule"
+        case scheduleUpdate = "/api/v1/schedule/update"
     }
 }
 
@@ -415,6 +416,92 @@ class FamilyViewModel: ObservableObject {
             }
         }.resume()
     }
+    
+    func updateSchedule(user: User, schduleInfo: [String: Any], completion: @escaping (String) -> Void) {
+        var scheduleId: String = ""
+        guard let sendData = try? JSONSerialization.data(withJSONObject: schduleInfo, options: []) else { return }
+        
+        // 요청을 보낼 API의 url 설정
+        // 배포 후 url 설정
+        var urlComponents = URLComponents()
+        urlComponents.scheme = OworiAPI.scheme
+        urlComponents.host = OworiAPI.host
+        urlComponents.path = OworiAPI.Path.scheduleUpdate.rawValue
+        guard let url = urlComponents.url else {
+            print("Error: cannot create URL")
+            return
+        }
+        
+        // 배포 이전 고정 url 설정 (추후 삭제 예정)
+        //        let url = URL(string: "http://localhost:8080/api/v1/stories/update\(storyId)")!
+        
+        // url 테스트 log
+        print("[updateSchedule url Log] : \(url)")
+        
+        // urlRequeset에 함께 담을 header, body 설정
+        var urlRequest = URLRequest(url: url)
+        urlRequest.httpMethod = "POST"
+        urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        urlRequest.setValue("Bearer " + (user.jwt_token?.access_token)!, forHTTPHeaderField: "Authorization")
+        urlRequest.setValue(user.member_id, forHTTPHeaderField: "member_id")
+        urlRequest.httpBody = sendData
+        
+        // 요청
+        URLSession.shared.dataTask(with: urlRequest) { (data, response, error) in
+            guard error == nil else {
+                print("Error: error calling GET")
+                print(error!)
+                return
+            }
+            guard let data = data else {
+                print("Error: Did not receive data")
+                return
+            }
+            guard let jsonDictionary = try? JSONSerialization.jsonObject(with: Data(data), options: []) as? [String: Any] else {
+                print("Error: convert failed json to dictionary")
+                return
+            }
+            
+            
+            print(jsonDictionary)
+            print(data)
+            print(response)
+            
+            guard let response = response as? HTTPURLResponse, (200 ..< 300) ~= response.statusCode else {
+                print("Error: HTTP request failed")
+                return
+            }
+            
+            // Story를 @Published로 선언했기 때문에 background thread에서 main thread로 업데이트를 전달해야 한다.
+            // 그래서 DispatchQueue.main.async 사용.
+            DispatchQueue.main.async { [weak self] in
+                // JSON 데이터를 파싱하여 User 구조체에 할당
+                do {
+                    let decoder = JSONDecoder()
+                    //                    self?.storyModel.stories.append(try decoder.decode(Story.StoryInfo.self, from: data))
+                    guard let jsonDictionary = try? JSONSerialization.jsonObject(with: Data(data), options: []) as? [String: Any] else {
+                        print("Error: convert failed json to dictionary")
+                        return
+                    }
+                    print("[createSchedule] jsonDictionary story_id : \(jsonDictionary)")
+                    
+//                    self?.family.dday_schedules.append(jsonDictionary[]) = try decoder.decode(Family.self, from: data)
+                    
+                    // User 구조체에 할당된 데이터 사용 (테스트 log)
+//                    print("Family: \(String(describing: self?.family))")
+                    
+                    
+                    
+                    completion(scheduleId)
+                    
+                } catch {
+                    print("[updateStory] Error: Failed to parse JSON data - \(error)")
+                }
+            }
+        }.resume()
+    }
+    
+    
     
     
     // MARK: DELETE
