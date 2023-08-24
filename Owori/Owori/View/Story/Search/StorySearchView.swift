@@ -8,9 +8,13 @@
 import SwiftUI
 
 struct StorySearchView: View {
+    @EnvironmentObject var userViewModel: UserViewModel
+    @EnvironmentObject var storyViewModel: StoryViewModel
+    
     @State private var searchText: String = ""
     @State private var isExistRecentSearchList: Bool = false
     @State private var isExistSearchResult: Bool = false
+    @State private var searchList: [Story.StoryInfo] = []
     
     var body: some View {
         VStack {
@@ -43,7 +47,21 @@ struct StorySearchView: View {
                 }
             } else {
                 if isExistSearchResult {
-                    RecentSearchList()
+                    VStack {
+                        ForEach($searchList, id: \.self) { $storyInfo in
+                            //                    RecentSearchList()
+                            NavigationLink {
+                                // 임시 변수 삽입 -> 나중에 고치기
+                                StoryDetailView(storyInfo: $storyInfo, stories: $searchList, storiesForCollection: .constant([:]), storyDetailViewIsActive: .constant(true), storyDetailViewIsActiveFromStoryAlbum: .constant(false))
+                            } label: {
+                                DailyStoryListCell(storyInfo: $storyInfo)
+                            }
+                            .foregroundColor(Color.black)
+                        }
+                        Spacer()
+                    }
+                    
+                    
                 } else {
                     VStack {
                         Spacer()
@@ -77,9 +95,23 @@ struct StorySearchView: View {
         .toolbar {
             ToolbarItem(placement: .principal) {
                 HStack {
-                    TextField("추억을 검색해보세요", text: $searchText)
+                    TextField("추억을 검색해보세요", text: $searchText, onCommit: {
+                        storyViewModel.searchStorySortByKeyword(user: userViewModel.user, keyword: searchText, completion: { searchList in
+                            self.searchList = searchList
+                            print("추억 검색\(self.searchList)")
+                            if searchList.isEmpty {
+                                isExistSearchResult = false
+                            } else {
+                                isExistSearchResult = true
+                            }
+                        })
+                    })
+                    .onChange(of: searchText) { newText in
+                        searchList = []
+                    }
                     Button {
                         searchText = ""
+                        searchList = []
                     } label: {
                         if searchText.isEmpty {
                             EmptyView()
@@ -104,6 +136,8 @@ struct StorySearchView: View {
 struct StorySearchView_Previews: PreviewProvider {
     static var previews: some View {
         StorySearchView()
+            .environmentObject(UserViewModel())
+            .environmentObject(StoryViewModel())
     }
 }
 

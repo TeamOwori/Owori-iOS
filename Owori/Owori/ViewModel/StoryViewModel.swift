@@ -553,8 +553,8 @@ class StoryViewModel: ObservableObject {
     }
     
     // 임시
-    func searchStorySortByKeyword(user: User, keyword: String, completion: @escaping () -> Void) {
-        
+    func searchStorySortByKeyword(user: User, keyword: String, completion: @escaping ([Story.StoryInfo]) -> Void) {
+        var searchResult: [Story.StoryInfo] = []
         // 요청을 보낼 API의 url 설정
         // 배포 후 url 설정
         var urlComponents = URLComponents()
@@ -612,12 +612,23 @@ class StoryViewModel: ObservableObject {
             DispatchQueue.main.async { [weak self] in
                 // JSON 데이터를 파싱하여 User 구조체에 할당
                 do {
-                    let decoder = JSONDecoder()
-                    self?.storyModel = try decoder.decode(Story.self, from: data)
                     
-                    // User 구조체에 할당된 데이터 사용 (테스트 log)
-                    print("[searchStorySortByKeyword Story Model Log]: \(String(describing: self?.storyModel))")
-                    completion()
+                    let decoder = JSONDecoder()
+//                    searchResult = try decoder.decode([Story.StoryInfo].self, from: data)
+                    if let storiesArray = jsonDictionary["stories"] as? [[String: Any]] {
+                        print(storiesArray)
+                        for storyData in storiesArray {
+                            if let jsonData = try? JSONSerialization.data(withJSONObject: storyData),
+                               let story = try? decoder.decode(Story.StoryInfo.self, from: jsonData) {
+                                searchResult.append(story)
+                            }
+                        }
+                    }
+                    print("searchResult : \(searchResult)")
+//
+//                    // User 구조체에 할당된 데이터 사용 (테스트 log)
+//                    print("[searchStorySortByKeyword Story Model Log]: \(String(describing: self?.storyModel))")
+                    completion(searchResult)
                 } catch {
                     print("[searchStorySortByKeyword] Error: Failed to parse JSON data - \(error)")
                 }
