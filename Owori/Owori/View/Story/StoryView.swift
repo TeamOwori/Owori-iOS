@@ -32,7 +32,7 @@ struct StoryView: View {
                     AlbumListButton(buttonSet: $buttonSet)
                     Spacer()
                     // 나중에 구현
-//                    SortMenu()
+                    SortMenu()
                 }
                 .padding(EdgeInsets(top: 20, leading: 20, bottom: 20, trailing: 20))
                 ScrollView {
@@ -64,9 +64,9 @@ struct StoryView: View {
                 .padding(.bottom, 30)
         }
         
-        .navigationDestination(isPresented: $isSearchViewVisible) {
-            StorySearchView()
-        }
+//        .navigationDestination(isPresented: $isSearchViewVisible) {
+//            StorySearchView()
+//        }
     }
 }
 

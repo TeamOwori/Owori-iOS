@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct SortMenu: View {
-    private var sortingMethods: [String] = ["최신순", "Text Text", "."]
+    private var sortingMethods: [String] = ["최신순"/*, "Text Text", "."*/]
     @State private var seletedMethod: String = "최신순"
     
     var body: some View {

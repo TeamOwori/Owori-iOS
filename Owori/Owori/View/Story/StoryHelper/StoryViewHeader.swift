@@ -17,11 +17,11 @@ struct StoryViewHeader: View {
                 .bold()
             Spacer()
             
-//            Button {
-//                isSearchViewVisible = true
-//            } label: {
-//                Image("Search")
-//            }
+            NavigationLink {
+                StorySearchView()
+            } label: {
+                Image("Search")
+            }
             
             
         }

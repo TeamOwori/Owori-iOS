@@ -87,6 +87,11 @@ struct StorySearchView: View {
                             Image("Close")
                         }
                     }
+//                    Button {
+//                        Image
+//                    } label: {
+//
+//                    }
                 }
                 .padding(EdgeInsets(top: 10, leading: 20, bottom: 10, trailing: 20))
                 .background(Color.oworiGray100)
