@@ -63,9 +63,8 @@ struct InviteFamily: View {
 //                isShareSheetPresented.toggle()
             } label: {
                 ShareLink(
-                    item: /*URL(string: oworiInstagramURL)!*/"",
-                    subject: Text(""),
-                    message: Text("<오월이 가족 초대코드>\n초대코드 : \(familyViewModel.family.invite_code ?? "errer")"),
+                    item: "",
+                    message: Text("\(familyViewModel.family.invite_code ?? "errer")"),
                     preview: SharePreview(
                         Text("오월이 가족 초대코드"),
                         image: Image("오월이")
