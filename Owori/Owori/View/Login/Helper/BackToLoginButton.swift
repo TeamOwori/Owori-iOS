@@ -7,18 +7,14 @@
 
 import SwiftUI
 
-// 안쓰임
 struct BackToLoginButton: View {
     @Environment(\.presentationMode) private var presentationMode
     var body: some View {
-        
-        
         Button {
             presentationMode.wrappedValue.dismiss()
         } label: {
             Text("X")
         }
-        
     }
 }
 

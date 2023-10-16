@@ -8,13 +8,7 @@
 import SwiftUI
 
 struct ProfileText: View {
-    // MARK: 최대 7글자
-    //@Binding var profiles: [Family.MemberProfile] // 임시 - 프로필 정보
-//    @State private var profiles: [Family.MemberProfile] = [
-//        Family.MemberProfile(id: "1", nick_name: "1234567", profile_image: "DefaultImage", emotional_badge: "squinting-face-with-tongue"),
-//    ]
     var nickname: String
-    
     var body: some View {
         Text(nickname)
             .font(Font.custom("Pretendard", size: 12).weight(.medium))

@@ -25,7 +25,7 @@ extension String {
         return dateFormatter.date(from: self)
     }
     
-    func convertToISODateFormat() -> String/*?*/ {
+    func convertToISODateFormat() -> String {
             let dateFormatterInput = DateFormatter()
             dateFormatterInput.dateFormat = "yyyyMMdd"
 
@@ -33,9 +33,7 @@ extension String {
                 let dateFormatterOutput = DateFormatter()
                 dateFormatterOutput.dateFormat = "yyyy-MM-dd"
                 return dateFormatterOutput.string(from: date)
-            }/* else {
-                return nil // 변환 실패 시 nil 반환
-            }*/
+            }
         return "0000-00-00"
         }
 }

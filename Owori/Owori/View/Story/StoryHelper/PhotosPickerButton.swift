@@ -9,12 +9,10 @@ import SwiftUI
 import PhotosUI
 
 struct PhotosPickerButton: View {
-    
     @State private var isImagePickerPresented: Bool = false
     @Binding var selectedImages: [UIImage]
     
     var body: some View {
-        
         Button {
             isImagePickerPresented.toggle()
         } label: {

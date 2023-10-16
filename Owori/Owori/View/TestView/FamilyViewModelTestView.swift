@@ -12,29 +12,23 @@ struct FamilyViewModelTestView: View {
     @EnvironmentObject  var userViewModel: UserViewModel
     @EnvironmentObject  var storyViewModel: StoryViewModel
     @EnvironmentObject  var familyViewModel: FamilyViewModel
+    
     var body: some View {
         VStack {
             Button {
-                familyViewModel.createFamily(user: userViewModel.user, family_group_name: "owori") {
-                    
-                }
+                familyViewModel.createFamily(user: userViewModel.user, family_group_name: "owori") {}
             } label: {
                 Text("Add FamilyMember(완)")
             }
             
             Button {
-                familyViewModel.addFamilyMemberInviteCode(user: userViewModel.user, invite_code: userViewModel.tempInviteCode) { _ in
-                    
-                }
+                familyViewModel.addFamilyMemberInviteCode(user: userViewModel.user, invite_code: userViewModel.tempInviteCode) { _ in }
             } label: {
                 Text("add Family Member Invite Code(완)")
             }
             
             Button {
-                familyViewModel.changeFamilyName(user: userViewModel.user, family_group_name: "owori7") {
-                    
-                }
-                
+                familyViewModel.changeFamilyName(user: userViewModel.user, family_group_name: "owori7") {}
             } label: {
                 Text("change Family Name(완)")
             }
@@ -58,7 +52,6 @@ struct FamilyViewModelTestView: View {
             } label : {
                 Text("get Family")
             }
-            
         }
     }
 }

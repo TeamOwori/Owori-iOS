@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct MainView: View {
-    
     @EnvironmentObject var userViewModel: UserViewModel
     @EnvironmentObject var familyViewModel: FamilyViewModel
     @State private var selectedTab = 0
@@ -16,9 +15,6 @@ struct MainView: View {
     @State private var myPageViewIsActive: Bool = false
     @State private var isAddDdayViewActive: Bool = false
     @Binding var isLoggedIn: Bool
-    
-    //Calendar 관련 코드 추가
-//    @EnvironmentObject var myEvents: EventStore
     
     var body: some View {
         if emotionalBadgeViewIsActive {
@@ -39,17 +35,6 @@ struct MainView: View {
                             print(familyViewModel.getFamily())
                         }
                     }
-                
-//                EventsCalendarView()
-//                    .tabItem {
-//                        if selectedTab == 1 {
-//                            Image("CalendarTabSelected")
-//                        } else {
-//                            Image("CalendarTabUnSelected")
-//                        }
-//                    }
-//                    .tag(1)
-                
                 StoryView()
                     .tabItem {
                         if selectedTab == 2 {
@@ -60,24 +45,14 @@ struct MainView: View {
                     }
                     .tag(2)
             }
-//            .navigationDestination(isPresented: $myPageViewIsActive) {
-//                MyPageProfile(isLoggedIn: $isLoggedIn, myPageViewIsActive: $myPageViewIsActive)
-//            }
-//            .navigationDestination(isPresented: $isAddDdayViewActive) {
-//                WriteDDay()
-//            }
             .navigationTitle("")
             .navigationBarTitleDisplayMode(.inline)
             .onAppear {
                 userViewModel.lookupProfile() {}
-//                print(familyViewModel.family)
-                familyViewModel.lookUpHomeView(user: userViewModel.user) {
-//                    print(familyViewModel.getFamily())
-                }
+                familyViewModel.lookUpHomeView(user: userViewModel.user) { }
             }
             .navigationBarBackButtonHidden(true)
-        }
-        
+        }   
     }
 }
 

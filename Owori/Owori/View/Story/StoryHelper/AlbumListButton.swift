@@ -8,12 +8,8 @@
 import SwiftUI
 
 struct AlbumListButton: View {
-    // MARK: PROPERTIES
-    /// - true : 앨범형 / false : 리스트형
     @Binding var buttonSet: Bool
     
-    
-    // MARK: BODY
     var body: some View {
         HStack {
             Button {
@@ -30,8 +26,6 @@ struct AlbumListButton: View {
     }
 }
 
-
-// MARK: PREVIEWS
 struct AlbumListButton_Previews: PreviewProvider {
     static var previews: some View {
         AlbumListButton(buttonSet: .constant(true))

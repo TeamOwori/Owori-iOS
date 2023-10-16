@@ -8,12 +8,6 @@
 import SwiftUI
 
 struct StoryListView: View {
-    // MARK: PROPERTIES
-    /// - [임시] 리스트의 갯수
-    /// - 실제 데이터 들어오면 없어질 예정
-    
-    // 근데 왜 여기 private를 넣으면 에러가 나는지 이해를 못하겠음...
-    //    private var lists = ["1", "2", "3", "4"]
     @EnvironmentObject var userViewModel: UserViewModel
     @EnvironmentObject var storyViewModel: StoryViewModel
     @Binding var stories: [Story.StoryInfo]
@@ -22,8 +16,6 @@ struct StoryListView: View {
     @Binding var storyDetailViewIsActive: Bool
     @Binding var storyDetailViewIsActiveFromStoryAlbum: Bool
     
-    
-    // MARK: BODY
     var body: some View {
         VStack {
             ForEach($stories, id: \.self) { $story in
@@ -51,10 +43,8 @@ struct StoryListView: View {
             StoryDetailView(storyInfo: $storyInfo, stories: $stories, storiesForCollection: $storiesForCollection, storyDetailViewIsActive: $storyDetailViewIsActive, storyDetailViewIsActiveFromStoryAlbum: $storyDetailViewIsActiveFromStoryAlbum)
         }
     }
-    
 }
 
-// MARK: PREVIEWS
 struct StoryListView_Previews: PreviewProvider {
     static var previews: some View {
         StoryListView(stories: .constant([]), storiesForCollection: .constant([:]), storyDetailViewIsActive: .constant(false), storyDetailViewIsActiveFromStoryAlbum: .constant(false))

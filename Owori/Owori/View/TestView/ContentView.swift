@@ -5,7 +5,6 @@
 //  Created by Kyungsoo Lee on 2023/08/07.
 //
 
-
 import SwiftUI
 import PhotosUI
 
@@ -44,7 +43,6 @@ struct ContentView: View {
                             if let imageData = try? await value.loadTransferable(type: Data.self), let image = UIImage(data: imageData) {
                                 selectedImages.append(image)
                             }
-                            
                         }
                     }
                 }
@@ -52,8 +50,6 @@ struct ContentView: View {
         }
     }
 }
-
-
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {

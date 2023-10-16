@@ -9,40 +9,27 @@ import SwiftUI
 
 struct JoinNickname: View {
     @Binding var isLoggedIn: Bool
-    
     @State private var currentIndex: Int = 1
-    
-    // First
     @State private var nickname: String = ""
-    
-    // Second
     @State private var birthDateText: String = "11111111"
-    
-    // Third
     @State private var familyName: String = ""
-    
-    // Fourth
     @State private var inviteCode: String = ""
-    
     @State private var isSecondViewActive = false
+    
     var body: some View {
         VStack {
             NumberIndicator(currentIndex: $currentIndex)
                 .offset(y: 0)
-            
             VStack(alignment: .leading) {
                 Text("오월이에서 사용할\n닉네임을 입력해주세요.")
                     .font(.title)
                     .bold()
                     .padding(EdgeInsets(top: 80, leading: 20, bottom: 20, trailing: 0))
-                
                 Text("닉네임")
                     .foregroundColor(Color.oworiGray500)
                     .padding(EdgeInsets(top: 0, leading: 20, bottom: 10, trailing: 0))
-                
                 HStack {
                     TextField("숫자, 특수문자, 이모티콘 모두 사용 가능", text: $nickname)
-                    // 텍스트가 변경될 때마다 글자 수 확인
                         .onChange(of: nickname) { newText in
                             if newText.count > 7 {
                                 nickname = String(newText.prefix(7))
@@ -54,16 +41,13 @@ struct JoinNickname: View {
                 .padding(.leading,20)
                 .padding(.trailing,20)
                 .foregroundColor(.gray)
-                
                 if nickname.isEmpty {
                     Text("한 글자 이상 입력해 주세요.")
                         .foregroundColor(.red)
                         .padding(.leading, 20)
                 }
-                
                 Spacer()
-                
-                Button{
+                Button {
                     if !nickname.isEmpty {
                         isSecondViewActive = true
                     } else {
@@ -87,9 +71,6 @@ struct JoinNickname: View {
             self.endTextEditing()
         }
         .navigationBarTitleDisplayMode(.inline)
-//        .navigationDestination(isPresented: $isSecondViewActive) {
-//            JoinBirthday(isLoggedIn: $isLoggedIn, currentIndex: $currentIndex, nickname: $nickname, birthDateText: $birthDateText, familyName: $familyName, inviteCode: $inviteCode)
-//        }
         .navigationDestination(isPresented: $isSecondViewActive) {
             TermsOfUse(isLoggedIn: $isLoggedIn, currentIndex: $currentIndex, nickname: $nickname, birthDateText: $birthDateText, familyName: $familyName, inviteCode: $inviteCode)
         }

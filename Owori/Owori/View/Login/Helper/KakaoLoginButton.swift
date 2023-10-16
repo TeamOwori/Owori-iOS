@@ -14,9 +14,6 @@ struct KakaoLoginButton: View {
     @Binding var alreadyMember: Bool
     var body: some View {
         Button {
-            // 버튼이 클릭되었을 때 실행되는 코드
-            // 이 부분 코드 수정 필요함 (loginViewModel과 UserViewModel이 떨어져 있어야 함)
-            // joinMember
             loginViewModel.kakaoLogin(oworiUser: userViewModel.user) {
                 if loginViewModel.isLoggedIn {
                     userViewModel.joinMember(socialToken: loginViewModel.socialToken) {
@@ -27,13 +24,11 @@ struct KakaoLoginButton: View {
                     isLoggedIn = false
                 }
             }
-            
         } label: {
             Image("카카오로그인버튼")
                 .resizable()
                 .frame(width: 300, height: 44, alignment: .leading)
                 .cornerRadius(12)
-            
         }
     }
 }

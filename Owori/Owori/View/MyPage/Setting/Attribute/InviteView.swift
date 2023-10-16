@@ -9,20 +9,17 @@ import SwiftUI
 import SimpleToast
 
 struct InviteView: View {
-    
     @State var showToast: Bool = false
     @State private var oworiInstagramURL: String = "https://www.instagram.com/owori_official/"
     @EnvironmentObject var userViewModel: UserViewModel
     @EnvironmentObject var familyViewModel: FamilyViewModel
-    
     private let toastOptions = SimpleToastOptions(
         hideAfter: 0.8
     )
     
     var body: some View {
-        VStack{
-            VStack(alignment:.center,spacing: 5){
-                
+        VStack {
+            VStack(alignment:.center,spacing: 5) {
                 Text("우리 가족 초대해요!")
                     .font(.title)
                     .bold()
@@ -37,11 +34,8 @@ struct InviteView: View {
                    
             }
             .padding(EdgeInsets(top: 50, leading: 0, bottom: 0, trailing: 0))
-
     
             ZStack {
-                
-                //Image 넣어야함
                 Image("가족초대코드")
                     .frame(width: UIScreen.main.bounds.width, alignment: .center)
                     .padding(EdgeInsets(top: 10, leading: 30, bottom: 10, trailing: 30))
@@ -50,13 +44,11 @@ struct InviteView: View {
                 Text("\(familyViewModel.family.invite_code ?? "서버 에러입니다.\n나중에 다시 시도해주세요.")")
                     .offset(x: -30, y: 30)
             }
-                
-
             Button {
-//                isShareSheetPresented.toggle()
+
             } label: {
                 ShareLink(
-                    item: /*URL(string: oworiInstagramURL)!*/"",
+                    item: "",
                     subject: Text(""),
                     message: Text("<오월이 가족 초대코드>\n초대코드 : \(familyViewModel.family.invite_code ?? "errer")"),
                     preview: SharePreview(
@@ -74,8 +66,6 @@ struct InviteView: View {
                         .cornerRadius(10)
                 }
             }
-
-           
             Spacer()
 
             Text("초대 코드는 발급 후 30분 이내로 입력가능해요")
@@ -87,16 +77,9 @@ struct InviteView: View {
                 .multilineTextAlignment(.center)
                 .foregroundColor(Color.oworiGray300)
                 .padding(EdgeInsets(top: -30, leading: 0, bottom: 0, trailing: 0))
-
             Spacer()
         }
-//        .navigationBarBackButtonHidden(true)
         .navigationBarTitleDisplayMode(.inline)
-//        .toolbar {
-//            ToolbarItem(placement: .navigationBarLeading) {
-//                    BackButton()
-//            }
-//        }
     }
 }
 

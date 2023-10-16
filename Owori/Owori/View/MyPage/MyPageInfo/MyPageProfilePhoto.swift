@@ -10,14 +10,11 @@ import PhotosUI
 
 struct MyPageProfilePhoto: View {
     @EnvironmentObject var userViewModel: UserViewModel
-    
     var body: some View {
         VStack(spacing: 4) {
-            
             AsyncImage(url: URL(string: userViewModel.user.member_profile?.profile_image ?? "")) { image in
                 image
                     .resizable()
-//                    .scaledToFit()
                     .aspectRatio(contentMode: .fill)
                     .cornerRadius(12)
                     .frame(width: 150, height: 150)
@@ -25,8 +22,6 @@ struct MyPageProfilePhoto: View {
             } placeholder: {
                 Image("DefaultImage")
             }
-            
-        
         }
     }
 }
