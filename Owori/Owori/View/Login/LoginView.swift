@@ -36,6 +36,7 @@ struct LoginView: View {
             VStack {
                 KakaoLoginButton(isLoggedIn: $isLoggedIn, alreadyMember: $alreadyMember)
                 AppleLoginButton(isLoggedIn: $isLoggedIn, alreadyMember: $alreadyMember)
+                GoogleLoginButton(isLoggedIn: $isLoggedIn, alreadyMember: $alreadyMember)
             }
             .padding(EdgeInsets(top: 50, leading: 0, bottom: 0, trailing: 0))
             Text("소셜로그인으로 가입시 이용약관 및 개인정보처리방침에 동의합니다.")

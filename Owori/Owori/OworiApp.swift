@@ -8,12 +8,16 @@
 import SwiftUI
 import KakaoSDKCommon
 import KakaoSDKAuth
+import FirebaseCore
+import GoogleSignIn
+import GoogleSignInSwift
 
 @main
 struct OworiApp: App {
     init() {
         // Kakao SDK 초기화
         KakaoSDK.initSDK(appKey: "6c28960f69d4c7f00043b02d890dd6e0")
+        FirebaseApp.configure()
     }
     @StateObject var loginViewModel = LoginViewModel()
     @StateObject var userViewModel = UserViewModel()

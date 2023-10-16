@@ -101,6 +101,11 @@
 		F37CDD0F2A86578D0002FFFE /* AppleLoginButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37CDD0E2A86578D0002FFFE /* AppleLoginButton.swift */; };
 		F37E88C32A93D98400D760A1 /* YPImagePicker in Frameworks */ = {isa = PBXBuildFile; productRef = F37E88C22A93D98400D760A1 /* YPImagePicker */; };
 		F37E88C52A93D9E000D760A1 /* YPImagePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37E88C42A93D9E000D760A1 /* YPImagePickerView.swift */; };
+		F380EAD92ADDAEE500CD50D2 /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = F380EAD82ADDAEE500CD50D2 /* GoogleSignIn */; };
+		F380EADB2ADDAEE500CD50D2 /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = F380EADA2ADDAEE500CD50D2 /* GoogleSignInSwift */; };
+		F380EADD2ADDAEF300CD50D2 /* GoogleLoginButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F380EADC2ADDAEF300CD50D2 /* GoogleLoginButton.swift */; };
+		F380EAE02ADDB24800CD50D2 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = F380EADF2ADDB24800CD50D2 /* FirebaseAuth */; };
+		F380EAE22ADDB40E00CD50D2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F380EAE12ADDB40E00CD50D2 /* GoogleService-Info.plist */; };
 		F385C7B12A963FB000D5A75A /* DDayCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F385C7B02A963FB000D5A75A /* DDayCardView.swift */; };
 		F38C12932A83920500DDAAA8 /* ZoomDetailImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38C12922A83920500DDAAA8 /* ZoomDetailImageCell.swift */; };
 		F39B28492A8C02E3000D26C7 /* TestBackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F39B28482A8C02E3000D26C7 /* TestBackButton.swift */; };
@@ -242,6 +247,8 @@
 		F36A82942A71921A00C6A90C /* BackToFamilyLinkViewButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackToFamilyLinkViewButton.swift; sourceTree = "<group>"; };
 		F37CDD0E2A86578D0002FFFE /* AppleLoginButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleLoginButton.swift; sourceTree = "<group>"; };
 		F37E88C42A93D9E000D760A1 /* YPImagePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YPImagePickerView.swift; sourceTree = "<group>"; };
+		F380EADC2ADDAEF300CD50D2 /* GoogleLoginButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleLoginButton.swift; sourceTree = "<group>"; };
+		F380EAE12ADDB40E00CD50D2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F385C7B02A963FB000D5A75A /* DDayCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DDayCardView.swift; sourceTree = "<group>"; };
 		F38C12922A83920500DDAAA8 /* ZoomDetailImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoomDetailImageCell.swift; sourceTree = "<group>"; };
 		F39B28482A8C02E3000D26C7 /* TestBackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestBackButton.swift; sourceTree = "<group>"; };
@@ -274,7 +281,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F380EADB2ADDAEE500CD50D2 /* GoogleSignInSwift in Frameworks */,
+				F380EAE02ADDB24800CD50D2 /* FirebaseAuth in Frameworks */,
 				356A54472A84D66D006E22C8 /* SimpleToast in Frameworks */,
+				F380EAD92ADDAEE500CD50D2 /* GoogleSignIn in Frameworks */,
 				F37E88C32A93D98400D760A1 /* YPImagePicker in Frameworks */,
 				F3430F3A2A67024A00DC1B1C /* KakaoSDK in Frameworks */,
 			);
@@ -411,6 +421,7 @@
 			children = (
 				3580AFA12A6841DE00DC28F7 /* Owori.entitlements */,
 				F3430F0E2A6701AD00DC1B1C /* OworiApp.swift */,
+				F380EAE12ADDB40E00CD50D2 /* GoogleService-Info.plist */,
 				F3430F3B2A6702EB00DC1B1C /* Info.plist */,
 				F3430F7E2A67043200DC1B1C /* Extension */,
 				F3430F702A67043200DC1B1C /* Model */,
@@ -555,6 +566,7 @@
 				F3430F562A67043200DC1B1C /* LoginButton.swift */,
 				F36A82942A71921A00C6A90C /* BackToFamilyLinkViewButton.swift */,
 				F37CDD0E2A86578D0002FFFE /* AppleLoginButton.swift */,
+				F380EADC2ADDAEF300CD50D2 /* GoogleLoginButton.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -732,6 +744,9 @@
 				F3430F392A67024A00DC1B1C /* KakaoSDK */,
 				356A54462A84D66D006E22C8 /* SimpleToast */,
 				F37E88C22A93D98400D760A1 /* YPImagePicker */,
+				F380EAD82ADDAEE500CD50D2 /* GoogleSignIn */,
+				F380EADA2ADDAEE500CD50D2 /* GoogleSignInSwift */,
+				F380EADF2ADDB24800CD50D2 /* FirebaseAuth */,
 			);
 			productName = Owori;
 			productReference = F3430F0B2A6701AD00DC1B1C /* Owori.app */;
@@ -809,6 +824,8 @@
 				F3430F382A67024A00DC1B1C /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */,
 				356A54452A84D66D006E22C8 /* XCRemoteSwiftPackageReference "SimpleToast" */,
 				F37E88C12A93D98400D760A1 /* XCRemoteSwiftPackageReference "YPImagePicker" */,
+				F380EAD72ADDAEE500CD50D2 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */,
+				F380EADE2ADDB24800CD50D2 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			productRefGroup = F3430F0C2A6701AD00DC1B1C /* Products */;
 			projectDirPath = "";
@@ -827,6 +844,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F3430F162A6701AD00DC1B1C /* Preview Assets.xcassets in Resources */,
+				F380EAE22ADDB40E00CD50D2 /* GoogleService-Info.plist in Resources */,
 				F3430F132A6701AD00DC1B1C /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -936,6 +954,7 @@
 				883B47D42A686D25004C2D20 /* InviteView.swift in Sources */,
 				883B47DB2A686E36004C2D20 /* CustomToggle.swift in Sources */,
 				F3430F0F2A6701AD00DC1B1C /* OworiApp.swift in Sources */,
+				F380EADD2ADDAEF300CD50D2 /* GoogleLoginButton.swift in Sources */,
 				35B3CD5E2A8004A900127259 /* HomeNotificationView.swift in Sources */,
 				F3430F972A67043200DC1B1C /* CurrentImageOrder.swift in Sources */,
 				35B3CD5A2A7D5CCF00127259 /* WriteDDay.swift in Sources */,
@@ -1128,6 +1147,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Owori/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "오월이";
 				INFOPLIST_KEY_NSCameraUsageDescription = "사진 또는 동영상을 저장, 게시글에 첨부, 프로필 사진 등록하기 위해서 사진 촬영을 위한 카메라 접근 권한이 필요합니다.";
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "사진 또는 동영상을 저장, 게시글에 첨부, 프로필 사진 등록하기 위해서 음성인식을 위한 마이크 접근 권한이 필요합니다.";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "사진 또는 동영상을 저장, 게시글에 첨부, 프로필 사진 등록하기 위해서 사진 라이브러리 접근 권한이 필요합니다.";
@@ -1162,6 +1182,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Owori/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "오월이";
 				INFOPLIST_KEY_NSCameraUsageDescription = "사진 또는 동영상을 저장, 게시글에 첨부, 프로필 사진 등록하기 위해서 사진 촬영을 위한 카메라 접근 권한이 필요합니다.";
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "사진 또는 동영상을 저장, 게시글에 첨부, 프로필 사진 등록하기 위해서 음성인식을 위한 마이크 접근 권한이 필요합니다.";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "사진 또는 동영상을 저장, 게시글에 첨부, 프로필 사진 등록하기 위해서 사진 라이브러리 접근 권한이 필요합니다.";
@@ -1321,6 +1342,22 @@
 				minimumVersion = 5.0.0;
 			};
 		};
+		F380EAD72ADDAEE500CD50D2 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/google/GoogleSignIn-iOS";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.0.0;
+			};
+		};
+		F380EADE2ADDB24800CD50D2 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.16.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1338,6 +1375,21 @@
 			isa = XCSwiftPackageProductDependency;
 			package = F37E88C12A93D98400D760A1 /* XCRemoteSwiftPackageReference "YPImagePicker" */;
 			productName = YPImagePicker;
+		};
+		F380EAD82ADDAEE500CD50D2 /* GoogleSignIn */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F380EAD72ADDAEE500CD50D2 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
+			productName = GoogleSignIn;
+		};
+		F380EADA2ADDAEE500CD50D2 /* GoogleSignInSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F380EAD72ADDAEE500CD50D2 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
+			productName = GoogleSignInSwift;
+		};
+		F380EADF2ADDB24800CD50D2 /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F380EADE2ADDB24800CD50D2 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

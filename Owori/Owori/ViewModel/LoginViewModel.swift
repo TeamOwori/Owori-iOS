@@ -10,6 +10,9 @@ import Combine
 import KakaoSDKAuth
 import KakaoSDKUser
 import AuthenticationServices
+import GoogleSignIn
+import GoogleSignInSwift
+import FirebaseAuth
 
 fileprivate enum OworiAPI {
     static let scheme = "http"
@@ -17,17 +20,17 @@ fileprivate enum OworiAPI {
     
     enum Path: String {
         case joinMember = "/api/v1/members/kakao"
-        
     }
 }
 
 class LoginViewModel: ObservableObject {
-    
     // MARK: 카카오 로그인 관련 PROPERTIES
     @Published var kakaoUser: KakaoSDKUser.User?
     @Published var kakaoToken:  OAuthToken?
     
     // MARK: 애플 로그인 관련 PROPERTIES
+    
+    // MARK: 구글 로그인 관련 PROPERTIES
     
     // MARK: 기타 PROPERTIES
     @Published var isLoggedIn: Bool = false
@@ -167,7 +170,6 @@ class LoginViewModel: ObservableObject {
         }
     }
     
-    
     // MARK: 애플 로그인 관련 FUNCTIONS
     func appleLoginButton(completion: @escaping () -> Void) -> some View {
         SignInWithAppleButton(
@@ -203,5 +205,40 @@ class LoginViewModel: ObservableObject {
         )
         .frame(width: 300, height: 44, alignment: .leading)
         .cornerRadius(12)
+    }
+    
+    // MARK: 구글 로그인 관련 FUNCTIONS
+    func handleGoogleSignIn() -> Void {
+        GIDSignIn.sharedInstance.signIn(withPresenting: UIApplication.shared.rootController()) { signInResult, error in
+            guard let result = signInResult else {
+                print("Fail Google!")
+                return
+            }
+            DispatchQueue.main.async { [weak self] in
+                print("Success Google!")
+                guard let name = result.user.profile?.name else { return }
+                guard let email = result.user.profile?.email else { return }
+                guard let image = result.user.profile?.imageURL(withDimension: 320)?.absoluteString else { return }
+                guard let idToken = result.user.idToken?.tokenString else { return }
+                print("idToken : \(idToken)")
+                let accessToken = result.user.accessToken.tokenString
+                print("accessToken : \(accessToken)")
+                let refreshToken = result.user.refreshToken.tokenString
+                print("refreshToken : \(result.user.refreshToken.tokenString)")
+                
+                self?.socialToken = Token(authProvider: "GOOGLE", accessToken: idToken)
+                self?.isLoggedIn = true
+            }
+            // If sign in succeeded, display the app's main content View.
+            
+        }
+    }
+}
+
+extension UIApplication {
+    func rootController() -> UIViewController {
+        guard let window = connectedScenes.first as? UIWindowScene else { return .init() }
+        guard let viewController = window.windows.last?.rootViewController else { return .init() }
+        return viewController
     }
 }

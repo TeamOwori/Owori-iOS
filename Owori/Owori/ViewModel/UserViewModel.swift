@@ -47,7 +47,7 @@ class UserViewModel: ObservableObject {
             urlComponents.path = OworiAPI.Path.membersApple.rawValue
         }
         guard let url = urlComponents.url else {
-            print("Error: cannot create URL")
+            print("[joinMember] Error: cannot create URL")
             return
         }
         var urlRequest = URLRequest(url: url)
@@ -60,24 +60,31 @@ class UserViewModel: ObservableObject {
         } else if socialToken.authProvider == "APPLE" {
             guard let sendData = try? JSONSerialization.data(withJSONObject: ["token": socialToken.accessToken, "auth_provider": socialToken.authProvider, "authorization_code" : socialToken.authorizationCode], options: []) else { return }
             urlRequest.httpBody = sendData
+        } else if socialToken.authProvider == "GOOGLE" {
+            guard let sendData = try? JSONSerialization.data(withJSONObject: ["token": socialToken.accessToken, "auth_provider": socialToken.authProvider], options: []) else { return }
+            urlRequest.httpBody = sendData
         }
         
         URLSession.shared.dataTask(with: urlRequest) { (data, response, error) in
             guard error == nil else {
-                print("Error: error calling GET")
+                print("[joinMember] Error: error calling GET")
                 print(error!)
                 return
             }
             guard let data = data else {
-                print("Error: Did not receive data")
+                print("[joinMember] Error: Did not receive data")
                 return
             }
             guard let jsonDictionary = try? JSONSerialization.jsonObject(with: Data(data), options: []) as? [String: Any] else {
-                print("Error: convert failed json to dictionary")
+                print("[joinMember] Error: convert failed json to dictionary")
                 return
             }
+            print(error)
+            print(data)
+            print(response)
+            print(jsonDictionary)
             guard let response = response as? HTTPURLResponse, (200 ..< 300) ~= response.statusCode else {
-                print("Error: HTTP request failed")
+                print("[joinMember] Error: HTTP request failed")
                 return
             }
             
@@ -88,14 +95,13 @@ class UserViewModel: ObservableObject {
                     self?.user.jwt_token?.auth_provider = socialToken.authProvider
                     self?.isLogined = true
                     
-                    // User 구조체에 할당된 데이터 사용 (테스트 log)
                     print("Member ID: \(String(describing: self?.user.member_id))")
                     print("Access Token: \(String(describing: self?.user.jwt_token?.access_token))")
                     print("Refresh Token: \(String(describing: self?.user.jwt_token?.refresh_token))")
                     print("Auth Provider: \(self?.user.jwt_token?.auth_provider ?? "Empty Provider")")
                     print("Member: \(self?.user)")
                 } catch {
-                    print("Error: Failed to parse JSON data - \(error)")
+                    print("[joinMember] Error: Failed to parse JSON data - \(error)")
                 }
                 completion()
             }
