@@ -21,9 +21,13 @@ struct GoogleLoginButton: View {
             
             if loginViewModel.isLoggedIn {
                 userViewModel.joinMember(socialToken: loginViewModel.socialToken) {
-                    
+                    alreadyMember = userViewModel.user.is_service_member!
+                    isLoggedIn = true
+                }
+            } else {
+                isLoggedIn = false
             }
-        }})
+        })
             .frame(width: 300, height: 44, alignment: .leading)
             .cornerRadius(12)
     }
