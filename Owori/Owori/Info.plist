@@ -21,6 +21,8 @@
 		<dict>
 			<key>CFBundleTypeRole</key>
 			<string>Editor</string>
+			<key>CFBundleURLName</key>
+			<string>Kakao</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
 				<string>kakao6c28960f69d4c7f00043b02d890dd6e0</string>
@@ -29,14 +31,16 @@
 		<dict>
 			<key>CFBundleTypeRole</key>
 			<string>Editor</string>
+			<key>CFBundleURLName</key>
+			<string>Google with firebase</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>com.googleusercontent.apps.191948284640-23ofhf39or8r56035kmq24lfrd60jj2k</string>
+				<string>com.googleusercontent.apps.191948284640-pu84b31bkqbg6sp0e3fuke8u9b7unq6c</string>
 			</array>
 		</dict>
 	</array>
 	<key>GIDClientID</key>
-	<string>191948284640-23ofhf39or8r56035kmq24lfrd60jj2k.apps.googleusercontent.com</string>
+	<string>191948284640-pu84b31bkqbg6sp0e3fuke8u9b7unq6c.apps.googleusercontent.com</string>
 	<key>ITSAppUsesNonExemptEncryption</key>
 	<false/>
 	<key>LSApplicationQueriesSchemes</key>

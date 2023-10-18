@@ -15,6 +15,7 @@ fileprivate enum OworiAPI {
         case members = "/api/v1/members"
         case membersKakao = "/api/v1/members/kakao"
         case membersApple = "/api/v1/members/apple"
+        case membersGoogle = "/api/v1/members/google"
         case refresh = "/api/v1/auth/refresh"
         case membersDetails = "/api/v1/members/details"
         case membersEmtionalBadge = "/api/v1/members/emotional-badge"
@@ -37,14 +38,17 @@ class UserViewModel: ObservableObject {
     }
     
     // MARK: 오월이 API FUNCTIONS (Post)
+    // 얘를 인터페이스로 바꾸기.
     func joinMember(socialToken: Token, completion: @escaping () -> Void) {
         var urlComponents = URLComponents()
         urlComponents.scheme = OworiAPI.scheme
         urlComponents.host = OworiAPI.host
         if socialToken.authProvider == "KAKAO" {
             urlComponents.path = OworiAPI.Path.membersKakao.rawValue
-        } else {
+        } else if socialToken.authProvider == "APPLE" {
             urlComponents.path = OworiAPI.Path.membersApple.rawValue
+        } else if socialToken.authProvider == "GOOGLE" {
+            urlComponents.path = OworiAPI.Path.membersGoogle.rawValue
         }
         guard let url = urlComponents.url else {
             print("[joinMember] Error: cannot create URL")

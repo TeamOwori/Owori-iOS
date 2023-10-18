@@ -224,7 +224,7 @@ class LoginViewModel: ObservableObject {
                 let accessToken = result.user.accessToken.tokenString
                 print("accessToken : \(accessToken)")
                 let refreshToken = result.user.refreshToken.tokenString
-                print("refreshToken : \(result.user.refreshToken.tokenString)")
+                print("refreshToken : \(result)")
                 
                 self?.socialToken = Token(authProvider: "GOOGLE", accessToken: idToken)
                 self?.isLoggedIn = true

@@ -16,14 +16,17 @@ struct GoogleLoginButton: View {
     @Binding var alreadyMember: Bool
     
     var body: some View {
-        GoogleSignInButton(action: loginViewModel.handleGoogleSignIn)
+        GoogleSignInButton(action: {
+            loginViewModel.handleGoogleSignIn()
+            
+            if loginViewModel.isLoggedIn {
+                userViewModel.joinMember(socialToken: loginViewModel.socialToken) {
+                    
+            }
+        }})
             .frame(width: 300, height: 44, alignment: .leading)
             .cornerRadius(12)
     }
-}
-
-func test() -> Void {
-    
 }
 
 #Preview {
