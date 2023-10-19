@@ -22,10 +22,10 @@ struct UserViewModelTestView: View {
             } label: {
                 Text("Join Member(완)")
             }
+            
             Button {
                 userViewModel.initUser(userInfo: ["nickname" : "owori",
                                                   "birthday" : "20230717"]) { success in
-                    
                 }
             } label: {
                 Text("Init User(완)")
@@ -35,21 +35,16 @@ struct UserViewModelTestView: View {
                 userViewModel.updateProfile(userInfo: ["nickname" : "오월이",
                                                        "birthday" : "20230714",
                                                        "color" : "GREEN"]) { _ in
-                    
                 }
             } label: {
                 Text("update Profile(완)")
             }
             
             Button {
-                userViewModel.updateEmotionalBadge(body: ["emotional_badge" : "HAPPY"]) {
-                    
-                }
+                userViewModel.updateEmotionalBadge(body: ["emotional_badge" : "HAPPY"]) {}
             } label: {
                 Text("update Emotional Badge(완)")
             }
-    
-            
             
             Button {
                 userViewModel.refreshingToken()
@@ -58,19 +53,13 @@ struct UserViewModelTestView: View {
             }
             
             Button {
-                userViewModel.lookupProfile() {
-                    
-                }
+                userViewModel.lookupProfile() {}
             } label: {
                 Text("lookup Profile(완)")
             }
             
-            
-            
             Button {
-                userViewModel.lookupUnmodifiableColor() { usedColorList in
-                    
-                }
+                userViewModel.lookupUnmodifiableColor() { usedColorList in }
             } label: {
                 Text("lookup Unmodifiable Color(완)")
             }
@@ -86,9 +75,6 @@ struct UserViewModelTestView: View {
             } label: {
                 Text("get Dummy Data(완)")
             }
-            
-            
-            
         }
     }
 }

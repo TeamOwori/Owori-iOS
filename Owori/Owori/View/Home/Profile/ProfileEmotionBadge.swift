@@ -8,14 +8,11 @@
 import SwiftUI
 
 struct ProfileEmotionBadge: View {
-    //@Binding var profiles: [Family.MemberProfile] // 임시 - 프로필 정보
     @State private var profiles: [Family.MemberProfile] = [
-        Family.MemberProfile(id: "1", nick_name: "홍길동", profile_image: "DefaultImage", emotional_badge: "squinting-face-with-tongue"),
-    ]
+        Family.MemberProfile(id: "1", nick_name: "홍길동", profile_image: "DefaultImage", emotional_badge: "squinting-face-with-tongue")]
     var emotionalBadge: String
     
     var body: some View {
-        // 임시 감정 이모티콘 이미지
         Image(emotionalBadge)
             .resizable()
             .aspectRatio(contentMode: .fill)

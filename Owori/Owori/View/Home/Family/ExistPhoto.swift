@@ -8,9 +8,7 @@
 import SwiftUI
 
 struct ExistPhoto: View {
-    // 임시 - image_name 데이터
     @State private var imageName: String = "TestImage9"
-    // AddFamilyPhoto
     @State private var photoDescription: String = ""
     
     var body: some View {
@@ -20,14 +18,6 @@ struct ExistPhoto: View {
                     .ignoresSafeArea()
                 VStack {
                     Spacer()
-//                    ZStack {
-//                        Color.black
-//                        Image(imageName)
-//                            .resizable()
-//                            .aspectRatio(contentMode: .fit /* .fill */)
-//                            .clipped()
-//                            .frame(width: UIScreen.main.bounds.width * 1.25, height: UIScreen.main.bounds.height * 0.64)
-//                    }
                     Rectangle()
                         .foregroundColor(.clear)
                         .frame(width: UIScreen.main.bounds.width * 1.25, height: UIScreen.main.bounds.height * 0.64)
@@ -42,15 +32,13 @@ struct ExistPhoto: View {
                         )
                         .cornerRadius(12)
                     HStack {
-                        //if photoDescription != "" {
                             Text(photoDescription)
-                                .font(Font.custom("Pretendard", size: UIScreen.main.bounds.width * 0.05 /* 20 */))
+                                .font(Font.custom("Pretendard", size: UIScreen.main.bounds.width * 0.05))
                                 .multilineTextAlignment(.center)
                                 .foregroundColor(.white)
                                 .frame(maxWidth: .infinity, alignment: .top)
-                        //}
                     }
-                    .padding(20) //.padding(EdgeInsets(top: 20, leading: 20, bottom: 0, trailing: 20))
+                    .padding(20)
                     .frame(width: UIScreen.main.bounds.width)
                     Spacer()
                     HStack(alignment: .center, spacing: 0) {

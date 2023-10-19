@@ -9,9 +9,7 @@ import SwiftUI
 
 struct ProfileImage: View {
     var profileImage: String
-    
     var body: some View {
-        
         AsyncImage(url: URL(string: profileImage)) { image in
             image
                 .resizable()
@@ -22,10 +20,6 @@ struct ProfileImage: View {
         .frame(width: 60, height: 60)
         .clipShape(Circle())
         .cornerRadius(12)
-        
-           
-        
-        
     }
 }
 

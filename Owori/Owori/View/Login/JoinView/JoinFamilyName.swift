@@ -10,14 +10,12 @@ import SwiftUI
 struct JoinFamilyName: View {
     @EnvironmentObject var userViewModel: UserViewModel
     @EnvironmentObject var familyViewModel: FamilyViewModel
-    
     @Binding var isLoggedIn: Bool
     @Binding var currentIndex: Int
     @Binding var nickname: String
     @Binding var birthDateText: String
     @Binding var familyName: String
     @Binding var inviteCode: String
-    
     @State private var isInviteFamilyActive: Bool = false
     @State private var isUserInitFail: Bool = false
     
@@ -25,20 +23,16 @@ struct JoinFamilyName: View {
         VStack {
             NumberIndicator(currentIndex: $currentIndex)
                 .offset(y: 0)
-            
             VStack(alignment: .leading) {
                 Text("우리 가족\n그룹명을 정해주세요.")
                     .font(.title)
                     .bold()
                     .padding(EdgeInsets(top: 80, leading: 20, bottom: 20, trailing: 0))
-                
                 Text("가족 그룹명")
                     .foregroundColor(Color.oworiGray500)
                     .padding(EdgeInsets(top: 0, leading: 20, bottom: 10, trailing: 0))
-                
                 HStack {
                     TextField("숫자, 특수문자, 이모티콘 모두 사용 가능", text: $familyName)
-                    // 텍스트가 변경될 때마다 글자 수 확인
                         .onChange(of: familyName) { newText in
                             if newText.count > 10 {
                                 familyName = String(newText.prefix(10))
@@ -50,15 +44,12 @@ struct JoinFamilyName: View {
                 .padding(.leading,20)
                 .padding(.trailing,20)
                 .foregroundColor(.gray)
-                
                 if familyName.isEmpty {
                     Text("한 글자 이상 입력해 주세요.")
                         .foregroundColor(.red)
                         .padding(.leading, 20)
                 }
-                
                 Spacer()
-                
                 Button {
                     if !familyName.isEmpty {
                         userViewModel.initUser(userInfo: ["nickname" : "\(nickname)", "birthday" : "11111111"]) { success in
@@ -73,11 +64,7 @@ struct JoinFamilyName: View {
                             } else {
                                 isUserInitFail = true
                             }
-                            
                         }
-                        
-//                            isUserInitFail = !(userViewModel.user.is_service_member ?? false)
-//                            print("isUserInitFail : \(isUserInitFail)")
                     } else {
                         isInviteFamilyActive = false
                     }
@@ -94,11 +81,8 @@ struct JoinFamilyName: View {
                     Alert(
                         title: Text("알림"), message: Text("잘못 입력된 정보가 있습니다.\n다시 입력해 주세요."),
                         dismissButton: .default(Text("확인"))
-                        )
+                    )
                 }
-                
-                
-                
             }
             .onAppear {
                 currentIndex = 4
@@ -110,7 +94,6 @@ struct JoinFamilyName: View {
         .navigationBarTitleDisplayMode(.inline)
         .navigationDestination(isPresented: $isInviteFamilyActive) {
             InviteFamily(isLoggedIn: $isLoggedIn, currentIndex: $currentIndex, nickname: $nickname, birthDateText: $birthDateText, familyName: $familyName, inviteCode: $inviteCode)
-            //            JoinFamily(isLoggedIn: $isLoggedIn, currentIndex: $currentIndex, nickname: $nickname, birthDateText: $birthDateText, familyName: $familyName, inviteCode: $inviteCode)
         }
     }
 }

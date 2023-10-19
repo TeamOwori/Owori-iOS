@@ -27,7 +27,6 @@ extension Story {
         var start_date: String?
         var end_date: String?
 
-        // 기본 init
         init() {
             self.id = 0
             self.story_id = ""

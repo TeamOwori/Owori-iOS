@@ -8,16 +8,12 @@
 import SwiftUI
 
 struct ProfileImageWithBadge: View {
-    //@Binding var profiles: [Family.MemberProfile] // 임시 - 프로필 정보
-    
     @State private var isEmotion: Bool = true // false
     var memberProfile: Family.MemberProfile
-    
     @EnvironmentObject var userViewModel: UserViewModel
     @EnvironmentObject var familyViewModel: FamilyViewModel
     
     var body: some View {
-        //        NavigationStack {
         VStack(spacing: 4) {
             ZStack {
                 ProfileImage(profileImage: memberProfile.profile_image ?? "DefaultImage")

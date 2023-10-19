@@ -8,23 +8,16 @@
 import SwiftUI
 
 struct ZoomImages: View {
-    
-    // 임시
-//    var images: [String] = ["TestImage1", "TestImage2", "TestImage3", "TestImage4", "TestImage5", "TestImage6", "TestImage7", "TestImage8", "TestImage9", "TestImage10"]
-    
-    
     @EnvironmentObject var userViewModel: UserViewModel
     @EnvironmentObject var storyViewModel: StoryViewModel
-    
     @Binding var currentIndex: Int
     var storyInfo: Story.StoryInfo
+    
     var body: some View {
         ZStack {
-            
             Color.black
                 .edgesIgnoringSafeArea(.all)
             VStack {
-                // storyInfo 적용해야 함.
                 TabView(selection: $currentIndex) {
                     ForEach(0 ..< (storyInfo.story_images?.count ?? 0), id: \.self) { index in
                         ZoomDetailImageCell(image: storyInfo.story_images![index])
@@ -34,29 +27,11 @@ struct ZoomImages: View {
                     .padding(EdgeInsets(top: 0, leading: 0, bottom: 20, trailing: 0))
                 Spacer()
             }
-            
         }
         .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
-//        .navigationBarBackButtonHidden(true)
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
-//            ToolbarItem(placement: .navigationBarLeading) {
-//                Button {
-//
-//                } label: {
-//                    BackButton()
-//                }
-//            }
-            
-//            ToolbarItem(placement: .navigationBarTrailing) {
-//                Button {
-//
-//                } label: {
-//                    Text("다운로드")
-//                }
-//            }
         }
-        
     }
 }
 

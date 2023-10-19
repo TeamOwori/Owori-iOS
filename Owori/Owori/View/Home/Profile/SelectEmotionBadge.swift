@@ -9,54 +9,40 @@ import SwiftUI
 
 struct SelectEmotionBadge: View {
     @State private var isEmotion: Bool = false
-    
-    // 임시 emotionalbadges 데이터 변수
     @State private var emotionalbadges = ["JOY", "HAPPY", "SO_HAPPY", "LOVE", "SURPRISED", "INSIDIOUS", "NORMAL", "SLEEPY", "FAINT", "SULKY", "SAD", "CRY", "GOOSE_BUMPS", "ANGRY", "VERY_ANGRY"]
-    
     @Binding var emotionalBadgeViewIsActive: Bool
-    
     @EnvironmentObject var userViewModel: UserViewModel
     @EnvironmentObject var familyViewModel: FamilyViewModel
-    
     private let columns: [GridItem] = [
         GridItem(.flexible()),
         GridItem(.flexible()),
         GridItem(.flexible()),
     ]
-    
     @State private var emotionalBadge: String = "NONE"
     
     var body: some View {
-        
         ZStack {
             Color.oworiMain
                 .edgesIgnoringSafeArea(.all)
-            
-            VStack{
-                
+            VStack {
                 VStack {
                     Text("기분 어떤가요?")
                         .font(.title3)
                         .bold()
                         .foregroundColor(.black)
                         .padding(.bottom, 3)
-                    
                     Text("감정뱃지 등록해봐요")
                         .font(Font.custom("Pretendard", size: 16).weight(.semibold))
                         .foregroundColor(Color.oworiGray700)
                 }
                 .padding(EdgeInsets(top: 50, leading: 0, bottom: 0, trailing: 0))
-                
                 LazyVGrid(columns: columns) {
-                    
                     ForEach(emotionalbadges[0 ..< emotionalbadges.count], id: \.self) { imageName in
                         Button {
                             if emotionalBadge == imageName {
-                                // 이미 이미지를 선택한 경우
                                 isEmotion = false
                                 emotionalBadge = "NONE"
                             } else {
-                                // 이미지를 선택 시
                                 isEmotion = true
                                 emotionalBadge = imageName
                             }
@@ -67,9 +53,7 @@ struct SelectEmotionBadge: View {
                                     .background(
                                         Circle()
                                             .foregroundColor(.white)
-                                        
                                     )
-                                
                                 if emotionalBadge == imageName {
                                     Image(systemName: "checkmark")
                                         .foregroundColor(Color.oworiOrange)
@@ -78,7 +62,6 @@ struct SelectEmotionBadge: View {
                                             Circle()
                                                 .foregroundColor(.black.opacity(0.4))
                                                 .frame(width: 80, height: 80)
-                                            
                                         )
                                 }
                             }
@@ -86,18 +69,12 @@ struct SelectEmotionBadge: View {
                     }
                 }
                 .padding(EdgeInsets(top: 10, leading: 30, bottom: UIScreen.main.bounds.height*0.03, trailing: 30))
-                
                 Spacer()
-                
-                
                 Button {
-                    //확인 누르면 업데이트 된 화면으로 넘어가야됨.
                     userViewModel.updateEmotionalBadge(body: ["emotional_badge": emotionalBadge]) {
                         emotionalBadgeViewIsActive = false
                     }
-                    
                 } label: {
-                    
                     Text("확인")
                         .font(.title3)
                         .bold()
@@ -109,9 +86,7 @@ struct SelectEmotionBadge: View {
                 .shadow(color: .black.opacity(0.12), radius: 12, x: 4, y: 4)
                 .shadow(color: .black.opacity(0.1), radius: 5.5, x: 2, y: 2)
                 .padding(.bottom, 50)
-                
             }
-            
         }
         .navigationBarBackButtonHidden(true)
         .navigationBarTitleDisplayMode(.inline)

@@ -11,13 +11,10 @@ import YPImagePicker
 struct FamilyPhotosPickerButton: View {
     @EnvironmentObject var userViewModel: UserViewModel
     @EnvironmentObject var familyViewModel: FamilyViewModel
-    
     @State private var selectedImage: UIImage?
     @State private var isImagePickerPresented: Bool = false
     
     var body: some View {
-        
-        
         Button {
             isImagePickerPresented.toggle()
         } label: {
@@ -35,13 +32,9 @@ struct FamilyPhotosPickerButton: View {
         }
         .sheet(isPresented: $isImagePickerPresented) {
             ImagePickerView(selectedImage: $selectedImage, onComplete: { image in
-                // 이미지 선택이 완료되었을 때 호출되는 클로저
                 if let selectedImage = image {
                     familyViewModel.uploadFamilyImage(user: userViewModel.user, image: selectedImage) { uploadedProfileImageUrl in
-                        // 업로드가 완료되었을 때 호출되는 클로저
-                        familyViewModel.lookUpHomeView(user: userViewModel.user) {
-                            // 홈 뷰 업데이트 로직
-                        }
+                        familyViewModel.lookUpHomeView(user: userViewModel.user) {}
                     }
                 }
             })

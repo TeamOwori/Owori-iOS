@@ -114,7 +114,6 @@ struct Family: Codable {
             self.is_mine = false
         }
         
-        // 기본 init을 이렇게 제공해주는데... 이게 맞는지 위에가 맞는지 모르겠음... 좀 더 확인해보고 모델 init들 통일해야 함.
         init(id: String? = nil, schedule_id: String? = nil, title: String? = nil, content: String? = nil, start_datd: String? = nil, end_date: String? = nil, schedule_type: String? = nil, nickname: String? = nil, color: String? = nil, alarm_option: [String]? = nil, dday_option: Bool? = nil, dday: String? = nil, is_mine: Bool? = nil) {
             self.id = id
             self.schedule_id = schedule_id

@@ -10,11 +10,6 @@ import SwiftUI
 struct ContentTitle: View {
     @Binding var isFavorite: Bool
     @Binding var storyInfo: Story.StoryInfo
-//    var titleText: String = "기다리고 기다리던 하루"
-//
-//    /// - [임시] 작성자 데이터
-//    /// - 실제 이미지가 들어오면 없어질 예정
-//    var author: String = "쥐렁이"
     
     var body: some View {
         VStack(alignment: .leading) {

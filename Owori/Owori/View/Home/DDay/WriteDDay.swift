@@ -135,28 +135,9 @@ struct WriteDDay: View {
                         .cornerRadius(12)
                     }
                 }
-               
-                
-//                // 버튼 기능
-//                Button {
-//                    checkForFirstTab.toggle()
-//                } label: {
-//                    if checkForFirstTab == false {
-//                        //이러면 여기에 따로 처리해 줄 코드가 없는건가
-//
-//                    } else {
-//                        //
-//
-//                    }
-//                }
-                
-                
-                
             }
             .frame(width: UIScreen.main.bounds.width*0.8,height: 60,alignment: .center)
             .padding(EdgeInsets(top: 30, leading: 30, bottom: 30, trailing: 30))
-            
-            //MARK: 제목입력
             TextField("제목을 입력해주세요", text: $title)
                 .padding(EdgeInsets(top: 0, leading: 15, bottom: 0, trailing: 15))
                 .frame(width: UIScreen.main.bounds.width * 0.88, height: UIScreen.main.bounds.height * 0.07)
@@ -165,13 +146,8 @@ struct WriteDDay: View {
                         .inset(by: 0.5)
                         .stroke(Color.oworiGray300)
                 }.padding(.bottom,30)
-            
-            //MARK: DDAY 설정
             VStack(alignment: .center, spacing: 24) {
-                
-                //DatePicker
                 HStack(alignment: .top,spacing: 16) {
-                    
                     DatePicker(
                         "시작일",
                         selection: $startDate,
@@ -179,7 +155,6 @@ struct WriteDDay: View {
                     )
                     .kerning(-2)
                     .frame(width: UIScreen.main.bounds.width*0.4)
-                    
                     DatePicker(
                         "종료일",
                         selection: $endDate,
@@ -187,9 +162,7 @@ struct WriteDDay: View {
                     )
                     .kerning(-2)
                     .frame(width: UIScreen.main.bounds.width*0.4)
-                    
                 }.frame(width: UIScreen.main.bounds.width*0.9)
-                
                 ZStack(alignment: .bottomTrailing) {
                     TextEditor(text: $content)
                         .onChange(of: content) { newText in
@@ -203,43 +176,10 @@ struct WriteDDay: View {
                                 .stroke(Color.oworiGray300, style: StrokeStyle(lineWidth: 1))
                         )
                         .frame(width: UIScreen.main.bounds.width*0.8, height: UIScreen.main.bounds.height * 0.13)
-                    
-                    
-                Text("\(content.count)/10")
-//                    .overlay(Rectangle().frame(height: 1).padding(.top, 30))
-                    .foregroundColor(.gray)
-                    .padding(EdgeInsets(top: 0, leading: 0, bottom: 10, trailing: 10))
+                    Text("\(content.count)/10")
+                        .foregroundColor(.gray)
+                        .padding(EdgeInsets(top: 0, leading: 0, bottom: 10, trailing: 10))
                 }
-                
-//                //DDay - Switch Button
-//                HStack(alignment: .top,spacing: 16) {
-//                    Image("DDay")
-//                        .padding(EdgeInsets(top: 8, leading: 10, bottom: 0, trailing: 10))
-//
-//
-//                    Toggle("D-day 기능", isOn: $DDayToggle)
-//                        .toggleStyle(SwitchToggleStyle(tint: Color.oworiOrange))
-//
-//
-//
-//                }
-                
-//                //Alarm - Switch Button
-//                HStack(alignment: .top,spacing: 16) {
-//                    Image("Alarm")
-//                        .padding(EdgeInsets(top: 8, leading: 10, bottom: 0, trailing: 10))
-//
-//
-//                    Toggle("알림", isOn: $AlarmToggle)
-//                        .toggleStyle(SwitchToggleStyle(tint: Color.oworiOrange))
-//
-//
-//
-//                }
-                
-                
-                
-                
             }
             .padding(EdgeInsets(top: 0, leading: 15, bottom: 0, trailing: 15))
             .frame(width: UIScreen.main.bounds.width * 0.88, height: UIScreen.main.bounds.height * 0.25)
@@ -268,22 +208,14 @@ struct WriteDDay: View {
                 checkForFirstTab = true
                 checkForSecondTab = false
             }
-            
             print("스케쥴 인포 : \(scheduleInfo)")
             print("스케쥴 아이디 : \(scheduleId)")
-
-            
-            
         }
         .onTapGesture {
             self.endTextEditing()
         }
-        //        .navigationBarBackButtonHidden(true)
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
-            //            ToolbarItem(placement: .navigationBarLeading) {
-            //                BackCancel()
-            //            }
             ToolbarItem(placement: .principal) {
                 Text("작성하기")
                     .font(.title3)
@@ -293,39 +225,31 @@ struct WriteDDay: View {
             ToolbarItem(placement: .navigationBarTrailing) {
                 Button {
                     if scheduleInfo.schedule_id == "" {
-                        //View가 업데이트 된 상황에서 홈으로 복귀
                         familyViewModel.createSchedule(user: userViewModel.user, schduleInfo: ["start_date": "\(startDate.formatDateToString(format: "yyyyMMdd"))",
                                                                                                "end_date": "\(endDate.formatDateToString(format: "yyyyMMdd"))",
                                                                                                "title": "\(title)",
                                                                                                "content": "\(content)",
-                                                                                               // image 임시 데이터 추가 해야함.
                                                                                                "schedule_type": "\(checkForFirstTab ? "FAMILY" : "INDIVIDUAL")",
                                                                                                "dday_option": true,
                                                                                                "alarm_options": []]) { scheduleId in
                             familyViewModel.lookUpHomeView(user: userViewModel.user) {
                                 self.presentationMode.wrappedValue.dismiss()
                             }
-                            
                         }
                     } else {
-                        //View가 업데이트 된 상황에서 홈으로 복귀
                         print("업데이트 시 스케쥴 아이디 : \(scheduleId)")
                         familyViewModel.updateSchedule(user: userViewModel.user, schduleInfo: ["schedule_id": scheduleId ,
                                                                                                "start_date": "\(startDate.formatDateToString(format: "yyyyMMdd"))",
                                                                                                "end_date": "\(endDate.formatDateToString(format: "yyyyMMdd"))",
                                                                                                "title": "\(title)",
                                                                                                "content": "\(content)",
-                                                                                               // image 임시 데이터 추가 해야함.
-//                                                                                               "schedule_type": "\(checkForFirstTab ? "FAMILY" : "INDIVIDUAL")",
                                                                                                "dday_option": true,
                                                                                                "alarm_options": []]) { scheduleId in
                             familyViewModel.lookUpHomeView(user: userViewModel.user) {
                                 self.presentationMode.wrappedValue.dismiss()
                             }
-                            
                         }
                     }
-                    
                 } label: {
                     Image("Check")
                         .frame(width: 30, height: 30)

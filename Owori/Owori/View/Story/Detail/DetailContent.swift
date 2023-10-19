@@ -8,12 +8,9 @@
 import SwiftUI
 
 struct DetailContent: View {
-    
     @EnvironmentObject var storyViewModel: StoryViewModel
-    
     @Binding var isFavorite: Bool
     @Binding var storyInfo: Story.StoryInfo
-    
     @Binding var stories: [Story.StoryInfo]
     @Binding var storiesForCollection: [String: [Story.StoryInfo]]
     @Binding var storyDetailViewIsActive: Bool
@@ -21,18 +18,13 @@ struct DetailContent: View {
     
     var body: some View {
         VStack(alignment: .leading) {
-            
             ContentTitle(isFavorite: $isFavorite, storyInfo: $storyInfo)
                 .padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 20))
-            
             Divider()
                 .frame(height: 1)
                 .overlay(Color.oworiGray200)
-            
             ContentText(storyInfo: $storyInfo, stories: $stories, storiesForCollection: $storiesForCollection, storyDetailViewIsActive: $storyDetailViewIsActive, storyDetailViewIsActiveFromStoryAlbum: $storyDetailViewIsActiveFromStoryAlbum)
                 .padding(EdgeInsets(top: 20, leading: 20, bottom: 20, trailing: 20))
-    
-            
             Divider()
                 .frame(height: 1)
                 .overlay(Color.oworiGray200)

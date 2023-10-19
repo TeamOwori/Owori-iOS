@@ -17,8 +17,8 @@ struct AppleLoginTestView: View {
     var body: some View {
         VStack {
             loginViewModel.appleLoginButton() {
-                
             }
+            
             Button {
                 userViewModel.joinMember(socialToken: loginViewModel.socialToken) {
                     print(userViewModel.user.is_service_member!)
@@ -26,6 +26,7 @@ struct AppleLoginTestView: View {
             } label: {
                 Text("Create User")
             }
+            
             Button {
                 storyViewModel.createStory(user: userViewModel.user, storyInfo: [
                     "start_date" : "2022-12-25",
@@ -37,22 +38,10 @@ struct AppleLoginTestView: View {
                                 storyViewModel.lookUpStorySortByStartDate(user: userViewModel.user) {
                                     print("[getStoriesForcollection] : \(storyViewModel.getStoriesForCollection())")
                                 }
-                                
                 }
             } label: {
                 Text("Create Story")
             }
-            
-            
-            //            // 멤버 프로필 업데이트
-            //            Button {
-            //                userViewModel.updateProfile(userInfo: [ "nickname" : "owori",
-            //                                                        "birthday" : "2023-07-18",
-            //                                                        "color" : "GREEN"])
-            //            } label: {
-            //                Text("Update Member")
-            //            }
-            
             
             Button {
                 familyViewModel.createFamily(user: userViewModel.user, family_group_name: "owori") {
@@ -75,7 +64,6 @@ struct AppleLoginTestView: View {
                 userViewModel.updateProfile(userInfo: ["nickname" : "오월이",
                                                        "birthday" : "20230717",
                                                        "color" : "GREEN"]) { _ in
-                    
                 }
             } label: {
                 Text("Update Profile")
@@ -83,8 +71,5 @@ struct AppleLoginTestView: View {
         }
         .frame(height:UIScreen.main.bounds.height)
         .background(Color.white)
-        
-        
     }
-    
 }

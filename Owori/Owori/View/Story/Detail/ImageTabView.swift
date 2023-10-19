@@ -8,8 +8,6 @@
 import SwiftUI
 
 struct ImageTabView: View {
-    //    @Binding var images: [String]
-    //    var images: [String]
     @Binding var storyInfo: Story.StoryInfo
     @Binding var currentIndex: Int
     
@@ -28,7 +26,6 @@ struct ImageTabView: View {
             } else {
                 DetailImageCell(image: "DefaultImage")
             }
-            
             if !(storyInfo.story_images ?? []).isEmpty {
                 CurrentImageOrder(images: (storyInfo.story_images ?? []), currentIndex: $currentIndex)
                     .padding(EdgeInsets(top: 0, leading: 0, bottom: 10, trailing: 10))

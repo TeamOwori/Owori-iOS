@@ -10,9 +10,9 @@ import SwiftUI
 struct FavoriteButton: View {
     @Binding var isFavorite: Bool
     @Binding var storyInfo: Story.StoryInfo
-    
     @EnvironmentObject var userViewModel: UserViewModel
     @EnvironmentObject var storyViewModel: StoryViewModel
+    
     var body: some View {
         Button {
             isFavorite.toggle()
@@ -21,13 +21,11 @@ struct FavoriteButton: View {
                     self.storyInfo = storyInfo
                 }
             }
-            
         } label: {
             VStack {
                 Image(isFavorite ? "FavoriteFill" : "FavoriteUnfill")
             }
         }
-        
     }
 }
 

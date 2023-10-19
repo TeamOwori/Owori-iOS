@@ -10,7 +10,6 @@ import SwiftUI
 struct BeInviteFamily: View {
     @EnvironmentObject var userViewModel: UserViewModel
     @EnvironmentObject var familyViewModel: FamilyViewModel
-    
     @Binding var isLoggedIn: Bool
     @Binding var currentIndex: Int
     @Binding var nickname: String
@@ -22,28 +21,22 @@ struct BeInviteFamily: View {
     @State private var isSuccessSignUp: Bool = false
     @State private var isUserInitFail: Bool = false
     @State private var isInvalidInvitationCode: Bool = false
-    // 임시로 true로 변경. 기본값 = false
     
     var body: some View {
         VStack {
             NumberIndicator(currentIndex: $currentIndex)
                 .offset(y: 0)
             VStack(alignment: .leading) {
-                
                 Text("초대코드를 입력해주세요")
                     .font(.title)
                     .bold()
                     .padding(EdgeInsets(top: 100, leading: 20, bottom: 0, trailing: 20))
-                
                 Text("가족에게 초대코드를 받으셨나요?").foregroundColor(Color.oworiGray500)
                     .padding(EdgeInsets(top: 0, leading: 20, bottom: 10, trailing: 0))
-                
                 HStack {
                     Text("초대코드")
-                    
                     Image("초대코드입력")
                         .frame(width: 1, height: 21)
-                    
                     TextField("", text: $inviteCode)
                         .overlay(Rectangle().frame(height: 1).padding(.top, 30))
                         .foregroundColor(.gray)
@@ -57,21 +50,12 @@ struct BeInviteFamily: View {
                 .padding(.leading,20)
                 .padding(.trailing,20)
                 .foregroundColor(.gray)
-                
                 if inviteCode.count < 10 {
                     Text("열 글자의 초대 코드를 입력해주세요.")
                         .foregroundColor(.red)
                         .padding(.leading, 20)
                 }
-//                else {
-//                    Text("올바른 초대 코드입니다. 환영합니다!")
-//                        .foregroundColor(.blue)
-//                        .padding(.leading, 20)
-//                }
-                
                 Spacer()
-                
-                
                 HStack(alignment: .center) {
                     Button {
                         userViewModel.initUser(userInfo: ["nickname" : "\(nickname)", "birthday" : "11111111"]) { success in
@@ -104,49 +88,30 @@ struct BeInviteFamily: View {
                             .bold()
                             .foregroundColor(.white)
                             .frame(width: UIScreen.main.bounds.width, height: 52, alignment: .center)
-                        
                     }
                     .background(Color.oworiOrange)
                 }
-                
-                //                Button {
-                //                    if inviteCode == "testInvite" {
-                //                        isFifthViewVisible = true
-                //                        isCreateCodeViewVisible = false
-                //                        isReceiveCodeViewVisible = false
-                //                    } else {
-                //                        isFifthViewVisible = false
-                //                    }
-                //                } label: {
-                //                    Text("testInvite")
-                //                }
-                
             }
         }
         .alert(isPresented: $isUserInitFail) {
             Alert(
                 title: Text("알림"), message: Text("잘못 입력된 정보가 있습니다.\n다시 입력해 주세요."),
                 dismissButton: .default(Text("확인"))
-                )
+            )
         }
         .alert(isPresented: $isInvalidInvitationCode) {
             Alert(
                 title: Text("알림"), message: Text("초대코드가 유효하지 않습니다.\n다시 입력해 주세요."),
                 dismissButton: .default(Text("확인"))
-                )
+            )
         }
         .onTapGesture {
             self.endTextEditing()
         }
         .navigationBarTitleDisplayMode(.inline)
-        //        .navigationBarBackButtonHidden(true)
         .navigationDestination(isPresented: $isSuccessSignUp) {
             MainView(isLoggedIn: $isLoggedIn)
-        }
-        //        .toolbar {
-        //            BackToFamilyLinkViewButton(isCreateCodeViewVisible: $isCreateCodeViewVisible, isReceiveCodeViewVisible: $isReceiveCodeViewVisible)
-        //        }
-        .onAppear {
+        }        .onAppear {
             currentIndex = 4
         }
     }

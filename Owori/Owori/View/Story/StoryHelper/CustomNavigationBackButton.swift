@@ -10,14 +10,11 @@ import SwiftUI
 struct CustomNavigationBackButton: View {
     @Environment(\.presentationMode) private var presentationMode
     var body: some View {
-        
-        
         Button {
             presentationMode.wrappedValue.dismiss()
         } label: {
             Image("BackArrow")
-        }
-        
+        }   
     }
 }
 

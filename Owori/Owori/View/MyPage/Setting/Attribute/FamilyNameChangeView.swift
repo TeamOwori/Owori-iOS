@@ -11,17 +11,12 @@ struct FamilyNameChangeView: View {
     @EnvironmentObject var userViewModel: UserViewModel
     @EnvironmentObject var familyViewModel: FamilyViewModel
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
-    
     @State private var familyGroupName: String = ""
     
-//    @Binding var familyNameChangeViewIsActive: Bool
-    
     var body: some View {
-        ZStack{
-            
+        ZStack {
             Color.oworiMain.opacity(0.3).ignoresSafeArea()
-            
-            VStack{
+            VStack {
                 Text("변경할 가족 그룹명을 입력해주세요")
                     .font(
                         Font.custom("Pretendard", size: 16)
@@ -29,18 +24,14 @@ struct FamilyNameChangeView: View {
                     )
                     .foregroundColor(Color.black)
                     .padding(EdgeInsets(top: -30, leading: 0, bottom: 0, trailing: 0))
-                
                 VStack{
-                    
                     HStack {
-                        
                         Text("가족 그룹명")
                             .font(
                                 Font.custom("Pretendard", size: 14)
                                     .weight(.medium)
                             )
                             .foregroundColor(Color.oworiGray500)
-                        
                         TextField("", text: $familyGroupName)
                             .onChange(of: familyGroupName) { newText in
                                 if newText.count >= 10 {
@@ -55,7 +46,6 @@ struct FamilyNameChangeView: View {
                     .padding(.leading,0)
                     .padding(.trailing,0)
                     .foregroundColor(.gray)
-                    
                     Text("숫자, 특수문자, 이모티콘 모두 사용 가능")
                         .font(
                             Font.custom("Pretendard", size: 12)
@@ -63,15 +53,12 @@ struct FamilyNameChangeView: View {
                         )
                         .kerning(0.18)
                         .foregroundColor(Color.oworiGray400)
-                    
                 }
                 .frame(width: UIScreen.main.bounds.width*0.8,height: UIScreen.main.bounds.height*0.1, alignment: .leading)
                 .padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 20))
                 .background(.white)
                 .cornerRadius(12)
-                
             }
-            
         }
         .onAppear {
             familyGroupName = familyViewModel.family.family_group_name ?? "familyName"
@@ -79,7 +66,6 @@ struct FamilyNameChangeView: View {
         .onTapGesture {
             self.endTextEditing()
         }
-        //        .navigationBarBackButtonHidden(true)
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {

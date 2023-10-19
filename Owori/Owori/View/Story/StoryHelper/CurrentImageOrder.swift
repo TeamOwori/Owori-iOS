@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct CurrentImageOrder: View {
-//    @Binding var images: [String]
     var images: [String]
     @Binding var currentIndex: Int
     

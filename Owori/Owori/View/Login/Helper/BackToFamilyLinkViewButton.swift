@@ -18,7 +18,6 @@ struct BackToFamilyLinkViewButton: View {
         } label: {
             Text("X")
         }
-        
     }
 }
 

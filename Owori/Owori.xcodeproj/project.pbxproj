@@ -98,8 +98,6 @@
 		F36508532A81278400A14217 /* StoryRecordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F36508522A81278400A14217 /* StoryRecordView.swift */; };
 		F36629242A8571F300503E76 /* RecordSuccessButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F36629232A8571F300503E76 /* RecordSuccessButton.swift */; };
 		F36A82952A71921A00C6A90C /* BackToFamilyLinkViewButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F36A82942A71921A00C6A90C /* BackToFamilyLinkViewButton.swift */; };
-		F3799FBF2A8E3449000F8C46 /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3799FBE2A8E3449000F8C46 /* ImageLoader.swift */; };
-		F3799FC12A8E348C000F8C46 /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3799FC02A8E348C000F8C46 /* ImageCache.swift */; };
 		F37CDD0F2A86578D0002FFFE /* AppleLoginButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37CDD0E2A86578D0002FFFE /* AppleLoginButton.swift */; };
 		F37E88C32A93D98400D760A1 /* YPImagePicker in Frameworks */ = {isa = PBXBuildFile; productRef = F37E88C22A93D98400D760A1 /* YPImagePicker */; };
 		F37E88C52A93D9E000D760A1 /* YPImagePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37E88C42A93D9E000D760A1 /* YPImagePickerView.swift */; };
@@ -115,9 +113,7 @@
 		F39EF28E2A6BA80F005FD6DB /* TermsOfUse.swift in Sources */ = {isa = PBXBuildFile; fileRef = F39EF28D2A6BA80F005FD6DB /* TermsOfUse.swift */; };
 		F39EF2922A6DBA2C005FD6DB /* BackToLoginButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F39EF2912A6DBA2C005FD6DB /* BackToLoginButton.swift */; };
 		F3A13F132A7821D40003D589 /* ZoomImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A13F122A7821D40003D589 /* ZoomImages.swift */; };
-		F3A5E0CB2A8D0CFB002EEAC0 /* EditMyPageAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A5E0CA2A8D0CFB002EEAC0 /* EditMyPageAlertView.swift */; };
 		F3A8ABC02A84A661000F34F4 /* PhotosPickerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A8ABBF2A84A661000F34F4 /* PhotosPickerButton.swift */; };
-		F3A8ABC22A84D9B3000F34F4 /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A8ABC12A84D9B3000F34F4 /* UIImage+Extension.swift */; };
 		F3C1BE652A70F1C5002ADB3B /* UserViewModelTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C1BE642A70F1C5002ADB3B /* UserViewModelTestView.swift */; };
 		F3C1BE672A70F26E002ADB3B /* FamilyViewModelTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C1BE662A70F26E002ADB3B /* FamilyViewModelTestView.swift */; };
 		F3C1BE692A70F2C6002ADB3B /* StoryViewModelTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C1BE682A70F2C6002ADB3B /* StoryViewModelTestView.swift */; };
@@ -244,8 +240,6 @@
 		F36508522A81278400A14217 /* StoryRecordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryRecordView.swift; sourceTree = "<group>"; };
 		F36629232A8571F300503E76 /* RecordSuccessButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordSuccessButton.swift; sourceTree = "<group>"; };
 		F36A82942A71921A00C6A90C /* BackToFamilyLinkViewButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackToFamilyLinkViewButton.swift; sourceTree = "<group>"; };
-		F3799FBE2A8E3449000F8C46 /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
-		F3799FC02A8E348C000F8C46 /* ImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
 		F37CDD0E2A86578D0002FFFE /* AppleLoginButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleLoginButton.swift; sourceTree = "<group>"; };
 		F37E88C42A93D9E000D760A1 /* YPImagePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YPImagePickerView.swift; sourceTree = "<group>"; };
 		F385C7B02A963FB000D5A75A /* DDayCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DDayCardView.swift; sourceTree = "<group>"; };
@@ -260,9 +254,7 @@
 		F39EF28D2A6BA80F005FD6DB /* TermsOfUse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsOfUse.swift; sourceTree = "<group>"; };
 		F39EF2912A6DBA2C005FD6DB /* BackToLoginButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackToLoginButton.swift; sourceTree = "<group>"; };
 		F3A13F122A7821D40003D589 /* ZoomImages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoomImages.swift; sourceTree = "<group>"; };
-		F3A5E0CA2A8D0CFB002EEAC0 /* EditMyPageAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditMyPageAlertView.swift; sourceTree = "<group>"; };
 		F3A8ABBF2A84A661000F34F4 /* PhotosPickerButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosPickerButton.swift; sourceTree = "<group>"; };
-		F3A8ABC12A84D9B3000F34F4 /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
 		F3C1BE642A70F1C5002ADB3B /* UserViewModelTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModelTestView.swift; sourceTree = "<group>"; };
 		F3C1BE662A70F26E002ADB3B /* FamilyViewModelTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FamilyViewModelTestView.swift; sourceTree = "<group>"; };
 		F3C1BE682A70F2C6002ADB3B /* StoryViewModelTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryViewModelTestView.swift; sourceTree = "<group>"; };
@@ -338,7 +330,6 @@
 				35B3CD642A8008A000127259 /* MyPageStoryInfo.swift */,
 				35B3CD662A8008B300127259 /* MyPageProfilePhoto.swift */,
 				35B3CD712A81760700127259 /* EditMyPage.swift */,
-				F3A5E0CA2A8D0CFB002EEAC0 /* EditMyPageAlertView.swift */,
 			);
 			path = MyPageInfo;
 			sourceTree = "<group>";
@@ -665,8 +656,6 @@
 				F3430F7A2A67043200DC1B1C /* LoginViewModel.swift */,
 				F3430F7B2A67043200DC1B1C /* StoryViewModel.swift */,
 				F3430F7C2A67043200DC1B1C /* FamilyViewModel.swift */,
-				F3799FBE2A8E3449000F8C46 /* ImageLoader.swift */,
-				F3799FC02A8E348C000F8C46 /* ImageCache.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -678,7 +667,6 @@
 				F3430F802A67043200DC1B1C /* Color+Extension.swift */,
 				F3430F812A67043200DC1B1C /* Image+Extension.swift */,
 				F3430F822A67043200DC1B1C /* View+Extension.swift */,
-				F3A8ABC12A84D9B3000F34F4 /* UIImage+Extension.swift */,
 				356A54692A860D70006E22C8 /* Date+Extension.swift */,
 			);
 			path = Extension;
@@ -902,14 +890,12 @@
 				F39EF28A2A6B9860005FD6DB /* InviteFamily.swift in Sources */,
 				356A545C2A8560D8006E22C8 /* EventFormView.swift in Sources */,
 				F3430F952A67043200DC1B1C /* OnBoardingView.swift in Sources */,
-				F3A8ABC22A84D9B3000F34F4 /* UIImage+Extension.swift in Sources */,
 				F3E8CDCA2A810719007A0C3A /* ContentView.swift in Sources */,
 				35B3CD672A8008B300127259 /* MyPageProfilePhoto.swift in Sources */,
 				F37E88C52A93D9E000D760A1 /* YPImagePickerView.swift in Sources */,
 				F3ECF9972A925C0D00B553D1 /* StoryModifyView.swift in Sources */,
 				35B3CD722A81760700127259 /* EditMyPage.swift in Sources */,
 				886F8DFE2A6C582400D60BCC /* ProfileImageWithBadge.swift in Sources */,
-				F3799FC12A8E348C000F8C46 /* ImageCache.swift in Sources */,
 				883B47CD2A686C1D004C2D20 /* SettingView.swift in Sources */,
 				F3430FA22A67043200DC1B1C /* StoryListView.swift in Sources */,
 				886F8DF42A6C56C100D60BCC /* FamilyInitialPhoto.swift in Sources */,
@@ -949,7 +935,6 @@
 				F36A82952A71921A00C6A90C /* BackToFamilyLinkViewButton.swift in Sources */,
 				883B47D42A686D25004C2D20 /* InviteView.swift in Sources */,
 				883B47DB2A686E36004C2D20 /* CustomToggle.swift in Sources */,
-				F3A5E0CB2A8D0CFB002EEAC0 /* EditMyPageAlertView.swift in Sources */,
 				F3430F0F2A6701AD00DC1B1C /* OworiApp.swift in Sources */,
 				35B3CD5E2A8004A900127259 /* HomeNotificationView.swift in Sources */,
 				F3430F972A67043200DC1B1C /* CurrentImageOrder.swift in Sources */,
@@ -960,7 +945,6 @@
 				F3430F912A67043200DC1B1C /* LoginTestView.swift in Sources */,
 				357F6FE02A8DF7C60022E224 /* Recomment.swift in Sources */,
 				356A54562A856001006E22C8 /* CalendarView.swift in Sources */,
-				F3799FBF2A8E3449000F8C46 /* ImageLoader.swift in Sources */,
 				F3430F9A2A67043200DC1B1C /* ContentText.swift in Sources */,
 				35A2D0FB2A781D3400FF8A5B /* RealHomeView.swift in Sources */,
 				F3ECF99C2A92A70D00B553D1 /* FamilyPhotosPickerButton.swift in Sources */,

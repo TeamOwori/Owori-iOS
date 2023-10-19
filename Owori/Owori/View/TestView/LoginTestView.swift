@@ -16,7 +16,6 @@ struct LoginTestView: View {
     let buttonColor: Color = .yellow
     @State private var isLoggedIn: Bool = false
     @State private var alreadyMember: Bool = false
-    
     @EnvironmentObject  var loginViewModel: LoginViewModel
     @EnvironmentObject  var userViewModel: UserViewModel
     @EnvironmentObject  var storyViewModel: StoryViewModel
@@ -25,8 +24,7 @@ struct LoginTestView: View {
     var body: some View {
         NavigationStack {
             VStack {
-                // 로그인
-                
+                // MARK: - 로그인 테스트
                 KakaoLoginButton(isLoggedIn: $isLoggedIn, alreadyMember: $alreadyMember)
                 AppleLoginButton(isLoggedIn: $isLoggedIn, alreadyMember: $alreadyMember)
                 
@@ -56,16 +54,7 @@ struct LoginTestView: View {
                     Text("UserViewModel TestView")
                 }
                 
-                
-                
-                
-                
-                
-                
-                
-               
-                
-                //로그아웃
+                // MARK: - 로그아웃 테스트
                 HStack(alignment: .center, spacing: 15) {
                     Button {
                         loginViewModel.handleKakaoLogout()
