@@ -132,6 +132,7 @@
 		F3ECF9992A925CC500B553D1 /* ModifySuccessButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3ECF9982A925CC500B553D1 /* ModifySuccessButton.swift */; };
 		F3ECF99C2A92A70D00B553D1 /* FamilyPhotosPickerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3ECF99B2A92A70D00B553D1 /* FamilyPhotosPickerButton.swift */; };
 		F3F247C72BBC453C00158AA5 /* ExchangeRateError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3F247C62BBC453C00158AA5 /* ExchangeRateError.swift */; };
+		F3F247CC2BBC45DA00158AA5 /* BaseResponseProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3F247CB2BBC45DA00158AA5 /* BaseResponseProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -276,6 +277,7 @@
 		F3ECF9982A925CC500B553D1 /* ModifySuccessButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModifySuccessButton.swift; sourceTree = "<group>"; };
 		F3ECF99B2A92A70D00B553D1 /* FamilyPhotosPickerButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FamilyPhotosPickerButton.swift; sourceTree = "<group>"; };
 		F3F247C62BBC453C00158AA5 /* ExchangeRateError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeRateError.swift; sourceTree = "<group>"; };
+		F3F247CB2BBC45DA00158AA5 /* BaseResponseProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseResponseProtocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -747,6 +749,7 @@
 		F3F247C82BBC456900158AA5 /* Response */ = {
 			isa = PBXGroup;
 			children = (
+				F3F247CB2BBC45DA00158AA5 /* BaseResponseProtocol.swift */,
 			);
 			path = Response;
 			sourceTree = "<group>";
@@ -1008,6 +1011,7 @@
 				356A54662A8565E6006E22C8 /* ListViewRow.swift in Sources */,
 				F3C1BE752A711D74002ADB3B /* CustomNavigationBackButton.swift in Sources */,
 				3580AFA32A6844DB00DC28F7 /* AppleLoginTestView.swift in Sources */,
+				F3F247CC2BBC45DA00158AA5 /* BaseResponseProtocol.swift in Sources */,
 				886F8DF82A6C570500D60BCC /* ExistPhoto.swift in Sources */,
 				356A545A2A8560BA006E22C8 /* EventFormViewModel.swift in Sources */,
 			);
