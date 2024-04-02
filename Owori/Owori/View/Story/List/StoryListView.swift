@@ -18,15 +18,15 @@ struct StoryListView: View {
     
     var body: some View {
         VStack {
-            ForEach($stories, id: \.self) { $story in
+            ForEach($stories, id: \.self) { story in
                 Button {
-                    storyViewModel.lookUpStoryDetail(user: userViewModel.user, storyId: story.story_id!) { storyInfo in
-                        self.storyInfo = storyViewModel.searchStoryByStoryId(story_id: story.story_id!)!
+                    storyViewModel.lookUpStoryDetail(user: userViewModel.user, storyId: story.wrappedValue.story_id!) { storyInfo in
+                        self.storyInfo = storyViewModel.searchStoryByStoryId(story_id: story.wrappedValue.story_id!)!
                         print("테스트테스트테스트\(story)")
                         storyDetailViewIsActive = true
                     }
                 } label: {
-                    DailyStoryListCell(storyInfo: $story)
+                    DailyStoryListCell(storyInfo: story)
                         .padding(EdgeInsets(top: 20, leading: 20, bottom: 10, trailing: 20))
                     Divider()
                         .frame(height: 1)

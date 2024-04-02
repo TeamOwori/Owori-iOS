@@ -131,6 +131,7 @@
 		F3ECF9972A925C0D00B553D1 /* StoryModifyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3ECF9962A925C0D00B553D1 /* StoryModifyView.swift */; };
 		F3ECF9992A925CC500B553D1 /* ModifySuccessButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3ECF9982A925CC500B553D1 /* ModifySuccessButton.swift */; };
 		F3ECF99C2A92A70D00B553D1 /* FamilyPhotosPickerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3ECF99B2A92A70D00B553D1 /* FamilyPhotosPickerButton.swift */; };
+		F3F247C72BBC453C00158AA5 /* ExchangeRateError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3F247C62BBC453C00158AA5 /* ExchangeRateError.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -274,6 +275,7 @@
 		F3ECF9962A925C0D00B553D1 /* StoryModifyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryModifyView.swift; sourceTree = "<group>"; };
 		F3ECF9982A925CC500B553D1 /* ModifySuccessButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModifySuccessButton.swift; sourceTree = "<group>"; };
 		F3ECF99B2A92A70D00B553D1 /* FamilyPhotosPickerButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FamilyPhotosPickerButton.swift; sourceTree = "<group>"; };
+		F3F247C62BBC453C00158AA5 /* ExchangeRateError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeRateError.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -419,6 +421,7 @@
 		F3430F0D2A6701AD00DC1B1C /* Owori */ = {
 			isa = PBXGroup;
 			children = (
+				F3F247C32BBC452000158AA5 /* Data */,
 				3580AFA12A6841DE00DC28F7 /* Owori.entitlements */,
 				F3430F0E2A6701AD00DC1B1C /* OworiApp.swift */,
 				F380EAE12ADDB40E00CD50D2 /* GoogleService-Info.plist */,
@@ -724,6 +727,30 @@
 			path = Helper;
 			sourceTree = "<group>";
 		};
+		F3F247C32BBC452000158AA5 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				F3F247C42BBC452B00158AA5 /* DataMapping */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		F3F247C42BBC452B00158AA5 /* DataMapping */ = {
+			isa = PBXGroup;
+			children = (
+				F3F247C82BBC456900158AA5 /* Response */,
+				F3F247C62BBC453C00158AA5 /* ExchangeRateError.swift */,
+			);
+			path = DataMapping;
+			sourceTree = "<group>";
+		};
+		F3F247C82BBC456900158AA5 /* Response */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Response;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -894,6 +921,7 @@
 				886F8DFC2A6C57E600D60BCC /* ProfileImage.swift in Sources */,
 				F3463A532A8651DD0064B3E4 /* KakaoLoginButton.swift in Sources */,
 				F3430FA12A67043200DC1B1C /* FavoriteButton.swift in Sources */,
+				F3F247C72BBC453C00158AA5 /* ExchangeRateError.swift in Sources */,
 				F3430FA52A67043200DC1B1C /* StoryAlbumView.swift in Sources */,
 				F3A8ABC02A84A661000F34F4 /* PhotosPickerButton.swift in Sources */,
 				883B47D22A686D17004C2D20 /* FamilyNameChangeView.swift in Sources */,
