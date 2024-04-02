@@ -133,6 +133,8 @@
 		F3ECF99C2A92A70D00B553D1 /* FamilyPhotosPickerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3ECF99B2A92A70D00B553D1 /* FamilyPhotosPickerButton.swift */; };
 		F3F247C72BBC453C00158AA5 /* ExchangeRateError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3F247C62BBC453C00158AA5 /* ExchangeRateError.swift */; };
 		F3F247CC2BBC45DA00158AA5 /* BaseResponseProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3F247CB2BBC45DA00158AA5 /* BaseResponseProtocol.swift */; };
+		F3F247CF2BBC461F00158AA5 /* TestRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3F247CE2BBC461F00158AA5 /* TestRequest.swift */; };
+		F3F247D32BBC504400158AA5 /* ApiEndpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3F247D22BBC504400158AA5 /* ApiEndpoints.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -278,6 +280,8 @@
 		F3ECF99B2A92A70D00B553D1 /* FamilyPhotosPickerButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FamilyPhotosPickerButton.swift; sourceTree = "<group>"; };
 		F3F247C62BBC453C00158AA5 /* ExchangeRateError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeRateError.swift; sourceTree = "<group>"; };
 		F3F247CB2BBC45DA00158AA5 /* BaseResponseProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseResponseProtocol.swift; sourceTree = "<group>"; };
+		F3F247CE2BBC461F00158AA5 /* TestRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestRequest.swift; sourceTree = "<group>"; };
+		F3F247D22BBC504400158AA5 /* ApiEndpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiEndpoints.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -423,16 +427,16 @@
 		F3430F0D2A6701AD00DC1B1C /* Owori */ = {
 			isa = PBXGroup;
 			children = (
+				F3F247D52BBC507400158AA5 /* App */,
+				F3F247D42BBC505600158AA5 /* Resource */,
 				F3F247C32BBC452000158AA5 /* Data */,
 				3580AFA12A6841DE00DC28F7 /* Owori.entitlements */,
-				F3430F0E2A6701AD00DC1B1C /* OworiApp.swift */,
 				F380EAE12ADDB40E00CD50D2 /* GoogleService-Info.plist */,
 				F3430F3B2A6702EB00DC1B1C /* Info.plist */,
 				F3430F7E2A67043200DC1B1C /* Extension */,
 				F3430F702A67043200DC1B1C /* Model */,
-				F3430F3C2A67043200DC1B1C /* View */,
+				F3430F3C2A67043200DC1B1C /* Presentation */,
 				F3430F782A67043200DC1B1C /* ViewModel */,
-				F3430F122A6701AD00DC1B1C /* Assets.xcassets */,
 				F3430F142A6701AD00DC1B1C /* Preview Content */,
 			);
 			path = Owori;
@@ -463,7 +467,7 @@
 			path = OworiUITests;
 			sourceTree = "<group>";
 		};
-		F3430F3C2A67043200DC1B1C /* View */ = {
+		F3430F3C2A67043200DC1B1C /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
 				F3C1BE6A2A710544002ADB3B /* MainView.swift */,
@@ -475,7 +479,7 @@
 				F3430F592A67043200DC1B1C /* Story */,
 				F37E88C42A93D9E000D760A1 /* YPImagePickerView.swift */,
 			);
-			path = View;
+			path = Presentation;
 			sourceTree = "<group>";
 		};
 		F3430F3D2A67043200DC1B1C /* Home */ = {
@@ -732,6 +736,7 @@
 		F3F247C32BBC452000158AA5 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				F3F247D02BBC4ADE00158AA5 /* Network */,
 				F3F247C42BBC452B00158AA5 /* DataMapping */,
 			);
 			path = Data;
@@ -740,6 +745,7 @@
 		F3F247C42BBC452B00158AA5 /* DataMapping */ = {
 			isa = PBXGroup;
 			children = (
+				F3F247CD2BBC461000158AA5 /* Request */,
 				F3F247C82BBC456900158AA5 /* Response */,
 				F3F247C62BBC453C00158AA5 /* ExchangeRateError.swift */,
 			);
@@ -752,6 +758,46 @@
 				F3F247CB2BBC45DA00158AA5 /* BaseResponseProtocol.swift */,
 			);
 			path = Response;
+			sourceTree = "<group>";
+		};
+		F3F247CD2BBC461000158AA5 /* Request */ = {
+			isa = PBXGroup;
+			children = (
+				F3F247CE2BBC461F00158AA5 /* TestRequest.swift */,
+			);
+			path = Request;
+			sourceTree = "<group>";
+		};
+		F3F247D02BBC4ADE00158AA5 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				F3F247D12BBC4AE300158AA5 /* NetworkManager */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		F3F247D12BBC4AE300158AA5 /* NetworkManager */ = {
+			isa = PBXGroup;
+			children = (
+				F3F247D22BBC504400158AA5 /* ApiEndpoints.swift */,
+			);
+			path = NetworkManager;
+			sourceTree = "<group>";
+		};
+		F3F247D42BBC505600158AA5 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				F3430F122A6701AD00DC1B1C /* Assets.xcassets */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		F3F247D52BBC507400158AA5 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				F3430F0E2A6701AD00DC1B1C /* OworiApp.swift */,
+			);
+			path = App;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -951,6 +997,7 @@
 				35BF302E2A89172300F43DB5 /* ReportView.swift in Sources */,
 				F3C1BE712A711024002ADB3B /* StorySearchView.swift in Sources */,
 				F3C1BE692A70F2C6002ADB3B /* StoryViewModelTestView.swift in Sources */,
+				F3F247D32BBC504400158AA5 /* ApiEndpoints.swift in Sources */,
 				F39EF2882A6B972E005FD6DB /* JoinFamily.swift in Sources */,
 				35B3CD652A8008A000127259 /* MyPageStoryInfo.swift in Sources */,
 				F39EF2862A6B96A1005FD6DB /* JoinFamilyName.swift in Sources */,
@@ -1009,6 +1056,7 @@
 				F3430FAD2A67043200DC1B1C /* Story.swift in Sources */,
 				F35A44F62A8140260092F342 /* RecordButton.swift in Sources */,
 				356A54662A8565E6006E22C8 /* ListViewRow.swift in Sources */,
+				F3F247CF2BBC461F00158AA5 /* TestRequest.swift in Sources */,
 				F3C1BE752A711D74002ADB3B /* CustomNavigationBackButton.swift in Sources */,
 				3580AFA32A6844DB00DC28F7 /* AppleLoginTestView.swift in Sources */,
 				F3F247CC2BBC45DA00158AA5 /* BaseResponseProtocol.swift in Sources */,
