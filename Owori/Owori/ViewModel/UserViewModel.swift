@@ -7,23 +7,23 @@
 
 import SwiftUI
 
-fileprivate enum OworiAPI {
-    static let scheme = "http"
-    static let host = "13.124.20.243"
-    
-    enum Path: String {
-        case members = "/api/v1/members"
-        case membersKakao = "/api/v1/members/kakao"
-        case membersApple = "/api/v1/members/apple"
-        case membersGoogle = "/api/v1/members/google"
-        case refresh = "/api/v1/auth/refresh"
-        case membersDetails = "/api/v1/members/details"
-        case membersEmtionalBadge = "/api/v1/members/emotional-badge"
-        case membersProfile = "/api/v1/members/profile"
-        case membersColors = "/api/v1/members/colors"
-        case membersProfileImage = "/api/v1/members/profile-image"
-    }
-}
+//fileprivate enum OworiAPI {
+//    static let scheme = "http"
+//    static let host = "13.124.20.243"
+//    
+//    enum Path: String {
+//        case members = "/api/v1/members"
+//        case membersKakao = "/api/v1/members/kakao"
+//        case membersApple = "/api/v1/members/apple"
+//        case membersGoogle = "/api/v1/members/google"
+//        case refresh = "/api/v1/auth/refresh"
+//        case membersDetails = "/api/v1/members/details"
+//        case membersEmtionalBadge = "/api/v1/members/emotional-badge"
+//        case membersProfile = "/api/v1/members/profile"
+//        case membersColors = "/api/v1/members/colors"
+//        case membersProfileImage = "/api/v1/members/profile-image"
+//    }
+//}
 
 class UserViewModel: ObservableObject {
     @Published var user: User = User()
@@ -40,17 +40,17 @@ class UserViewModel: ObservableObject {
     // MARK: 오월이 API FUNCTIONS (Post)
     // 얘를 인터페이스로 바꾸기.
     func joinMember(socialToken: Token, completion: @escaping () -> Void) {
-        var urlComponents = URLComponents()
-        urlComponents.scheme = OworiAPI.scheme
-        urlComponents.host = OworiAPI.host
+        var urlComponents = ApiEndpoints.getBasicUrlComponents()
+        print(ApiEndpoints.getBasicUrlComponents().url)
         if socialToken.authProvider == "KAKAO" {
-            urlComponents.path = OworiAPI.Path.membersKakao.rawValue
+            urlComponents.path += ApiEndpoints.Path.membersKakao.rawValue
         } else if socialToken.authProvider == "APPLE" {
-            urlComponents.path = OworiAPI.Path.membersApple.rawValue
+            urlComponents.path += ApiEndpoints.Path.membersApple.rawValue
         } else if socialToken.authProvider == "GOOGLE" {
-            urlComponents.path = OworiAPI.Path.membersGoogle.rawValue
+            urlComponents.path += ApiEndpoints.Path.membersGoogle.rawValue
         }
         guard let url = urlComponents.url else {
+            print(urlComponents.url)
             print("[joinMember] Error: cannot create URL")
             return
         }
@@ -115,10 +115,8 @@ class UserViewModel: ObservableObject {
     func initUser(userInfo: [String: Any], completion: @escaping (Bool) -> Void) {
         var success: Bool = false
         guard let sendData = try? JSONSerialization.data(withJSONObject: userInfo, options: []) else { return }
-        var urlComponents = URLComponents()
-        urlComponents.scheme = OworiAPI.scheme
-        urlComponents.host = OworiAPI.host
-        urlComponents.path = OworiAPI.Path.membersDetails.rawValue
+        var urlComponents = ApiEndpoints.getBasicUrlComponents()
+        urlComponents.path += ApiEndpoints.Path.membersDetails.rawValue
         guard let url = urlComponents.url else {
             print("Error: cannot create URL")
             return
@@ -166,10 +164,8 @@ class UserViewModel: ObservableObject {
     
     func updateEmotionalBadge(body: [String: Any], completion: @escaping () -> Void) {
         guard let sendData = try? JSONSerialization.data(withJSONObject: body, options: []) else { return }
-        var urlComponents = URLComponents()
-        urlComponents.scheme = OworiAPI.scheme
-        urlComponents.host = OworiAPI.host
-        urlComponents.path = OworiAPI.Path.membersEmtionalBadge.rawValue
+        var urlComponents = ApiEndpoints.getBasicUrlComponents()
+        urlComponents.path += ApiEndpoints.Path.membersEmtionalBadge.rawValue
         guard let url = urlComponents.url else {
             print("Error: cannot create URL")
             return
@@ -203,10 +199,8 @@ class UserViewModel: ObservableObject {
     func updateProfile(userInfo: [String: Any], completion: @escaping (Bool) -> Void) {
         var success: Bool = false
         guard let sendData = try? JSONSerialization.data(withJSONObject: userInfo, options: []) else { return }
-        var urlComponents = URLComponents()
-        urlComponents.scheme = OworiAPI.scheme
-        urlComponents.host = OworiAPI.host
-        urlComponents.path = OworiAPI.Path.membersProfile.rawValue
+        var urlComponents = ApiEndpoints.getBasicUrlComponents()
+        urlComponents.path += ApiEndpoints.Path.membersProfile.rawValue
         guard let url = urlComponents.url else {
             print("Error: cannot create URL")
             completion(success)
@@ -246,10 +240,8 @@ class UserViewModel: ObservableObject {
     
     func uploadProfileImages(image: UIImage, completion: @escaping (String) -> Void) {
         var uploadedProfileImageUrl: String = ""
-        var urlComponents = URLComponents()
-        urlComponents.scheme = OworiAPI.scheme
-        urlComponents.host = OworiAPI.host
-        urlComponents.path = OworiAPI.Path.membersProfileImage.rawValue
+        var urlComponents = ApiEndpoints.getBasicUrlComponents()
+        urlComponents.path += ApiEndpoints.Path.membersProfileImage.rawValue
         guard let url = urlComponents.url else {
             print("Error: cannot create URL")
             return
@@ -319,10 +311,8 @@ class UserViewModel: ObservableObject {
     
     // MARK: 오월이 API FUNCTIONS (GET)
     func refreshingToken() {
-        var urlComponents = URLComponents()
-        urlComponents.scheme = OworiAPI.scheme
-        urlComponents.host = OworiAPI.host
-        urlComponents.path = OworiAPI.Path.refresh.rawValue
+        var urlComponents = ApiEndpoints.getBasicUrlComponents()
+        urlComponents.path += ApiEndpoints.Path.refresh.rawValue
         guard let url = urlComponents.url else {
             print("Error: cannot create URL")
             return
@@ -367,10 +357,8 @@ class UserViewModel: ObservableObject {
     }
     
     func lookupProfile(completion: @escaping () -> Void) {
-        var urlComponents = URLComponents()
-        urlComponents.scheme = OworiAPI.scheme
-        urlComponents.host = OworiAPI.host
-        urlComponents.path = OworiAPI.Path.membersProfile.rawValue
+        var urlComponents = ApiEndpoints.getBasicUrlComponents()
+        urlComponents.path += ApiEndpoints.Path.membersProfile.rawValue
         guard let url = urlComponents.url else {
             print("Error: cannot create URL")
             return
@@ -415,10 +403,8 @@ class UserViewModel: ObservableObject {
     
     func lookupUnmodifiableColor(completion: @escaping ([String: Any]) -> Void) {
         var usedColorList: [String: Any] = [:]
-        var urlComponents = URLComponents()
-        urlComponents.scheme = OworiAPI.scheme
-        urlComponents.host = OworiAPI.host
-        urlComponents.path = OworiAPI.Path.membersColors.rawValue
+        var urlComponents = ApiEndpoints.getBasicUrlComponents()
+        urlComponents.path += ApiEndpoints.Path.membersColors.rawValue
         guard let url = urlComponents.url else {
             print("Error: cannot create URL")
             return
@@ -497,10 +483,8 @@ class UserViewModel: ObservableObject {
     
     // MARK: 오월이 API FUNCTIONS (DELETE)
     func deleteMember() {
-        var urlComponents = URLComponents()
-        urlComponents.scheme = OworiAPI.scheme
-        urlComponents.host = OworiAPI.host
-        urlComponents.path = OworiAPI.Path.members.rawValue
+        var urlComponents = ApiEndpoints.getBasicUrlComponents()
+        urlComponents.path += ApiEndpoints.Path.members.rawValue
         guard let url = urlComponents.url else {
             print("Error: cannot create URL")
             return
