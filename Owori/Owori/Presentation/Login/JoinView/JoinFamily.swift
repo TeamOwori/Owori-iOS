@@ -32,7 +32,7 @@ struct JoinFamily: View {
                     .padding(EdgeInsets(top: -20, leading: 20, bottom: 8, trailing: 20))
                     .frame(maxWidth: UIScreen.main.bounds.width, alignment: .leading)
                 Spacer()
-                Image("초대코드")
+                Image(.linkFamilyLogo)
                     .frame(maxWidth: UIScreen.main.bounds.width, alignment: .center)
                 Spacer()
                 VStack(alignment: .center, spacing: 16) {

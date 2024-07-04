@@ -14,7 +14,7 @@ struct SplashView: View {
             Color.oworiOrange.edgesIgnoringSafeArea(.all)
             VStack {
                 if !isOnBoardingViewVisible {
-                    Image("오월이타이틀")
+                    Image(.oworiTitleWhite)
                 } else {
                     OnBoardingView()
                         .opacity(isOnBoardingViewVisible ? 1 : 0)

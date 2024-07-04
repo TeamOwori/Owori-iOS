@@ -37,7 +37,7 @@ struct SettingView: View {
                             }
                             .padding(EdgeInsets(top: 0, leading: 1.5, bottom: 0, trailing: 10))
                             Spacer()
-                            Image("Right")
+                            Image(.rightArrowGray)
                                 .frame(width: 24, height: 24)
                                 .offset(x: 27)
                         }
@@ -54,7 +54,7 @@ struct SettingView: View {
                                 .foregroundColor(.oworiGray600)
                                 .padding(EdgeInsets(top: 0, leading: 1.5, bottom: 0, trailing: 10))
                             Spacer()
-                            Image("Right")
+                            Image(.rightArrowGray)
                                 .frame(width: 24, height: 24)
                                 .offset(x: 27)
                         }
@@ -79,7 +79,7 @@ struct SettingView: View {
                                 .foregroundColor(.oworiGray600)
                                 .padding(EdgeInsets(top: 0, leading: 1.5, bottom: 0, trailing: 10))
                             Spacer()
-                            Image("Right")
+                            Image(.rightArrowGray)
                         }
                     }
                     Button(action: {
@@ -91,7 +91,7 @@ struct SettingView: View {
                                 .foregroundColor(.oworiGray600)
                                 .padding(EdgeInsets(top: 0, leading: 1.5, bottom: 0, trailing: 10))
                             Spacer()
-                            Image("Right")
+                            Image(.rightArrowGray)
                         }
                     }
                 } header: {
@@ -113,7 +113,7 @@ struct SettingView: View {
                                 .foregroundColor(.oworiGray600)
                                 .padding(EdgeInsets(top: 0, leading: 1.5, bottom: 0, trailing: 10))
                             Spacer()
-                            Image("Right")
+                            Image(.rightArrowGray)
                         }
                     }
                     
@@ -127,7 +127,7 @@ struct SettingView: View {
                                 .foregroundColor(.oworiGray600)
                                 .padding(EdgeInsets(top: 0, leading: 1.5, bottom: 0, trailing: 10))
                             Spacer()
-                            Image("Right")
+                            Image(.rightArrowGray)
                         }
                     }
                     
@@ -140,7 +140,7 @@ struct SettingView: View {
                                 .foregroundColor(.oworiGray600)
                                 .padding(EdgeInsets(top: 0, leading: 1.5, bottom: 0, trailing: 10))
                             Spacer()
-                            Image("Right")
+                            Image(.rightArrowGray)
                         }
                     }
                     HStack{
@@ -173,7 +173,7 @@ struct SettingView: View {
                                 .foregroundColor(.oworiGray600)
                                 .padding(EdgeInsets(top: 0, leading: 1.5, bottom: 0, trailing: 10))
                             Spacer()
-                            Image("Right")
+                            Image(.rightArrowGray)
                         }
                     }
                 } header: {
@@ -195,7 +195,7 @@ struct SettingView: View {
                         Button{
                             showAlert = true
                         } label: {
-                            Image("Right")
+                            Image(.rightArrowGray)
                         }
                         .alert(isPresented: $showAlert) {
                             Alert(
@@ -222,7 +222,7 @@ struct SettingView: View {
                         Button {
                             showAlert1 = true
                         } label: {
-                            Image("Right")
+                            Image(.rightArrowGray)
                         }
                         .alert(isPresented: $showAlert1) {
                             Alert(

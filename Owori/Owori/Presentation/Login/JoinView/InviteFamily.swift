@@ -36,7 +36,7 @@ struct InviteFamily: View {
                 .bold()
                 .padding(EdgeInsets(top: 0, leading: 30, bottom: 0, trailing: 30))
             ZStack {
-                Image("가족초대코드")
+                Image(.familyCode)
                     .frame(maxWidth: UIScreen.main.bounds.width, alignment: .center)
                     .padding(EdgeInsets(top: -30, leading: 30, bottom: 0, trailing: 30))
                     .aspectRatio(contentMode: .fit)
@@ -52,7 +52,7 @@ struct InviteFamily: View {
                     message: Text("<오월이 가족 초대코드>\n초대코드 : \(familyViewModel.family.invite_code ?? "errer")"),
                     preview: SharePreview(
                         Text("오월이 가족 초대코드"),
-                        image: Image("오월이")
+                        image: Image(.oworiLogo)
                     )
                 ) {
                     Label("초대코드 공유", systemImage: "")

@@ -10,13 +10,13 @@ import SwiftUI
 struct NumberIndicator: View {
     let numbers: [String] = ["0", "1", "2", "3", "4"]
     @Binding var currentIndex: Int
-    let numberFocused: [String] = ["Focused1","Focused2","Focused3","Focused4","Focused5"]
-    let numberUnfocused: [String] = ["Unfocused1","Unfocused2","Unfocused3","Unfocused4","Unfocused5"]
+    let numberFocused: [ImageResource] = [.focused1, .focused2, .focused3, .focused4]
+    let numberUnfocused: [ImageResource] = [.unfocused1, .unfocused1, .unfocused3, .unfocused4]
     
     var body: some View {
         if 0 < currentIndex && currentIndex <= 4 {
             ZStack {
-                Image("NavigatorLine")
+                Image(.indicatorLine)
                 HStack(spacing: 30) {
                     ForEach(0 ..< numbers.count, id: \.self) { index in
                         if index != 0 {

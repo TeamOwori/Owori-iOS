@@ -25,7 +25,7 @@ struct KakaoLoginButton: View {
                 }
             }
         } label: {
-            Image("카카오로그인버튼")
+            Image(.kakaoLogin)
                 .resizable()
                 .frame(width: 300, height: 44, alignment: .leading)
                 .cornerRadius(12)

@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct LoginButton: View {
-    let buttonImage: String
+    let buttonImage: ImageResource
     @EnvironmentObject var loginViewModel: LoginViewModel
     @EnvironmentObject var userViewModel: UserViewModel
     @Binding var isLoggedIn: Bool
@@ -39,7 +39,7 @@ struct LoginButton: View {
 
 struct LoginButton_Previews: PreviewProvider {
     static var previews: some View {
-        LoginButton(buttonImage: "카카오로그인버튼", isLoggedIn: .constant(false), alreadyMember: .constant(false))
+        LoginButton(buttonImage: .kakaoLogin, isLoggedIn: .constant(false), alreadyMember: .constant(false))
             .environmentObject(UserViewModel())
             .environmentObject(LoginViewModel())
     }

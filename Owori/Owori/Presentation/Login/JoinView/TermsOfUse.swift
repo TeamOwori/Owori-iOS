@@ -36,11 +36,11 @@ struct TermsOfUse: View {
                         checkForService.toggle()
                     } label: {
                         if checkForService == false {
-                            Image("Checked")
+                            Image(.uncheckedBox)
                                 .resizable()
                                 .frame(width: 20, height: 20)
                         } else {
-                            Image("Checked1")
+                            Image(.checkedBox)
                                 .resizable()
                                 .frame(width: 20, height: 20)
                         }
@@ -57,7 +57,7 @@ struct TermsOfUse: View {
                             .foregroundColor(.black)
                             .padding(.leading,10)
                         Spacer()
-                        Image("Right")
+                        Image(.rightArrowLightGray)
                             .frame(width: 20, height: 20)
                             .padding(.trailing,10)
                     }
@@ -68,11 +68,11 @@ struct TermsOfUse: View {
                         checkForUseOfInformation.toggle()
                     } label: {
                         if checkForUseOfInformation == false {
-                            Image("Checked")
+                            Image(.uncheckedBox)
                                 .resizable()
                                 .frame(width: 20, height: 20)
                         } else {
-                            Image("Checked1")
+                            Image(.checkedBox)
                                 .resizable()
                                 .frame(width: 20, height: 20)
                         }
@@ -88,7 +88,7 @@ struct TermsOfUse: View {
                             .foregroundColor(.black)
                             .padding(.leading,10)
                         Spacer()
-                        Image("Right")
+                        Image(.rightArrowLightGray)
                             .frame(width: 20, height: 20)
                             .padding(.trailing,10)
                     }

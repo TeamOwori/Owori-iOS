@@ -16,7 +16,7 @@ struct OnBoardingView: View {
     private var bodies: [String] = ["‘감정뱃지’로 나의 기분을 표현하고 \n ‘서로에게 한마디’를 나눠봐요", "공유 캘린더로 온가족의 일정을 체크할 수 있어요 중요한 가족행사는 오월이가 알려줄게요", "사진과 함께 그날의 이야기를 공유할 수 있어요 하루하루를 가족과 함께해요"]
     @State private var bodyIndex: Int = 0
     private var indexOfImage: Int = 1
-    private var images: [String] = ["작업영역","작업영역 (1)","작업영역 (11)"]
+    private var images: [ImageResource] = [ImageResource.onBoarding1, ImageResource.onBoarding2, ImageResource.onBoarding3]
     @State private var imageIndex: Int = 0
     @State private var animationValue: CGFloat = 0
     @State var offset: CGFloat = 0
