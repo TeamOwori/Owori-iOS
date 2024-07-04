@@ -8,19 +8,19 @@
 import SwiftUI
 import Foundation
 
-fileprivate enum OworiAPI {
-    static let scheme = "http"
-    static let host = "13.124.20.243"
-    
-    enum Path: String {
-        case stories = "/api/v1/stories"
-        case storiesUpdate = "/api/v1/stories/update"
-        case storiesSortLastViewed = "/api/v1/stories?sort=created_at&last_viewed="
-        case storiesFindSortStartDate = "/api/v1/stories/find"
-        case images = "/api/v1/images"
-        case hearts = "/api/v1/hearts"
-    }
-}
+//fileprivate enum OworiAPI {
+//    static let scheme = "http"
+//    static let host = "13.124.20.243"
+//    
+//    enum Path: String {
+//        case stories = "/api/v1/stories"
+//        case storiesUpdate = "/api/v1/stories/update"
+//        case storiesSortLastViewed = "/api/v1/stories?sort=created_at&last_viewed="
+//        case storiesFindSortStartDate = "/api/v1/stories/find"
+//        case images = "/api/v1/images"
+//        case hearts = "/api/v1/hearts"
+//    }
+//}
 
 class StoryViewModel: ObservableObject {
     // MARK: Story 관련 PROPERTIES
@@ -30,10 +30,8 @@ class StoryViewModel: ObservableObject {
     // MARK: Story API FUNCTIONS (POST)
     func createStory(user: User, storyInfo: [String: Any], completion: @escaping () -> Void) {
         guard let sendData = try? JSONSerialization.data(withJSONObject: storyInfo, options: []) else { return }
-        var urlComponents = URLComponents()
-        urlComponents.scheme = OworiAPI.scheme
-        urlComponents.host = OworiAPI.host
-        urlComponents.path = OworiAPI.Path.stories.rawValue
+        var urlComponents = ApiEndpoints.getBasicUrlComponents()
+        urlComponents.path += ApiEndpoints.Path.stories.rawValue
         guard let url = urlComponents.url else {
             print("Error: cannot create URL")
             return
@@ -103,10 +101,8 @@ class StoryViewModel: ObservableObject {
     
     func toggleHeart(user: User, storyId: String, completion: @escaping () -> Void) {
         guard let sendData = try? JSONSerialization.data(withJSONObject: ["story_id": storyId], options: []) else { return }
-        var urlComponents = URLComponents()
-        urlComponents.scheme = OworiAPI.scheme
-        urlComponents.host = OworiAPI.host
-        urlComponents.path = OworiAPI.Path.hearts.rawValue
+        var urlComponents = ApiEndpoints.getBasicUrlComponents()
+        urlComponents.path += ApiEndpoints.Path.hearts.rawValue
         guard let url = urlComponents.url else {
             print("Error: cannot create URL")
             return
@@ -146,10 +142,8 @@ class StoryViewModel: ObservableObject {
     
     func updateStory(user: User, storyInfo: [String: Any], completion: @escaping () -> Void) {
         guard let sendData = try? JSONSerialization.data(withJSONObject: storyInfo, options: []) else { return }
-        var urlComponents = URLComponents()
-        urlComponents.scheme = OworiAPI.scheme
-        urlComponents.host = OworiAPI.host
-        urlComponents.path = OworiAPI.Path.storiesUpdate.rawValue
+        var urlComponents = ApiEndpoints.getBasicUrlComponents()
+        urlComponents.path += ApiEndpoints.Path.storiesUpdate.rawValue
         guard let url = urlComponents.url else {
             print("Error: cannot create URL")
             return
@@ -199,10 +193,8 @@ class StoryViewModel: ObservableObject {
     
     func uploadStoryImages(user: User, images: [UIImage], completion: @escaping ([String]) -> Void) {
         var uploadedStoryImagesUrl: [String] = []
-        var urlComponents = URLComponents()
-        urlComponents.scheme = OworiAPI.scheme
-        urlComponents.host = OworiAPI.host
-        urlComponents.path = OworiAPI.Path.images.rawValue
+        var urlComponents = ApiEndpoints.getBasicUrlComponents()
+        urlComponents.path += ApiEndpoints.Path.images.rawValue
         guard let url = urlComponents.url else {
             print("Error: cannot create URL")
             return
@@ -272,10 +264,8 @@ class StoryViewModel: ObservableObject {
     
     // MARK: Story API FUNCTIONS (GET)
     func lookUpStory(user: User, completion: @escaping () -> Void) {
-        var urlComponents = URLComponents()
-        urlComponents.scheme = OworiAPI.scheme
-        urlComponents.host = OworiAPI.host
-        urlComponents.path = OworiAPI.Path.stories.rawValue
+        var urlComponents = ApiEndpoints.getBasicUrlComponents()
+        urlComponents.path += ApiEndpoints.Path.stories.rawValue
         urlComponents.queryItems = [
             //            URLQueryItem(name: "sort", value: "created_at"),
             //            URLQueryItem(name: "last_viewed", value: "yyyy-MM-dd".stringFromDate())
@@ -323,10 +313,8 @@ class StoryViewModel: ObservableObject {
     }
     
     func lookUpStorySortByStartDate(user: User, completion: @escaping () -> Void) {
-        var urlComponents = URLComponents()
-        urlComponents.scheme = OworiAPI.scheme
-        urlComponents.host = OworiAPI.host
-        urlComponents.path = OworiAPI.Path.storiesFindSortStartDate.rawValue
+        var urlComponents = ApiEndpoints.getBasicUrlComponents()
+        urlComponents.path += ApiEndpoints.Path.storiesFindSortStartDate.rawValue
         urlComponents.queryItems = [
             URLQueryItem(name: "sort", value: "start_date"),
             //            URLQueryItem(name: "last_viewed", value: "yyyy-MM-dd".stringFromDate())
@@ -399,10 +387,9 @@ class StoryViewModel: ObservableObject {
     
     func lookUpStoryDetail(user: User, storyId: String, completion: @escaping (Story.StoryInfo) -> Void) {
         var storyInfo: Story.StoryInfo = Story.StoryInfo()
-        var urlComponents = URLComponents()
-        urlComponents.scheme = OworiAPI.scheme
-        urlComponents.host = OworiAPI.host
-        urlComponents.path = OworiAPI.Path.stories.rawValue + "/" + storyId
+        var urlComponents = ApiEndpoints.getBasicUrlComponents()
+        urlComponents.path += ApiEndpoints.Path.stories.rawValue + "/" + storyId
+        
         
         guard let url = urlComponents.url else {
             print("Error: cannot create URL")
@@ -451,10 +438,8 @@ class StoryViewModel: ObservableObject {
     }
     
     func deleteStory(user: User, storyId: String, completion: @escaping () -> Void) {
-        var urlComponents = URLComponents()
-        urlComponents.scheme = OworiAPI.scheme
-        urlComponents.host = OworiAPI.host
-        urlComponents.path = OworiAPI.Path.stories.rawValue + "/" + storyId
+        var urlComponents = ApiEndpoints.getBasicUrlComponents()
+        urlComponents.path += ApiEndpoints.Path.stories.rawValue + "/" + storyId
         guard let url = urlComponents.url else {
             print("Error: cannot create URL")
             return

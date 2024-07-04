@@ -1,0 +1,46 @@
+//
+//  AppleLoginButton.swift
+//  Owori
+//
+//  Created by Kyungsoo Lee on 2023/08/11.
+//
+
+import SwiftUI
+import AuthenticationServices
+
+struct AppleLoginButton: View {
+    @EnvironmentObject var loginViewModel: LoginViewModel
+    @EnvironmentObject var userViewModel: UserViewModel
+    @Binding var isLoggedIn: Bool
+    @Binding var alreadyMember: Bool
+    
+    var body: some View {
+//        SignInWithAppleButton(
+//            onRequest: { request in
+//                Task {
+//                    
+//                }
+//            }, onCompletion: { result in
+//                
+//                
+//            }
+//        )
+        
+        loginViewModel.appleLoginButton() {
+            if loginViewModel.isLoggedIn {
+                userViewModel.joinMember(socialToken: loginViewModel.socialToken) {
+                    alreadyMember = userViewModel.user.is_service_member!
+                    isLoggedIn = true
+                }
+            } else {
+                isLoggedIn = false
+            }
+        }
+    }
+}
+
+struct AppleLoginButton_Previews: PreviewProvider {
+    static var previews: some View {
+        AppleLoginButton(isLoggedIn: .constant(false), alreadyMember: .constant(false))
+    }
+}

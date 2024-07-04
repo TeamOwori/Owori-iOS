@@ -14,14 +14,14 @@ import GoogleSignIn
 import GoogleSignInSwift
 import FirebaseAuth
 
-fileprivate enum OworiAPI {
-    static let scheme = "http"
-    static let host = "13.124.20.243"
-    
-    enum Path: String {
-        case joinMember = "/api/v1/members/kakao"
-    }
-}
+//fileprivate enum OworiAPI {
+//    static let scheme = "http"
+//    static let host = "13.124.20.243"
+//    
+//    enum Path: String {
+//        case joinMember = "/api/v1/members/kakao"
+//    }
+//}
 
 class LoginViewModel: ObservableObject {
     // MARK: 카카오 로그인 관련 PROPERTIES
@@ -224,7 +224,7 @@ class LoginViewModel: ObservableObject {
                 let accessToken = result.user.accessToken.tokenString
                 print("accessToken : \(accessToken)")
                 let refreshToken = result.user.refreshToken.tokenString
-                print("refreshToken : \(result)")
+                print("refreshToken : \(refreshToken)")
                 
                 self?.socialToken = Token(authProvider: "GOOGLE", accessToken: idToken)
                 self?.isLoggedIn = true

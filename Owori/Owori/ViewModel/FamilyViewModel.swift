@@ -7,21 +7,21 @@
 
 import SwiftUI
 
-fileprivate enum OworiAPI {
-    static let scheme = "http"
-    static let host = "13.124.20.243"
-    
-    enum Path: String {
-        case families = "/api/v1/families"
-        case familiesMember = "/api/v1/families/members"
-        case familiesGroupName = "/api/v1/families/group-name"
-        case membersHome = "/api/v1/members/home"
-        case familiesCode = "/api/v1/families/code"
-        case familiesImages = "/api/v1/families/images"
-        case schedule = "/api/v1/schedule"
-        case scheduleUpdate = "/api/v1/schedule/update"
-    }
-}
+//fileprivate enum OworiAPI {
+//    static let scheme = "http"
+//    static let host = "13.124.20.243"
+//    
+//    enum Path: String {
+//        case families = "/api/v1/families"
+//        case familiesMember = "/api/v1/families/members"
+//        case familiesGroupName = "/api/v1/families/group-name"
+//        case membersHome = "/api/v1/members/home"
+//        case familiesCode = "/api/v1/families/code"
+//        case familiesImages = "/api/v1/families/images"
+//        case schedule = "/api/v1/schedule"
+//        case scheduleUpdate = "/api/v1/schedule/update"
+//    }
+//}
 
 class FamilyViewModel: ObservableObject {
     @Published var family: Family = Family()
@@ -33,10 +33,8 @@ class FamilyViewModel: ObservableObject {
     func createFamily(user: User, family_group_name: String, completion: @escaping () -> Void) {
         guard let sendData = try? JSONSerialization.data(withJSONObject: ["family_group_name": family_group_name], options: []) else { return }
         
-        var urlComponents = URLComponents()
-        urlComponents.scheme = OworiAPI.scheme
-        urlComponents.host = OworiAPI.host
-        urlComponents.path = OworiAPI.Path.families.rawValue
+        var urlComponents = ApiEndpoints.getBasicUrlComponents()
+        urlComponents.path += ApiEndpoints.Path.families.rawValue
         guard let url = urlComponents.url else {
             print("Error: cannot create URL")
             return
@@ -85,10 +83,8 @@ class FamilyViewModel: ObservableObject {
         var success: Bool = false
         guard let sendData = try? JSONSerialization.data(withJSONObject: ["invite_code": invite_code], options: []) else { return }
         
-        var urlComponents = URLComponents()
-        urlComponents.scheme = OworiAPI.scheme
-        urlComponents.host = OworiAPI.host
-        urlComponents.path = OworiAPI.Path.familiesMember.rawValue
+        var urlComponents = ApiEndpoints.getBasicUrlComponents()
+        urlComponents.path += ApiEndpoints.Path.familiesMember.rawValue
         guard let url = urlComponents.url else {
             print("Error: cannot create URL")
             completion(success)
@@ -126,10 +122,8 @@ class FamilyViewModel: ObservableObject {
     
     func changeFamilyName(user: User, family_group_name: String, completion: @escaping () -> Void) {
         guard let sendData = try? JSONSerialization.data(withJSONObject: ["family_group_name": family_group_name], options: []) else { return }
-        var urlComponents = URLComponents()
-        urlComponents.scheme = OworiAPI.scheme
-        urlComponents.host = OworiAPI.host
-        urlComponents.path = OworiAPI.Path.familiesGroupName.rawValue
+        var urlComponents = ApiEndpoints.getBasicUrlComponents()
+        urlComponents.path += ApiEndpoints.Path.familiesGroupName.rawValue
         guard let url = urlComponents.url else {
             print("Error: cannot create URL")
             return
@@ -166,10 +160,8 @@ class FamilyViewModel: ObservableObject {
     
     func uploadFamilyImage(user: User, image: UIImage, completion: @escaping (String) -> Void) {
         var uploadedProfileImageUrl: String = ""
-        var urlComponents = URLComponents()
-        urlComponents.scheme = OworiAPI.scheme
-        urlComponents.host = OworiAPI.host
-        urlComponents.path = OworiAPI.Path.familiesImages.rawValue
+        var urlComponents = ApiEndpoints.getBasicUrlComponents()
+        urlComponents.path += ApiEndpoints.Path.familiesImages.rawValue
         guard let url = urlComponents.url else {
             print("Error: cannot create URL")
             return
@@ -238,10 +230,8 @@ class FamilyViewModel: ObservableObject {
     func createSchedule(user: User, schduleInfo: [String: Any], completion: @escaping (String) -> Void) {
         var scheduleId: String = ""
         guard let sendData = try? JSONSerialization.data(withJSONObject: schduleInfo, options: []) else { return }
-        var urlComponents = URLComponents()
-        urlComponents.scheme = OworiAPI.scheme
-        urlComponents.host = OworiAPI.host
-        urlComponents.path = OworiAPI.Path.schedule.rawValue
+        var urlComponents = ApiEndpoints.getBasicUrlComponents()
+        urlComponents.path += ApiEndpoints.Path.schedule.rawValue
         guard let url = urlComponents.url else {
             print("Error: cannot create URL")
             return
@@ -291,10 +281,8 @@ class FamilyViewModel: ObservableObject {
     func updateSchedule(user: User, schduleInfo: [String: Any], completion: @escaping (String) -> Void) {
         var scheduleId: String = ""
         guard let sendData = try? JSONSerialization.data(withJSONObject: schduleInfo, options: []) else { return }
-        var urlComponents = URLComponents()
-        urlComponents.scheme = OworiAPI.scheme
-        urlComponents.host = OworiAPI.host
-        urlComponents.path = OworiAPI.Path.scheduleUpdate.rawValue
+        var urlComponents = ApiEndpoints.getBasicUrlComponents()
+        urlComponents.path += ApiEndpoints.Path.scheduleUpdate.rawValue
         guard let url = urlComponents.url else {
             print("Error: cannot create URL")
             return
@@ -346,10 +334,8 @@ class FamilyViewModel: ObservableObject {
     func deleteFamilyImage(user: User, imageURL: String, completion: @escaping () -> Void) {
         guard let sendData = try? JSONSerialization.data(withJSONObject: ["family_image": imageURL], options: []) else { return }
         
-        var urlComponents = URLComponents()
-        urlComponents.scheme = OworiAPI.scheme
-        urlComponents.host = OworiAPI.host
-        urlComponents.path = OworiAPI.Path.familiesImages.rawValue
+        var urlComponents = ApiEndpoints.getBasicUrlComponents()
+        urlComponents.path += ApiEndpoints.Path.familiesImages.rawValue
         guard let url = urlComponents.url else {
             print("Error: cannot create URL")
             return
@@ -394,10 +380,8 @@ class FamilyViewModel: ObservableObject {
     }
     
     func deleteFamilySchedule(user: User, scheduleId: String, completion: @escaping () -> Void) {
-        var urlComponents = URLComponents()
-        urlComponents.scheme = OworiAPI.scheme
-        urlComponents.host = OworiAPI.host
-        urlComponents.path = OworiAPI.Path.schedule.rawValue + "/" + scheduleId
+        var urlComponents = ApiEndpoints.getBasicUrlComponents()
+        urlComponents.path += ApiEndpoints.Path.schedule.rawValue + "/" + scheduleId
         guard let url = urlComponents.url else {
             print("Error: cannot create URL")
             return
@@ -442,10 +426,8 @@ class FamilyViewModel: ObservableObject {
     
     // MARK: 오월이 API FUNCTIONS (GET)
     func lookUpHomeView(user: User, completion: @escaping () -> Void) {
-        var urlComponents = URLComponents()
-        urlComponents.scheme = OworiAPI.scheme
-        urlComponents.host = OworiAPI.host
-        urlComponents.path = OworiAPI.Path.membersHome.rawValue
+        var urlComponents = ApiEndpoints.getBasicUrlComponents()
+        urlComponents.path += ApiEndpoints.Path.membersHome.rawValue
         guard let url = urlComponents.url else {
             print("Error: cannot create URL")
             return
@@ -489,10 +471,8 @@ class FamilyViewModel: ObservableObject {
     }
     
     func regenInvitecode(user: User) {
-        var urlComponents = URLComponents()
-        urlComponents.scheme = OworiAPI.scheme
-        urlComponents.host = OworiAPI.host
-        urlComponents.path = OworiAPI.Path.familiesCode.rawValue
+        var urlComponents = ApiEndpoints.getBasicUrlComponents()
+        urlComponents.path += ApiEndpoints.Path.familiesCode.rawValue
         guard let url = urlComponents.url else {
             print("Error: cannot create URL")
             return
