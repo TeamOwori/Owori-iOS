@@ -10,9 +10,9 @@ import Foundation
 enum ApiEndpoints {
     // dev
     static let scheme = "http"
-    static let host = "13.124.20.243"
+    static let host = "15.165.15.213"
+    static let port = 8080
     static let version = "/api/v1"
-//    static let port = 8080
     
     enum Path: String {
         // members
@@ -61,7 +61,7 @@ extension ApiEndpoints {
         urlComponents.scheme = ApiEndpoints.scheme
         urlComponents.host = ApiEndpoints.host
         urlComponents.path = ApiEndpoints.version
-//        urlComponents.port = ApiEndpoints.port
+        urlComponents.port = ApiEndpoints.port
         return urlComponents
     }
 }
