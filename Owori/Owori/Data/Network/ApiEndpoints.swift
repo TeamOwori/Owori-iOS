@@ -10,7 +10,7 @@ import Foundation
 enum ApiEndpoints {
     // dev
     static let scheme = "http"
-    static let host = "15.165.15.213"
+    static let host = "owori.shop"
     static let port = 8080
     static let version = "/api/v1"
     
